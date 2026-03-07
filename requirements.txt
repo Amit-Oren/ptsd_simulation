@@ -1,0 +1,20 @@
+# LLM APIs
+anthropic>=0.40.0
+openai>=1.50.0
+
+# Multi-agent orchestration
+langgraph>=0.2.0
+langchain>=0.3.0
+langchain-classic>=1.0.0
+langchain-community>=0.3.0
+langchain-core>=0.3.0
+langchain-anthropic>=0.3.0
+langchain-openai>=0.2.0
+
+
+# Data handling
+pandas>=2.0.0
+openpyxl>=3.0.0
+
+# Config / environment
+python-dotenv>=1.0.0

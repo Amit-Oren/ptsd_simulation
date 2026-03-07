@@ -1,0 +1,178 @@
+{
+  "id": 36,
+  "seed": 80,
+  "schedule": {
+    "4": [
+      "19:06:35"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Strategies": 0,
+    "Negative appraisals -- Threat": 1,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Strategies -- Memory": 0,
+    "Strategies -- Negative appraisals": 0
+  },
+  "conversation_pattern": {
+    "emotion": "anxious",
+    "intensity": "mild",
+    "expressiveness": "high",
+    "disclosure": "high",
+    "politeness": "blunt",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 1,
+      "text": "I’m okay, I guess. Just had a moment earlier when I heard a loud car screech outside. It reminded me of that night, and my heart started racing. I didn’t realize how tense I was until I noticed my hands shaking a bit."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 2,
+      "text": "Thank you for sharing that. How did you manage the feelings that arose in that moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 3,
+      "text": "I tried to focus on my breathing—like in those grounding techniques I read about. But honestly, it still felt overwhelming. I kept thinking, \"What if it happens again?\" It’s like my mind just spirals back to that panic."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 4,
+      "text": "What thoughts or images were most prominent when you noticed your mind starting to spiral?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 5,
+      "text": "I kept seeing flashes of that night, how everything felt chaotic and out of control. The loud noises—even though they were out there—felt too close and made me think something terrible was going to happen again. I couldn't shake the fear that I was trapped, just like before."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 6,
+      "text": "How did your body respond to those feelings of being trapped or the fear that something terrible might happen?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 7,
+      "text": "As those thoughts rushed in, I felt a tightness in my chest, like it was hard to breathe. My stomach dropped, and I could feel the weight of anxiety settling in my shoulders. I just wanted to find a way to escape that feeling, to get back to a place where everything felt safe and steady."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 8,
+      "text": "When you felt that tightness and weight of anxiety, what did you notice yourself wanting to do in that moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 9,
+      "text": "I wanted to just get up and walk away from everything—like run outside for fresh air or find a quiet corner to breathe. But instead, I just sat there, trying to ground myself, pushing away the urge to bolt. It’s frustrating because I know it won’t fix anything, but that instinct to escape feels so strong."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 10,
+      "text": "What do you think influences your choice to stay and try to ground yourself instead of acting on that urge to escape?"
+    }
+  ],
+  "Analysis": [
+    {
+      "feature_name": "Triggers",
+      "score": 1,
+      "explanation": "The client identifies hearing a loud car screech outside as a trigger that activated distress, leading to physical symptoms like a racing heart and shaking hands."
+    },
+    {
+      "feature_name": "Negative appraisals",
+      "score": 1,
+      "explanation": "The client expresses a negative appraisal related to feeling trapped, with thoughts like 'what if it happens again' and a perception that they cannot escape the feeling of panic."
+    },
+    {
+      "feature_name": "Memory",
+      "score": 1,
+      "explanation": "The client describes intrusive memories by recalling 'flashes of that night', suggesting a strong sensory recall of the traumatic experience."
+    },
+    {
+      "feature_name": "Threat",
+      "score": 1,
+      "explanation": "The client describes a sense of ongoing threat, indicating fear that something terrible might happen again and feeling trapped as reminiscent of past trauma."
+    },
+    {
+      "feature_name": "Strategies",
+      "score": 1,
+      "explanation": "The client employs coping strategies such as focusing on breathing and grounding techniques but also acknowledges an instinctual urge to escape."
+    },
+    {
+      "feature_name": "Triggers -- Strategies",
+      "score": 1,
+      "explanation": "The trigger of hearing a loud car screech led the client to employ breathing and grounding techniques in an attempt to manage their feelings."
+    },
+    {
+      "feature_name": "Triggers -- Threat",
+      "score": 1,
+      "explanation": "The loud car screech triggered a perception of immediate threat, as the client felt that it reminded them of past trauma and led to a fear of re-experiencing that trauma."
+    },
+    {
+      "feature_name": "Triggers -- Memory",
+      "score": 1,
+      "explanation": "The external trigger of the car screech activated intrusive memories of the traumatic night, bringing back a chaotic recollection."
+    },
+    {
+      "feature_name": "Triggers -- Negative appraisals",
+      "score": 1,
+      "explanation": "The external trigger produced a negative appraisal related to feeling trapped and fear about the future."
+    },
+    {
+      "feature_name": "Negative appraisals -- Strategies",
+      "score": 1,
+      "explanation": "The client expresses a frustration with the instinct to escape despite knowing that grounding techniques are a healthier strategy to cope."
+    },
+    {
+      "feature_name": "Negative appraisals -- Threat",
+      "score": 1,
+      "explanation": "The client's feeling of being trapped and thinking something terrible might happen ties closely to their perception of current threat."
+    },
+    {
+      "feature_name": "Negative appraisals -- Memory",
+      "score": 1,
+      "explanation": "The client’s negative appraisal of feeling trapped is influenced by their intrusive memories of past chaotic experiences."
+    },
+    {
+      "feature_name": "Memory -- Strategies",
+      "score": 1,
+      "explanation": "The client's memories of past trauma elicit a need for coping strategies to manage overwhelming feelings."
+    },
+    {
+      "feature_name": "Memory -- Threat",
+      "score": 1,
+      "explanation": "The memories of past trauma create a sense of ongoing threat, as they evoke feelings of panic and the perception of danger."
+    },
+    {
+      "feature_name": "Threat -- Strategies",
+      "score": 1,
+      "explanation": "The ongoing sense of threat influences the client’s choice to utilize grounding techniques to manage their anxiety rather than giving in to the urge to escape."
+    }
+  ]
+}

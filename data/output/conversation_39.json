@@ -1,0 +1,172 @@
+{
+  "id": 39,
+  "schedule": {
+    "21": [
+      "12:00:11"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative appraisals": 0,
+    "Memory": 1,
+    "Threat": 1,
+    "Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Strategies": 0,
+    "Triggers -- Threat": 1,
+    "Triggers -- Memory": 1,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Strategies": 1,
+    "Memory -- Threat": 1,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Strategies -- Memory": 0,
+    "Strategies -- Negative appraisals": 0
+  },
+  "conversation_pattern": {
+    "emotion": "hopeful",
+    "intensity": "moderate",
+    "expressiveness": "low",
+    "disclosure": "high",
+    "politeness": "formal",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "I'm here to chat. How has your day been so far?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 1,
+      "text": "Thank you for asking. My day has been somewhat mixed; I've encountered a few triggers that reminded me of past events. While I generally try to focus on positive aspects, those reminders can be quite overwhelming at times."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 2,
+      "text": "What specific triggers have you encountered today?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 3,
+      "text": "Today, I heard a loud noise that reminded me of a similar sound from my past. It instantly brought back a wave of memories, leading to feelings of anxiety that lingered for a while. I tried to ground myself by focusing on my surroundings, but it was challenging."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 4,
+      "text": "How did your body feel while you were experiencing that wave of anxiety?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 5,
+      "text": "During that wave of anxiety, my heart started racing, and I felt a tightness in my chest. I also noticed that my hands felt a bit shaky, and I had trouble catching my breath. It was as if my body was on high alert for a threat that wasn't really there."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 6,
+      "text": "What thoughts were going through your mind while you were feeling those physical sensations?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 7,
+      "text": "I found myself thinking that I needed to escape the situation; my mind was filled with thoughts of danger, even though I knew I was safe. I questioned whether I would feel this way forever, and I felt a sense of hopelessness creeping in. It was quite disorienting."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 8,
+      "text": "How did your feelings of hopelessness affect your ability to focus on your surroundings?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 9,
+      "text": "The feelings of hopelessness made it difficult to fully engage with my surroundings. I found myself zoning out, unable to concentrate on what was happening around me. Instead of being present, my mind kept drifting back to those alarming memories, which intensified my anxiety."
+    }
+  ],
+  "Analysis": [
+    {
+      "feature_name": "Triggers",
+      "score": 1,
+      "explanation": "The client explicitly mentions encountering triggers that reminded them of past events, specifically a loud noise that activated distress."
+    },
+    {
+      "feature_name": "Negative appraisals",
+      "score": 1,
+      "explanation": "The client expresses feelings of hopelessness and questions whether they would feel this way forever, indicating maladaptive interpretations about their situation."
+    },
+    {
+      "feature_name": "Memory",
+      "score": 1,
+      "explanation": "The client describes experiencing a wave of memories and reliving past events triggered by a loud noise."
+    },
+    {
+      "feature_name": "Threat",
+      "score": 1,
+      "explanation": "The client expresses a sense of danger and anxiety, mentioning that their body was on high alert for a threat that wasn't present."
+    },
+    {
+      "feature_name": "Strategies",
+      "score": 1,
+      "explanation": "The client mentions trying to ground themselves by focusing on their surroundings as a coping strategy during their anxiety."
+    },
+    {
+      "feature_name": "Triggers -- Strategies",
+      "score": 1,
+      "explanation": "The client’s mention of encountering triggers and then using grounding techniques to cope suggests a direct link between these experiences."
+    },
+    {
+      "feature_name": "Triggers -- Threat",
+      "score": 1,
+      "explanation": "The loud noise triggered feelings of anxiety and a sense of being on high alert for threats, establishing a connection between triggers and feelings of threat."
+    },
+    {
+      "feature_name": "Triggers -- Memory",
+      "score": 1,
+      "explanation": "Hearing the loud noise triggered a wave of memories, suggesting an association between triggers and memory recall."
+    },
+    {
+      "feature_name": "Triggers -- Negative appraisals",
+      "score": 1,
+      "explanation": "The experience of encountering triggers led to negative appraisals about their situation, particularly feelings of hopelessness."
+    },
+    {
+      "feature_name": "Negative appraisals -- Strategies",
+      "score": 1,
+      "explanation": "The negative feelings of hopelessness influenced the client’s attempt to use grounding techniques to cope with anxiety."
+    },
+    {
+      "feature_name": "Negative appraisals -- Threat",
+      "score": 1,
+      "explanation": "Feelings of hopelessness contributed to the perception of an ongoing threat, impacting the client's emotional state."
+    },
+    {
+      "feature_name": "Negative appraisals -- Memory",
+      "score": 1,
+      "explanation": "The client's feelings of hopelessness and anxiety were tied to intrusive memories, highlighting an association between negative thoughts and memory recall."
+    },
+    {
+      "feature_name": "Memory -- Strategies",
+      "score": 1,
+      "explanation": "The client’s drifting back to alarming memories intensified their anxiety, which is linked to the grounding strategy they attempted."
+    },
+    {
+      "feature_name": "Memory -- Threat",
+      "score": 1,
+      "explanation": "The client's reliving of memories was associated with heightened feelings of threat and anxiety, establishing a link between memory and perceived threat."
+    },
+    {
+      "feature_name": "Threat -- Strategies",
+      "score": 1,
+      "explanation": "The physical symptoms of anxiety and perceived threat prompted the client to utilize grounding techniques, indicating a relationship between feelings of threat and coping strategies."
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+patient_id,feature,predicted_score,explanation,ground_truth
+10,Triggers,1,"The mention of walking past a park and the sound of children playing served as a trigger, bringing up feelings related to past experiences.",1.0
+10,Negative appraisals,1,"The patient expressed thoughts of not fitting in and feeling isolated, which indicates a negative appraisal of their social situation.",
+10,Memory,1,The patient recalled past experiences linked to feelings of loneliness and isolation in response to the trigger.,
+10,Threat,1,"The patient perceived a threat to their emotional safety, feeling that engaging with others could be risky.",
+10,Strategies,1,The patient employed strategies like focusing on breathing and counting steps to cope with feelings of sadness.,
+10,Triggers -- Strategies,1,The trigger (sound of children playing) led to coping strategies (breathing and counting steps) to manage feelings.,0.0
+10,Triggers -- Threat,1,The trigger was linked to the perception of emotional threat as the patient felt isolated in response.,0.0
+10,Triggers -- Memory,1,The trigger activated memories associated with past feelings of sadness and isolation.,0.0
+10,Triggers -- Negative appraisals,1,The trigger prompted negative appraisals about the patient's social connections.,0.0
+10,Negative appraisals -- Strategies,1,Negative thoughts about fitting in led the patient to use distraction strategies.,0.0
+10,Negative appraisals -- Threat,1,Negative appraisals of their situation intensified the perceived emotional threat.,0.0
+10,Negative appraisals -- Memory,1,The appraisals were linked to memories that compounded the feelings of isolation.,0.0
+10,Memory -- Strategies,1,The patient's memories of sadness influenced their choice of strategies to cope with the current situation.,0.0
+10,Memory -- Threat,1,Memories associated with past feelings heightened the sense of threat they experienced.,0.0
+10,Threat -- Strategies,1,The threat perceived in social situations led to the use of distancing strategies.,0.0
+19,Triggers,1,The client mentions that a passing car can trigger memories and evoke feelings of isolation.,1.0
+19,Negative appraisals,1,"The client expresses thoughts of not feeling safe, indicating a negative appraisal related to their sense of security.",
+19,Memory,1,The client refers to memories being triggered and describes feeling overwhelmed by past experiences.,
+19,Threat,1,The client describes feelings of fear related to not being safe and the anticipation of reliving trauma.,
+19,Strategies,1,"The client describes freezing and feeling overwhelmed as a response to triggers, indicating a coping strategy.",
+19,Triggers -- Strategies,1,The client's experience of being triggered leads to the strategy of freezing and feeling overwhelmed.,0.0
+19,Triggers -- Threat,1,The mention of triggers relating to feelings of isolation also correlates with feelings of threat regarding safety.,0.0
+19,Triggers -- Memory,1,The client's description of a passing car triggering memories indicates a clear link between triggers and memory.,0.0
+19,Triggers -- Negative appraisals,1,"The triggers also evoke negative appraisals about safety, as indicated by the client's comment about feeling unsafe.",0.0
+19,Negative appraisals -- Strategies,1,The negative appraisal of not being safe influences the client's strategy of freezing and feeling overwhelmed.,0.0
+19,Negative appraisals -- Threat,1,The negative appraisal of not being safe contributes to the ongoing feeling of threat experienced by the client.,0.0
+19,Negative appraisals -- Memory,1,"The negative appraisal about safety connects with memories of past trauma, as expressed by the client.",0.0
+19,Memory -- Strategies,1,The memories being triggered influence the client's strategy of freezing and feeling overwhelmed.,0.0
+19,Memory -- Threat,1,"The experience of memories evokes a sense of ongoing threat for the client, suggesting a link between memory and threat.",0.0
+19,Threat -- Strategies,1,The experience of threat informs the client's strategy of freezing and feeling overwhelmed in response.,0.0
+28,Triggers,1,The patient describes triggers such as 'loud noises' and 'crowded places' which activate distress and overwhelm.,
+28,Negative appraisals,1,"The patient expresses a negative appraisal of their situation, feeling 'like I'm stuck in a loop' and worrying about 'never feeling normal again'.",1.0
+28,Memory,1,"The patient experiences spiraling thoughts and feels like they are 'stuck in a loop', indicating memory issues related to the trauma.",
+28,Threat,1,"The patient states they feel overwhelmed and have a heightened awareness of their body reacting to stress, indicating a sense of ongoing psychological threat.",1.0
+28,Strategies,1,"The patient mentions trying to 'distract themselves' and 'sitting in silence', indicating coping strategies they use to manage their distress.",
+28,Triggers -- Strategies,1,The patient discusses distractions as a strategy in response to triggers like loud noises and crowded places.,0.0
+28,Triggers -- Threat,1,"The triggers described (loud noises, crowded places) contribute to the ongoing sense of psychological threat felt by the patient.",0.0
+28,Triggers -- Memory,1,"The triggers activate memories related to overwhelming experiences, as indicated by the patient's feelings of being 'stuck in a loop'.",0.0
+28,Triggers -- Negative appraisals,1,The triggers seem to influence the patient's negative appraisals regarding their ability to cope and feel normal.,0.0
+28,Negative appraisals -- Strategies,1,The negative appraisal of feeling 'stuck' influences the patient's strategy of trying to distract themselves.,0.0
+28,Negative appraisals -- Threat,1,The negative thoughts the patient has about feeling abnormal contribute to their sense of ongoing threat and overwhelm.,0.0
+28,Negative appraisals -- Memory,1,"The negative appraisal of their situation feeds into the memory of feeling 'stuck in a loop', indicating a link between the two components.",0.0
+28,Memory -- Strategies,1,"The concern about spiraling thoughts influences the patient's coping strategy, showing a relationship between the two.",0.0
+28,Memory -- Threat,1,"The memories of overwhelming experiences contribute to the sense of threat, as shown by the patient's responses.",0.0
+28,Threat -- Strategies,1,The ongoing sense of threat leads the patient to employ strategies like distraction and waiting for the feelings to pass.,0.0
+30,Triggers,1,The patient identified loud noises and sudden movements as triggers that provoke overwhelming feelings and memories.,1.0
+30,Negative appraisals,1,"The patient expresses feelings of anxiety, sadness, and being trapped by past memories, indicating negative appraisals about their experiences.",1.0
+30,Memory,1,"The conversation reveals that the patient frequently recalls past traumatic events triggered by sounds, disrupting their focus.",1.0
+30,Threat,1,"The patient describes feeling uneasy and anxious in response to triggers, highlighting a sense of threat associated with those memories.",1.0
+30,Strategies,1,"The patient employs strategies such as deep breathing, focusing on the coffee cup, and changing their environment to cope with distressing feelings.",1.0
+30,Triggers -- Strategies,1,The patient mentions using deep breathing and changing their environment as strategies to manage feelings triggered by overwhelming experiences.,0.0
+30,Triggers -- Threat,1,The patient's acknowledgment of unease and anxiety in response to triggers illustrates the connection between triggers and perceived threats.,1.0
+30,Triggers -- Memory,1,The patient explicitly states that triggers bring back memories of a traumatic event that impact their focus.,1.0
+30,Triggers -- Negative appraisals,1,"The patient connects triggers to feelings of being overwhelmed and trapped, indicating negative appraisals of their experiences.",0.0
+30,Negative appraisals -- Strategies,1,The patient attempts to cope with their negative appraisals through strategies such as deep breathing and reminding themselves of safety.,1.0
+30,Negative appraisals -- Threat,1,"The feeling of being trapped and overwhelmed is rooted in the patient's negative appraisals, which reinforces the sense of threat.",1.0
+30,Negative appraisals -- Memory,1,The patient's expressions of anxiety and sadness are tied to their negative appraisals of the memories they experience.,1.0
+30,Memory -- Strategies,1,The patient uses strategies such as focusing on physical objects to manage intrusive memories.,1.0
+30,Memory -- Threat,1,The patient's memories of traumatic events elicit feelings of threat when triggered by current stimuli.,1.0
+30,Threat -- Strategies,1,The patient adopts strategies to mitigate the threat felt when they encounter triggers.,1.0
+36,Triggers,1,The client identifies stepping outside as a trigger that activated their overwhelming feelings of anxiety.,1.0
+36,Negative appraisals,1,"The client expresses thoughts about potential dangers, indicating negative appraisals regarding their ability to handle situations and feelings of dread.",1.0
+36,Memory,1,"The client describes replaying the situation in their head, indicating intrusive memories related to their anxiety and past experiences.",
+36,Threat,1,There is an ongoing sense of threat as the client expresses being on high alert and worrying about potential dangers and what could go wrong.,1.0
+36,Strategies,1,The client employs a strategy of retreating to a safe space in response to overwhelming anxiety and panic.,1.0
+36,Triggers -- Strategies,1,The client's overwhelming feelings triggered the instinctual behavior to retreat to a safe space.,0.0
+36,Triggers -- Threat,1,The act of stepping outside triggered a heightened sense of ongoing threat and anxiety.,0.0
+36,Triggers -- Memory,1,The initial trigger of stepping outside led to memory recall related to the feelings of anxiety and potential dangers.,0.0
+36,Triggers -- Negative appraisals,1,Facing the trigger of stepping outside led to negative appraisals about the potential situations that could arise.,0.0
+36,Negative appraisals -- Strategies,1,The negative appraisal of being unable to handle situations led to the strategy of seeking a safe space.,0.0
+36,Negative appraisals -- Threat,1,Negative appraisals regarding safety contributed to the ongoing perception of threat in the client's environment.,1.0
+36,Negative appraisals -- Memory,1,Negative appraisals influenced the client's tendency to replay anxious situations in memory.,0.0
+36,Memory -- Strategies,1,Replaying the anxiety-provoking situation in memory influenced the decision to retreat to a safe space.,0.0
+36,Memory -- Threat,1,Memory recall of past distressing experiences is associated with an heightened sense of threat.,0.0
+36,Threat -- Strategies,1,The constant sense of threat led to the strategy of seeking an escape to a safe space.,0.0
+38,Triggers,1,The conversation explicitly mentions a loud noise outside as a trigger that activated distress for the patient.,1.0
+38,Negative appraisals,1,The patient expresses a thought of 'What if something bad happens again?' which indicates a negative appraisal about the future.,1.0
+38,Memory,1,"The patient describes the loud noise triggering memories of a time when they felt unsafe, indicating intrusive memories or flashbacks.",1.0
+38,Threat,1,"The patient reports feeling unsafe again, suggesting a sense of ongoing psychological threat related to the trauma.",1.0
+38,Strategies,1,"The patient uses strategies like deep breathing, focusing on surrounding sounds, and reminding themselves of their current safety to cope with the triggering experience.",1.0
+38,Triggers -- Strategies,1,The patient mentions using deep breaths and grounding techniques specifically in response to the trigger of the loud noise.,0.0
+38,Triggers -- Threat,1,"The trigger of the loud noise directly leads to the feeling of being unsafe, indicating an association between triggers and threats.",0.0
+38,Triggers -- Memory,1,"The loud noise triggered memories that were tough for the patient to handle, showing a link between triggers and memory.",0.0
+38,Triggers -- Negative appraisals,1,"The loud noise leads to negative thoughts about the potential for future bad events, connecting triggers to negative appraisals.",0.0
+38,Negative appraisals -- Strategies,1,The negative appraisal of the situation ('What if something bad happens again?') is addressed by the strategies the patient employs to cope.,0.0
+38,Negative appraisals -- Threat,1,"The negative thought about future danger is linked with a sense of threat, as the patient expresses concern about safety.",1.0
+38,Negative appraisals -- Memory,0,There is no clear description of negative appraisals influencing the patient's memory recall in the conversation.,0.0
+38,Memory -- Strategies,1,The patient employs cognitive strategies to manage the intrusive memories triggered by the loud noise.,0.0
+38,Memory -- Threat,1,"The memories triggered create a sense of threat (feeling unsafe) for the patient, indicating a connection.",1.0
+38,Threat -- Strategies,1,The threat perceived by the patient leads them to use coping strategies such as relaxation techniques and grounding.,1.0
+39,Triggers,1,"The client explicitly mentions encountering triggers that reminded them of past events, specifically a loud noise that activated distress.",1.0
+39,Negative appraisals,1,"The client expresses feelings of hopelessness and questions whether they would feel this way forever, indicating maladaptive interpretations about their situation.",
+39,Memory,1,The client describes experiencing a wave of memories and reliving past events triggered by a loud noise.,1.0
+39,Threat,1,"The client expresses a sense of danger and anxiety, mentioning that their body was on high alert for a threat that wasn't present.",1.0
+39,Strategies,1,The client mentions trying to ground themselves by focusing on their surroundings as a coping strategy during their anxiety.,1.0
+39,Triggers -- Strategies,1,The client’s mention of encountering triggers and then using grounding techniques to cope suggests a direct link between these experiences.,0.0
+39,Triggers -- Threat,1,"The loud noise triggered feelings of anxiety and a sense of being on high alert for threats, establishing a connection between triggers and feelings of threat.",1.0
+39,Triggers -- Memory,1,"Hearing the loud noise triggered a wave of memories, suggesting an association between triggers and memory recall.",1.0
+39,Triggers -- Negative appraisals,1,"The experience of encountering triggers led to negative appraisals about their situation, particularly feelings of hopelessness.",0.0
+39,Negative appraisals -- Strategies,1,The negative feelings of hopelessness influenced the client’s attempt to use grounding techniques to cope with anxiety.,0.0
+39,Negative appraisals -- Threat,1,"Feelings of hopelessness contributed to the perception of an ongoing threat, impacting the client's emotional state.",0.0
+39,Negative appraisals -- Memory,1,"The client's feelings of hopelessness and anxiety were tied to intrusive memories, highlighting an association between negative thoughts and memory recall.",0.0
+39,Memory -- Strategies,1,"The client’s drifting back to alarming memories intensified their anxiety, which is linked to the grounding strategy they attempted.",1.0
+39,Memory -- Threat,1,"The client's reliving of memories was associated with heightened feelings of threat and anxiety, establishing a link between memory and perceived threat.",1.0
+39,Threat -- Strategies,1,"The physical symptoms of anxiety and perceived threat prompted the client to utilize grounding techniques, indicating a relationship between feelings of threat and coping strategies.",1.0

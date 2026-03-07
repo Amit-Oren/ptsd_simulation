@@ -1,0 +1,187 @@
+{
+  "id": 1,
+  "seed": 42,
+  "schedule": {
+    "1": [
+      "12:00:12"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 1,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "anxious",
+    "intensity": "severe",
+    "expressiveness": "low",
+    "disclosure": "low",
+    "politeness": "formal",
+    "assertiveness": "high"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 1,
+      "text": "I appreciate your inquiry. Recently, I was in a crowded place, and immediately felt a surge of anxiety when I noticed someone in a similar outfit to someone from my past. It was overwhelming, and my mind began racing with thoughts of danger, making it difficult to focus on anything else around me."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 2,
+      "text": "Thank you for sharing that experience. In that moment, how did your body respond to the anxiety you felt?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 3,
+      "text": "In that moment, my heart started racing, and I could feel the tension tightening in my chest. I found myself instinctively glancing around for any potential threats, as if my body was on high alert, ready to react to something unseen that I couldn't control."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 4,
+      "text": "How did your thoughts about the situation change as the anxiety intensified?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 5,
+      "text": "As the anxiety intensified, my thoughts spiraled, magnifying the sense of danger in that environment. I began to convince myself that something terrible could happen at any moment, and these thoughts made it even harder to calm down or think rationally about what was actually occurring around me."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 6,
+      "text": "When you faced those racing thoughts, did you notice any specific memories or images that came to mind?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 7,
+      "text": "Yes, as those racing thoughts came on strong, vivid images from the past flooded my mind, uninvited. I could almost hear the loud sounds and feel the chaos of a previous situation, which only served to heighten my sense of threat and uncertainty in that moment."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 8,
+      "text": "How did your feelings or sense of safety in that crowded place change as the images and memories surfaced?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 9,
+      "text": "As those images and memories surfaced, my sense of safety completely diminished. I felt trapped in that crowded place, becoming increasingly aware of every noise around me, which amplified my anxiety and made me feel vulnerable, as if I were back in a situation where I had no control."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 10,
+      "text": "In that state of feeling trapped and vulnerable, did you notice any urges or strong impulses to react in a particular way?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "The client's experience in the crowded place triggered strong anxiety responses related to past memories and feelings of danger.",
+        "quote": "I appreciate your inquiry. Recently, I was in a crowded place, and immediately felt a surge of anxiety when I noticed someone in a similar outfit to someone from my past."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "The client developed negative appraisals about the situation, fearing that something terrible would happen, which intensified their anxiety.",
+        "quote": "I began to convince myself that something terrible could happen at any moment."
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "Vivid memories from the past surfaced that were linked to the anxiety, enhancing the feeling of danger.",
+        "quote": "I could almost hear the loud sounds and feel the chaos of a previous situation."
+      },
+      "Threat": {
+        "score": 1,
+        "explaination": "The client perceived a strong sense of threat in the environment, exacerbating their anxiety.",
+        "quote": "I felt trapped in that crowded place, becoming increasingly aware of every noise around me."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The client exhibited maladaptive strategies by instinctively scanning for threats and becoming paralyzed by their anxiety.",
+        "quote": "I found myself instinctively glancing around for any potential threats."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The initial trigger of anxiety led to maladaptive strategies, such as scanning for threats.",
+        "quote": "I found myself instinctively glancing around for any potential threats."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explaination": "The trigger of encountering someone familiar heightened the sense of threat in the environment.",
+        "quote": "I felt a surge of anxiety when I noticed someone in a similar outfit to someone from my past."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "The trigger also caused past memories to flood back, worsening the experience.",
+        "quote": "Vivid images from the past flooded my mind, uninvited."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "The initial anxiety triggered negative appraisals and fears about the situation.",
+        "quote": "I began to convince myself that something terrible could happen."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The negative appraisals resulted in maladaptive strategies as the client reacted to perceived danger.",
+        "quote": "I felt trapped in that crowded place."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explaination": "Negative appraisals led to an increased sense of threat within the environment.",
+        "quote": "I felt a sense of threat in the crowded place."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "The negative thoughts brought back alarming memories, worsening the emotional response.",
+        "quote": "As the anxiety intensified, my thoughts spiraled."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The memories surfaced pushed the client towards maladaptive responses like avoidance.",
+        "quote": "I could almost hear the loud sounds and feel the chaos of a previous situation."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explaination": "Memories heightened the perceived threat and fear in the moment.",
+        "quote": "My sense of safety completely diminished."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The sense of threat led to maladaptive responses, such as increased vigilance and anxiety.",
+        "quote": "I could feel the tension tightening in my chest."
+      }
+    }
+  }
+}

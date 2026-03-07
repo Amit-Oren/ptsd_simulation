@@ -1,0 +1,178 @@
+{
+  "id": 7,
+  "seed": 98,
+  "schedule": {
+    "17": [
+      "13:20:54"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Strategies": 0,
+    "Negative appraisals -- Threat": 1,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Strategies -- Memory": 0,
+    "Strategies -- Negative appraisals": 0
+  },
+  "conversation_pattern": {
+    "emotion": "hopeful",
+    "intensity": "mild",
+    "expressiveness": "low",
+    "disclosure": "high",
+    "politeness": "neutral",
+    "assertiveness": "high"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 1,
+      "text": "I was just thinking about how difficult it can be to be in crowded places. The other day, I was in a coffee shop, and the noise brought back memories of when I felt completely overwhelmed. I kept reminding myself that I was safe, but my heart raced a little, and I needed to step outside for some fresh air."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 2,
+      "text": "What sensations or thoughts were most intense for you while you were in the coffee shop?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 3,
+      "text": "The most intense sensation was this tightness in my chest as the chatter and music swirled around me. I couldn’t help but think that everyone around me could somehow see my discomfort, and it felt like a threat I couldn’t escape. I tried to focus on my breathing, telling myself it was just a moment, but it was hard to push that anxious thought aside."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 4,
+      "text": "How often do you find yourself in situations where you feel that tightness in your chest?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 5,
+      "text": "It seems to happen fairly often, especially in busy places like shopping centers or during social gatherings. Just last week, I attended a small family gathering, and when people started talking loudly, that same tightness returned. I kept trying to remind myself that I was with loved ones, but the feeling of being trapped lingered, making me want to retreat to a quieter space."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 6,
+      "text": "When you experience that feeling of being trapped, what do you usually find yourself thinking in those moments?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 7,
+      "text": "In those moments, I often think about how vulnerable I feel, almost as if I’m back in a situation where I had no control. I remind myself that I’m safe now, yet there's this nagging thought that something bad could happen, making it hard to shake off the fear. It pushes me to seek a way out, even if it’s just stepping outside for a moment to breathe."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 8,
+      "text": "What do you do to cope with those nagging thoughts when they come up?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 9,
+      "text": "When those nagging thoughts arise, I usually try to ground myself by focusing on my surroundings. I’ll take a few deep breaths and remind myself that I'm not in that overwhelming situation anymore. Sometimes, I’ll even talk to myself, reminding me that it's okay to feel anxious but that I can manage it. It helps to have a little routine—like stepping outside or finding a quiet corner—just to regain some clarity."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 10,
+      "text": "How effective do you find those grounding techniques in helping you feel more in control during those moments?"
+    }
+  ],
+  "Analysis": [
+    {
+      "feature_name": "Triggers",
+      "score": 1,
+      "explanation": "The client mentions being in crowded places, specifically a coffee shop, where the noise triggered feelings of being overwhelmed."
+    },
+    {
+      "feature_name": "Negative appraisals",
+      "score": 1,
+      "explanation": "The client expresses thoughts of vulnerability and a belief that others can see their discomfort, indicating a negative appraisal of their situation."
+    },
+    {
+      "feature_name": "Memory",
+      "score": 1,
+      "explanation": "The client describes intrusive memories related to feeling overwhelmed that were triggered by the noise in the coffee shop."
+    },
+    {
+      "feature_name": "Threat",
+      "score": 1,
+      "explanation": "The client perceives a sense of threat in crowded places, feeling trapped and vulnerable, and anticipates that something bad could happen."
+    },
+    {
+      "feature_name": "Strategies",
+      "score": 1,
+      "explanation": "The client discusses coping strategies such as focusing on breathing, grounding techniques, and reminding themselves they are safe."
+    },
+    {
+      "feature_name": "Triggers -- Strategies",
+      "score": 1,
+      "explanation": "The client's experiences in crowded places lead them to employ grounding techniques as a coping strategy."
+    },
+    {
+      "feature_name": "Triggers -- Threat",
+      "score": 1,
+      "explanation": "The client describes their experiences in crowded spaces as invoking feelings of threat and entrapment."
+    },
+    {
+      "feature_name": "Triggers -- Memory",
+      "score": 1,
+      "explanation": "The crowded places trigger intrusive memories of feeling overwhelmed in past situations."
+    },
+    {
+      "feature_name": "Triggers -- Negative appraisals",
+      "score": 1,
+      "explanation": "The feelings triggered by crowded places lead the client to develop negative appraisals about their vulnerability."
+    },
+    {
+      "feature_name": "Negative appraisals -- Strategies",
+      "score": 1,
+      "explanation": "The client's negative appraisals influence their use of coping strategies, such as reminding themselves they can manage their anxiety."
+    },
+    {
+      "feature_name": "Negative appraisals -- Threat",
+      "score": 1,
+      "explanation": "The negative appraisal of their vulnerability contributes to their ongoing sense of threat in social situations."
+    },
+    {
+      "feature_name": "Negative appraisals -- Memory",
+      "score": 1,
+      "explanation": "The client's negative self-thoughts about vulnerability connect with their memories of feeling overwhelmed."
+    },
+    {
+      "feature_name": "Memory -- Strategies",
+      "score": 1,
+      "explanation": "The intrusive memories evoke coping strategies like grounding techniques and positive self-talk."
+    },
+    {
+      "feature_name": "Memory -- Threat",
+      "score": 1,
+      "explanation": "The recalling of past overwhelming experiences contributes to a sense of threat in crowded situations."
+    },
+    {
+      "feature_name": "Threat -- Strategies",
+      "score": 1,
+      "explanation": "The feeling of threat prompts the client to use strategies such as stepping outside or finding a quiet space to cope."
+    }
+  ]
+}

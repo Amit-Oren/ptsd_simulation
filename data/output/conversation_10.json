@@ -1,0 +1,172 @@
+{
+  "id": 10,
+  "schedule": {
+    "3": [
+      "18:30:40"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative appraisals": 0,
+    "Memory": 0,
+    "Threat": 0,
+    "Strategies": 0
+  },
+  "edges": {
+    "Triggers -- Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Strategies -- Memory": 0,
+    "Strategies -- Negative appraisals": 0
+  },
+  "conversation_pattern": {
+    "emotion": "lonely",
+    "intensity": "mild",
+    "expressiveness": "medium",
+    "disclosure": "high",
+    "politeness": "neutral",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "I'm here to engage in this conversation with you. What have you experienced today related to your thoughts or feelings?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 1,
+      "text": "Today, I walked past a park and the sound of children playing brought up thoughts of my past, making me feel isolated. I felt a wave of sadness wash over me, like I was on the outside looking in, and it was hard to shake off that feeling."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 2,
+      "text": "That sounds challenging to navigate. How did you cope with those feelings of sadness in the moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 3,
+      "text": "In that moment, I tried to distract myself by focusing on my breathing and counting steps as I walked. It helped a little, but I still felt that heaviness; sometimes it feels like the sadness just lingers, no matter what I do."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 4,
+      "text": "It's understandable to feel that way. Did you notice any specific thoughts that came to mind while you were experiencing that heaviness?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 5,
+      "text": "Yes, I found myself thinking about how I don’t fit in or connect with others like they do. Thoughts like that amplify my loneliness, making everything seem more overwhelming and isolating."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 6,
+      "text": "That sounds really tough to deal with. In those moments, how did those thoughts impact your feelings or actions?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 7,
+      "text": "Those thoughts made me retreat inward, causing me to avoid interacting with anyone around me. I felt a pull to just keep walking and not engage, as if being alone was safer than risking connection."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 8,
+      "text": "It makes sense to want to protect yourself in those situations. How did that choice to walk away influence your mood afterward?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 9,
+      "text": "Walking away gave me a momentary sense of relief, but afterward, I felt a mix of relief and guilt. It left me feeling even more isolated, like I’d chosen to push away the chance for connection, which only deepened my loneliness."
+    }
+  ],
+  "Analysis": [
+    {
+      "feature_name": "Triggers",
+      "score": 1,
+      "explanation": "The mention of walking past a park and the sound of children playing served as a trigger, bringing up feelings related to past experiences."
+    },
+    {
+      "feature_name": "Negative appraisals",
+      "score": 1,
+      "explanation": "The patient expressed thoughts of not fitting in and feeling isolated, which indicates a negative appraisal of their social situation."
+    },
+    {
+      "feature_name": "Memory",
+      "score": 1,
+      "explanation": "The patient recalled past experiences linked to feelings of loneliness and isolation in response to the trigger."
+    },
+    {
+      "feature_name": "Threat",
+      "score": 1,
+      "explanation": "The patient perceived a threat to their emotional safety, feeling that engaging with others could be risky."
+    },
+    {
+      "feature_name": "Strategies",
+      "score": 1,
+      "explanation": "The patient employed strategies like focusing on breathing and counting steps to cope with feelings of sadness."
+    },
+    {
+      "feature_name": "Triggers -- Strategies",
+      "score": 1,
+      "explanation": "The trigger (sound of children playing) led to coping strategies (breathing and counting steps) to manage feelings."
+    },
+    {
+      "feature_name": "Triggers -- Threat",
+      "score": 1,
+      "explanation": "The trigger was linked to the perception of emotional threat as the patient felt isolated in response."
+    },
+    {
+      "feature_name": "Triggers -- Memory",
+      "score": 1,
+      "explanation": "The trigger activated memories associated with past feelings of sadness and isolation."
+    },
+    {
+      "feature_name": "Triggers -- Negative appraisals",
+      "score": 1,
+      "explanation": "The trigger prompted negative appraisals about the patient's social connections."
+    },
+    {
+      "feature_name": "Negative appraisals -- Strategies",
+      "score": 1,
+      "explanation": "Negative thoughts about fitting in led the patient to use distraction strategies."
+    },
+    {
+      "feature_name": "Negative appraisals -- Threat",
+      "score": 1,
+      "explanation": "Negative appraisals of their situation intensified the perceived emotional threat."
+    },
+    {
+      "feature_name": "Negative appraisals -- Memory",
+      "score": 1,
+      "explanation": "The appraisals were linked to memories that compounded the feelings of isolation."
+    },
+    {
+      "feature_name": "Memory -- Strategies",
+      "score": 1,
+      "explanation": "The patient's memories of sadness influenced their choice of strategies to cope with the current situation."
+    },
+    {
+      "feature_name": "Memory -- Threat",
+      "score": 1,
+      "explanation": "Memories associated with past feelings heightened the sense of threat they experienced."
+    },
+    {
+      "feature_name": "Threat -- Strategies",
+      "score": 1,
+      "explanation": "The threat perceived in social situations led to the use of distancing strategies."
+    }
+  ]
+}

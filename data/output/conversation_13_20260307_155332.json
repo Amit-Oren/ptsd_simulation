@@ -1,0 +1,187 @@
+{
+  "id": 13,
+  "seed": 1097,
+  "schedule": {
+    "11": [
+      "12:41:34"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "confused",
+    "intensity": "severe",
+    "expressiveness": "high",
+    "disclosure": "medium",
+    "politeness": "neutral",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I’m feeling a bit off. Just yesterday, I was at the grocery store, and suddenly I felt like something bad was going to happen. My heart raced, and I couldn’t shake the feeling that I was in danger, even though everything seemed normal around me. It’s confusing how quickly that anxiety can hit."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "That sounds distressing. In that moment at the grocery store, how did you manage those feelings of anxiety?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "I didn't really manage them; I just tried to leave as quickly as I could. I felt a strong urge to get out of there, like I needed to escape. It’s like my mind was screaming that something terrible was lurking, and I couldn't focus on anything else. I just grabbed what I needed and rushed out."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "It sounds like the urge to escape was really intense. After you left the store, how did you feel once you got outside?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "Once I got outside, it was a little better, but my chest still felt tight, and I kept looking over my shoulder, as if something was chasing me. I thought about how I used to enjoy shopping, but now it feels like a battle every time. I just wanted to get home and lock the door, but a part of me still felt on edge, like the threat was still there."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "It's understandable to feel that way. Were there any specific thoughts or images that kept coming to your mind while you were feeling on edge after leaving the store?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "Yes, as I was walking to my car, I kept imagining things going wrong, like someone suddenly approaching me or something unexpected happening. It’s like my mind was stuck in this loop, picturing all the worst-case scenarios. I can’t just shake those thoughts off; they cling to me and make everything feel so much scarier."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "That sounds really challenging to deal with. In those moments when those worst-case scenarios come to mind, how do you usually respond to them?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "In those moments, I try to distract myself, but it doesn't always work. I sometimes end up replaying the same scenarios over and over, and they just make me feel more trapped. It’s exhausting, and I think I end up avoiding places where I feel like I could get triggered again, like the grocery store. But that just makes everything feel bigger and harder to face."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "It sounds like the avoidance is having a significant impact on you. When you think about facing situations like the grocery store again, what feelings come up for you?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "The client's experience of feeling a threat at the grocery store indicates heightened triggers for anxiety.",
+        "quote": "I felt like something bad was going to happen."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "The client's perception of the world during the experience is filled with negative interpretations and threats.",
+        "quote": "It’s like my mind was screaming that something terrible was lurking."
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "The client's memories of past enjoyable experiences with shopping are overshadowed by current anxiety, indicating a significant impact of memory on their current state.",
+        "quote": "I used to enjoy shopping, but now it feels like a battle every time."
+      },
+      "Threat": {
+        "score": 1,
+        "explaination": "There is a constant sense of threat that the client experiences, noted by the physical sensations and their reactions.",
+        "quote": "My chest still felt tight, and I kept looking over my shoulder."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The client's response to anxiety through avoidance and replaying scenarios is maladaptive; it exacerbates their feelings rather than alleviating them.",
+        "quote": "I think I end up avoiding places where I feel like I could get triggered again."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The heightened anxiety triggers lead to avoidance strategies that are maladaptive.",
+        "quote": "I try to distract myself, but it doesn't always work."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explaination": "Triggers are directly related to the constant feelings of threat the client experiences.",
+        "quote": "It’s like my mind was stuck in this loop, picturing all the worst-case scenarios."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "The triggering situation at the grocery store is compounded by negative memories of how they used to feel about shopping.",
+        "quote": "I used to enjoy shopping."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "The feelings of an impending threat trigger negative appraisals of their environment and experience.",
+        "quote": "I felt like something bad was going to happen."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The negative appraisal of situations causes the client to resort to maladaptive coping strategies like avoidance.",
+        "quote": "I end up avoiding places where I feel like I could get triggered again."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explaination": "Negative appraisals contribute to a perceived threat, leading to increased anxiety and fear.",
+        "quote": "It’s like my mind was screaming that something terrible was lurking."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "Negative appraisals tie in with how past experiences are now viewed in a threatening light.",
+        "quote": "Now it feels like a battle every time."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The memories influence the client's use of maladaptive strategies as they remember past experiences of panic.",
+        "quote": "But that just makes everything feel bigger and harder to face."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explaination": "Memories affect how the client perceives current threats and enhances feelings of danger.",
+        "quote": "I kept looking over my shoulder, as if something was chasing me."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Perceived threats cause the client to employ maladaptive strategies to cope.",
+        "quote": "It’s exhausting."
+      }
+    }
+  }
+}

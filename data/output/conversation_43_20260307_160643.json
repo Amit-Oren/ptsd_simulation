@@ -1,0 +1,187 @@
+{
+  "id": 43,
+  "seed": 1078,
+  "schedule": {
+    "5": [
+      "18:00:20"
+    ]
+  },
+  "nodes": {
+    "Triggers": 0,
+    "Negative Appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "depressed",
+    "intensity": "moderate",
+    "expressiveness": "high",
+    "disclosure": "high",
+    "politeness": "blunt",
+    "assertiveness": "high"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I’m not great, to be honest. Just the other day, I caught myself spiraling after seeing someone who reminded me of my past. It brought back feelings of fear and panic that I can't shake off."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "I'm here to listen. How have those feelings of fear and panic affected your daily activities since then?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "It’s made it hard to focus on anything. Yesterday, I was supposed to attend a meeting, but I just couldn’t bring myself to go; I felt completely overwhelmed by this sense of threat that I couldn't explain. Instead, I just sat at home, paralyzed by anxiety."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "That sounds really tough. How did that experience of being overwhelmed impact your mood afterward?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "It left me feeling pretty defeated. After I canceled the meeting, the weight of shame settled in. It’s like a dark cloud just hovered over me for the rest of the day, and I couldn't push past that feeling of being trapped."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "Thank you for sharing that. In those moments when you felt trapped, did you notice any specific thoughts that kept coming up for you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "Yeah, I kept thinking about how I must look weak or incapable to others. It’s frustrating because that thought just feeds into this sense of worthlessness, making me feel even more isolated and scared. I can't seem to escape that cycle of negativity."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "It’s understandable to feel frustrated in that situation. When you're in that cycle of negativity, do you find yourself engaging in certain behaviors or doing something specific to cope with those feelings?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "I tend to pull away from everyone. I just isolate myself, thinking that's the safest option. It feels like the only way to cope, even if it just leaves me feeling more alone and weighed down afterward."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "Isolation can be a common response. When you isolate yourself, do you notice any physical sensations or changes in your body that accompany those feelings of being weighed down?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "The client triggers feelings of fear and panic when reminded of their past, which indicates that specific reminders act as triggers for their anxiety.",
+        "quote": "Just the other day, I caught myself spiraling after seeing someone who reminded me of my past."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "The client experiences negative thoughts related to their worth and capabilities when confronted with anxiety, contributing to their feelings of shame and isolation.",
+        "quote": "I kept thinking about how I must look weak or incapable to others."
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "Memories from the past are causing current emotional distress, which suggests that negative memories are influencing their current mental state.",
+        "quote": "It brought back feelings of fear and panic that I can't shake off."
+      },
+      "Threat": {
+        "score": 1,
+        "explaination": "The sense of threat experienced by the client is frequent and has a profound impact on their activities, indicating a constant perception of danger.",
+        "quote": "I felt completely overwhelmed by this sense of threat that I couldn't explain."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The client isolates themselves as a coping mechanism for their anxiety, which is a common maladaptive strategy that exacerbates their feelings of loneliness.",
+        "quote": "I just isolate myself, thinking that's the safest option."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The triggers from the past lead to the coping strategy of isolation, linking past reminders directly to current maladaptive behavior.",
+        "quote": "I just isolate myself, thinking that's the safest option."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explaination": "The triggers relating to memories evoke a feeling of threat, illustrating how reminders of the past can create a sense of danger in the present.",
+        "quote": "It brought back feelings of fear and panic."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "The client's current experience of fear and panic is directly tied to their memories, showcasing how triggers activate negative recollections.",
+        "quote": "Just the other day, I caught myself spiraling after seeing someone who reminded me of my past."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "The feelings of fear and panic are closely linked to negative self-appraisals, indicating that external triggers can magnify internal negative thoughts.",
+        "quote": "I must look weak or incapable to others."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The negative appraisals about self-worth lead to the maladaptive strategy of isolation, demonstrating a cycle between thoughts and behaviors.",
+        "quote": "It feels like the only way to cope."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explaination": "Negative self-appraisals contribute to a feeling of threat, suggesting that the client's internal dialogue heightens their perception of danger.",
+        "quote": "Making me feel even more isolated and scared."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "Negative thoughts about self-worth interact with memories of the past, complicating the emotional responses in the present.",
+        "quote": "It feeds into this sense of worthlessness."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Negative memories influencing the client's anxiety lead to maladaptive coping strategies like isolation, which further entrench their struggles.",
+        "quote": "It feels like the only way to cope."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explaination": "Memories evoke threats that affect the client's emotional state, pointing to the impact of recollections on their sense of security.",
+        "quote": "I felt completely overwhelmed by this sense of threat."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The sense of threat drives the client toward isolating behaviors as a way to cope, creating a maladaptive cycle.",
+        "quote": "I just isolate myself, thinking that's the safest option."
+      }
+    }
+  }
+}

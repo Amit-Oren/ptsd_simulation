@@ -5,6 +5,21 @@ from pathlib import Path
 from datetime import datetime
 from langchain.agents import create_agent
 
+_LOG_DIR = Path("data/output")
+_RUN_TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
+_shared_handler = None
+
+
+def _get_shared_handler():
+    global _shared_handler
+    if _shared_handler is None:
+        _LOG_DIR.mkdir(parents=True, exist_ok=True)
+        _shared_handler = logging.FileHandler(
+            _LOG_DIR / f"simulation_log_{_RUN_TIMESTAMP}.txt", encoding="utf-8"
+        )
+        _shared_handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(message)s"))
+    return _shared_handler
+
 
 class BaseAgent(ABC):
         def __init__(self, name: str, role: str, system_prompt: str, llm, tools=None):
@@ -18,15 +33,10 @@ class BaseAgent(ABC):
             self.agent = self._setup_agent()
 
         def _setup_logger(self):
-            """Set up logging for this agent"""
-            log_dir = Path("data/output")
-            log_dir.mkdir(parents=True, exist_ok=True)
             logger = logging.getLogger(self.name)
-            logging.basicConfig(
-                filename=log_dir / f"{self.name}_log.txt",
-                level=logging.INFO,
-                format="%(asctime)s - %(name)s - %(message)s"
-            )
+            logger.setLevel(logging.INFO)
+            if not logger.handlers:
+                logger.addHandler(_get_shared_handler())
             return logger
 
         def _setup_agent(self):

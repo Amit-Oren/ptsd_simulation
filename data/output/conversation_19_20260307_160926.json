@@ -1,0 +1,187 @@
+{
+  "id": 19,
+  "seed": 1414,
+  "schedule": {
+    "5": [
+      "12:02:24"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 0,
+    "Threat": 0,
+    "Maladaptive Strategies": 0
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "depressed",
+    "intensity": "severe",
+    "expressiveness": "high",
+    "disclosure": "high",
+    "politeness": "casual",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "Hey, I’m just trying to get through the day, you know? Sometimes little things remind me of past events, like when I heard a sudden loud noise outside, and it just hit me hard, like I was right back there again. It's exhausting."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "That sounds really tough. When that loud noise happened, what kind of feelings or thoughts did it bring up for you in that moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "When that noise happened, my heart just started racing, and I felt this wave of panic wash over me. It was like all those awful memories rushed back, and I couldn’t catch my breath for a moment. It made me feel so overwhelmed, like I was back in that place, and I just wanted to hide away from everything."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "It sounds like that experience was very intense. After feeling that wave of panic, what did you do next?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "After that wave of panic hit, I kind of froze for a bit, just stuck in my thoughts. I ended up sitting on the couch, trying to distract myself by scrolling through my phone, but my mind was still racing. It’s like I wanted to escape, but nothing really helped."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "Sitting on the couch sounds like a way to try to find some comfort. While you were scrolling through your phone, what thoughts kept coming up for you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "While I was scrolling, my mind kept drifting back to memories I wish I could forget. I kept thinking about how unfair everything felt, like I was stuck in this never-ending cycle. It felt really lonely, and I couldn't shake this feeling that I was the only one dealing with it."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "That loneliness can be really challenging to cope with. Did you notice any specific physical sensations or changes in your body while you were having those thoughts?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "Yeah, I definitely felt my chest tightening, like I was being squeezed from the inside. My hands were kind of trembling, and I could feel this heaviness in my stomach, making it hard to think clearly. It was like my body was reflecting everything my mind was racing through."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "That sounds very uncomfortable. After experiencing those physical sensations, did anything help you feel even a little bit more at ease?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "The client's mention of the loud noise triggering past memories indicates a strong link to triggers that can evoke intense emotional responses.",
+        "quote": "when I heard a sudden loud noise outside, and it just hit me hard, like I was right back there again."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "The client expressed feelings of unfairness and loneliness, which reflect negative appraisals of their experiences.",
+        "quote": "It felt really lonely, and I couldn't shake this feeling that I was the only one dealing with it."
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "The client's thoughts were dominated by distressing memories related to the loud noise, indicating a significant memory impact.",
+        "quote": "my mind kept drifting back to memories I wish I could forget."
+      },
+      "Threat": {
+        "score": 1,
+        "explaination": "The client's experience of panic and physical sensations can be understood as a perception of threat, both emotional and physical.",
+        "quote": "my heart just started racing, and I felt this wave of panic wash over me."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Scrolling through the phone while trapped in overwhelming thoughts indicates an attempt at distraction, which may not be adaptive in this context.",
+        "quote": "I ended up sitting on the couch, trying to distract myself by scrolling through my phone."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The trigger of the loud noise led to a maladaptive strategy of distraction through scrolling, demonstrating a direct link.",
+        "quote": "I ended up sitting on the couch, trying to distract myself by scrolling through my phone."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explaination": "The loud noise triggered feelings of panic and emotional threat, indicating a strong connection between triggers and perceived threat.",
+        "quote": "my heart just started racing, and I felt this wave of panic wash over me."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "The noise triggered a flood of distressing memories, indicating a direct connection between triggers and memory activation.",
+        "quote": "when I heard a sudden loud noise outside, and it just hit me hard."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "The initial trigger led to negative appraisals of their situation, demonstrating how triggers can influence thoughts.",
+        "quote": "like I was stuck in this never-ending cycle."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Negative appraisals of the situation led to the use of maladaptive distraction strategies, reflecting a common coping mechanism.",
+        "quote": "I kind of froze for a bit."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explaination": "Negative thoughts can create a heightened sense of emotional and physical threat, as seen from the client’s reaction.",
+        "quote": "It felt really lonely."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "Negative feelings towards past experiences reinforce the memory's impact, highlighting the interrelationship between these nodes.",
+        "quote": "my mind kept drifting back to memories I wish I could forget."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "When memories became overwhelming, the client resorted to maladaptive distraction, highlighting the struggle between memory and coping strategies.",
+        "quote": "I was still racing."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explaination": "Memories evoked by the sound created a perceived threat, as indicated by the heart racing and panic felt by the client.",
+        "quote": "my heart just started racing."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Feeling threatened due to panic led to an attempt to find relief through maladaptive strategies like distractions.",
+        "quote": "I wanted to escape, but nothing really helped."
+      }
+    }
+  }
+}

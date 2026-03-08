@@ -1,0 +1,187 @@
+{
+  "id": 32,
+  "seed": 1414,
+  "schedule": {
+    "5": [
+      "15:00:19"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 1,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 1,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 1,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 1,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "happy",
+    "intensity": "severe",
+    "expressiveness": "low",
+    "disclosure": "low",
+    "politeness": "casual",
+    "assertiveness": "high"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I've been dealing with some intense memories that come back unexpectedly. Recently, I was walking past a café where I used to meet a friend, and it hit me hard, taking me right back to that moment."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "What feelings or thoughts came up for you when those memories returned?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "When those memories came back, I felt a rush of panic, as if the danger I once felt was right there with me again. It made me think that I can't truly escape those moments, no matter how hard I try."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "How often do you find yourself feeling that rush of panic in similar situations?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "It seems like every time something reminds me of the past, that rush of panic hits me hard. Just last week, I heard a song that used to play during a tough time, and I couldn't shake that feeling for hours."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "When you feel that panic after a reminder, what thoughts or images come to mind during those moments?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "In those moments of panic, vivid images of that traumatic experience flash before my eyes, and I can't help but feel trapped. My mind races with thoughts that I'm not safe, and I can’t let my guard down, which just makes everything feel overwhelming."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "How do those racing thoughts affect what you do in the moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "When those racing thoughts kick in, I often find myself isolating. I might avoid going out or even cancel plans, trying to shield myself from any reminders that could trigger that panic again. It's like I feel the need to control my environment completely, even if it means missing out on life."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "What do you notice about your feelings when you isolate or avoid certain situations?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "The client experiences triggers that evoke intense memories, leading to panic.",
+        "quote": "I've been dealing with some intense memories that come back unexpectedly."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "The client's thoughts about their inability to escape the past reflect negative appraisals.",
+        "quote": "It made me think that I can't truly escape those moments."
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "The presence of vivid and traumatic memories is a significant factor in the client's distress.",
+        "quote": "vivid images of that traumatic experience flash before my eyes."
+      },
+      "Threat": {
+        "score": 1,
+        "explaination": "The client perceives a strong sense of threat during the recall of memories, impacting their emotional state.",
+        "quote": "I can’t let my guard down, which just makes everything feel overwhelming."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The client resorts to isolation and avoidance as coping strategies, which are maladaptive.",
+        "quote": "I often find myself isolating. I might avoid going out or even cancel plans."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Intense memories lead to maladaptive coping strategies like avoidance.",
+        "quote": "I might avoid going out or even cancel plans."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explaination": "Triggers evoke a sense of threat that fuels panic.",
+        "quote": "a rush of panic...as if the danger I once felt was right there with me again."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "Triggers facilitate the recall of traumatic memories.",
+        "quote": "I was walking past a café where I used to meet a friend, and it hit me hard."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "Triggers lead to negative thought patterns about safety and control.",
+        "quote": "it made me think that I can't truly escape those moments."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Negative thoughts about safety drive the client to avoid triggers.",
+        "quote": "I feel the need to control my environment completely."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explaination": "Negative appraisals correlate with a heightened sense of threat.",
+        "quote": "thoughts that I'm not safe."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "Negative appraisals often arise in the context of remembering trauma.",
+        "quote": "vivid images of that traumatic experience."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Memories contribute to maladaptive strategies like isolation.",
+        "quote": "I often find myself isolating."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explaination": "Memories trigger perceptions of immediate threat.",
+        "quote": "I can’t let my guard down."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "Perceived threats lead to avoidance behaviors.",
+        "quote": "missing out on life."
+      }
+    }
+  }
+}

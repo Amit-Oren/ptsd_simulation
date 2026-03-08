@@ -1,6 +1,7 @@
 import json
 import numpy as np
 from pathlib import Path
+from datetime import datetime
 from config.config import Config
 from langchain_openai import ChatOpenAI
 from agents.client_agent import ClientAgent
@@ -55,7 +56,8 @@ class SimulationRunner:
 
             bot = ResponseCrafterAgent(name="Bot", role="Bot", llm=self.llm)
 
-            output_file = OUTPUT_DIR / f"conversation_{subnum}.json"
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            output_file = OUTPUT_DIR / f"conversation_{subnum}_{timestamp}.json"
             # --- Conversation ---
             conversation = []
             turn_index = 0

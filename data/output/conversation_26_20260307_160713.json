@@ -1,0 +1,187 @@
+{
+  "id": 26,
+  "seed": 1078,
+  "schedule": {
+    "10": [
+      "13:06:14"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 0
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 1,
+    "Triggers -- Memory": 1,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 1,
+    "Memory -- Negative appraisals": 1,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 1,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 1,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "content",
+    "intensity": "severe",
+    "expressiveness": "low",
+    "disclosure": "medium",
+    "politeness": "blunt",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I’m okay, just dealing with some memories that creep up on me sometimes. They can make me feel like I’m back in that moment again."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "When those memories come up, how do they affect your feelings or thoughts in the moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "When the memories surface, it feels like a heavy weight pressing down. I start to think that something bad is going to happen again, and it’s hard to shake that feeling off. It can be overwhelming, like I’m trapped in that past moment."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "Has anything in your environment recently triggered those memories or feelings for you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "Yeah, just the other day I heard a loud noise outside that snapped me right back to a time when I felt really vulnerable. It sent me into a state of alarm, and I couldn't focus on anything else for a while."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "How did you manage to cope or respond to that feeling of alarm once it surfaced?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "I didn't really do much to cope. I just sat there feeling the anxiety build up, trying to convince myself it wasn't happening again. It felt pointless, but I didn’t know what else to do."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "In that moment, what thoughts were running through your mind while you tried to convince yourself it wasn't happening again?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "I kept thinking that I should be safe now and that this noise had nothing to do with my past. But then, doubt crept in—what if it was a sign that danger was around the corner? It was hard to trust that things were different."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "Did you notice any physical sensations in your body during that time of doubt and anxiety?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "Triggers are significantly present as the client identifies a specific event (loud noise) that sparks memories of vulnerability.",
+        "quote": "I heard a loud noise outside that snapped me right back to a time when I felt really vulnerable."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "Negative appraisals are evident as the client expresses doubts about safety and perceives danger, linking the current situation to past experiences.",
+        "quote": "What if it was a sign that danger was around the corner?"
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "Memory is critically involved, as the client reports intrusive memories that affect their current emotional state.",
+        "quote": "they can make me feel like I’m back in that moment again."
+      },
+      "Threat": {
+        "score": 1,
+        "explaination": "The client perceives a threat to their safety when memories arise, indicating a strong association with past trauma.",
+        "quote": "It sends me into a state of alarm."
+      },
+      "Maladaptive Strategies": {
+        "score": 0,
+        "explaination": "There are no effective coping strategies mentioned; rather, the client feels stuck and overwhelmed.",
+        "quote": "I didn't really do much to cope."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 0,
+        "explaination": "The trigger does not lead to effective coping strategies; instead, it exacerbates the client’s feelings of anxiety.",
+        "quote": ""
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explaination": "The trigger leads to perception of threat, as the loud noise triggers alarms associated with past trauma.",
+        "quote": ""
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "The trigger activates memories of the past, strongly affecting the client.",
+        "quote": ""
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "The triggering event prompts negative appraisals about safety and risk.",
+        "quote": ""
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 0,
+        "explaination": "Negative appraisals do not lead to effective strategies; they instead contribute to feelings of helplessness.",
+        "quote": ""
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explaination": "Negative appraisals heighten the perception of threat, linking current experiences to past trauma.",
+        "quote": ""
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "Negative thoughts are triggered by past memories, reinforcing the cycle of anxiety.",
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 0,
+        "explaination": "Memories do not lead to coping strategies; rather, they reinforce feelings of anxiety without resolution.",
+        "quote": ""
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explaination": "Memories evoke a perception of threat, as they remind the client of past traumas.",
+        "quote": ""
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 0,
+        "explaination": "The perceived threat does not result in adaptive strategies; the client feels overwhelmed and unable to cope.",
+        "quote": ""
+      }
+    }
+  }
+}

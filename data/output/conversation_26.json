@@ -1,0 +1,187 @@
+{
+  "id": 26,
+  "seed": 88,
+  "schedule": {
+    "15": [
+      "16:49:00"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 1,
+    "Threat": 0,
+    "Maladaptive Strategies": 0
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 1,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "frustrated",
+    "intensity": "moderate",
+    "expressiveness": "medium",
+    "disclosure": "high",
+    "politeness": "neutral",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I’m feeling a bit frustrated today. Some triggers from my past are hard to shake off. It's just one of those days where everything feels heavy."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "I hear you. What kind of triggers have you noticed today?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "Today, I heard a loud noise that reminded me of the traumatic event I went through. It completely pulled me back to that moment, and I felt my heart race. It’s exhausting to constantly deal with that kind of unexpected reminder."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "That sounds really challenging. How did you cope with the racing heart and those feelings when the noise happened?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "I tried to focus on my breathing to calm myself down, but it was tough. My mind kept racing back to that event, even as I was trying to distract myself. It's frustrating because I know I should be able to move past it, but it feels like I’m stuck in that moment again."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "It’s understandable to feel that way. When your mind was racing, what thoughts were most prominent for you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "I couldn’t shake the feeling that I was back in that dangerous situation, and it felt so real. I thought I should be stronger by now, but then I questioned if I ever really could escape that memory. It’s frustrating how my mind can take over like that."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "That sounds really intense. In those moments when your mind takes over, how do you feel physically?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "Physically, I often feel a knot in my stomach and a tightness in my chest. My hands can feel clammy, and I sometimes get shaky. It’s like my body is reacting even though I know I’m safe now, which just adds to the frustration."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "That sounds very uncomfortable. When you notice those physical sensations, what do you usually find helps, if anything?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "The client experiences triggers from their past, which are identified as significant stressors that affect their current emotional state.",
+        "quote": "Some triggers from my past are hard to shake off."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "The client expresses negative beliefs about their ability to cope with past trauma and feels frustrated about feeling stuck.",
+        "quote": "I should be stronger by now... I questioned if I ever really could escape that memory."
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "The client's memories are very vivid and intrusive, leading to physical and emotional distress in the present moment.",
+        "quote": "It completely pulled me back to that moment."
+      },
+      "Threat": {
+        "score": 1,
+        "explaination": "The perception of a threat is triggered by the loud noise that reminded the client of a traumatic event, creating a sense of fear and anxiety.",
+        "quote": "It felt so real... I was back in that dangerous situation."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The attempts to distract themselves or focus on breathing are acknowledged, but the strategies are ineffective in alleviating the distress caused by the trauma reminders.",
+        "quote": "I tried to focus on my breathing... but it was tough."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The trigger from the noise led to the client using maladaptive strategies like distraction and focused breathing, which did not adequately address their emotional response.",
+        "quote": "I tried to focus on my breathing... but it was tough."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explaination": "The client's past trauma acts as a trigger that creates an immediate perceived threat when reminded by certain noises.",
+        "quote": "I was back in that dangerous situation."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "The loud noise acted as a trigger that brought back intense memories of past trauma, illustrating a direct connection between the two.",
+        "quote": "It completely pulled me back to that moment."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "The triggers exacerbate the client's negative self-perception about their coping abilities and feeling stuck in past trauma.",
+        "quote": "I should be stronger by now."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The client's negative self-perception about coping feeds into the use of maladaptive coping strategies that aren't effective.",
+        "quote": "It's frustrating because I know I should be able to move past it."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explaination": "The negative appraisals contribute to the sense of threat felt when experiencing triggers, intensifying the emotional response.",
+        "quote": "I was back in that dangerous situation."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "The negative beliefs about coping with trauma connect with the client's vivid memories of trauma, reinforcing feelings of being trapped.",
+        "quote": "I questioned if I ever really could escape that memory."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The memories trigger maladaptive strategies as the client attempts to cope with the overwhelming feelings that arise.",
+        "quote": "I tried to focus on my breathing."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explaination": "Memories of past trauma create a perceived threat that the client feels physically, illustrating the significant impact of memories on their current state.",
+        "quote": "It felt so real."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The perceived threat leads to the use of maladaptive strategies, which are not effective in resolving the distress.",
+        "quote": "I tried to focus on my breathing."
+      }
+    }
+  }
+}

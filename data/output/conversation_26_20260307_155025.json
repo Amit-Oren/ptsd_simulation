@@ -1,0 +1,187 @@
+{
+  "id": 26,
+  "seed": 88,
+  "schedule": {
+    "15": [
+      "16:49:00"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 1,
+    "Threat": 0,
+    "Maladaptive Strategies": 0
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 1,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "frustrated",
+    "intensity": "moderate",
+    "expressiveness": "medium",
+    "disclosure": "high",
+    "politeness": "neutral",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I'm just feeling a bit off today. I caught a whiff of a fragrance that brought back a memory I just can't shake. It was like I was back in that moment, and it really threw me for a loop."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "That sounds challenging. How did that experience affect your mood or thoughts after it happened?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "It got me all tangled up. I just kept replaying that memory over and over in my head, and I felt this heaviness sitting in my chest. It’s frustrating because I know it affects my focus and everything I try to do afterwards."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "That sounds really difficult. How have you noticed that replaying the memory impacts your daily activities or interactions today?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "It makes everything feel like a struggle. I was trying to concentrate on work, but every time I thought I was getting into it, that memory would creep back in, and I'd just lose my place. It’s exhausting, and I find myself withdrawing more from conversations because I can't shake that feeling."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "It’s understandable that would be exhausting. When you were withdrawing from conversations, what did that feel like for you in the moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "It felt isolating, like I was stuck in my own head while everyone else was carrying on. I wanted to connect, but I just didn't have the energy to engage. I could feel that mix of frustration and sadness bubbling up, and instead, I just went quiet, hoping it would pass."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "That sounds really tough. After you went quiet, did you notice any changes in how you felt or in your surroundings?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "Once I went quiet, it only felt heavier around me. There was this thick silence that made me even more aware of how disconnected I was. I could sense the chatter going on around me, but instead of it feeling comforting, it just emphasized how out of place I felt."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "That makes a lot of sense. How did you cope with that feeling of disconnection during that time?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explaination": "The fragrance triggered a potent memory that led to strong emotional and cognitive responses.",
+        "quote": "I caught a whiff of a fragrance that brought back a memory I just can't shake."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explaination": "The client felt frustration and sadness in connection with the memory and its effects on interactions.",
+        "quote": "I wanted to connect, but I just didn't have the energy to engage."
+      },
+      "Memory": {
+        "score": 1,
+        "explaination": "The persistent replay of the memory significantly affected the client's focus and daily activities.",
+        "quote": "I just kept replaying that memory over and over in my head."
+      },
+      "Threat": {
+        "score": 0,
+        "explaination": null,
+        "quote": ""
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The client withdrew from social interactions as a coping mechanism, which led to increased feelings of isolation.",
+        "quote": "It felt isolating, like I was stuck in my own head while everyone else was carrying on."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The triggering memory led to withdrawing as a coping strategy.",
+        "quote": "Instead, I just went quiet, hoping it would pass."
+      },
+      "Triggers--Threat": {
+        "score": 0,
+        "explaination": null,
+        "quote": ""
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explaination": "The trigger was a memory that the client found difficult to shake off.",
+        "quote": "It was like I was back in that moment."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explaination": "The triggering experience led to negative appraisal of the situation and feelings of frustration.",
+        "quote": "It’s frustrating because I know it affects my focus."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The feelings of frustration and sadness led to withdrawing as a maladaptive strategy.",
+        "quote": "I find myself withdrawing more from conversations."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 0,
+        "explaination": null,
+        "quote": ""
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explaination": "Negative appraisals were reinforced by persistent memories causing emotional distress.",
+        "quote": "It’s exhausting, and I find myself withdrawing."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explaination": "The repetitive memory replay contributed to a withdrawal response.",
+        "quote": "I was trying to concentrate on work, but every time that memory would creep back in."
+      },
+      "Memory--Threat": {
+        "score": 0,
+        "explaination": null,
+        "quote": ""
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 0,
+        "explaination": null,
+        "quote": ""
+      }
+    }
+  }
+}

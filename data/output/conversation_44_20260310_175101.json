@@ -1,0 +1,187 @@
+{
+  "id": 44,
+  "seed": 1414,
+  "schedule": {
+    "14": [
+      "12:27:11"
+    ]
+  },
+  "nodes": {
+    "Triggers": 0,
+    "Negative Appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "happy",
+    "intensity": "mild",
+    "expressiveness": "high",
+    "disclosure": "low",
+    "politeness": "blunt",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I’m doing okay, thanks for asking! Just trying to keep things light, you know? How are you?"
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "I'm here to help you with your experience today. Can you tell me about any feelings or thoughts you've had recently that stood out to you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "The other day, I saw a news story that featured a similar situation to something I went through, and it hit me pretty hard. I found myself worrying a lot, and it kind of spiraled into me feeling like everything around me was a threat. It was just really unsettling."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "That sounds intense. How did that worry affect your activities or interactions in the hours after viewing the news story?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "After that story, I felt really on edge. I avoided going to places where there were a lot of people because I kept thinking something bad might happen. It felt safer to just stay home and distract myself instead of facing that anxiety head-on."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "Staying home can be a common response to feeling on edge. In those moments at home, how did you manage those feelings of anxiety?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "While I was at home, I kept myself busy with little tasks. I thought it would help, but it sort of turned into a way to escape from how I was really feeling. I didn’t want to face those anxious thoughts, so I just cleaned and organized things instead. It felt like a distraction, but deep down, I knew I wasn’t really dealing with it."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "It sounds like you were trying to find some control through those tasks. After spending that time focused on distractions, how did you feel about your anxious thoughts later on?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "Later on, I found that the anxious thoughts hadn’t really gone away; they were still lurking in the back of my mind. It made me feel a bit frustrated because I realized that just keeping busy didn’t help me confront what I was really feeling. I thought about how those worries might come back when I least expected them."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "That frustration is understandable. In the hours since realizing those thoughts were still there, how have you been coping with the possibility of them returning?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client experienced a strong trigger from a news story that resonated personally, leading to significant emotional distress.",
+        "quote": "I saw a news story that featured a similar situation to something I went through."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client appraises their situation negatively, believing that everything around them poses a threat.",
+        "quote": "I found myself worrying a lot... feeling like everything around me was a threat."
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client's memories of past experiences are impacting their current emotional state, causing heightened anxiety.",
+        "quote": "I thought about how those worries might come back."
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client perceives multiple forms of threat due to anxiety and worries about future experiences.",
+        "quote": "It's felt safer to just stay home... I kept thinking something bad might happen."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client uses avoidance and distraction as strategies to cope with anxiety, which ultimately does not resolve their feelings.",
+        "quote": "I thought it would help, but it sort of turned into a way to escape from how I was really feeling."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The triggers significantly influenced the client's choice to employ avoidance and distraction tactics.",
+        "quote": "I avoided going to places... it felt safer to just stay home."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The news story triggered feelings of threat and vulnerability for the client.",
+        "quote": "It hit me pretty hard... feeling like everything around me was a threat."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The trigger also stirred memories related to their past anxiety, enhancing their current struggle.",
+        "quote": "I thought about how those worries might come back."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The initial trigger led to negative appraisals about their environment and personal safety.",
+        "quote": "I found myself worrying... it felt like everything was a threat."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's negative feelings led to attempting maladaptive distraction strategies rather than coping with their emotions directly.",
+        "quote": "I kept myself busy with little tasks to avoid feeling anxious."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "Negative appraisals are related to the perception of threat present in their environment, amplifying anxiety.",
+        "quote": "I kept thinking something bad might happen."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "Negative appraisals prompted memories of past experiences that influenced current emotional responses.",
+        "quote": "The anxious thoughts hadn’t really gone away... lurking in the back of my mind."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client used activities to distract themselves rather than confront memories that triggered anxiety.",
+        "quote": "I cleaned and organized things instead, as a distraction."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "Past memories create a framework for perceiving current threats, contributing to anxiety.",
+        "quote": "I thought about how those worries might come back."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The perception of threat led to avoidance behaviors, such as spending time at home and distracting themselves.",
+        "quote": "It felt safer to just stay home."
+      }
+    }
+  }
+}

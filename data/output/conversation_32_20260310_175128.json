@@ -1,0 +1,187 @@
+{
+  "id": 32,
+  "seed": 1414,
+  "schedule": {
+    "5": [
+      "15:00:19"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 1,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 1,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 1,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 1,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "happy",
+    "intensity": "severe",
+    "expressiveness": "low",
+    "disclosure": "low",
+    "politeness": "casual",
+    "assertiveness": "high"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "I'm feeling okay, just a bit overwhelmed at times. There was a moment earlier when a car backfired, and it triggered some intense feelings that made me feel like I had to really focus on not panicking."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "What specific feelings did the backfire trigger for you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "It reminded me of a loud explosion I witnessed, and I felt this wave of anxiety wash over me. My heart started racing, and I could almost feel that same fear creeping back like it was happening all over again."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "How did you manage your anxiety in that moment when you felt those intense feelings?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "In that moment, I tried to distract myself by focusing on my surroundings, like counting the trees I could see. It was like I was searching for something familiar to anchor myself, but it didn't fully ease the tightness in my chest."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "Did you notice any specific thoughts that came to mind while you were trying to distract yourself?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "Yeah, I kept thinking that something bad might happen again, and it was hard to shake that feeling off. It felt like my mind was racing through all the worst-case scenarios, which just made it harder to focus on anything else."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "What strategies, if any, did you find helpful to refocus your mind away from those worst-case scenarios?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "I ended up pulling out my phone and scrolling through some funny videos. That usually helps me break the cycle, but even then, I found myself going back to those anxious thoughts. It's like a constant battle to keep my mind from spiraling."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "How did you feel after scrolling through the videos? Did it provide any relief, or did those anxious thoughts remain?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The car backfire acted as a significant trigger, bringing intense anxiety and feelings reminiscent of a past trauma.",
+        "quote": "It reminded me of a loud explosion I witnessed, and I felt this wave of anxiety wash over me."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client had negative thoughts regarding the situation, anticipating bad outcomes and feeling overwhelmed.",
+        "quote": "I kept thinking that something bad might happen again."
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The memory of the explosion triggered strong emotional responses and physiological reactions, demonstrating a connection between memory and current anxiety.",
+        "quote": "It felt like I was experiencing the same fear creeping back."
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client perceived a threat from the sounds similar to the past trauma, leading to heightened anxiety.",
+        "quote": "I felt this wave of anxiety wash over me."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client resorted to distracting themselves with videos to cope, indicating reliance on a maladaptive strategy for anxiety management.",
+        "quote": "I ended up pulling out my phone and scrolling through some funny videos."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The triggering event prompted the use of distraction as a strategy to manage overwhelming feelings.",
+        "quote": "I tried to distract myself by focusing on my surroundings."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The backfiring sound directly connected with the client's prior trauma, creating a perceived threat.",
+        "quote": "It reminded me of a loud explosion I witnessed."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The backfire directly triggered a traumatic memory, evoking anxiety in the present.",
+        "quote": "It felt like I was experiencing the same fear creeping back."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The triggering event generated negative appraisals regarding safety and future possibilities.",
+        "quote": "I kept thinking that something bad might happen again."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Attempts to manage negative thoughts through distraction were employed, reflecting a maladaptive approach.",
+        "quote": "It’s like a constant battle to keep my mind from spiraling."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "Negative thoughts about potential dangers led to an increased sense of threat and anxiety.",
+        "quote": "It felt like my mind was racing through all the worst-case scenarios."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "Negative appraisals triggered by the memories evoked by the sound, intensifying the distress.",
+        "quote": "That moment reminded me of a past traumatic experience."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The reliance on distraction indicates an attempt to cope with the distress caused by traumatic memories.",
+        "quote": "I found myself going back to those anxious thoughts."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The memories evoked by the trigger created a perception of threat, resulting in anxiety.",
+        "quote": "It felt like I was experiencing the same fear creeping back."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The perception of threat drove the client to seek distraction, indicating maladaptive coping strategies in response to anxiety.",
+        "quote": "It’s like a constant battle to keep my mind from spiraling."
+      }
+    }
+  }
+}

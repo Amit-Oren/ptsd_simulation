@@ -215,3 +215,5 @@ __marimo__/
 # Streamlit
 .streamlit/secrets.toml
 data/MSN data processed.xlsx
+data/preprosscing/MSN data processed.xlsx
+data/preprosscing/MSN edge aggregated data.xlsx

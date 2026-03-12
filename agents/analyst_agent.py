@@ -6,12 +6,12 @@ from config.prompts import ANALYST_AGENT_PROMPT
 
 class NodeScore(BaseModel):
     score: Literal[0, 1]
-    explaination: Optional[str] = None
+    explanation: Optional[str] = None
     quote: str
 
 class EdgeScore(BaseModel):
     score: Literal[0, 1]
-    explaination: Optional[str] = None
+    explanation: Optional[str] = None
     quote: str
 
 class AnalysisNodes(BaseModel):
@@ -64,6 +64,9 @@ def _format_result(result: AnalysisResult) -> dict:
 class AnalystAgent(BaseAgent):
     def __init__(self, name: str, role: str, llm):
         super().__init__(name, role, ANALYST_AGENT_PROMPT, llm)
+
+    def _setup_agent(self):
+        return None
 
     def respond(self, message: str) -> dict:
         structured_llm = self.llm.with_structured_output(AnalysisResult)

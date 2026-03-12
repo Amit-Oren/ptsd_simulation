@@ -1,0 +1,187 @@
+{
+  "id": 19,
+  "seed": 1414,
+  "schedule": {
+    "5": [
+      "12:02:24"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 0,
+    "Threat": 0,
+    "Maladaptive Strategies": 0
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "depressed",
+    "intensity": "severe",
+    "expressiveness": "high",
+    "disclosure": "high",
+    "politeness": "casual",
+    "assertiveness": "low"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "Honestly, I’m not doing so great. Just yesterday, I heard a loud noise outside, and it threw me back to some really bad moments. My heart started racing, and I felt like I was just stuck in that place again. It’s tough."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "It's understandable to feel that way. When you heard the noise, what kind of thoughts or feelings did it bring up for you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "When I heard that noise, it felt like everything around me closed in. I started sweating, and my hands shook a bit. I couldn’t help but remember that feeling of panic, like I was trapped, and I just wanted to run away from it all. It really stirred up a lot of fear inside me."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "That sounds really intense. In that moment of panic, what did you notice yourself focusing on or thinking about?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "In that moment, all I could think about was just getting out of there, as if escape was my only option. It felt like I was back in that very uncomfortable place, and I couldn’t shake the thought that something really bad could happen again. Everything else just faded away, and it was like I was stuck in that one moment."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "That sounds really overwhelming. Did you notice any physical sensations or changes in your body when you were feeling that way?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "Definitely. My heart was pounding like crazy, and I felt a tightness in my chest. I could barely catch my breath, and my palms were all clammy. It was like my body was just reacting, long before my mind could catch up."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "It sounds like your body responded strongly. After experiencing that, how did you feel once things began to calm down?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "Once things calmed down a bit, I just felt this deep heaviness inside me, like I was carrying around a weight I couldn’t shake off. I was exhausted, but my mind kept racing with all those old memories. It felt hard to relax, even when the moment had passed."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "That heaviness sounds tough to deal with. During that time, were there any specific memories or thoughts that kept coming to mind?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client describes a specific trigger (loud noise) that led to panic, indicating a strong response to triggers.",
+        "quote": "Just yesterday, I heard a loud noise outside, and it threw me back to some really bad moments."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses negative thoughts about their situation and feelings, indicating a significant impact from negative appraisals.",
+        "quote": "I just wanted to run away from it all."
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client reports being flooded with memories from past traumatic experiences, suggesting that memory plays a critical role in their emotional response.",
+        "quote": "It felt like I was back in that very uncomfortable place."
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client perceives a strong sense of threat during the incident, reflecting a heightened state of anxiety.",
+        "quote": "I couldn’t shake the thought that something really bad could happen again."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The described reactions (wanting to escape, physical panic responses) suggest reliance on maladaptive coping strategies during high-stress moments.",
+        "quote": "It felt like my body was just reacting, long before my mind could catch up."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The strong panic reaction to the trigger led to maladaptive coping strategies, such as wanting to escape.",
+        "quote": "It felt like I was trapped... I just wanted to run away from it all."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The loud noise directly triggered feelings of threat based on past experiences, heightening the client's anxiety.",
+        "quote": "I couldn’t shake the thought that something really bad could happen again."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The trigger (loud noise) prompted flashbacks to past traumatic memories, indicating memory's role in the reaction.",
+        "quote": "It threw me back to some really bad moments."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The initial trigger elicited negative thoughts and feelings about their safety and state of mind.",
+        "quote": "It felt like everything around me closed in."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Negative thoughts about the situation led to escalating panic responses and avoidance behaviors as strategies to cope.",
+        "quote": "I started sweating, and my hands shook a bit."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "Negative thoughts regarding safety exacerbated feelings of threat within the client.",
+        "quote": "Everything else just faded away, and it was like I was stuck."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "Negative appraisals brought forward distressing memories from the past, indicating a connection between the two.",
+        "quote": "My mind kept racing with all those old memories."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Ruminating on distressing memories triggered maladaptive responses such as panic and escape.",
+        "quote": "I felt a tightness in my chest."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "Memories of past experiences heightened the client's perception of threat in the current situation.",
+        "quote": "Those old memories kept coming back."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The perceived threat resulted in maladaptive reactions (panic, desire to escape), demonstrating the connection between threat and coping strategies.",
+        "quote": "I could barely catch my breath."
+      }
+    }
+  }
+}

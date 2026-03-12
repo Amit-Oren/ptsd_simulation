@@ -1,0 +1,187 @@
+{
+  "id": 32,
+  "seed": 1414,
+  "schedule": {
+    "5": [
+      "15:00:19"
+    ]
+  },
+  "nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 1,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative appraisals": 0,
+    "Negative appraisals -- Maladaptive Strategies": 0,
+    "Negative appraisals -- Threat": 0,
+    "Negative appraisals -- Memory": 0,
+    "Negative appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 1,
+    "Memory -- Threat": 0,
+    "Memory -- Negative appraisals": 1,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative appraisals": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 1,
+    "Negative Appraisals -- Triggers": 0
+  },
+  "conversation_pattern": {
+    "emotion": "happy",
+    "intensity": "severe",
+    "expressiveness": "low",
+    "disclosure": "low",
+    "politeness": "casual",
+    "assertiveness": "high"
+  },
+  "conversation": [
+    {
+      "speaker": "bot",
+      "turn_index": 0,
+      "text": "Hello, how are you?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 0,
+      "text": "Hey, I’m good! Just the other day, I was out walking and a loud noise from a passing car caught me off guard. It made my heart race and brought back some memories I’d rather not have."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 1,
+      "text": "How did you feel in the moments right after the loud noise occurred?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 2,
+      "text": "Right after that noise, I felt this overwhelming rush of anxiety. My thoughts spiraled, and I couldn't shake the feeling that something was wrong. I had to take a moment to breathe, but it was like my mind was racing with images that I thought I'd left behind."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 3,
+      "text": "What specific thoughts or images came to mind during that rush of anxiety?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 4,
+      "text": "During that rush, I kept seeing flashes of a past incident, almost like it was happening all over again. I thought about the chaos of that day, how out of control everything felt. It was like a reel of unwanted memories playing in my head, and I couldn't just switch it off."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 5,
+      "text": "How did you cope with those flashbacks at that moment?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 6,
+      "text": "In the moment, I just tried to ground myself by focusing on my surroundings, like the colors of the flowers around me. I also took some deep breaths, but it felt like I was battling against a tide of those memories washing over me. I wanted to escape, to run away from that feeling, but I stayed put and just waited it out."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 7,
+      "text": "What did you notice about your physical sensations while you were grounding yourself?"
+    },
+    {
+      "speaker": "client",
+      "turn_index": 8,
+      "text": "While I was grounding myself, I noticed my heart was pounding in my chest, and my palms were sweaty. It was as if my body was still in that chaotic moment, feeling tense and ready to react. I could feel my breath getting a bit shallow, but focusing on the flowers helped some."
+    },
+    {
+      "speaker": "bot",
+      "turn_index": 9,
+      "text": "After you were able to ground yourself, how did your physical sensations change?"
+    }
+  ],
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The loud noise triggered a significant anxiety response, leading to memories associated with past trauma.",
+        "quote": "a loud noise from a passing car caught me off guard. It made my heart race and brought back some memories I’d rather not have."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client experienced negative thoughts and appraisals of the past incident, contributing to their anxiety.",
+        "quote": "I felt this overwhelming rush of anxiety. My thoughts spiraled, and I couldn't shake the feeling that something was wrong."
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client's recollection of past incidents was triggered by the present situation, indicating a strong link between memories and emotional responses.",
+        "quote": "I kept seeing flashes of a past incident, almost like it was happening all over again."
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client perceived the loud noise as a threat which exacerbated their anxiety and triggered intrusive memories.",
+        "quote": "It was like a reel of unwanted memories playing in my head."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client engaged in grounding techniques, which are a positive coping strategy, but also expressed a desire to escape, indicating internal conflict.",
+        "quote": "I wanted to escape, to run away from that feeling, but I stayed put and just waited it out."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The trigger of anxiety prompted the use of grounding strategies, though there was an ongoing desire to escape.",
+        "quote": "I stayed put and just waited it out."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The loud noise created a perception of threat, linked to past traumas.",
+        "quote": "It made my heart race and brought back some memories."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The loud noise directly triggered memories associated with past trauma.",
+        "quote": "It made my heart race and brought back some memories."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The noise triggered negative thoughts about the past, leading to an increase in anxiety.",
+        "quote": "I felt this overwhelming rush of anxiety."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The negative appraisals of the past incident pushed the client to use grounding strategies to cope with their feelings.",
+        "quote": "I tried to ground myself by focusing on my surroundings."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The negative thoughts involved perceiving the situation as threatening, thus linking to anxiety.",
+        "quote": "I couldn't shake the feeling that something was wrong."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "Negative appraisals were tied to the flashbacks, reinforcing the memory of the past incident as chaotic and threatening.",
+        "quote": "It was like a reel of unwanted memories playing in my head."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The memories led to use of grounding strategies, indicating a connection to coping mechanisms.",
+        "quote": "Focusing on the flowers helped some."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The memories were perceived as a threat, elevating the client’s anxiety in the current situation.",
+        "quote": "During that rush, I kept seeing flashes of a past incident, almost like it was happening all over again."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The perception of threat led to the implementation of grounding strategies as a way to cope.",
+        "quote": "I just tried to ground myself by focusing on my surroundings."
+      }
+    }
+  }
+}

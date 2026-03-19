@@ -17,7 +17,7 @@ def _get_shared_handler():
         _shared_handler = logging.FileHandler(
             _LOG_DIR / f"simulation_log_{_RUN_TIMESTAMP}.txt", encoding="utf-8"
         )
-        _shared_handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(message)s"))
+        _shared_handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(message)s\n"))
     return _shared_handler
 
 

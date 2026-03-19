@@ -1,18 +1,15 @@
 from simulation.runner import SimulationRunner
+from data.input import get_available_ids
 
 if __name__ == "__main__":
+    first_patient = get_available_ids()[0]
+
     runner = SimulationRunner(
-        num_patients=3,
-        num_turns=5,
+        num_patients=1,
+        num_turns=10,
         model="gpt-4o-mini",
-        seed=1414
-        
-        # # For testing specific patients and conversation patterns
-        
-        # subnums=[7],
-        # row_index=2,
-        # conversation_pattern={"emotion": "angry", "intensity": "severe",
-        #                   "expressiveness": "low", "disclosure": "low",
-        #                   "politeness": "casual", "assertiveness": "high"}
+        seed=1414,
+        patient_ids=[first_patient],
+        obs_index=0,
     )
     runner.run()

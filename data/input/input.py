@@ -1,6 +1,6 @@
 import pandas as pd
 from pathlib import Path
-from ...config.formulation_config import NODES, DIRECT_EDGES, NODE_MAP, EDGE_MAP
+from config.formulation_config import NODES, DIRECT_EDGES, NODE_MAP, EDGE_MAP
 
 DATA_DIR = Path(__file__).parent
 

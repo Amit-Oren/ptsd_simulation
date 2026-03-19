@@ -1,41 +1,19 @@
-import numpy as np
-from typing import Dict
 from .base_agent import BaseAgent
-from ..config.prompts import CLIENT_AGENT_PROMPT
-from ..config.conversation_config import (EMOTIONS,
-                                        INTENSITY_LEVELS,
-                                        EXPRESSIVENESS_LEVELS,
-                                        DISCLOSURE_LEVELS,
-                                        POLITENESS_STYLES,
-                                        ASSERTIVENESS_LEVELS)
+from config.prompts import CLIENT_AGENT_PROMPT
+
+
+def _format_components(nodes: dict, edges: dict) -> tuple[str, str]:
+    nodes_str = "\n".join(f"  - {node}: {val}" for node, val in nodes.items())
+    edges_str = "\n".join(f"  - {p} → {c}: {val:.4f}" for (p, c), val in edges.items())
+    return nodes_str, edges_str
 
 
 class ClientAgent(BaseAgent):
-    def __init__(self, name: str, role: str, llm, id, schedule, nodes, edges, conversation_pattern=None):
-        self.id = id
-        self.nodes = nodes
-        self.edges = edges
-        self.set_system_prompt()
-        self.user_prompt()
-        super().__init__(name, role, self.system_prompt, llm)
+    def __init__(self, name: str, role: str, llm, persona: str, nodes: dict, edges: dict, initial_message: str):
+        nodes_str, edges_str = _format_components(nodes, edges)
+        prompt = CLIENT_AGENT_PROMPT.format(persona=persona, nodes=nodes_str, edges=edges_str)
+        super().__init__(name, role, prompt, llm)
 
-
-    # def sample_conversation_pattern(self) -> Dict[str, str]:
-    #     return {
-    #         "emotion": np.random.choice(EMOTIONS),
-    #         "intensity": np.random.choice(INTENSITY_LEVELS),
-    #         "expressiveness": np.random.choice(EXPRESSIVENESS_LEVELS),
-    #         "disclosure": np.random.choice(DISCLOSURE_LEVELS),
-    #         "politeness": np.random.choice(POLITENESS_STYLES),
-    #         "assertiveness": np.random.choice(ASSERTIVENESS_LEVELS),
-    #     }
-        
-    def set_system_prompt(self):
-        self.system_prompt = CLIENT_AGENT_PROMPT.format(
-            id=self.id,
-            nodes=self.nodes,
-            edges=self.edges,
-        )
-
- 
-        
+        # Seed the conversation with the validated initial message as the first client turn
+        self.initial_message = initial_message
+        self.messages.append({"role": "assistant", "content": initial_message})

@@ -1,0 +1,267 @@
+PATIENT 9  |  session 4  |  2026-04-05 00:31:03
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   5
+  obs_index:   4
+  max_retries: 2
+  seed:        60
+  models:
+    persona_crafter      gpt-5.4-mini
+    validator            gpt-5.4-mini
+    dialogue_state       gpt-5.4-mini
+    client               gpt-5.4-mini
+    bot                  gpt-5.4-mini
+    moderator            gpt-5.4-mini
+    analyst              gpt-5.4-mini
+    vignette_analyst     gpt-5.4-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             21
+  gender          F
+  nationality     Arab-Israeli
+  profession      Student
+  pcl5            68
+  trauma_type     Car accident
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Similar cars,Cars hit by accident,Talk about accidents
+  Negative Appraisals:
+    • People can't be trusted
+    • I have to be especially careful because you never know what can happen next
+    • I can't rely on other people
+  Memory:
+    • When I have memories of what happened I sometimes hear things in my head that I heard during the frightening event.
+    • When I remember the frightening event I feel like it is happening right now.
+    • My memories of the frightening event are like a film that plays over and over.
+  Threat:
+    • Suddenly feeling or acting as if the stressful experience were actually happening again (as if you were actually back there reliving it)?
+    • Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)?
+    • Feeling jumpy or easily startled?
+  Maladaptive Strategies:
+    • try hard not think about the trauma
+    • keep mind occupied all the time
+    • control feelings
+  Avoidance:
+    • Seeing other people that were involved in the event or that look similar
+    • Being in circumstances that remind me of the event (eg, being in the dark).
+    • Going out
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.2710
+  Triggers → Memory                                  0.0000
+  Triggers → Negative Appraisals                     0.0955
+  Negative Appraisals → Maladaptive Strategies       0.1389
+  Negative Appraisals → Threat                       0.6944
+  Negative Appraisals → Memory                       0.0000
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.0000
+  Memory → Threat                                    0.6222
+  Memory → Negative Appraisals                       0.0000
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.5556
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-11-30 13:30:08  |  index 4
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    · Negative Appraisals
+    · Memory
+    · Threat
+    · Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    · Triggers → Threat
+    · Triggers → Memory
+    · Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    · Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    · Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              1 attempt(s)  →  PASS
+  message              2 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+She is a 21-year-old Arab-Israeli university student who presents with severe post-traumatic
+distress following a car accident, with a PCL-5 score of 68 indicating marked symptom burden. Since
+the accident, everyday life has become organized around reminders of danger, particularly similar
+cars, cars that have been hit, and conversations about accidents. These cues quickly shift her from
+feeling settled into a state of alarm, with sudden surges of bodily panic, a jumpy response to
+unexpected sounds, and moments in which she feels as if the event is happening again in real time.
+
+Her account of the trauma is dominated by intrusive sensory reliving. When she remembers what
+happened, she sometimes hears the sounds that were present during the frightening event, and the
+memory feels less like recollection than a film that keeps replaying. At those times she becomes
+disoriented in the present, as though she has been pulled back into the original scene. These
+experiences appear to intensify her sense that danger remains close and immediate.
+
+In response, she has developed a strongly cautious view of the world and other people. She describes
+believing that people cannot be trusted, that she cannot rely on others, and that she must be
+especially careful because one never knows what will happen next. These beliefs have made her
+increasingly guarded in social and practical situations, and her distress is amplified when she
+encounters reminders of the accident, which quickly confirm her expectation that harm can recur
+without warning.
+
+To manage this fear, she tries hard not to think about the trauma, keeps her mind occupied all the
+time, and works to control her feelings. She also avoids going out, and is particularly
+uncomfortable being in circumstances that remind her of the event, such as being in the dark, or
+seeing other people involved in the accident or who resemble them. Although these strategies provide
+short-term relief, they leave her life increasingly restricted and distant, affecting her
+confidence, concentration as a student, and her capacity to feel at ease with other people.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+She is a 21-year-old Arab-Israeli university student who presents with severe post-traumatic
+distress following a car accident, with a PCL-5 score of 68 indicating marked symptom burden. Since
+the accident, everyday life has become organized around reminders of danger, particularly similar
+cars, cars that have been hit, and conversations about accidents. These cues quickly shift her from
+feeling settled into a state of alarm, with sudden surges of bodily panic, a jumpy response to
+unexpected sounds, and moments in which she feels as if the event is happening again in real time.
+
+Her account of the trauma is dominated by intrusive sensory reliving. When she remembers what
+happened, she sometimes hears the sounds that were present during the frightening event, and the
+memory feels less like recollection than a film that keeps replaying. At those times she becomes
+disoriented in the present, as though she has been pulled back into the original scene. These
+experiences appear to intensify her sense that danger remains close and immediate.
+
+In response, she has developed a strongly cautious view of the world and other people. She describes
+believing that people cannot be trusted, that she cannot rely on others, and that she must be
+especially careful because one never knows what will happen next. These beliefs have made her
+increasingly guarded in social and practical situations, and her distress is amplified when she
+encounters reminders of the accident, which quickly confirm her expectation that harm can recur
+without warning.
+
+To manage this fear, she tries hard not to think about the trauma, keeps her mind occupied all the
+time, and works to control her feelings. She also avoids going out, and is particularly
+uncomfortable being in circumstances that remind her of the event, such as being in the dark, or
+seeing other people involved in the accident or who resemble them. Although these strategies provide
+short-term relief, they leave her life increasingly restricted and distant, affecting her
+confidence, concentration as a student, and her capacity to feel at ease with other people.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+I was walking near the parking lot and saw a car that looked like the one from the accident, and my
+whole body went tight right away. Even after I looked away, it still felt like something bad was
+about to happen.
+
+  Feedback: The message clearly includes an active Trigger, but it also explicitly contains the inactive
+component Threat (“something bad was about to happen”) and does not avoid all inactive components as
+required.
+
+  [2] PASS
+I was walking near the parking lot and saw a car that looked like the one from the accident, and my
+whole body went tight right away. Even after I looked away, it still felt hard to settle down.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+saw a car like the one from the accident and my whole body just went tight right away and i couldnt
+calm down
+  (raw) I was walking near the parking lot and saw a car that looked like the one from the accident, and my
+whole body went tight right away. Even after I looked away, it still felt hard to settle down.
+
+[1] BOT
+What did you notice in your body after that?
+
+[2] CLIENT
+my heart started pounding and i felt shaky like i had to get out of there fast
+  (raw) My heart started pounding and my stomach dropped, like I had to get out of there fast. I felt shaky
+and on edge, like any sudden sound would make me jump.
+
+[3] BOT
+Did anything keep the feeling going after you got away, or did it drop off?
+
+[4] CLIENT
+kept replaying it and for a second i felt like i was back there so the fear wouldnt go away
+  (raw) It didn’t drop off right away because I kept replaying the moment in my head, and for a few seconds
+it felt like I was back there again. That made the fear stick around longer even after I was far
+from the car.
+
+[5] BOT
+When that happened, how far away did the memory feel from what was happening right then?
+
+[6] CLIENT
+felt like it was happening again right in front of me and i couldnt even trust i was safe
+  (raw) It didn’t feel far away at all — it felt right on top of the present, like the sound and the scene
+were happening again in front of me. I knew where I was, but it was hard to trust that I was
+actually safe in that moment.
+
+[7] BOT
+What was the strongest thing that made it feel real in that moment?
+
+[8] CLIENT
+the sound got me bad and for a second i couldnt tell then from now
+  (raw) The sound was the strongest part — it hit me so suddenly that my mind latched onto it and everything
+else got blurry. For a second I couldn’t tell the difference between then and now.
+
+[9] BOT
+Was there anything around you that kept pulling your attention back to the present?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     The client identifies an external cue that activated distress.
+      "saw a car like the one from the accident"
+  ✓ Negative Appraisals          The client expresses a belief that they were not safe.
+      "i couldnt even trust i was safe"
+  ✓ Memory                       The client describes replaying the event and reliving it as if it were happening again.
+      "kept replaying it and for a second i felt like i was back there so the fear wouldnt go away"
+  ✓ Threat                       The client shows a current sense of danger and inability to feel safe.
+      "i couldnt even trust i was safe"
+  ✓ Maladaptive Strategies       The client describes an urge to escape and likely avoidance/safety behavior in response to distress.
+      "i felt shaky like i had to get out of there fast"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             Seeing the car cue led to the urge to escape.
+      "saw a car like the one from the accident
+
+"i felt shaky like i had to get out of there fast""
+  ✓ Triggers → Threat                             The trigger immediately activated fear and hyperarousal.
+      "saw a car like the one from the accident and my whole body just went tight right away and i couldnt calm down"
+  ✓ Triggers → Memory                             The cue led to reliving/replaying the trauma.
+      "saw a car like the one from the accident
+
+"kept replaying it and for a second i felt like i was back there""
+  · Triggers → Negative Appraisals                None
+  · Negative Appraisals → Maladaptive Strategies  None
+  · Negative Appraisals → Threat                  None
+  · Negative Appraisals → Memory                  None
+  · Memory → Maladaptive Strategies               None
+  ✓ Memory → Threat                               Reliving the memory intensified fear.
+      "for a second i felt like i was back there so the fear wouldnt go away"
+  ✓ Threat → Maladaptive Strategies               Fear and bodily alarm led to escape behavior.
+      "my whole body just went tight right away and i couldnt calm down
+
+"i felt shaky like i had to get out of there fast""

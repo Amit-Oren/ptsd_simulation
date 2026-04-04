@@ -1,0 +1,295 @@
+PATIENT 8  |  session 9  |  2026-04-05 00:27:07
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   9
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-5.4-mini
+    validator            gpt-5.4-mini
+    dialogue_state       gpt-5.4-mini
+    client               gpt-5.4-mini
+    bot                  gpt-5.4-mini
+    moderator            gpt-5.4-mini
+    analyst              gpt-5.4-mini
+    vignette_analyst     gpt-5.4-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             24
+  gender          F
+  nationality     Israeli
+  profession      Student
+  pcl5            43
+  trauma_type     Terror
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Talking about the future,Reminders of victims,Sirens
+  Negative Appraisals:
+    • I will never be able to feel normal emotions again
+    • The world is a dangerous place
+    • I feel isolated and set apart from others
+  Memory:
+    • When I have memories of what happened I sometimes hear things in my head that I heard during the frightening event.
+    • I can talk about what happened very easily.
+    • Remembering what happened during the frightening event is just like looking at photographs of it in my mind.
+  Threat:
+    • Having strong negative feelings such as fear, horror, anger, guilt, or shame?
+    • Having difficulty concentrating?
+    • Trouble falling or staying asleep?
+  Maladaptive Strategies:
+    • numb emotions
+    • avoid seeing friends
+    • give up pleasant activities
+  Avoidance:
+    • Talking with others about the event or its aftermath
+    • Being in circumstances that remind me of the event (eg, being in the dark).
+    • Situations that make me feel strong emotions
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.3053
+  Triggers → Memory                                  0.0000
+  Triggers → Negative Appraisals                     0.1360
+  Negative Appraisals → Maladaptive Strategies       0.4167
+  Negative Appraisals → Threat                       0.5500
+  Negative Appraisals → Memory                       0.0000
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.0000
+  Memory → Threat                                    0.0000
+  Memory → Negative Appraisals                       0.5417
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.4333
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-11-26 19:32:07  |  index 9
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    ✓ Negative Appraisals
+    · Memory
+    ✓ Threat
+    · Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    ✓ Triggers → Threat
+    · Triggers → Memory
+    ✓ Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    · Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    · Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              1 attempt(s)  →  PASS
+  message              1 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+She is a 24-year-old Israeli student who has been struggling since a terror-related event that left
+her feeling persistently unsettled and on edge. Her PCL-5 score of 43 is consistent with a
+clinically significant level of post-traumatic stress, and her difficulties now spill into everyday
+life in ways that interfere with study, sleep, and relationships. She describes being particularly
+unsettled by sirens, reminders of victims, and even conversations about the future, which seem to
+leave her immediately more emotionally and physically strained. In those moments she becomes flooded
+with strong fear, anger, guilt, or shame, finds it hard to concentrate, and often lies awake or
+wakes repeatedly through the night.
+
+Her memories of the event remain vivid and intrusive in a sensory way: when she thinks about what
+happened, it is “like looking at photographs,” and at times she hears in her mind sounds that were
+present during the frightening event. Rather than being comforting, her ability to speak about what
+happened easily seems to reflect how close the experience still feels in her mind, with these
+memories helping to reinforce the sense that what happened was profoundly dangerous and has changed
+her permanently. She fears she will never be able to feel normal emotions again, and the world now
+feels to her like a dangerous place. She also describes feeling isolated and set apart from others,
+as though her experience places her outside ordinary life.
+
+These appraisals appear to intensify her sense of threat and shape the ways she tries to manage it.
+In response, she has been numbing her emotions, avoiding friends, giving up pleasant activities,
+steering clear of situations that bring up strong feelings, and resisting circumstances that remind
+her of the event, including being in the dark. Although these strategies offer short-term relief,
+they have narrowed her world and reduced opportunities for support, pleasure, and recovery. Over
+time, her attempts to control the distress seem to have deepened her isolation and left her feeling
+increasingly disconnected from the life she had before.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+She is a 24-year-old Israeli student who has been struggling since a terror-related event that left
+her feeling persistently unsettled and on edge. Her PCL-5 score of 43 is consistent with a
+clinically significant level of post-traumatic stress, and her difficulties now spill into everyday
+life in ways that interfere with study, sleep, and relationships. She describes being particularly
+unsettled by sirens, reminders of victims, and even conversations about the future, which seem to
+leave her immediately more emotionally and physically strained. In those moments she becomes flooded
+with strong fear, anger, guilt, or shame, finds it hard to concentrate, and often lies awake or
+wakes repeatedly through the night.
+
+Her memories of the event remain vivid and intrusive in a sensory way: when she thinks about what
+happened, it is “like looking at photographs,” and at times she hears in her mind sounds that were
+present during the frightening event. Rather than being comforting, her ability to speak about what
+happened easily seems to reflect how close the experience still feels in her mind, with these
+memories helping to reinforce the sense that what happened was profoundly dangerous and has changed
+her permanently. She fears she will never be able to feel normal emotions again, and the world now
+feels to her like a dangerous place. She also describes feeling isolated and set apart from others,
+as though her experience places her outside ordinary life.
+
+These appraisals appear to intensify her sense of threat and shape the ways she tries to manage it.
+In response, she has been numbing her emotions, avoiding friends, giving up pleasant activities,
+steering clear of situations that bring up strong feelings, and resisting circumstances that remind
+her of the event, including being in the dark. Although these strategies offer short-term relief,
+they have narrowed her world and reduced opportunities for support, pleasure, and recovery. Over
+time, her attempts to control the distress seem to have deepened her isolation and left her feeling
+increasingly disconnected from the life she had before.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+I was walking home when I heard a siren in the distance, and my whole body just went tight like I
+was back there for a second. Now I can’t shake the feeling that something bad is about to happen.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+heard a siren and my whole body went tight like i was back there and now i cant shake this feeling
+something bad is about to happen
+  (raw) I was walking home when I heard a siren in the distance, and my whole body just went tight like I
+was back there for a second. Now I can’t shake the feeling that something bad is about to happen.
+
+[1] BOT
+What is the feeling of “something bad is about to happen” like right now, in your body or thoughts?
+
+[2] CLIENT
+my chest feels so tight and i keep scanning everything like somethings gonna happen even when
+nothing is wrong
+  (raw) It’s like my chest is clenched and I keep scanning everything around me without meaning to, as if I
+need to catch the danger before it gets close. In my head it turns into this nasty thought that I’m
+not actually safe here, even if nothing is happening.
+
+[3] BOT
+How strong is the scanning feeling right now, from 0 to 10?
+
+[4] CLIENT
+about a 7 it hits me fast when something reminds me and then i cant stop noticing every little sound
+and movement
+  (raw) About a 7 — it kicks in fast when something reminds me of what happened, and then I can’t stop
+noticing every little sound and movement.
+
+[5] BOT
+What were you doing right before it hit?
+
+[6] CLIENT
+was trying to study ואז a siren went off and i just froze like something bad was happening
+  (raw) I was trying to start studying at my desk, and then a siren outside cut through everything. The
+second I heard it, my mind jumped straight to danger and I felt like I had to stop and listen.
+
+[7] BOT
+How long did the frozen feeling last?
+
+[8] CLIENT
+even after it stopped i was still braced like something bad was about to happen
+  (raw) Just a few minutes, but it felt longer because I kept waiting for the worst to happen. Even after
+the sound faded, my body stayed braced like it hadn’t really ended.
+
+[9] BOT
+What is the strongest thing happening right now: the body tension, the scanning, or the sense of
+danger?
+
+[10] CLIENT
+that danger feeling is הכי strong right now like my body just stays tense and i cant focus on
+anything else
+  (raw) The sense of danger is strongest right now, because it’s the thing making my body stay tense and my
+attention keep snapping around. Once that thought hits, everything else follows.
+
+[11] BOT
+What do you notice in your mind when that danger feeling is strongest?
+
+[12] CLIENT
+it just goes straight to awful images and i feel sick like the world isnt safe at all
+  (raw) It goes straight to images of people getting hurt, like those awful scenes are right there in my
+head, and I feel sick. Then I start thinking this world is just unsafe, and I can’t fully trust it.
+
+[13] BOT
+When the images come up, do they feel like something happening now, or like a memory?
+
+[14] CLIENT
+feels like its happening right now not like something in the past
+  (raw) Like something happening now, honestly — not like a story I’m telling, but like the danger is right
+in front of me again. That makes the fear feel immediate all over again.
+
+[15] BOT
+How much do the images feel like they are happening right now, from 0 to 10?
+
+[16] CLIENT
+they hit so hard i feel like im back in that fear for a second
+  (raw) A 9. They hit so hard that for a moment I’m not in the room anymore, I’m just inside that fear
+again.
+
+[17] BOT
+What helps it drop, even a little, when it spikes like that?
+
+[18] CLIENT
+sometimes if i focus on one thing and breathe slow it helps a tiny bit but the second something
+reminds me the panic comes right back
+  (raw) Sometimes if I force myself to look at one fixed thing in the room and keep breathing slowly, it
+drops a tiny bit. But the second something reminds me again, the danger feeling comes right back.
+
+[19] BOT
+Are you safe right now?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     External cues clearly activate distress.
+      ""heard a siren and my whole body went tight like i was back there""
+  ✓ Negative Appraisals          The client expresses catastrophic beliefs about danger and safety.
+      ""something bad is about to happen""
+  ✓ Memory                       There is explicit reliving/flashback-like experience and being 'back there'.
+      "["heard a siren and my whole body went tight like i was back there", "they hit so hard i feel like im back in that fear for a second"]"
+  ✓ Threat                       Clear ongoing sense of current danger and hypervigilance.
+      "["something bad is about to happen", "i keep scanning everything like somethings gonna happen even when nothing is wrong", "i was still braced like something bad was about to happen", "that danger feeling is הכי strong right now"]"
+  ✓ Maladaptive Strategies       Scanning, freezing/bracing, and focusing/breathing to manage symptoms are coping strategies that appear to maintain distress.
+      "["i keep scanning everything like somethings gonna happen even when nothing is wrong", "i just froze like something bad was happening", "i was still braced like something bad was about to happen", "sometimes if i focus on one thing and breathe slow it helps a tiny bit"]"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The siren/reminders lead to scanning, freezing, and bracing.
+      "["heard a siren and my whole body went tight like i was back there", "it hits me fast when something reminds me and then i cant stop noticing every little sound and movement", "was trying to study ואז a siren went off and i just froze like something bad was happening"]"
+  ✓ Triggers → Threat                             Reminders such as the siren trigger the current danger feeling.
+      "["heard a siren and my whole body went tight like i was back there and now i cant shake this feeling something bad is about to happen", "it hits me fast when something reminds me"]"
+  ✓ Triggers → Memory                             The siren/reminders evoke reliving/back-there experiences.
+      "["heard a siren and my whole body went tight like i was back there", "it hits me fast when something reminds me", "was trying to study ואז a siren went off and i just froze like something bad was happening"]"
+  · Triggers → Negative Appraisals                No clear direct statement that triggers cause appraisals beyond general distress.
+  · Negative Appraisals → Maladaptive Strategies  No explicit causal link from appraisals to strategies.
+  ✓ Negative Appraisals → Threat                  Catastrophic appraisals directly intensify the sense of danger.
+      "["something bad is about to happen", "the world isnt safe at all"]"
+  · Negative Appraisals → Memory                  No clear direct link from negative appraisals to memory intrusion.
+  · Memory → Maladaptive Strategies               No explicit link from memory to coping behaviors.
+  ✓ Memory → Threat                               Reliving/back-there experiences are described as bringing on current fear/danger.
+      "["heard a siren and my whole body went tight like i was back there", "they hit so hard i feel like im back in that fear for a second"]"
+  ✓ Threat → Maladaptive Strategies               The danger feeling is followed by scanning, freezing, bracing, and difficulty focusing.
+      "["that danger feeling is הכי strong right now like my body just stays tense and i cant focus on anything else", "i keep scanning everything like somethings gonna happen even when nothing is wrong", "i was still braced like something bad was about to happen"]"

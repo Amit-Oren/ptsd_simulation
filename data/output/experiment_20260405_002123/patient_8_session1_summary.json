@@ -1,0 +1,89 @@
+{
+  "patient_id": 8,
+  "timestamp": "2026-04-05 00:22:40",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4-mini",
+      "validator": "gpt-5.4-mini",
+      "dialogue_state": "gpt-5.4-mini",
+      "client": "gpt-5.4-mini",
+      "bot": "gpt-5.4-mini",
+      "moderator": "gpt-5.4-mini",
+      "analyst": "gpt-5.4-mini",
+      "vignette_analyst": "gpt-5.4-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 1,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 24,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 43,
+    "trauma_type": "Terror"
+  },
+  "self_report": {
+    "trigger_items": "Talking about the future,Reminders of victims,Sirens",
+    "appraisals_items_original": "I will never be able to feel normal emotions again | The world is a dangerous place | I feel isolated and set apart from others",
+    "memory_items_original": "When I have memories of what happened I sometimes hear things in my head that I heard during the frightening event. | I can talk about what happened very easily. | Remembering what happened during the frightening event is just like looking at photographs of it in my mind.",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "strategies_items_original": "numb emotions | avoid seeing friends | give up pleasant activities",
+    "avoidance_items_original": "Talking with others about the event or its aftermath | Being in circumstances that remind me of the event (eg, being in the dark). | Situations that make me feel strong emotions"
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.3052631578947368,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1359649122807018,
+    "Negative Appraisals -- Maladaptive Strategies": 0.4166666666666666,
+    "Negative Appraisals -- Threat": 0.55,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.0,
+    "Memory -- Negative Appraisals": 0.5416666666666666,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.4333333333333333,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "observation": {
+    "datetime": "2024-11-22 19:00:20",
+    "index": 1,
+    "nodes": {
+      "Triggers": 1,
+      "Negative Appraisals": 1,
+      "Memory": 0,
+      "Threat": 1,
+      "Maladaptive Strategies": 0
+    },
+    "edges": {
+      "Triggers -- Maladaptive Strategies": 0,
+      "Triggers -- Threat": 1,
+      "Triggers -- Memory": 0,
+      "Triggers -- Negative Appraisals": 0,
+      "Negative Appraisals -- Maladaptive Strategies": 0,
+      "Negative Appraisals -- Threat": 1,
+      "Negative Appraisals -- Memory": 0,
+      "Negative Appraisals -- Triggers": 0,
+      "Memory -- Maladaptive Strategies": 0,
+      "Memory -- Threat": 0,
+      "Memory -- Negative Appraisals": 0,
+      "Memory -- Triggers": 0,
+      "Threat -- Maladaptive Strategies": 0,
+      "Threat -- Memory": 0,
+      "Threat -- Negative Appraisals": 0,
+      "Threat -- Triggers": 0,
+      "Maladaptive Strategies -- Memory": 0,
+      "Maladaptive Strategies -- Negative Appraisals": 0
+    }
+  }
+}

@@ -1,8 +1,8 @@
 simulation:
   num_patients: 1
-  patient_ids: [7]   # e.g. [23] or [23, 45] — overrides num_patients if set
-  num_turns: 10
-  seed: 30
+  patient_ids: [9]   # e.g. [23] or [23, 45] — overrides num_patients if set
+  num_turns: 5
+  seed: 60
   obs_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # single int or list of session indices
   max_validation_retries: 2
   temperature: 0.7

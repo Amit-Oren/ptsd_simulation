@@ -1,0 +1,89 @@
+{
+  "patient_id": 9,
+  "timestamp": "2026-04-05 00:31:42",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4-mini",
+      "validator": "gpt-5.4-mini",
+      "dialogue_state": "gpt-5.4-mini",
+      "client": "gpt-5.4-mini",
+      "bot": "gpt-5.4-mini",
+      "moderator": "gpt-5.4-mini",
+      "analyst": "gpt-5.4-mini",
+      "vignette_analyst": "gpt-5.4-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 5,
+    "obs_index": 6,
+    "max_retries": 2,
+    "seed": 60
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Arab-Israeli",
+    "profession": "Student",
+    "pcl5": 68,
+    "trauma_type": "Car accident"
+  },
+  "self_report": {
+    "trigger_items": "Similar cars,Cars hit by accident,Talk about accidents",
+    "appraisals_items_original": "People can't be trusted | I have to be especially careful because you never know what can happen next | I can't rely on other people",
+    "memory_items_original": "When I have memories of what happened I sometimes hear things in my head that I heard during the frightening event. | When I remember the frightening event I feel like it is happening right now. | My memories of the frightening event are like a film that plays over and over.",
+    "threat_items_original": "Suddenly feeling or acting as if the stressful experience were actually happening again (as if you were actually back there reliving it)? | Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)? | Feeling jumpy or easily startled?",
+    "strategies_items_original": "try hard not think about the trauma | keep mind occupied all the time | control feelings",
+    "avoidance_items_original": "Seeing other people that were involved in the event or that look similar | Being in circumstances that remind me of the event (eg, being in the dark). | Going out"
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.2710027100271003,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.0955284552845528,
+    "Negative Appraisals -- Maladaptive Strategies": 0.1388888888888889,
+    "Negative Appraisals -- Threat": 0.6944444444444444,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.6222222222222222,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.5555555555555556,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "observation": {
+    "datetime": "2024-12-01 14:00:19",
+    "index": 6,
+    "nodes": {
+      "Triggers": 1,
+      "Negative Appraisals": 1,
+      "Memory": 0,
+      "Threat": 1,
+      "Maladaptive Strategies": 1
+    },
+    "edges": {
+      "Triggers -- Maladaptive Strategies": 0,
+      "Triggers -- Threat": 0,
+      "Triggers -- Memory": 0,
+      "Triggers -- Negative Appraisals": 0,
+      "Negative Appraisals -- Maladaptive Strategies": 0,
+      "Negative Appraisals -- Threat": 1,
+      "Negative Appraisals -- Memory": 0,
+      "Negative Appraisals -- Triggers": 0,
+      "Memory -- Maladaptive Strategies": 0,
+      "Memory -- Threat": 0,
+      "Memory -- Negative Appraisals": 0,
+      "Memory -- Triggers": 0,
+      "Threat -- Maladaptive Strategies": 0,
+      "Threat -- Memory": 0,
+      "Threat -- Negative Appraisals": 0,
+      "Threat -- Triggers": 0,
+      "Maladaptive Strategies -- Memory": 0,
+      "Maladaptive Strategies -- Negative Appraisals": 0
+    }
+  }
+}

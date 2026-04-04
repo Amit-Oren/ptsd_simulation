@@ -3,6 +3,7 @@ chat.py — renders a patient conversation as left/right chat bubbles.
 """
 
 import base64
+import html
 import sys
 from pathlib import Path
 
@@ -38,6 +39,7 @@ def render_conversation(conversation: list[dict], moderation_log: list[dict] | N
 
         if speaker == "client":
             raw_text = raw_by_turn.get(turn_index)
+            safe_text = html.escape(text)
             st.markdown(
                 f"""
                 <div style="display:flex; justify-content:flex-end; align-items:flex-end; gap:8px; margin:8px 0;">
@@ -50,7 +52,7 @@ def render_conversation(conversation: list[dict], moderation_log: list[dict] | N
                         font-size:14px;
                         line-height:1.5;
                     ">
-                        {text}
+                        {safe_text}
                         <div style="font-size:11px;opacity:0.75;margin-top:6px;text-align:right;">
                             Client · turn {turn_index}
                         </div>
@@ -65,10 +67,11 @@ def render_conversation(conversation: list[dict], moderation_log: list[dict] | N
                 with btn_col:
                     with st.popover("original", use_container_width=True):
                         st.markdown(
-                            f"""<div style="font-size:13px;color:#555;line-height:1.5;">{raw_text}</div>""",
+                            f"""<div style="font-size:13px;color:#555;line-height:1.5;">{html.escape(raw_text)}</div>""",
                             unsafe_allow_html=True,
                         )
         else:
+            safe_text = html.escape(text)
             st.markdown(
                 f"""
                 <div style="display:flex; justify-content:flex-start; align-items:flex-end; gap:8px; margin:8px 0;">
@@ -82,7 +85,7 @@ def render_conversation(conversation: list[dict], moderation_log: list[dict] | N
                         font-size:14px;
                         line-height:1.5;
                     ">
-                        {text}
+                        {safe_text}
                         <div style="font-size:11px;opacity:0.6;margin-top:6px;">
                             Bot · turn {turn_index}
                         </div>

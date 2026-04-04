@@ -1,0 +1,400 @@
+{
+  "patient_id": 8,
+  "experiment_timestamp": "2026-04-05 00:24:22",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4-mini",
+      "validator": "gpt-5.4-mini",
+      "dialogue_state": "gpt-5.4-mini",
+      "client": "gpt-5.4-mini",
+      "bot": "gpt-5.4-mini",
+      "moderator": "gpt-5.4-mini",
+      "analyst": "gpt-5.4-mini",
+      "vignette_analyst": "gpt-5.4-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 4,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 24,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 43,
+    "trauma_type": "Terror"
+  },
+  "self_report": {
+    "trigger_items": "Talking about the future,Reminders of victims,Sirens",
+    "trigger_category": "Perceptual/Emotional, Trauma-Related, Sensory",
+    "trigger_subcategory": "Future Orientation, Victim Memories, Auditory (Sirens)",
+    "appraisals_items_label": "I’ll never feel normal again   | World is dangerous   | Feel isolated, set apart  ",
+    "appraisals_items_original": "I will never be able to feel normal emotions again | The world is a dangerous place | I feel isolated and set apart from others",
+    "memory_items_label": "Auditory Recall | Verbal Access | Photographic Recall",
+    "memory_items_original": "When I have memories of what happened I sometimes hear things in my head that I heard during the frightening event. | I can talk about what happened very easily. | Remembering what happened during the frightening event is just like looking at photographs of it in my mind.",
+    "threat_items_label": "Negative Emotions | Concentration | Sleep Problems",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "threat_items_original_label": "Negative Emotions | Concentration | Sleep Problems",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "strategies_items_label": "Emotional Numbing | Avoid Friends | Stop Enjoyment",
+    "strategies_items_original": "numb emotions | avoid seeing friends | give up pleasant activities",
+    "avoidance_items_label": "Avoid Talking | Avoid Circumstances | Avoid Emotional Stress",
+    "avoidance_items_original": "Talking with others about the event or its aftermath | Being in circumstances that remind me of the event (eg, being in the dark). | Situations that make me feel strong emotions"
+  },
+  "obs_datetime": "2024-11-24 13:01:43",
+  "obs_index": 4,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 0,
+    "Threat": 0,
+    "Maladaptive Strategies": 0
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.3052631578947368,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1359649122807018,
+    "Negative Appraisals -- Maladaptive Strategies": 0.4166666666666666,
+    "Negative Appraisals -- Threat": 0.55,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.0,
+    "Memory -- Negative Appraisals": 0.5416666666666666,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.4333333333333333,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    },
+    "message": {
+      "attempts": 2,
+      "passed": 1,
+      "failed": 1,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "She is a 24-year-old Israeli student who has been struggling since a terror-related event that left her feeling persistently unsettled and on edge. Her PCL-5 score of 43 is consistent with a clinically significant level of post-traumatic stress, and her difficulties now spill into everyday life in ways that interfere with study, sleep, and relationships. She describes being particularly unsettled by sirens, reminders of victims, and even conversations about the future, which seem to leave her immediately more emotionally and physically strained. In those moments she becomes flooded with strong fear, anger, guilt, or shame, finds it hard to concentrate, and often lies awake or wakes repeatedly through the night.\n\nHer memories of the event remain vivid and intrusive in a sensory way: when she thinks about what happened, it is “like looking at photographs,” and at times she hears in her mind sounds that were present during the frightening event. Rather than being comforting, her ability to speak about what happened easily seems to reflect how close the experience still feels in her mind, with these memories helping to reinforce the sense that what happened was profoundly dangerous and has changed her permanently. She fears she will never be able to feel normal emotions again, and the world now feels to her like a dangerous place. She also describes feeling isolated and set apart from others, as though her experience places her outside ordinary life.\n\nThese appraisals appear to intensify her sense of threat and shape the ways she tries to manage it. In response, she has been numbing her emotions, avoiding friends, giving up pleasant activities, steering clear of situations that bring up strong feelings, and resisting circumstances that remind her of the event, including being in the dark. Although these strategies offer short-term relief, they have narrowed her world and reduced opportunities for support, pleasure, and recovery. Over time, her attempts to control the distress seem to have deepened her isolation and left her feeling increasingly disconnected from the life she had before.",
+  "persona_attempts": [
+    {
+      "output": "She is a 24-year-old Israeli student who has been struggling since a terror-related event that left her feeling persistently unsettled and on edge. Her PCL-5 score of 43 is consistent with a clinically significant level of post-traumatic stress, and her difficulties now spill into everyday life in ways that interfere with study, sleep, and relationships. She describes being particularly unsettled by sirens, reminders of victims, and even conversations about the future, which seem to leave her immediately more emotionally and physically strained. In those moments she becomes flooded with strong fear, anger, guilt, or shame, finds it hard to concentrate, and often lies awake or wakes repeatedly through the night.\n\nHer memories of the event remain vivid and intrusive in a sensory way: when she thinks about what happened, it is “like looking at photographs,” and at times she hears in her mind sounds that were present during the frightening event. Rather than being comforting, her ability to speak about what happened easily seems to reflect how close the experience still feels in her mind, with these memories helping to reinforce the sense that what happened was profoundly dangerous and has changed her permanently. She fears she will never be able to feel normal emotions again, and the world now feels to her like a dangerous place. She also describes feeling isolated and set apart from others, as though her experience places her outside ordinary life.\n\nThese appraisals appear to intensify her sense of threat and shape the ways she tries to manage it. In response, she has been numbing her emotions, avoiding friends, giving up pleasant activities, steering clear of situations that bring up strong feelings, and resisting circumstances that remind her of the event, including being in the dark. Although these strategies offer short-term relief, they have narrowed her world and reduced opportunities for support, pleasure, and recovery. Over time, her attempts to control the distress seem to have deepened her isolation and left her feeling increasingly disconnected from the life she had before.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "The vignette directly states that reminders and situations that bring up strong feelings lead her to avoid and resist them.",
+      "quote": "\"she has been numbing her emotions, avoiding friends, giving up pleasant activities, steering clear of situations that bring up strong feelings, and resisting circumstances that remind her of the event\""
+    },
+    "Triggers--Threat": {
+      "weight": 0.8,
+      "explanation": "Sirens, reminders of victims, and future-related conversations are described as making her immediately more emotionally and physically strained and reinforcing danger.",
+      "quote": "\"sirens, reminders of victims, and even conversations about the future\""
+    },
+    "Triggers--Memory": {
+      "weight": 0.8,
+      "explanation": "The vignette links cues and reminders to her intrusive recollections of the event, including sensory flashbacks when she thinks about it.",
+      "quote": "\"Her memories of the event remain vivid and intrusive in a sensory way\""
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "The text suggests that reminders and future-related cues occur alongside beliefs that the world is dangerous and that she is permanently changed, but does not directly state the triggers cause those beliefs.",
+      "quote": "\"sirens, reminders of victims, and even conversations about the future\""
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Her beliefs that the event changed her permanently and that the world is dangerous are presented as shaping her avoidant coping.",
+      "quote": "\"These appraisals appear to intensify her sense of threat and shape the ways she tries to manage it.\""
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 1.0,
+      "explanation": "The vignette explicitly says her appraisals intensify her sense of threat.",
+      "quote": "\"These appraisals appear to intensify her sense of threat\""
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.8,
+      "explanation": "Her appraisals are described as being reinforced by vivid memories and close, sensory recollection of the event.",
+      "quote": "\"these memories helping to reinforce the sense that what happened was profoundly dangerous and has changed her permanently\""
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.2,
+      "explanation": "The vignette mentions that her appraisals are shaped by the trauma memories, but it does not clearly state that negative appraisals generate triggers.",
+      "quote": "\"these memories helping to reinforce\""
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.6,
+      "explanation": "Her intrusive memories and close access to the event are associated with avoidance and numbing as attempts to control distress.",
+      "quote": "\"Her memories of the event remain vivid and intrusive\""
+    },
+    "Memory--Threat": {
+      "weight": 0.8,
+      "explanation": "The memories are said to reinforce the idea that the event was profoundly dangerous, which heightens threat.",
+      "quote": "\"these memories helping to reinforce the sense that what happened was profoundly dangerous\""
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 0.8,
+      "explanation": "The vignette directly links her vivid memories with beliefs that the event was dangerous and permanently changed her.",
+      "quote": "\"these memories helping to reinforce the sense that what happened was profoundly dangerous and has changed her permanently\""
+    },
+    "Memory--Triggers": {
+      "weight": 0.6,
+      "explanation": "The memories are described as being activated when she thinks about what happened, implying internal cues trigger them.",
+      "quote": "\"when she thinks about what happened\""
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Her heightened sense of threat is followed by coping efforts aimed at controlling distress, including avoidance and numbing.",
+      "quote": "\"These appraisals appear to intensify her sense of threat and shape the ways she tries to manage it.\""
+    },
+    "Threat--Memory": {
+      "weight": 0.0,
+      "explanation": "The vignette does not state that threat causes her intrusive memories.",
+      "quote": ""
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 0.0,
+      "explanation": "The text does not clearly indicate that feeling threatened produces her negative beliefs.",
+      "quote": ""
+    },
+    "Threat--Triggers": {
+      "weight": 0.0,
+      "explanation": "There is no direct evidence that her sense of threat creates triggers in the vignette.",
+      "quote": ""
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.0,
+      "explanation": "The vignette does not say that avoidance or numbing alters her memories.",
+      "quote": ""
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "By narrowing her world and deepening isolation, her coping strategies seem to maintain the disconnection that fits her negative beliefs about being set apart.",
+      "quote": "\"Over time, her attempts to control the distress seem to have deepened her isolation and left her feeling increasingly disconnected\""
+    }
+  },
+  "initial_message": "I’m sitting on the bus and a siren in the distance makes my whole body go tight before I can even think. I just want to disappear and not look at anyone.",
+  "message_attempts": [
+    {
+      "output": "I’m sitting on the bus and a siren in the distance makes my whole body go tight before I can even think. It feels like I’m right back there for a second, and I just want to disappear into my headphones and not look at anyone.",
+      "passed": false,
+      "feedback": "The message includes an active trigger (the siren) but also explicitly contains inactive components like memory ('right back there') and maladaptive strategies ('headphones' and not looking at anyone), which are not allowed."
+    },
+    {
+      "output": "I’m sitting on the bus and a siren in the distance makes my whole body go tight before I can even think. I just want to disappear and not look at anyone.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I’m sitting on the bus and a siren in the distance makes my whole body go tight before I can even think. I just want to disappear and not look at anyone.",
+      "moderated": "on the bus and heard a siren and my whole body just went tight i wanna disappear and not look at anyone"
+    },
+    {
+      "turn_index": 2,
+      "raw": "My stomach dropped and my chest got really tight, like I couldn’t get a full breath in. My hands went cold and I kept staring ahead, not really seeing anything.",
+      "moderated": "my stomach dropped and my chest got so tight i couldnt really breathe and i just kinda froze staring ahead"
+    },
+    {
+      "turn_index": 4,
+      "raw": "Mostly just that something bad was about to happen again, and I needed to get out of there. Everything felt suddenly close and urgent, like I couldn’t trust the next minute.",
+      "moderated": "felt like something bad was about to happen again and i had to get out right away"
+    },
+    {
+      "turn_index": 6,
+      "raw": "Yeah, the bus felt far away for a second, like I was there but not really there. I kept looking out the window and the street seemed flat and weirdly cut off from me.",
+      "moderated": "yeah the bus felt weirdly far away for a second like i was there but not really there"
+    },
+    {
+      "turn_index": 8,
+      "raw": "About an 8. It hit fast and made me want to shut down and just sit there בלי לדבר or do anything.",
+      "moderated": "about an 8 it hit fast and made me want to shut down and just sit there בלי לדבר or do anything"
+    },
+    {
+      "turn_index": 10,
+      "raw": "I put my headphones in, looked down at my phone, and tried not to think about the sound at all. I just wanted the whole ride to pass without me having to feel anything.",
+      "moderated": "put my headphones in and stared at my phone just trying to get through the ride without feeling anything"
+    },
+    {
+      "turn_index": 12,
+      "raw": "It kept popping back in for a while, especially the sound itself. Even after it was gone, I still had that sharp jumpy feeling like it was right behind me.",
+      "moderated": "it kept popping back in for a while especially the sound itself and even after it was gone i still felt super jumpy like it was right behind me"
+    },
+    {
+      "turn_index": 14,
+      "raw": "My shoulders are tense and my breathing got shallow again. I keep feeling like I need to be ready to move, even though I’m just sitting here.",
+      "moderated": "my shoulders are so tense and i keep feeling like i need to jump up even tho im just sitting here"
+    },
+    {
+      "turn_index": 16,
+      "raw": "Pretty hard. I read the same line over and over and it doesn’t stick, because part of me is still stuck on that siren.",
+      "moderated": "cant focus at all cuz that siren is still in my head"
+    },
+    {
+      "turn_index": 18,
+      "raw": "That something bad is coming and I won’t have time to react. It makes everything feel unsafe for a moment, like I need to brace myself.",
+      "moderated": "feels like something bad is about to happen and i wont have time to react"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "on the bus and heard a siren and my whole body just went tight i wanna disappear and not look at anyone"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What did you notice in your body right after the siren?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "my stomach dropped and my chest got so tight i couldnt really breathe and i just kinda froze staring ahead"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "What was going through your mind in that moment?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "felt like something bad was about to happen again and i had to get out right away"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "Did anything around you start feeling unreal or distant on the bus?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "yeah the bus felt weirdly far away for a second like i was there but not really there"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "How strong was that feeling, from 0 to 10?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "about an 8 it hit fast and made me want to shut down and just sit there בלי לדבר or do anything"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "What did you do next on the bus?"},
+
+    {"speaker": "client", "turn_index": 10, "text": "put my headphones in and stared at my phone just trying to get through the ride without feeling anything"},
+
+    {"speaker": "bot", "turn_index": 11, "text": "Did the siren keep coming back to your mind after that, or did it fade?"},
+
+    {"speaker": "client", "turn_index": 12, "text": "it kept popping back in for a while especially the sound itself and even after it was gone i still felt super jumpy like it was right behind me"},
+
+    {"speaker": "bot", "turn_index": 13, "text": "What’s your body doing right now as you think about it?"},
+
+    {"speaker": "client", "turn_index": 14, "text": "my shoulders are so tense and i keep feeling like i need to jump up even tho im just sitting here"},
+
+    {"speaker": "bot", "turn_index": 15, "text": "How hard is it to focus on what’s in front of you right now?"},
+
+    {"speaker": "client", "turn_index": 16, "text": "cant focus at all cuz that siren is still in my head"},
+
+    {"speaker": "bot", "turn_index": 17, "text": "What does the siren make you think will happen next?"},
+
+    {"speaker": "client", "turn_index": 18, "text": "feels like something bad is about to happen and i wont have time to react"},
+
+    {"speaker": "bot", "turn_index": 19, "text": "Do you feel like you need to do something right now to stay safe?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The siren on the bus is an external cue that activated distress.",
+        "quote": "on the bus and heard a siren and my whole body just went tight i wanna disappear and not look at anyone"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client appraises the situation as signaling impending harm.",
+        "quote": "felt like something bad was about to happen again and i had to get out right away"
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client reports the siren sound popping back into mind and persistent re-experiencing of it.",
+        "quote": "it kept popping back in for a while especially the sound itself and even after it was gone i still felt super jumpy like it was right behind me"
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "There is a clear ongoing sense of imminent danger and inability to react in time.",
+        "quote": "feels like something bad is about to happen and i wont have time to react"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes avoidance/suppression and disengagement strategies to cope with distress.",
+        "quote": "put my headphones in and stared at my phone just trying to get through the ride without feeling anything"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The siren triggered coping behaviors on the bus.",
+        "quote": "on the bus and heard a siren and my whole body just went tight i wanna disappear and not look at anyone"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The siren cue led to feeling that something bad was about to happen.",
+        "quote": "felt like something bad was about to happen again and i had to get out right away"
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The siren acted as a trigger for intrusive recall of the sound.",
+        "quote": "it kept popping back in for a while especially the sound itself"
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 0,
+        "explanation": "The conversation does not clearly show the siren directly causing a negative appraisal beyond general distress.",
+        "quote": ""
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Belief that something bad is about to happen led to an urge to get out and shut down.",
+        "quote": "felt like something bad was about to happen again and i had to get out right away"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The appraisal directly reflects current threat.",
+        "quote": "felt like something bad was about to happen again and i had to get out right away"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": "No clear evidence that the appraisal caused the intrusive memory.",
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 0,
+        "explanation": "No explicit link from the memory to the coping behaviors is stated.",
+        "quote": ""
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The intrusive return of the siren is associated with feeling jumpy and as if danger is near.",
+        "quote": "it kept popping back in for a while especially the sound itself and even after it was gone i still felt super jumpy like it was right behind me"
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Feeling threatened led to safety/avoidance behaviors such as headphones and phone distraction.",
+        "quote": "put my headphones in and stared at my phone just trying to get through the ride without feeling anything"
+      }
+    }
+  }
+}

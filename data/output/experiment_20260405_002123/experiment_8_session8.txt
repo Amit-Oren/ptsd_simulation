@@ -1,0 +1,305 @@
+PATIENT 8  |  session 8  |  2026-04-05 00:26:33
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   8
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-5.4-mini
+    validator            gpt-5.4-mini
+    dialogue_state       gpt-5.4-mini
+    client               gpt-5.4-mini
+    bot                  gpt-5.4-mini
+    moderator            gpt-5.4-mini
+    analyst              gpt-5.4-mini
+    vignette_analyst     gpt-5.4-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             24
+  gender          F
+  nationality     Israeli
+  profession      Student
+  pcl5            43
+  trauma_type     Terror
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Talking about the future,Reminders of victims,Sirens
+  Negative Appraisals:
+    • I will never be able to feel normal emotions again
+    • The world is a dangerous place
+    • I feel isolated and set apart from others
+  Memory:
+    • When I have memories of what happened I sometimes hear things in my head that I heard during the frightening event.
+    • I can talk about what happened very easily.
+    • Remembering what happened during the frightening event is just like looking at photographs of it in my mind.
+  Threat:
+    • Having strong negative feelings such as fear, horror, anger, guilt, or shame?
+    • Having difficulty concentrating?
+    • Trouble falling or staying asleep?
+  Maladaptive Strategies:
+    • numb emotions
+    • avoid seeing friends
+    • give up pleasant activities
+  Avoidance:
+    • Talking with others about the event or its aftermath
+    • Being in circumstances that remind me of the event (eg, being in the dark).
+    • Situations that make me feel strong emotions
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.3053
+  Triggers → Memory                                  0.0000
+  Triggers → Negative Appraisals                     0.1360
+  Negative Appraisals → Maladaptive Strategies       0.4167
+  Negative Appraisals → Threat                       0.5500
+  Negative Appraisals → Memory                       0.0000
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.0000
+  Memory → Threat                                    0.0000
+  Memory → Negative Appraisals                       0.5417
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.4333
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-11-26 13:30:18  |  index 8
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    ✓ Negative Appraisals
+    · Memory
+    · Threat
+    · Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    · Triggers → Threat
+    · Triggers → Memory
+    · Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    · Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    · Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              1 attempt(s)  →  PASS
+  message              2 attempt(s)  →  FAIL
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+She is a 24-year-old Israeli student who has been struggling since a terror-related event that left
+her feeling persistently unsettled and on edge. Her PCL-5 score of 43 is consistent with a
+clinically significant level of post-traumatic stress, and her difficulties now spill into everyday
+life in ways that interfere with study, sleep, and relationships. She describes being particularly
+unsettled by sirens, reminders of victims, and even conversations about the future, which seem to
+leave her immediately more emotionally and physically strained. In those moments she becomes flooded
+with strong fear, anger, guilt, or shame, finds it hard to concentrate, and often lies awake or
+wakes repeatedly through the night.
+
+Her memories of the event remain vivid and intrusive in a sensory way: when she thinks about what
+happened, it is “like looking at photographs,” and at times she hears in her mind sounds that were
+present during the frightening event. Rather than being comforting, her ability to speak about what
+happened easily seems to reflect how close the experience still feels in her mind, with these
+memories helping to reinforce the sense that what happened was profoundly dangerous and has changed
+her permanently. She fears she will never be able to feel normal emotions again, and the world now
+feels to her like a dangerous place. She also describes feeling isolated and set apart from others,
+as though her experience places her outside ordinary life.
+
+These appraisals appear to intensify her sense of threat and shape the ways she tries to manage it.
+In response, she has been numbing her emotions, avoiding friends, giving up pleasant activities,
+steering clear of situations that bring up strong feelings, and resisting circumstances that remind
+her of the event, including being in the dark. Although these strategies offer short-term relief,
+they have narrowed her world and reduced opportunities for support, pleasure, and recovery. Over
+time, her attempts to control the distress seem to have deepened her isolation and left her feeling
+increasingly disconnected from the life she had before.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+She is a 24-year-old Israeli student who has been struggling since a terror-related event that left
+her feeling persistently unsettled and on edge. Her PCL-5 score of 43 is consistent with a
+clinically significant level of post-traumatic stress, and her difficulties now spill into everyday
+life in ways that interfere with study, sleep, and relationships. She describes being particularly
+unsettled by sirens, reminders of victims, and even conversations about the future, which seem to
+leave her immediately more emotionally and physically strained. In those moments she becomes flooded
+with strong fear, anger, guilt, or shame, finds it hard to concentrate, and often lies awake or
+wakes repeatedly through the night.
+
+Her memories of the event remain vivid and intrusive in a sensory way: when she thinks about what
+happened, it is “like looking at photographs,” and at times she hears in her mind sounds that were
+present during the frightening event. Rather than being comforting, her ability to speak about what
+happened easily seems to reflect how close the experience still feels in her mind, with these
+memories helping to reinforce the sense that what happened was profoundly dangerous and has changed
+her permanently. She fears she will never be able to feel normal emotions again, and the world now
+feels to her like a dangerous place. She also describes feeling isolated and set apart from others,
+as though her experience places her outside ordinary life.
+
+These appraisals appear to intensify her sense of threat and shape the ways she tries to manage it.
+In response, she has been numbing her emotions, avoiding friends, giving up pleasant activities,
+steering clear of situations that bring up strong feelings, and resisting circumstances that remind
+her of the event, including being in the dark. Although these strategies offer short-term relief,
+they have narrowed her world and reduced opportunities for support, pleasure, and recovery. Over
+time, her attempts to control the distress seem to have deepened her isolation and left her feeling
+increasingly disconnected from the life she had before.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+I was on my way home when I heard a siren, and everything in me just tightened up like it was
+happening again. I’m trying to act normal, but I feel shaky and far away from myself.
+
+  Feedback: The message clearly reflects an active trigger, but it does not explicitly show negative appraisals
+and it also mentions re-experiencing the event again, which violates the inactive Memory component
+rule.
+
+  [2] FAIL
+I was on my way home when I heard a siren, and everything in me just tightened up like it was
+happening again. I’m trying to act normal, but I keep thinking something bad could happen, and I
+feel shaky and far away from myself.
+
+  Feedback: The message clearly includes Triggers and Negative Appraisals, but it also mentions ‘like it was
+happening again’ and ‘something bad could happen,’ which invokes the inactive components Memory and
+Threat.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+heard a siren and everything just tightened up im trying to act normal but i feel so shaky and off
+  (raw) I was on my way home when I heard a siren, and everything in me just tightened up. I’m trying to act
+normal, but I keep thinking this means I’m not okay, and I feel shaky and far away from myself.
+
+[1] BOT
+What happened in your body right after you heard it?
+
+[2] CLIENT
+my chest got tight and my stomach dropped like something bad was about to happen and i just wanted
+to get away from everyone
+  (raw) My chest got tight and my stomach dropped, like something bad was about to happen right there. I
+couldn’t think clearly, and I just wanted to get away from everyone.
+
+[3] BOT
+Are you around other people right now, or alone?
+
+[4] CLIENT
+staying in my room bc i cant handle people rn and i keep thinking if i go back out ill get that same
+awful feeling again
+  (raw) I’m alone in my room with the door closed, because I couldn’t handle being around people after that.
+Even now I keep thinking that if I go back out, I’ll be hit again by that same feeling that
+something is wrong.
+
+[5] BOT
+What keeps coming up most in your mind about going back out?
+
+[6] CLIENT
+its gonna happen again and ill just freeze in front of everyone
+  (raw) That it’s going to happen again, and I’ll freeze or look stupid in front of everyone. The thought
+hits fast, and then I just stay where it feels safer.
+
+[7] BOT
+What do you notice yourself doing when that thought hits?
+
+[8] CLIENT
+i keep ignoring everyone and just scroll בלי really seeing anything because i dont wanna feel how
+bad it got
+  (raw) I stop myself from texting anyone back and I just sit there scrolling without really seeing
+anything. It’s like I’m trying not to feel how awful it got, even though it leaves me more stuck and
+cut off.
+
+[9] BOT
+How strong is the urge to avoid people or things right now, from 0 to 10?
+
+[10] CLIENT
+about an 8 if i think about going out or replying i just wanna shut everything down
+  (raw) About an 8. If I picture going out or answering messages, I feel that tight, panicky pull to shut
+everything down and not deal with it.
+
+[11] BOT
+What part of being out or replying feels hardest right now?
+
+[12] CLIENT
+feels like if i go back into it i wont be able to get away from that awful feeling and then i start
+thinking im too far gone to be normal with people again
+  (raw) It feels like once I step back into it, I won’t be able to get away from that awful feeling fast
+enough. Then I start telling myself I’m already too far gone to be normal with people again.
+
+[13] BOT
+How intense is that feeling right now, from 0 to 10?
+
+[14] CLIENT
+even thinking about it makes me tense like im bracing for something i cant stop
+  (raw) A 7. Even thinking about it makes my body go tense, like I’m bracing for something I can’t stop.
+
+[15] BOT
+What are you most afraid will happen in the next few minutes?
+
+[16] CLIENT
+im scared someone will text or ill hear something outside and ill just spiral again so i keep myself
+shut in and quiet
+  (raw) That someone will message me or I’ll hear something outside, and I’ll go straight back into that
+panicked state. I keep thinking I need to stay shut in and quiet so it doesn’t get worse.
+
+[17] BOT
+What do you notice in your body when you’re waiting for that?
+
+[18] CLIENT
+my shoulders are always up and i cant breathe right like im just bracing for whatever comes next
+  (raw) My shoulders stay up near my ears and my breathing gets shallow, like I’m holding myself together.
+It makes me feel even more on edge, like I have to keep bracing for the next thing.
+
+[19] BOT
+How long has your body felt like this today?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     An external cue clearly activates distress.
+      "heard a siren and everything just tightened up"
+  ✓ Negative Appraisals          The client makes maladaptive interpretations about future reactions and self-worth/functioning.
+      "i keep thinking if i go back out ill get that same awful feeling again"
+  · Memory                       There is distress and anticipation, but no explicit intrusive memory, flashback, or reliving of a trauma memory.
+  ✓ Threat                       The client describes an ongoing expectation of harm or overwhelm and anticipatory danger.
+      "like something bad was about to happen"
+  ✓ Maladaptive Strategies       The client reports avoidance, shutting down, and ignoring others to reduce distress.
+      "i keep ignoring everyone and just scroll בלי really seeing anything because i dont wanna feel how bad it got"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The siren-related distress leads to avoidance/shutdown.
+      "heard a siren and everything just tightened up im trying to act normal but i feel so shaky and off"
+  ✓ Triggers → Threat                             The siren cue immediately evokes threat.
+      "heard a siren and everything just tightened up"
+  · Triggers → Memory                             No explicit trauma memory is triggered.
+  · Triggers → Negative Appraisals                No clear direct link from the siren to a maladaptive appraisal is stated.
+  ✓ Negative Appraisals → Maladaptive Strategies  Beliefs about being unable to handle people and about getting trapped lead to avoidance and shutdown.
+      "feels like if i go back into it i wont be able to get away from that awful feeling and then i start thinking im too far gone to be normal with people again"
+  ✓ Negative Appraisals → Threat                  The appraisal that the awful feeling will return and that they are 'too far gone' is linked to threat/ongoing danger.
+      "its gonna happen again and ill just freeze in front of everyone"
+  · Negative Appraisals → Memory                  No direct link from appraisal to trauma memory is present.
+  · Memory → Maladaptive Strategies               No explicit traumatic memory is present.
+  · Memory → Threat                               No explicit trauma memory to threat link.
+  ✓ Threat → Maladaptive Strategies               Anticipated danger/fear leads to shutting in, staying quiet, and avoiding contact.
+      "im scared someone will text or ill hear something outside and ill just spiral again so i keep myself shut in and quiet"

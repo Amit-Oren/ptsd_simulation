@@ -1,0 +1,350 @@
+{
+  "patient_id": 9,
+  "experiment_timestamp": "2026-04-05 00:29:44",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4-mini",
+      "validator": "gpt-5.4-mini",
+      "dialogue_state": "gpt-5.4-mini",
+      "client": "gpt-5.4-mini",
+      "bot": "gpt-5.4-mini",
+      "moderator": "gpt-5.4-mini",
+      "analyst": "gpt-5.4-mini",
+      "vignette_analyst": "gpt-5.4-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 5,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 60
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Arab-Israeli",
+    "profession": "Student",
+    "pcl5": 68,
+    "trauma_type": "Car accident"
+  },
+  "self_report": {
+    "trigger_items": "Similar cars,Cars hit by accident,Talk about accidents",
+    "trigger_category": "Situational, Situational, Situational",
+    "trigger_subcategory": "Car Similarity, Crash Imagery, Crash Discussions",
+    "appraisals_items_label": "People can't be trusted   | Must always be careful   | Can't rely on others  ",
+    "appraisals_items_original": "People can't be trusted | I have to be especially careful because you never know what can happen next | I can't rely on other people",
+    "memory_items_label": "Auditory Recall | Reliving Event | Memory Replay",
+    "memory_items_original": "When I have memories of what happened I sometimes hear things in my head that I heard during the frightening event. | When I remember the frightening event I feel like it is happening right now. | My memories of the frightening event are like a film that plays over and over.",
+    "threat_items_label": "Flashbacks | Physical Reactivity | Startle Response",
+    "threat_items_original": "Suddenly feeling or acting as if the stressful experience were actually happening again (as if you were actually back there reliving it)? | Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Flashbacks | Physical Reactivity | Startle Response",
+    "threat_items_original_original": "Suddenly feeling or acting as if the stressful experience were actually happening again (as if you were actually back there reliving it)? | Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Suppress Thoughts | Mental Distraction | Emotion Control",
+    "strategies_items_original": "try hard not think about the trauma | keep mind occupied all the time | control feelings",
+    "avoidance_items_label": "Avoid Similar People | Avoid Circumstances | Avoid Going Out",
+    "avoidance_items_original": "Seeing other people that were involved in the event or that look similar | Being in circumstances that remind me of the event (eg, being in the dark). | Going out"
+  },
+  "obs_datetime": "2024-11-28 13:30:09",
+  "obs_index": 0,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 0
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 1,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.2710027100271003,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.0955284552845528,
+    "Negative Appraisals -- Maladaptive Strategies": 0.1388888888888889,
+    "Negative Appraisals -- Threat": 0.6944444444444444,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.6222222222222222,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.5555555555555556,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    },
+    "message": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "She is a 21-year-old Arab-Israeli university student who presents with severe post-traumatic distress following a car accident, with a PCL-5 score of 68 indicating marked symptom burden. Since the accident, everyday life has become organized around reminders of danger, particularly similar cars, cars that have been hit, and conversations about accidents. These cues quickly shift her from feeling settled into a state of alarm, with sudden surges of bodily panic, a jumpy response to unexpected sounds, and moments in which she feels as if the event is happening again in real time.\n\nHer account of the trauma is dominated by intrusive sensory reliving. When she remembers what happened, she sometimes hears the sounds that were present during the frightening event, and the memory feels less like recollection than a film that keeps replaying. At those times she becomes disoriented in the present, as though she has been pulled back into the original scene. These experiences appear to intensify her sense that danger remains close and immediate.\n\nIn response, she has developed a strongly cautious view of the world and other people. She describes believing that people cannot be trusted, that she cannot rely on others, and that she must be especially careful because one never knows what will happen next. These beliefs have made her increasingly guarded in social and practical situations, and her distress is amplified when she encounters reminders of the accident, which quickly confirm her expectation that harm can recur without warning.\n\nTo manage this fear, she tries hard not to think about the trauma, keeps her mind occupied all the time, and works to control her feelings. She also avoids going out, and is particularly uncomfortable being in circumstances that remind her of the event, such as being in the dark, or seeing other people involved in the accident or who resemble them. Although these strategies provide short-term relief, they leave her life increasingly restricted and distant, affecting her confidence, concentration as a student, and her capacity to feel at ease with other people.",
+  "persona_attempts": [
+    {
+      "output": "She is a 21-year-old Arab-Israeli university student who presents with severe post-traumatic distress following a car accident, with a PCL-5 score of 68 indicating marked symptom burden. Since the accident, everyday life has become organized around reminders of danger, particularly similar cars, cars that have been hit, and conversations about accidents. These cues quickly shift her from feeling settled into a state of alarm, with sudden surges of bodily panic, a jumpy response to unexpected sounds, and moments in which she feels as if the event is happening again in real time.\n\nHer account of the trauma is dominated by intrusive sensory reliving. When she remembers what happened, she sometimes hears the sounds that were present during the frightening event, and the memory feels less like recollection than a film that keeps replaying. At those times she becomes disoriented in the present, as though she has been pulled back into the original scene. These experiences appear to intensify her sense that danger remains close and immediate.\n\nIn response, she has developed a strongly cautious view of the world and other people. She describes believing that people cannot be trusted, that she cannot rely on others, and that she must be especially careful because one never knows what will happen next. These beliefs have made her increasingly guarded in social and practical situations, and her distress is amplified when she encounters reminders of the accident, which quickly confirm her expectation that harm can recur without warning.\n\nTo manage this fear, she tries hard not to think about the trauma, keeps her mind occupied all the time, and works to control her feelings. She also avoids going out, and is particularly uncomfortable being in circumstances that remind her of the event, such as being in the dark, or seeing other people involved in the accident or who resemble them. Although these strategies provide short-term relief, they leave her life increasingly restricted and distant, affecting her confidence, concentration as a student, and her capacity to feel at ease with other people.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "The vignette directly says that reminders of the accident lead her to avoid and control her thoughts and activities.",
+      "quote": "her distress is amplified when she encounters reminders of the accident ... To manage this fear, she tries hard not to think about the trauma ... and she also avoids going out"
+    },
+    "Triggers--Threat": {
+      "weight": 0.8,
+      "explanation": "The cues are described as shifting her from settled to alarmed and confirming that harm can recur, indicating they intensify current threat.",
+      "quote": "These cues quickly shift her from feeling settled into a state of alarm"
+    },
+    "Triggers--Memory": {
+      "weight": 0.8,
+      "explanation": "The reminders of danger are linked to re-experiencing the event in real time, showing that cues activate trauma memory.",
+      "quote": "moments in which she feels as if the event is happening again in real time"
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 0.8,
+      "explanation": "Encountering reminders of the accident strengthens her belief that harm can recur without warning.",
+      "quote": "reminders of the accident, which quickly confirm her expectation that harm can recur without warning"
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Her beliefs that others cannot be trusted and that she must be especially careful are followed by guardedness and avoidance.",
+      "quote": "These beliefs have made her increasingly guarded in social and practical situations"
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 0.8,
+      "explanation": "Her belief that one must be especially careful because one never knows what will happen next implies ongoing current danger.",
+      "quote": "she must be especially careful because one never knows what will happen next"
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.2,
+      "explanation": "The vignette does not clearly state that her beliefs change the trauma memory itself, only that the beliefs arise after the memory experiences.",
+      "quote": "\""
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.4,
+      "explanation": "Her beliefs are described as being amplified when she encounters reminders, but the text does not show the beliefs generating the triggers.",
+      "quote": "her distress is amplified when she encounters reminders of the accident"
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.4,
+      "explanation": "Intrusive reliving is followed by coping efforts, but the passage does not clearly say the memory causes those strategies.",
+      "quote": "When she remembers what happened ... To manage this fear, she tries hard not to think about the trauma"
+    },
+    "Memory--Threat": {
+      "weight": 0.8,
+      "explanation": "The reliving is explicitly said to intensify her sense that danger remains close and immediate.",
+      "quote": "These experiences appear to intensify her sense that danger remains close and immediate"
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "Her intrusive reliving and disorientation occur in the context of a strongly cautious worldview, suggesting the memory experience contributes to those appraisals.",
+      "quote": "Her account of the trauma is dominated by intrusive sensory reliving ... In response, she has developed a strongly cautious view of the world"
+    },
+    "Memory--Triggers": {
+      "weight": 0.6,
+      "explanation": "Her memory is cued by reminders and related stimuli, especially when she remembers the event and hears sounds from it.",
+      "quote": "When she remembers what happened, she sometimes hears the sounds that were present during the frightening event"
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 0.6,
+      "explanation": "Her sense of current danger appears to motivate attempts to suppress thoughts and avoid situations.",
+      "quote": "These experiences appear to intensify her sense that danger remains close and immediate. In response, she has developed... To manage this fear, she tries hard not to think about the trauma"
+    },
+    "Threat--Memory": {
+      "weight": 0.6,
+      "explanation": "The text suggests that feeling danger as immediate is associated with her reliving experiences, though it does not state a direct causal link.",
+      "quote": "These experiences appear to intensify her sense that danger remains close and immediate"
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 0.4,
+      "explanation": "The vignette links her sense of danger with cautious beliefs, but it does not clearly state that threat causes the beliefs.",
+      "quote": "danger remains close and immediate. In response, she has developed a strongly cautious view"
+    },
+    "Threat--Triggers": {
+      "weight": 0.2,
+      "explanation": "Threat is clearly evoked by reminders in the vignette, but the text does not show threat producing triggers.",
+      "quote": "when she encounters reminders of the accident"
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.2,
+      "explanation": "The vignette says avoidance and suppression give short-term relief, but it does not explicitly state they affect her intrusive memory.",
+      "quote": "These strategies provide short-term relief"
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 0.4,
+      "explanation": "Her avoidance and guardedness preserve a restricted life and distress, but the text does not clearly say they generate the negative beliefs.",
+      "quote": "These strategies provide short-term relief, they leave her life increasingly restricted and distant"
+    }
+  },
+  "initial_message": "I just saw a car outside that looked too much like the one from the accident, and my chest went tight right away. I know I’m here in the present, but for a second it felt like everything rushed back all at once.",
+  "message_attempts": [
+    {
+      "output": "I just saw a car outside that looked too much like the one from the accident, and my chest went tight right away. I know I’m here in the present, but for a second it felt like everything rushed back all at once.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I just saw a car outside that looked too much like the one from the accident, and my chest went tight right away. I know I’m here in the present, but for a second it felt like everything rushed back all at once.",
+      "moderated": "saw a car that looked like the one from the accident and my chest went tight like i was back there for a second"
+    },
+    {
+      "turn_index": 2,
+      "raw": "I froze and kept staring at it, like if I moved I’d miss something dangerous. Then my body went on alert and I couldn’t focus on anything else for a few seconds.",
+      "moderated": "i just froze and kept staring cuz i felt like something bad was about to happen"
+    },
+    {
+      "turn_index": 4,
+      "raw": "Yeah, my heart started pounding and I felt shaky, like my whole body was bracing for impact. For a moment everything around me felt distant, like I wasn’t fully inside the room.",
+      "moderated": "heart started pounding and i felt shaky like i was bracing for impact and everything went weirdly far away"
+    },
+    {
+      "turn_index": 6,
+      "raw": "About 8. It hit hard enough that I had to grip the chair just to steady myself.",
+      "moderated": "about 8 it hit hard and i had to grip the chair to steady myself"
+    },
+    {
+      "turn_index": 8,
+      "raw": "Maybe a minute or two, but it felt longer because I kept waiting for it to stop. Once the car moved away, I could breathe a bit easier and my body started to settle.",
+      "moderated": "felt like forever i was just waiting for it to stop and only breathed easier once the car moved away"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "saw a car that looked like the one from the accident and my chest went tight like i was back there for a second"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What happened in the moments right after you noticed the car?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "i just froze and kept staring cuz i felt like something bad was about to happen"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "Did anything like that happen to your body after that, مثل shaking, racing heart, or feeling unreal?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "heart started pounding and i felt shaky like i was bracing for impact and everything went weirdly far away"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "How strong was that feeling of things being far away, from 0 to 10?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "about 8 it hit hard and i had to grip the chair to steady myself"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "How long did that last before it started easing up?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "felt like forever i was just waiting for it to stop and only breathed easier once the car moved away"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "What were you telling yourself while you were waiting?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "An external cue—a car resembling the one from the accident—activated distress.",
+        "quote": "saw a car that looked like the one from the accident and my chest went tight like i was back there for a second"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client appraised the situation as signaling imminent danger.",
+        "quote": "i just froze and kept staring cuz i felt like something bad was about to happen"
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client described reliving/being back in the accident, which is an intrusive trauma-memory-like experience.",
+        "quote": "saw a car that looked like the one from the accident and my chest went tight like i was back there for a second"
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "There was a clear ongoing sense of danger and anticipation of harm.",
+        "quote": "i just froze and kept staring cuz i felt like something bad was about to happen"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client used freezing, staring, and gripping the chair as coping/safety behaviors, and waited for the threat to pass.",
+        "quote": "i just froze and kept staring cuz i felt like something bad was about to happen"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The car cue led to freezing/staring and gripping for steadiness.",
+        "quote": "saw a car that looked like the one from the accident and my chest went tight like i was back there for a second"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The trigger led to fear that something bad was about to happen.",
+        "quote": "saw a car that looked like the one from the accident and my chest went tight like i was back there for a second"
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The trigger directly evoked feeling back in the accident.",
+        "quote": "saw a car that looked like the one from the accident and my chest went tight like i was back there for a second"
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "Appraisal of impending harm appears to generate threat.",
+        "quote": "i just froze and kept staring cuz i felt like something bad was about to happen"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Memory--Threat": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Feeling that something bad was about to happen was followed by freezing, staring, and bracing behaviors.",
+        "quote": "i just froze and kept staring cuz i felt like something bad was about to happen"
+      }
+    }
+  }
+}

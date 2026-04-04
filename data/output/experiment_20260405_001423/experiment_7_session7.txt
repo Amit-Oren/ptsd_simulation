@@ -1,0 +1,328 @@
+PATIENT 7  |  session 7  |  2026-04-05 00:19:25
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   7
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-5.4-mini
+    validator            gpt-5.4-mini
+    dialogue_state       gpt-5.4-mini
+    client               gpt-5.4-mini
+    bot                  gpt-5.4-mini
+    moderator            gpt-5.4-mini
+    analyst              gpt-5.4-mini
+    vignette_analyst     gpt-5.4-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             24
+  gender          F
+  nationality     Israeli
+  profession      Student
+  pcl5            54
+  trauma_type     Terror
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Related media content,Talking about the event,People who look similar to the victims
+  Negative Appraisals:
+    • I feel isolated and set apart from others
+    • I can't stop bad things from happening to me
+    • I feel like I don't know myself anymore
+  Memory:
+    • I remember the frightening event as a few moments, and each moment is a picture in my mind.
+    • My memories of the frightening event are very clear and detailed.
+    • Remembering what happened during the frightening event is just like looking at photographs of it in my mind.
+  Threat:
+    • Being “superalert” or watchful or on guard?
+    • Feeling jumpy or easily startled?
+    • Having difficulty concentrating?
+  Maladaptive Strategies:
+    • keep mind occupied all the time
+    • numb emotions
+    • avoid other people
+  Avoidance:
+    • Seeing people that I socialised with before the event
+    • Watching TV programmes/ films or reading about similar events
+    • Being in circumstances that remind me of the event (eg, being in the dark).
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.1784
+  Triggers → Memory                                  0.0000
+  Triggers → Negative Appraisals                     0.0000
+  Negative Appraisals → Maladaptive Strategies       0.0000
+  Negative Appraisals → Threat                       0.6902
+  Negative Appraisals → Memory                       0.2612
+  Negative Appraisals → Triggers                     0.0281
+  Memory → Maladaptive Strategies                    0.0000
+  Memory → Threat                                    0.3547
+  Memory → Negative Appraisals                       0.0000
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.1490
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-07-20 12:00:24  |  index 7
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    ✓ Negative Appraisals
+    · Memory
+    ✓ Threat
+    · Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    · Triggers → Threat
+    · Triggers → Memory
+    · Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    · Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    · Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              2 attempt(s)  →  FAIL
+  message              1 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+She is a 24-year-old Israeli student who developed significant post-traumatic difficulties after a
+terror-related event. Since then, her sense of safety has been fragile, and she describes living in
+a state of constant watchfulness. She is often superalert, easily startled, and finds it hard to
+concentrate on her studies, as though part of her attention is always scanning for danger. Even
+ordinary changes in her surroundings can leave her feeling suddenly on edge.
+
+The event itself is held in memory in a fragmented but vividly detailed way. She says she recalls it
+as a few moments, each one like a picture, and that remembering it is like looking at photographs in
+her mind. These vivid images appear to keep the experience close and immediate, so that the fear is
+easily reactivated. Related media content, talking about the event, and seeing people who resemble
+the victims all intensify her sense of threat.
+
+Alongside this, she holds painful beliefs about what the event means for her and for her place in
+the world. She feels isolated and set apart from others, worries that she cannot stop bad things
+from happening to her, and says she no longer feels like she knows herself. These appraisals seem to
+deepen her sense of danger and uncertainty, making her more watchful and less able to settle.
+
+In response, she keeps her mind occupied all the time, numbs her emotions, avoids other people, and
+stays away from situations that remind her of the trauma, including seeing people she socialised
+with before the event, watching programmes or films, reading about similar events, or being in the
+dark. These efforts offer short-term relief, but they have narrowed her life and left her feeling
+cut off from others. Her overall PTSD burden is substantial, with symptoms persisting and shaping
+both her daily functioning and relationships.
+
+  Feedback: The vignette includes several forbidden links: Triggers are described as intensifying her sense of
+threat and being remembered vividly, implying Triggers → Threat and Triggers → Memory; it also says
+the vivid images make the fear easily reactivated, implying Memory → Threat. In addition, the
+appraisals are said to deepen her sense of danger and uncertainty and make her more watchful,
+implying Negative Appraisals → Threat and Negative Appraisals → Maladaptive Strategies, which are
+forbidden.
+
+  [2] FAIL
+She is a 24-year-old Israeli student who developed significant post-traumatic difficulties after a
+terror-related event. Since then, her sense of safety has been fragile, and she describes living in
+a state of constant watchfulness. She is often superalert, easily startled, and finds it hard to
+concentrate on her studies, as though part of her attention is always scanning for danger. Even
+ordinary changes in her surroundings can leave her feeling suddenly on edge.
+
+The event itself is held in memory in a fragmented but vividly detailed way. She says she recalls it
+as a few moments, each one like a picture, and that remembering it is like looking at photographs in
+her mind. These vivid images remain central to her experience. Related media content, talking about
+the event, and seeing people who resemble the victims are frequent reminders that she now tries hard
+to manage, as they are closely tied to how the trauma stays present for her.
+
+Alongside this, she holds painful beliefs about what the event means for her and for her place in
+the world. She feels isolated and set apart from others, worries that she cannot stop bad things
+from happening to her, and says she no longer feels like she knows herself. Her account suggests a
+person whose sense of identity and belonging has been shaken, leaving her struggling to make sense
+of herself in the aftermath.
+
+In response, she keeps her mind occupied all the time, numbs her emotions, avoids other people, and
+stays away from situations that remind her of the trauma, including seeing people she socialised
+with before the event, watching programmes or films, reading about similar events, or being in the
+dark. These efforts offer short-term relief, but they have narrowed her life and left her feeling
+cut off from others. Her overall PTSD burden is substantial, with symptoms persisting and shaping
+both her daily functioning and relationships.
+
+  Feedback: The vignette includes a forbidden edge: Threat → Triggers, because it says ordinary changes in her
+surroundings leave her on edge and the reminders are closely tied to how the trauma stays present,
+implying threat heightens triggers. It also clearly supports the required edges, but the presence of
+the forbidden Threat → Triggers link makes the case a FAIL.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+She is a 24-year-old Israeli student who developed significant post-traumatic difficulties after a
+terror-related event. Since then, her sense of safety has been fragile, and she describes living in
+a state of constant watchfulness. She is often superalert, easily startled, and finds it hard to
+concentrate on her studies.
+
+The event itself is held in memory in a fragmented but vividly detailed way. She says she recalls it
+as a few moments, each one like a picture, and that remembering it is like looking at photographs in
+her mind. These vivid images remain central to her experience. Related media content, talking about
+the event, and seeing people who resemble the victims are reminders she tries hard to manage.
+
+Alongside this, she holds painful beliefs about what the event means for her and for her place in
+the world. She feels isolated and set apart from others, worries that she cannot stop bad things
+from happening to her, and says she no longer feels like she knows herself. Her account suggests a
+person whose sense of identity and belonging has been shaken, leaving her struggling to make sense
+of herself in the aftermath.
+
+In response, she keeps her mind occupied all the time, numbs her emotions, avoids other people, and
+stays away from situations that remind her of the trauma, including seeing people she socialised
+with before the event, watching programmes or films, reading about similar events, or being in the
+dark. These efforts offer short-term relief, but they have narrowed her life and left her feeling
+cut off from others. Her overall PTSD burden is substantial, with symptoms persisting and shaping
+both her daily functioning and relationships.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+I’m in the café trying to study, but every time someone raises their voice or a chair scrapes the
+floor, my body jumps like something bad is about to happen. I keep looking at the door and can’t
+settle, even though I know I’m supposed to be focusing.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+cant study here every little noise makes me jump and i keep staring at the door
+  (raw) I’m in the café trying to study, but every time someone raises their voice or a chair scrapes the
+floor, my body jumps like something bad is about to happen. I keep looking at the door and can’t
+settle, even though I know I’m supposed to be focusing.
+
+[1] BOT
+When did you start feeling this jumpy?
+
+[2] CLIENT
+even a sudden bang can send me straight into that scared on edge feeling
+  (raw) After that terror attack, it became like my body stopped believing I was safe. Now even a sudden
+bang on the street can send me straight into that alert, braced feeling before I’ve even had time to
+think.
+
+[3] BOT
+In the last few hours, how often has that happened?
+
+[4] CLIENT
+keeps happening when tiny stuff sets me off and i instantly think something bad is about to happen
+  (raw) A few times already—once when a motorcycle backfired outside, and again when a message on my phone
+buzzed while I was tense. Each time, my first thought is basically, “something’s wrong,” and I feel
+myself tense up right away.
+
+[5] BOT
+What goes through your mind right after that feeling starts?
+
+[6] CLIENT
+i feel like i cant relax or something bad will happen so i keep checking everything
+  (raw) Right away I think I need to stay on guard, because if I let myself relax something could happen and
+I won’t be ready. Then I start scanning the room and checking where people are, like that’s the only
+way to keep control.
+
+[7] BOT
+What are you checking most often right now?
+
+[8] CLIENT
+keep checking doors and windows and who’s behind me bc i feel exposed if i dont
+  (raw) Mostly the door, the windows, and who’s moving behind me, because if I don’t keep track of those
+things I feel exposed. Even sitting here, I keep turning my head without meaning to, like I have to
+make sure nothing is sneaking up on me.
+
+[9] BOT
+How strong is that exposed feeling right now, from 0 to 10?
+
+[10] CLIENT
+its like an 8 rn my chest feels tight and i just want to get up and leave even tho nothing is
+happening
+  (raw) It’s about an 8 right now. My chest feels tight, and I keep wanting to get up and leave the room
+even though nothing is actually happening.
+
+[11] BOT
+Are you thinking about leaving right now?
+
+[12] CLIENT
+yeah staying here feels too open and i cant relax my body
+  (raw) Yes, because staying here feels too open and I can’t relax my body. I’d rather be somewhere with the
+door in sight, where I don’t have to keep checking every few seconds.
+
+[13] BOT
+What would make this spot feel a little less open right now?
+
+[14] CLIENT
+need my back to a wall or i cant relax at all
+  (raw) If I were sitting with my back to a wall and the door directly in front of me, it would help a bit.
+Then I wouldn’t feel like anything could come from behind me when I’m trying to focus.
+
+[15] BOT
+Are you able to sit with your back to a wall right now?
+
+[16] CLIENT
+too much noise here i cant stop noticing everything so im trying to look busy
+  (raw) Not really—there’s too much noise and movement here, and it keeps pulling my attention all over the
+place. I’m trying to look occupied so I don’t have to keep reacting to every little sound.
+
+[17] BOT
+What are you doing to look busy right now?
+
+[18] CLIENT
+pretending to read and scrolling my phone nonstop just so i dont have to sit there feeling on edge
+  (raw) I’m pretending to read the same page over and over, and I keep scrolling my phone so I have
+something in my hands. It doesn’t actually help much, but it gives me something to do besides sit
+there feeling on edge.
+
+[19] BOT
+How hard is it to keep your attention on the phone, from 0 to 10?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     The client describes external cues that activate distress, including noise, sudden bangs, and small things setting them off.
+      ""cant study here every little noise makes me jump and i keep staring at the door""
+  ✓ Negative Appraisals          The client makes maladaptive interpretations about danger and vulnerability, such as expecting something bad to happen and feeling exposed.
+      "["i instantly think something bad is about to happen", "i feel like i cant relax or something bad will happen so i keep checking everything", "i feel exposed if i dont"]"
+  · Memory                       There is no clear evidence of intrusive memories, flashbacks, or trauma reliving in the conversation.
+  ✓ Threat                       The client shows an ongoing sense of current danger and hypervigilance, including feeling on edge, exposed, and unable to relax.
+      "["even a sudden bang can send me straight into that scared on edge feeling", "i feel exposed if i dont", "its like an 8 rn my chest feels tight and i just want to get up and leave even tho nothing is happening"]"
+  ✓ Maladaptive Strategies       The client reports safety behaviors and avoidance, including checking doors/windows, keeping watch, pretending to read, scrolling the phone nonstop, and wanting to leave.
+      "["so i keep checking everything", "keep checking doors and windows and who’s behind me bc i feel exposed if i dont", "i just want to get up and leave", "pretending to read and scrolling my phone nonstop just so i dont have to sit there feeling on edge"]"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The client indicates that noise and other small triggers lead to checking and other safety behaviors.
+      "["cant study here every little noise makes me jump and i keep staring at the door", "tiny stuff sets me off and i instantly think something bad is about to happen", "so i keep checking everything"]"
+  ✓ Triggers → Threat                             The client directly links sudden noise and small triggers to feeling scared/on edge and expecting danger.
+      "["even a sudden bang can send me straight into that scared on edge feeling", "tiny stuff sets me off and i instantly think something bad is about to happen"]"
+  · Triggers → Memory                             No trauma memory or flashback is described as being triggered.
+  ✓ Triggers → Negative Appraisals                The client states that small triggers lead to the appraisal that something bad is about to happen.
+      ""tiny stuff sets me off and i instantly think something bad is about to happen""
+  ✓ Negative Appraisals → Maladaptive Strategies  Expecting danger leads the client to check everything and seek safety positions.
+      "["i feel like i cant relax or something bad will happen so i keep checking everything", "need my back to a wall or i cant relax at all"]"
+  ✓ Negative Appraisals → Threat                  The client’s belief that something bad will happen is a direct threat appraisal.
+      "["i instantly think something bad is about to happen", "i feel like i cant relax or something bad will happen"]"
+  · Negative Appraisals → Memory                  No evidence that negative appraisals are producing intrusive memory or reliving.
+  · Memory → Maladaptive Strategies               No memory content is present that drives coping behavior.
+  · Memory → Threat                               No intrusive memory/flashback is described as generating threat.
+  ✓ Threat → Maladaptive Strategies               The client’s feeling of being on edge/exposed leads to checking, leaving, and using phone/pretending to read as coping behaviors.
+      "["i feel exposed if i dont", "its like an 8 rn my chest feels tight and i just want to get up and leave even tho nothing is happening", "i cant relax my body", "im trying to look busy"]"

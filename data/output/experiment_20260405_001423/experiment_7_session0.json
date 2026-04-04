@@ -1,0 +1,405 @@
+{
+  "patient_id": 7,
+  "experiment_timestamp": "2026-04-05 00:15:15",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4-mini",
+      "validator": "gpt-5.4-mini",
+      "dialogue_state": "gpt-5.4-mini",
+      "client": "gpt-5.4-mini",
+      "bot": "gpt-5.4-mini",
+      "moderator": "gpt-5.4-mini",
+      "analyst": "gpt-5.4-mini",
+      "vignette_analyst": "gpt-5.4-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 24,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 54,
+    "trauma_type": "Terror"
+  },
+  "self_report": {
+    "trigger_items": "Related media content,Talking about the event,People who look similar to the victims",
+    "trigger_category": "Situational, Trauma-Related, Interpersonal",
+    "trigger_subcategory": "Media Exposure, Event Recall, Victim Similarity",
+    "appraisals_items_label": "Feel isolated, set apart   | Can't stop bad things   | Don’t know myself anymore  ",
+    "appraisals_items_original": "I feel isolated and set apart from others | I can't stop bad things from happening to me | I feel like I don't know myself anymore",
+    "memory_items_label": "Snapshot Memory | Vivid Memory | Photographic Recall",
+    "memory_items_original": "I remember the frightening event as a few moments, and each moment is a picture in my mind. | My memories of the frightening event are very clear and detailed. | Remembering what happened during the frightening event is just like looking at photographs of it in my mind.",
+    "threat_items_label": "Hypervigilance | Startle Response | Concentration",
+    "threat_items_original": "Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled? | Having difficulty concentrating?",
+    "threat_items_original_label": "Hypervigilance | Startle Response | Concentration",
+    "threat_items_original_original": "Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled? | Having difficulty concentrating?",
+    "strategies_items_label": "Mental Distraction | Emotional Numbing | Avoid People",
+    "strategies_items_original": "keep mind occupied all the time | numb emotions | avoid other people",
+    "avoidance_items_label": "Avoid Social Contacts | Avoid Media | Avoid Circumstances",
+    "avoidance_items_original": "Seeing people that I socialised with before the event | Watching TV programmes/ films or reading about similar events | Being in circumstances that remind me of the event (eg, being in the dark)."
+  },
+  "obs_datetime": "2024-07-16 18:51:36",
+  "obs_index": 0,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 1,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.178448275862069,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.0,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.6901939655172414,
+    "Negative Appraisals -- Memory": 0.2611607142857143,
+    "Negative Appraisals -- Triggers": 0.028125,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.354679802955665,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.1489655172413793,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 2,
+      "passed": 1,
+      "failed": 1,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "She is a 24-year-old Israeli student who developed significant post-traumatic difficulties after a terror-related event. Since then, her sense of safety has been fragile, and she describes living in a state of constant watchfulness. She is often superalert, easily startled, and finds it hard to concentrate on her studies.\n\nThe event itself is held in memory in a fragmented but vividly detailed way. She says she recalls it as a few moments, each one like a picture, and that remembering it is like looking at photographs in her mind. These vivid images remain central to her experience. Related media content, talking about the event, and seeing people who resemble the victims are reminders she tries hard to manage.\n\nAlongside this, she holds painful beliefs about what the event means for her and for her place in the world. She feels isolated and set apart from others, worries that she cannot stop bad things from happening to her, and says she no longer feels like she knows herself. Her account suggests a person whose sense of identity and belonging has been shaken, leaving her struggling to make sense of herself in the aftermath.\n\nIn response, she keeps her mind occupied all the time, numbs her emotions, avoids other people, and stays away from situations that remind her of the trauma, including seeing people she socialised with before the event, watching programmes or films, reading about similar events, or being in the dark. These efforts offer short-term relief, but they have narrowed her life and left her feeling cut off from others. Her overall PTSD burden is substantial, with symptoms persisting and shaping both her daily functioning and relationships.",
+  "persona_attempts": [
+    {
+      "output": "She is a 24-year-old Israeli student who developed significant post-traumatic difficulties after a terror-related event. Since then, her sense of safety has been fragile, and she describes living in a state of constant watchfulness. She is often superalert, easily startled, and finds it hard to concentrate on her studies, as though part of her attention is always scanning for danger. Even ordinary changes in her surroundings can leave her feeling suddenly on edge.\n\nThe event itself is held in memory in a fragmented but vividly detailed way. She says she recalls it as a few moments, each one like a picture, and that remembering it is like looking at photographs in her mind. These vivid images appear to keep the experience close and immediate, so that the fear is easily reactivated. Related media content, talking about the event, and seeing people who resemble the victims all intensify her sense of threat.\n\nAlongside this, she holds painful beliefs about what the event means for her and for her place in the world. She feels isolated and set apart from others, worries that she cannot stop bad things from happening to her, and says she no longer feels like she knows herself. These appraisals seem to deepen her sense of danger and uncertainty, making her more watchful and less able to settle.\n\nIn response, she keeps her mind occupied all the time, numbs her emotions, avoids other people, and stays away from situations that remind her of the trauma, including seeing people she socialised with before the event, watching programmes or films, reading about similar events, or being in the dark. These efforts offer short-term relief, but they have narrowed her life and left her feeling cut off from others. Her overall PTSD burden is substantial, with symptoms persisting and shaping both her daily functioning and relationships.",
+      "passed": false,
+      "feedback": "The vignette includes several forbidden links: Triggers are described as intensifying her sense of threat and being remembered vividly, implying Triggers → Threat and Triggers → Memory; it also says the vivid images make the fear easily reactivated, implying Memory → Threat. In addition, the appraisals are said to deepen her sense of danger and uncertainty and make her more watchful, implying Negative Appraisals → Threat and Negative Appraisals → Maladaptive Strategies, which are forbidden."
+    },
+    {
+      "output": "She is a 24-year-old Israeli student who developed significant post-traumatic difficulties after a terror-related event. Since then, her sense of safety has been fragile, and she describes living in a state of constant watchfulness. She is often superalert, easily startled, and finds it hard to concentrate on her studies, as though part of her attention is always scanning for danger. Even ordinary changes in her surroundings can leave her feeling suddenly on edge.\n\nThe event itself is held in memory in a fragmented but vividly detailed way. She says she recalls it as a few moments, each one like a picture, and that remembering it is like looking at photographs in her mind. These vivid images remain central to her experience. Related media content, talking about the event, and seeing people who resemble the victims are frequent reminders that she now tries hard to manage, as they are closely tied to how the trauma stays present for her.\n\nAlongside this, she holds painful beliefs about what the event means for her and for her place in the world. She feels isolated and set apart from others, worries that she cannot stop bad things from happening to her, and says she no longer feels like she knows herself. Her account suggests a person whose sense of identity and belonging has been shaken, leaving her struggling to make sense of herself in the aftermath.\n\nIn response, she keeps her mind occupied all the time, numbs her emotions, avoids other people, and stays away from situations that remind her of the trauma, including seeing people she socialised with before the event, watching programmes or films, reading about similar events, or being in the dark. These efforts offer short-term relief, but they have narrowed her life and left her feeling cut off from others. Her overall PTSD burden is substantial, with symptoms persisting and shaping both her daily functioning and relationships.",
+      "passed": false,
+      "feedback": "The vignette includes a forbidden edge: Threat → Triggers, because it says ordinary changes in her surroundings leave her on edge and the reminders are closely tied to how the trauma stays present, implying threat heightens triggers. It also clearly supports the required edges, but the presence of the forbidden Threat → Triggers link makes the case a FAIL."
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "The vignette says reminders are actively managed and that she avoids situations that remind her of the trauma.",
+      "quote": "“Related media content, talking about the event, and seeing people who resemble the victims are reminders she tries hard to manage.”"
+    },
+    "Triggers--Threat": {
+      "weight": 0.8,
+      "explanation": "Reminders are described alongside a fragile sense of safety and constant watchfulness, implying they reactivate current danger.",
+      "quote": "“Related media content... are reminders... Her sense of safety has been fragile, and she describes living in a state of constant watchfulness.”"
+    },
+    "Triggers--Memory": {
+      "weight": 0.8,
+      "explanation": "The vignette links reminders such as media, talking, and resemblance cues to the trauma memory being reactivated.",
+      "quote": "“Related media content, talking about the event, and seeing people who resemble the victims are reminders”"
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 0.4,
+      "explanation": "Triggers and painful beliefs are both present, but the vignette does not directly show the reminders causing the beliefs.",
+      "quote": "“Related media content... are reminders”"
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 0.6,
+      "explanation": "Her painful beliefs are described alongside extensive avoidance and numbing, suggesting these appraisals help maintain her coping strategies.",
+      "quote": "“Alongside this, she holds painful beliefs... In response, she keeps her mind occupied all the time, numbs her emotions, avoids other people”"
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 0.8,
+      "explanation": "Her beliefs that she cannot stop bad things and does not know herself are presented as part of her ongoing sense of unsafe current danger.",
+      "quote": "“she holds painful beliefs... worries that she cannot stop bad things from happening to her”"
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.2,
+      "explanation": "The vignette places her painful beliefs near the trauma memory description, but does not indicate that the beliefs shape the memory itself.",
+      "quote": "“The event itself is held in memory... Alongside this, she holds painful beliefs”"
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.2,
+      "explanation": "The account mentions both beliefs and reminders, but it does not state that the beliefs generate the triggers.",
+      "quote": "“Alongside this, she holds painful beliefs... Related media content... are reminders”"
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.6,
+      "explanation": "Her vivid trauma memory is followed by efforts to suppress and avoid reminders, suggesting the memory drives those strategies.",
+      "quote": "“These vivid images remain central to her experience. Related media content... are reminders she tries hard to manage.”"
+    },
+    "Memory--Threat": {
+      "weight": 0.6,
+      "explanation": "The vivid fragmented memory is embedded in a broader state of watchfulness and fragility of safety, implying it sustains threat.",
+      "quote": "“The event itself is held in memory in a fragmented but vividly detailed way... her sense of safety has been fragile”"
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "The trauma memory is presented before and alongside the painful meanings she gives the event, suggesting the memory feeds those appraisals.",
+      "quote": "“The event itself is held in memory... Alongside this, she holds painful beliefs about what the event means”"
+    },
+    "Memory--Triggers": {
+      "weight": 0.8,
+      "explanation": "The vignette explicitly states that related cues remind her of the event, showing the memory is activated by triggers.",
+      "quote": "“Related media content, talking about the event, and seeing people who resemble the victims are reminders”"
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Her ongoing sense of threat is followed by constant mental occupation, emotional numbing, avoidance, and staying away from reminders.",
+      "quote": "“her sense of safety has been fragile... In response, she keeps her mind occupied all the time, numbs her emotions, avoids other people”"
+    },
+    "Threat--Memory": {
+      "weight": 0.4,
+      "explanation": "Threat and trauma memory are both described, but the vignette does not clearly state that current threat causes the memory.",
+      "quote": "“her sense of safety has been fragile... The event itself is held in memory”"
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "Her persistent watchfulness and fragile safety sit alongside her painful interpretations of the event, suggesting threat is bound up with those appraisals.",
+      "quote": "“living in a state of constant watchfulness... she holds painful beliefs about what the event means”"
+    },
+    "Threat--Triggers": {
+      "weight": 0.2,
+      "explanation": "Threat and reminders are both present, but the text does not explicitly say her sense of danger produces the triggers.",
+      "quote": "“her sense of safety has been fragile... Related media content... are reminders”"
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.4,
+      "explanation": "She avoids and numbs, but the vignette does not directly show these strategies altering the trauma memory itself.",
+      "quote": "“she keeps her mind occupied all the time, numbs her emotions, avoids other people”"
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 0.4,
+      "explanation": "The vignette links her avoidance and numbing to short-term relief and a narrowed life, but not directly to changes in her beliefs.",
+      "quote": "“These efforts offer short-term relief, but they have narrowed her life”"
+    }
+  },
+  "initial_message": "I was walking home a few minutes ago and heard a loud bang from somewhere down the street, and my whole body went tight like I was back there for a second. I’m sitting by the window now, lights on, trying not to look outside too much, thinking I should have been more careful and that I can’t really keep myself safe.",
+  "message_attempts": [
+    {
+      "output": "I was walking home a few minutes ago and heard a loud bang from somewhere down the street, and my whole body went tight like I was back there for a second. I’m sitting by the window now, lights on, trying not to look outside too much.",
+      "passed": false,
+      "feedback": "The message clearly reflects triggers, memory, threat, and a maladaptive strategy, but it does not mention the required negative appraisals component or show the causal link from negative appraisals to threat."
+    },
+    {
+      "output": "I was walking home a few minutes ago and heard a loud bang from somewhere down the street, and my whole body went tight like I was back there for a second. I’m sitting by the window now, lights on, trying not to look outside too much, thinking I should have been more careful and that I can’t really keep myself safe.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I was walking home a few minutes ago and heard a loud bang from somewhere down the street, and my whole body went tight like I was back there for a second. I’m sitting by the window now, lights on, trying not to look outside too much, thinking I should have been more careful and that I can’t really keep myself safe.",
+      "moderated": "just heard a loud bang and i got so shaky like i was back there for a sec now im just sitting here lights on trying not to look outside and feeling like i cant even keep myself safe"
+    },
+    {
+      "turn_index": 2,
+      "raw": "My shoulders are up by my ears, my chest feels squeezed, and I keep scanning the room without meaning to. It’s like I can’t let myself settle because the second I do, that picture from before pushes in again.",
+      "moderated": "cant relax at all i keep looking around and that picture keeps coming back"
+    },
+    {
+      "turn_index": 4,
+      "raw": "Just these few frozen moments — the flash, the crowd moving, someone on the ground — like separate photos I can’t stop seeing. When they pop up, I feel like danger is right here again and I want to get away from everything.",
+      "moderated": "just these few frozen moments keep replaying like photos in my head and when they hit i feel like the danger is right here again and i just want to disappear"
+    },
+    {
+      "turn_index": 6,
+      "raw": "No, not in that exact second, but my body doesn’t believe it and keeps acting like something terrible could happen any moment. That’s why I’m checking the door, avoiding the dark, and keeping busy so I don’t have to sit with it.",
+      "moderated": "no not in that exact second but my body still thinks something terrible could happen any moment so im checking the door and staying busy all the time"
+    },
+    {
+      "turn_index": 8,
+      "raw": "That I’ll miss something and it’ll happen again before I can react. When that thought hits, I start replaying the pictures and pulling away from people because I don’t trust myself to stay calm.",
+      "moderated": "i keep thinking ill miss something and itll happen again before i can even react so i just replay it in my head and pull away from everyone"
+    },
+    {
+      "turn_index": 10,
+      "raw": "I grab my phone and scroll, turn on every light, and keep my music or a show on so there’s no quiet. If I’m alone with it, the pictures get louder and I feel even more on edge.",
+      "moderated": "i just keep scrolling and leaving every light on bc if it gets quiet the pictures get so loud and i cant relax"
+    },
+    {
+      "turn_index": 12,
+      "raw": "A lot — I tried to study, but I kept losing the page and staring at the same paragraph because those moments kept flashing through. By the afternoon I gave up and stayed in my room instead of meeting anyone.",
+      "moderated": "couldnt focus at all just kept seeing those moments and ended up staying in my room instead of seeing anyone"
+    },
+    {
+      "turn_index": 14,
+      "raw": "I had to finish reading for class and text back a friend, but I couldn’t keep my head there for more than a minute. The more I tried to force it, the more I felt on guard, like my mind was stuck bracing for the next hit.",
+      "moderated": "couldnt focus at all i just felt super on edge like i was bracing for something again"
+    },
+    {
+      "turn_index": 16,
+      "raw": "It’s this feeling that something bad could come from nowhere and I won’t manage it in time. So I keep checking the locks, staying out of the dark, and not answering people because it feels safer than letting my guard down.",
+      "moderated": "feels like something bad could happen any second so i keep checking everything and avoiding people cuz it feels safer"
+    },
+    {
+      "turn_index": 18,
+      "raw": "About an 8. It drops for a second if I’m distracted, but then the pictures come back and I’m right back to feeling like I need to stay hidden and ready.",
+      "moderated": "about an 8 it drops for a sec if im distracted but then the pictures come back and im right back to feeling like i need to hide and stay on edge"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "just heard a loud bang and i got so shaky like i was back there for a sec now im just sitting here lights on trying not to look outside and feeling like i cant even keep myself safe"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What are you noticing in your body right now?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "cant relax at all i keep looking around and that picture keeps coming back"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "What picture keeps coming back?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "just these few frozen moments keep replaying like photos in my head and when they hit i feel like the danger is right here again and i just want to disappear"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "Are you in immediate danger right now?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "no not in that exact second but my body still thinks something terrible could happen any moment so im checking the door and staying busy all the time"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "What are you most worried could happen right now?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "i keep thinking ill miss something and itll happen again before i can even react so i just replay it in my head and pull away from everyone"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "When those moments replay, what do you do to stop or check them?"},
+
+    {"speaker": "client", "turn_index": 10, "text": "i just keep scrolling and leaving every light on bc if it gets quiet the pictures get so loud and i cant relax"},
+
+    {"speaker": "bot", "turn_index": 11, "text": "How much have the pictures been getting in the way of what you were doing today?"},
+
+    {"speaker": "client", "turn_index": 12, "text": "couldnt focus at all just kept seeing those moments and ended up staying in my room instead of seeing anyone"},
+
+    {"speaker": "bot", "turn_index": 13, "text": "What were you needing to do that you couldn’t focus on?"},
+
+    {"speaker": "client", "turn_index": 14, "text": "couldnt focus at all i just felt super on edge like i was bracing for something again"},
+
+    {"speaker": "bot", "turn_index": 15, "text": "What is the main thing keeping you on edge right now?"},
+
+    {"speaker": "client", "turn_index": 16, "text": "feels like something bad could happen any second so i keep checking everything and avoiding people cuz it feels safer"},
+
+    {"speaker": "bot", "turn_index": 17, "text": "How certain do you feel that something bad is about to happen, from 0 to 10?"},
+
+    {"speaker": "client", "turn_index": 18, "text": "about an 8 it drops for a sec if im distracted but then the pictures come back and im right back to feeling like i need to hide and stay on edge"},
+
+    {"speaker": "bot", "turn_index": 19, "text": "What picture comes back most often?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "An external cue clearly activated distress.",
+        "quote": "just heard a loud bang and i got so shaky like i was back there for a sec"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses maladaptive interpretations of danger and safety.",
+        "quote": "feels like something bad could happen any second"
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client describes intrusive re-experiencing and replaying of trauma-related images/moments.",
+        "quote": "that picture keeps coming back"
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client reports an ongoing sense of current danger and hypervigilance.",
+        "quote": "my body still thinks something terrible could happen any moment"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes avoidance, checking, distraction, and staying busy to cope with distress.",
+        "quote": "so im checking the door and staying busy all the time"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The loud bang appears to trigger safety behaviors and checking.",
+        "quote": "just heard a loud bang and i got so shaky like i was back there for a sec now im just sitting here lights on trying not to look outside"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The loud bang leads to a current sense of danger and feeling unsafe.",
+        "quote": "just heard a loud bang and i got so shaky like i was back there for a sec now im just sitting here lights on trying not to look outside and feeling like i cant even keep myself safe"
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The loud bang is followed by re-experiencing of being 'back there'.",
+        "quote": "just heard a loud bang and i got so shaky like i was back there for a sec"
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Beliefs that danger could happen again lead to checking, replaying, and avoidance.",
+        "quote": "i keep thinking ill miss something and itll happen again before i can even react so i just replay it in my head and pull away from everyone"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "Beliefs about something bad happening any second maintain a sense of threat.",
+        "quote": "feels like something bad could happen any second"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The returning pictures/moments lead to distraction, lights on, and avoidance.",
+        "quote": "if it gets quiet the pictures get so loud and i cant relax"
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The replaying moments make the client feel danger is present again.",
+        "quote": "when they hit i feel like the danger is right here again"
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Feeling unsafe leads to checking, staying busy, and avoiding people.",
+        "quote": "my body still thinks something terrible could happen any moment so im checking the door and staying busy all the time"
+      }
+    }
+  }
+}

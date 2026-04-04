@@ -38,6 +38,13 @@ st.markdown(
 
 st.divider()
 
+# ── Workflow diagram ────────────────────────────────────────────────────────
+
+st.subheader("Simulation Workflow")
+st.image(str(_STREAMLIT_APP_DIR / "assets" / "ptsd 2.drawio.png"), use_container_width=True)
+
+st.divider()
+
 # ── Summary stats ──────────────────────────────────────────────────────────
 
 experiments = get_experiments()
@@ -61,7 +68,6 @@ st.markdown(
 
     | Page | Description |
     |------|-------------|
-    | **Run Simulation** | Configure and launch a new simulation run. Monitor progress live. |
     | **Experiments** | Browse all past experiment runs and their patients. |
     | **Patient** | View demographics, PCL-5 score, persona vignette and validation results for a selected patient. |
     | **Cognitive Model** | Visualise the weighted PTSD network graph for a patient. |
@@ -79,4 +85,4 @@ if experiments:
         patients = get_patients(exp["path"])
         st.markdown(f"- **{exp['name']}** — {len(patients)} patient(s)")
 else:
-    st.info("No experiments found yet. Go to **Run Simulation** to create one.")
+    st.info("No experiments found yet.")

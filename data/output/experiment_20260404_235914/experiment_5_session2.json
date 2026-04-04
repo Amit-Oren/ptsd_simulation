@@ -1,0 +1,395 @@
+{
+  "patient_id": 5,
+  "experiment_timestamp": "2026-04-05 00:02:50",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4",
+      "validator": "gpt-5.4",
+      "dialogue_state": "gpt-5.4",
+      "client": "gpt-5.4",
+      "bot": "gpt-5.4",
+      "moderator": "gpt-5.4",
+      "analyst": "gpt-5.4",
+      "vignette_analyst": "gpt-5.4"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 2,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 29,
+    "gender": "M",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 43,
+    "trauma_type": "Military, Terror"
+  },
+  "self_report": {
+    "trigger_items": "Loud noises,Related media content,Related news",
+    "trigger_category": "Sensory, Situational, Situational",
+    "trigger_subcategory": "Auditory (Loud Noises), Media Exposure, Media Exposure",
+    "appraisals_items_label": "Can't trust I'll act right   | Must always be careful   | Can't stop bad things  ",
+    "appraisals_items_original": "I can't trust that I will do the right thing | I have to be especially careful because you never know what can happen next | I can't stop bad things from happening to me",
+    "memory_items_label": "Olfactory Recall | Verbal Access | Vivid Memory",
+    "memory_items_original": "When I think about the frightening event I can sometimes smell things that I smelt when the frightening event happened. | I can talk about what happened very easily. | My memories of the frightening event are very clear and detailed.",
+    "threat_items_label": "Risky Behavior | Concentration | Sleep Problems",
+    "threat_items_original": "Taking too many risks or doing things that could cause you harm? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "threat_items_original_label": "Risky Behavior | Concentration | Sleep Problems",
+    "threat_items_original_original": "Taking too many risks or doing things that could cause you harm? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "strategies_items_label": "Mental Distraction | Emotion Control | Emotional Numbing",
+    "strategies_items_original": "keep mind occupied all the time | control feelings | numb emotions",
+    "avoidance_items_label": "Avoid Similar People | Avoid Medical Cues | Avoid Evaluation",
+    "avoidance_items_original": "Seeing other people that were involved in the event or that look similar | Hospitals/ Ambulances/ Physical Examinations | Situations in which other people evaluate me / my appearance / my performance"
+  },
+  "obs_datetime": "2024-07-23 12:09:26",
+  "obs_index": 2,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.3110599078341014,
+    "Triggers -- Memory": 0.282258064516129,
+    "Triggers -- Negative Appraisals": 0.0615835777126099,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0787878787878787,
+    "Negative Appraisals -- Threat": 0.7305194805194806,
+    "Negative Appraisals -- Memory": 0.5113636363636364,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.3166666666666667,
+    "Memory -- Threat": 0.1607142857142857,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.4833333333333333,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    },
+    "message": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "He is a 29-year-old Israeli student with significant post-traumatic difficulties following exposure to military and terror-related events. Although he can recount what happened with striking ease, and describes the memories as unusually clear and detailed, this apparent coherence does not translate into distance from them. When he is confronted by loud noises, related media content, or news about similar events, the past feels abruptly close again; at times, thinking about the event is accompanied by the same smells he noticed during it, giving the experience an immediate, sensory quality rather than leaving it as something fully over.\n\nIn daily life, these moments are bound up with a persistent sense that danger can arise without warning. He describes feeling that he has to be especially careful because one never knows what may happen next, and he is not confident that he will do the right thing if something goes wrong. Alongside this is a more helpless expectation that he cannot stop bad things from happening to him. When reminders appear, these beliefs become more prominent, and his concentration deteriorates, his sleep is disrupted, and he can find himself acting in risky or self-endangering ways.\n\nHis way of coping is effortful and constricting. He tries to keep his mind occupied almost constantly, works hard to control his feelings, and often aims to numb himself emotionally. These strategies seem particularly driven by his fear of being caught off guard and by the intensity and vividness of what he remembers. He also manages his world by steering away from seeing other people who were involved in the event or who resemble them, from hospitals, ambulances, and physical examinations, and from situations in which he feels evaluated in his appearance or performance.\n\nThe overall effect is a narrowed life. His attention is pulled between vigilance for threat and attempts to suppress inner reactions, leaving him fatigued, less emotionally available, and under strain in ordinary student life and relationships. With a PCL-5 score of 43, his presentation suggests a self-perpetuating pattern in which reminders, vivid recollection, and catastrophic assumptions about danger combine to keep his sense of current threat active.",
+  "persona_attempts": [
+    {
+      "output": "He is a 29-year-old Israeli student with significant post-traumatic difficulties following exposure to military and terror-related events. Although he can recount what happened with striking ease, and describes the memories as unusually clear and detailed, this apparent coherence does not translate into distance from them. When he is confronted by loud noises, related media content, or news about similar events, the past feels abruptly close again; at times, thinking about the event is accompanied by the same smells he noticed during it, giving the experience an immediate, sensory quality rather than leaving it as something fully over.\n\nIn daily life, these moments are bound up with a persistent sense that danger can arise without warning. He describes feeling that he has to be especially careful because one never knows what may happen next, and he is not confident that he will do the right thing if something goes wrong. Alongside this is a more helpless expectation that he cannot stop bad things from happening to him. When reminders appear, these beliefs become more prominent, and his concentration deteriorates, his sleep is disrupted, and he can find himself acting in risky or self-endangering ways.\n\nHis way of coping is effortful and constricting. He tries to keep his mind occupied almost constantly, works hard to control his feelings, and often aims to numb himself emotionally. These strategies seem particularly driven by his fear of being caught off guard and by the intensity and vividness of what he remembers. He also manages his world by steering away from seeing other people who were involved in the event or who resemble them, from hospitals, ambulances, and physical examinations, and from situations in which he feels evaluated in his appearance or performance.\n\nThe overall effect is a narrowed life. His attention is pulled between vigilance for threat and attempts to suppress inner reactions, leaving him fatigued, less emotionally available, and under strain in ordinary student life and relationships. With a PCL-5 score of 43, his presentation suggests a self-perpetuating pattern in which reminders, vivid recollection, and catastrophic assumptions about danger combine to keep his sense of current threat active.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "The vignette makes clear that when reminders appear, he responds with coping efforts and avoidance, indicating triggers lead to maladaptive strategies.",
+      "quote": "When reminders appear... He tries to keep his mind occupied almost constantly, works hard to control his feelings... He also manages his world by steering away"
+    },
+    "Triggers--Threat": {
+      "weight": 1.0,
+      "explanation": "The text explicitly states that reminders combine with other factors to keep his sense of current threat active.",
+      "quote": "reminders, vivid recollection, and catastrophic assumptions about danger combine to keep his sense of current threat active"
+    },
+    "Triggers--Memory": {
+      "weight": 1.0,
+      "explanation": "The vignette directly states that loud noises, related media, and similar news make the past feel close again, showing triggers reactivate trauma memory.",
+      "quote": "When he is confronted by loud noises, related media content, or news about similar events, the past feels abruptly close again"
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "The text explicitly says that when reminders appear, his danger-related beliefs become more prominent.",
+      "quote": "When reminders appear, these beliefs become more prominent"
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "His coping strategies are described as being particularly driven by his fear of being caught off guard, indicating negative appraisals motivate maladaptive coping.",
+      "quote": "These strategies seem particularly driven by his fear of being caught off guard"
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 0.8,
+      "explanation": "His beliefs that danger can arise without warning and that he cannot stop bad things happening clearly imply appraisals intensify his sense of current threat.",
+      "quote": "a persistent sense that danger can arise without warning... he cannot stop bad things from happening to him"
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.0,
+      "explanation": "The vignette does not indicate that his appraisals cause or intensify trauma memories.",
+      "quote": ""
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.0,
+      "explanation": "There is no evidence that his appraisals generate or alter triggers themselves.",
+      "quote": ""
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "The text states that his coping strategies are particularly driven by the intensity and vividness of what he remembers.",
+      "quote": "These strategies seem particularly driven by... the intensity and vividness of what he remembers"
+    },
+    "Memory--Threat": {
+      "weight": 1.0,
+      "explanation": "The vignette explicitly states that vivid recollection combines with reminders and catastrophic assumptions to maintain current threat.",
+      "quote": "reminders, vivid recollection, and catastrophic assumptions about danger combine to keep his sense of current threat active"
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 0.0,
+      "explanation": "The text does not state that the memory itself produces his negative beliefs, only that reminders make those beliefs more prominent.",
+      "quote": ""
+    },
+    "Memory--Triggers": {
+      "weight": 0.0,
+      "explanation": "There is no evidence that trauma memories create triggers in the vignette.",
+      "quote": ""
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "His coping is described as driven by fear of being caught off guard and his attention is pulled toward vigilance and suppression, implying threat leads to maladaptive strategies.",
+      "quote": "These strategies seem particularly driven by his fear of being caught off guard"
+    },
+    "Threat--Memory": {
+      "weight": 0.0,
+      "explanation": "The vignette does not indicate that his sense of current threat causes trauma memories to occur.",
+      "quote": ""
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 0.0,
+      "explanation": "The direction in the vignette runs from beliefs about danger to threat, not from threat to new appraisals.",
+      "quote": ""
+    },
+    "Threat--Triggers": {
+      "weight": 0.0,
+      "explanation": "There is no textual evidence that his sense of threat creates or changes triggers.",
+      "quote": ""
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.0,
+      "explanation": "Although suppression and numbing are described, the vignette does not state that these strategies worsen or reactivate his trauma memory.",
+      "quote": ""
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 0.0,
+      "explanation": "The text does not state that his coping strategies produce or strengthen his negative appraisals.",
+      "quote": ""
+    }
+  },
+  "initial_message": "A motorcycle backfired outside the café a minute ago, and since then I’ve been staring at my phone and trying to look busy so I don’t have to think. I know it was nothing, but my body is still acting like something bad is about to happen.",
+  "message_attempts": [
+    {
+      "output": "A motorcycle backfired outside the café a minute ago, and since then I’ve been staring at my phone and trying to look busy so I don’t have to think. I know it was nothing, but my body is still acting like something bad is about to happen.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "A motorcycle backfired outside the café a minute ago, and since then I’ve been staring at my phone and trying to look busy so I don’t have to think. I know it was nothing, but my body is still acting like something bad is about to happen.",
+      "moderated": "motorcycle backfired outside and now i cant calm down just pretending to look busy so i dont lose it"
+    },
+    {
+      "turn_index": 2,
+      "raw": "More tight than jumpy right now—my shoulders are up near my ears and I keep scanning the door without meaning to. I’m also kind of flattening everything, like if I let myself feel too much I won’t be able to stay sitting here.",
+      "moderated": "feel really wound up keep checking the door and trying not to feel anything so i can stay here"
+    },
+    {
+      "turn_index": 4,
+      "raw": "Not like that right now. It’s more that I’m sitting here checking who comes in and where the exits are, like I can’t stop preparing for something even though nothing’s happening.",
+      "moderated": "more like im sitting here watching who comes in and where the exits are and i cant stop getting ready for something even though nothings happening"
+    },
+    {
+      "turn_index": 6,
+      "raw": "They feel normal enough, just too exposed. Like if someone dropped a tray behind me, I’d be on edge immediately, so I keep myself half-turned and ready instead of relaxing.",
+      "moderated": "i feel normal enough just kinda too exposed like if something drops behind me im instantly on edge so i stay half ready all the time"
+    },
+    {
+      "turn_index": 8,
+      "raw": "That something will happen fast and I won’t have enough time to react. So I’m already planning stupid details like which table would block me least if I had to move.",
+      "moderated": "feel like something bad could happen any second so im already thinking dumb stuff like which table i could get around fastest"
+    },
+    {
+      "turn_index": 10,
+      "raw": "Yeah, I’m safe, and I’m not going to hurt myself or anyone. I’m just gripping the chair and keeping my eyes on the room because that feels easier than trying to settle down.",
+      "moderated": "yeah im safe not gonna do anything just holding onto the chair and staring around the room cause thats easier right now"
+    },
+    {
+      "turn_index": 12,
+      "raw": "The room. I keep tracking little changes—someone standing up too fast, a bag left near a chair, the sound from the street—and it’s hard to stop once I start.",
+      "moderated": "in the room im always tracking every little thing and once i start i cant stop"
+    },
+    {
+      "turn_index": 14,
+      "raw": "Stronger, usually. I catch one thing that’s probably nothing, then another, and after a minute I’m wound up enough that I can’t even taste my coffee.",
+      "moderated": "usually yeah but one little thing and then another and im so on edge i cant even taste my coffee"
+    },
+    {
+      "turn_index": 16,
+      "raw": "A guy in a dark jacket came in and paused near the entrance too long before ordering. Since then I’ve been watching his hands instead of listening to anything around me.",
+      "moderated": "some guy came in and i couldnt stop watching his hands after that"
+    },
+    {
+      "turn_index": 18,
+      "raw": "Just that I needed to see what he was doing with them the whole time. If I lose track for even a second, it feels like I’m being careless.",
+      "moderated": "i just had to keep watching what he was doing the whole time or it felt like i was messing up"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "motorcycle backfired outside and now i cant calm down just pretending to look busy so i dont lose it"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "That sounds intense. Right now, does your body feel jumpy, numb, or something else?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "feel really wound up keep checking the door and trying not to feel anything so i can stay here"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "Are you getting any images or sensations that feel like the event is happening again right now?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "more like im sitting here watching who comes in and where the exits are and i cant stop getting ready for something even though nothings happening"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "Do things around you feel normal right now, or a bit unreal or distant?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "i feel normal enough just kinda too exposed like if something drops behind me im instantly on edge so i stay half ready all the time"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "What feels most likely to go wrong in the next few minutes?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "feel like something bad could happen any second so im already thinking dumb stuff like which table i could get around fastest"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "Are you safe right now, and do you feel able to get through the next few minutes without hurting yourself or anyone else?"},
+
+    {"speaker": "client", "turn_index": 10, "text": "yeah im safe not gonna do anything just holding onto the chair and staring around the room cause thats easier right now"},
+
+    {"speaker": "bot", "turn_index": 11, "text": "What are you noticing most right now: your body, the room, or your thoughts?"},
+
+    {"speaker": "client", "turn_index": 12, "text": "in the room im always tracking every little thing and once i start i cant stop"},
+
+    {"speaker": "bot", "turn_index": 13, "text": "When you scan the room like that, does it make the alarm feel stronger, weaker, or no change?"},
+
+    {"speaker": "client", "turn_index": 14, "text": "usually yeah but one little thing and then another and im so on edge i cant even taste my coffee"},
+
+    {"speaker": "bot", "turn_index": 15, "text": "What was the last small thing that set it off more?"},
+
+    {"speaker": "client", "turn_index": 16, "text": "some guy came in and i couldnt stop watching his hands after that"},
+
+    {"speaker": "bot", "turn_index": 17, "text": "What about his hands caught your attention?"},
+
+    {"speaker": "client", "turn_index": 18, "text": "i just had to keep watching what he was doing the whole time or it felt like i was messing up"},
+
+    {"speaker": "bot", "turn_index": 19, "text": "If you looked away for a moment, what did you think might happen?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "An external cue set off distress and subsequent alarm.",
+        "quote": "motorcycle backfired outside and now i cant calm down just pretending to look busy so i dont lose it"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses a maladaptive interpretation about their responsibility/performance in monitoring danger.",
+        "quote": "i just had to keep watching what he was doing the whole time or it felt like i was messing up"
+      },
+      "Memory": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client describes a persistent sense of current danger and hypervigilance.",
+        "quote": "feel like something bad could happen any second so im already thinking dumb stuff like which table i could get around fastest"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes safety behaviors and emotional suppression/avoidant coping.",
+        "quote": "feel really wound up keep checking the door and trying not to feel anything so i can stay here"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The backfire is described as leading to pretending to look busy to avoid losing control.",
+        "quote": "motorcycle backfired outside and now i cant calm down just pretending to look busy so i dont lose it"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The backfire appears to activate current alarm and inability to calm down.",
+        "quote": "motorcycle backfired outside and now i cant calm down just pretending to look busy so i dont lose it"
+      },
+      "Triggers--Memory": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Feeling that not watching would mean 'messing up' is linked to compulsive monitoring.",
+        "quote": "i just had to keep watching what he was doing the whole time or it felt like i was messing up"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Memory--Threat": {
+        "score": 0,
+        "explanation": null,
+        "quote": ""
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The sense that something bad could happen leads to planning protective maneuvers and scanning the environment.",
+        "quote": "feel like something bad could happen any second so im already thinking dumb stuff like which table i could get around fastest"
+      }
+    }
+  }
+}

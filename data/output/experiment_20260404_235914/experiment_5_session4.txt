@@ -1,0 +1,295 @@
+PATIENT 5  |  session 4  |  2026-04-05 00:04:43
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   4
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-5.4
+    validator            gpt-5.4
+    dialogue_state       gpt-5.4
+    client               gpt-5.4
+    bot                  gpt-5.4
+    moderator            gpt-5.4
+    analyst              gpt-5.4
+    vignette_analyst     gpt-5.4
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             29
+  gender          M
+  nationality     Israeli
+  profession      Student
+  pcl5            43
+  trauma_type     Military, Terror
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Loud noises,Related media content,Related news
+  Negative Appraisals:
+    • I can't trust that I will do the right thing
+    • I have to be especially careful because you never know what can happen next
+    • I can't stop bad things from happening to me
+  Memory:
+    • When I think about the frightening event I can sometimes smell things that I smelt when the frightening event happened.
+    • I can talk about what happened very easily.
+    • My memories of the frightening event are very clear and detailed.
+  Threat:
+    • Taking too many risks or doing things that could cause you harm?
+    • Having difficulty concentrating?
+    • Trouble falling or staying asleep?
+  Maladaptive Strategies:
+    • keep mind occupied all the time
+    • control feelings
+    • numb emotions
+  Avoidance:
+    • Seeing other people that were involved in the event or that look similar
+    • Hospitals/ Ambulances/ Physical Examinations
+    • Situations in which other people evaluate me / my appearance / my performance
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.3111
+  Triggers → Memory                                  0.2823
+  Triggers → Negative Appraisals                     0.0616
+  Negative Appraisals → Maladaptive Strategies       0.0788
+  Negative Appraisals → Threat                       0.7305
+  Negative Appraisals → Memory                       0.5114
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.3167
+  Memory → Threat                                    0.1607
+  Memory → Negative Appraisals                       0.0000
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.4833
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-07-24 12:00:18  |  index 4
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    · Negative Appraisals
+    · Memory
+    ✓ Threat
+    · Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    · Triggers → Threat
+    · Triggers → Memory
+    · Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    · Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    · Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              1 attempt(s)  →  PASS
+  message              1 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+He is a 29-year-old Israeli student with significant post-traumatic difficulties following exposure
+to military and terror-related events. Although he can recount what happened with striking ease, and
+describes the memories as unusually clear and detailed, this apparent coherence does not translate
+into distance from them. When he is confronted by loud noises, related media content, or news about
+similar events, the past feels abruptly close again; at times, thinking about the event is
+accompanied by the same smells he noticed during it, giving the experience an immediate, sensory
+quality rather than leaving it as something fully over.
+
+In daily life, these moments are bound up with a persistent sense that danger can arise without
+warning. He describes feeling that he has to be especially careful because one never knows what may
+happen next, and he is not confident that he will do the right thing if something goes wrong.
+Alongside this is a more helpless expectation that he cannot stop bad things from happening to him.
+When reminders appear, these beliefs become more prominent, and his concentration deteriorates, his
+sleep is disrupted, and he can find himself acting in risky or self-endangering ways.
+
+His way of coping is effortful and constricting. He tries to keep his mind occupied almost
+constantly, works hard to control his feelings, and often aims to numb himself emotionally. These
+strategies seem particularly driven by his fear of being caught off guard and by the intensity and
+vividness of what he remembers. He also manages his world by steering away from seeing other people
+who were involved in the event or who resemble them, from hospitals, ambulances, and physical
+examinations, and from situations in which he feels evaluated in his appearance or performance.
+
+The overall effect is a narrowed life. His attention is pulled between vigilance for threat and
+attempts to suppress inner reactions, leaving him fatigued, less emotionally available, and under
+strain in ordinary student life and relationships. With a PCL-5 score of 43, his presentation
+suggests a self-perpetuating pattern in which reminders, vivid recollection, and catastrophic
+assumptions about danger combine to keep his sense of current threat active.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+He is a 29-year-old Israeli student with significant post-traumatic difficulties following exposure
+to military and terror-related events. Although he can recount what happened with striking ease, and
+describes the memories as unusually clear and detailed, this apparent coherence does not translate
+into distance from them. When he is confronted by loud noises, related media content, or news about
+similar events, the past feels abruptly close again; at times, thinking about the event is
+accompanied by the same smells he noticed during it, giving the experience an immediate, sensory
+quality rather than leaving it as something fully over.
+
+In daily life, these moments are bound up with a persistent sense that danger can arise without
+warning. He describes feeling that he has to be especially careful because one never knows what may
+happen next, and he is not confident that he will do the right thing if something goes wrong.
+Alongside this is a more helpless expectation that he cannot stop bad things from happening to him.
+When reminders appear, these beliefs become more prominent, and his concentration deteriorates, his
+sleep is disrupted, and he can find himself acting in risky or self-endangering ways.
+
+His way of coping is effortful and constricting. He tries to keep his mind occupied almost
+constantly, works hard to control his feelings, and often aims to numb himself emotionally. These
+strategies seem particularly driven by his fear of being caught off guard and by the intensity and
+vividness of what he remembers. He also manages his world by steering away from seeing other people
+who were involved in the event or who resemble them, from hospitals, ambulances, and physical
+examinations, and from situations in which he feels evaluated in his appearance or performance.
+
+The overall effect is a narrowed life. His attention is pulled between vigilance for threat and
+attempts to suppress inner reactions, leaving him fatigued, less emotionally available, and under
+strain in ordinary student life and relationships. With a PCL-5 score of 43, his presentation
+suggests a self-perpetuating pattern in which reminders, vivid recollection, and catastrophic
+assumptions about danger combine to keep his sense of current threat active.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+I was walking across campus a few minutes ago when a loud bang from some construction made my whole
+body tense up. Even now I can’t really settle, like I need to keep looking around because something
+could happen any second.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+loud bang on campus and now i cant calm down keep feeling like somethings about to happen
+  (raw) I was walking across campus a few minutes ago when a loud bang from some construction made my whole
+body tense up. Even now I can’t really settle, like I need to keep looking around because something
+could happen any second.
+
+[1] BOT
+That sounds intense. Are you safe where you are right now?
+
+[2] CLIENT
+im by the library and i keep checking behind me like if i stop paying attention for a second
+something bads gonna happen
+  (raw) Yeah, I’m by the library entrance and nothing’s happening, but I still keep checking who’s coming up
+behind me. It’s stupid, I know, but after that noise it feels like if I stop paying attention for
+one second, something bad will happen.
+
+[3] BOT
+What feels most likely to happen in the next few minutes?
+
+[4] CLIENT
+probably nothing but feels like something could happen any second and im just standing here checking
+everyone and every sound instead of going back in
+  (raw) Probably nothing, but it still feels like someone could start yelling or there could be another
+blast from somewhere nearby and I’d be too slow to react. So I’m standing here scanning faces and
+listening for every sound instead of going back inside.
+
+[5] BOT
+Right now, how strong is that sense of danger from 0 to 10?
+
+[6] CLIENT
+like a 7 chest feels tight and every door slam makes me jump like somethings about to happen
+  (raw) Like a 7. My chest is tight and every time a door slams somewhere on campus I jerk my head around
+because it feels like the next thing is coming.
+
+[7] BOT
+Thanks. In the last few minutes, have you had any moments where the area felt safe, even briefly?
+
+[8] CLIENT
+for a few seconds i chilled out and then a siren went by and i was right back on edge like
+somethings about to happen here
+  (raw) For maybe a few seconds when I saw two students just arguing about parking, it dropped a little.
+Then a siren passed on the road and I was right back on edge, watching the street like something was
+about to spill over here.
+
+[9] BOT
+When the siren passed, what changed first in your body or attention?
+
+[10] CLIENT
+my whole body tensed up and i was just watching for where something bad might happen
+  (raw) My shoulders locked up first, then my attention snapped straight to the road and every person near
+the gate. It was like the whole area narrowed down to where trouble might come from.
+
+[11] BOT
+Right now, are you having any thoughts about hurting yourself or anyone else?
+
+[12] CLIENT
+no im just keyed up and watching everything
+  (raw) No. I’m just keyed up and watching everything.
+
+[13] BOT
+In this moment, what are you watching most closely?
+
+[14] CLIENT
+keep watching the gate and everyone getting off the bus like somethings wrong
+  (raw) The road by the gate and the people coming off the bus. I keep looking for someone moving too fast
+or doing something that doesn’t fit.
+
+[15] BOT
+What about the gate or the people getting off the bus stands out most right now?
+
+[16] CLIENT
+some guy jumped off the bus early and i couldnt stop watching him like something bad was about to
+happen
+  (raw) One guy jumped off before the bus fully stopped and my eyes went straight to him. Stuff like that
+makes me feel like something’s starting, and then I can’t stop tracking where he goes.
+
+[17] BOT
+When you watched him, what did you think it meant?
+
+[18] CLIENT
+my head goes straight to dont get caught off guard like something bad could happen any second
+  (raw) That maybe he’s in a rush for a bad reason, or that things can turn in a second and I need to catch
+it early. My head goes straight to “don’t get surprised.”
+
+[19] BOT
+Right now, how certain does that feel from 0 to 10?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     Client describes external cues that activate distress, including loud noises and a siren.
+      "loud bang on campus and now i cant calm down keep feeling like somethings about to happen"
+  · Negative Appraisals          No clear maladaptive appraisal about self, world, or trauma meaning is explicitly stated beyond imminent-danger thoughts.
+  · Memory                       No evidence of intrusive memories, flashbacks, reliving, or trauma recall.
+  ✓ Threat                       Client repeatedly reports a strong sense of current danger and hypervigilance.
+      "keep feeling like somethings about to happen"
+  ✓ Maladaptive Strategies       Client describes hypervigilant checking/monitoring and avoidance of going back inside.
+      "im by the library and i keep checking behind me like if i stop paying attention for a second something bads gonna happen"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             External cues are described as leading to checking/monitoring behavior.
+      "for a few seconds i chilled out and then a siren went by and i was right back on edge like somethings about to happen here"
+  ✓ Triggers → Threat                             Loud noises and siren cues are explicitly linked to increased sense of danger.
+      "every door slam makes me jump like somethings about to happen"
+  · Triggers → Memory                             No evidence that triggers lead to trauma memory or intrusive recall.
+  · Triggers → Negative Appraisals                No explicit evidence that triggers lead to maladaptive appraisals about self/world/trauma.
+  · Negative Appraisals → Maladaptive Strategies  No negative appraisal node present.
+  · Negative Appraisals → Threat                  No negative appraisal node present.
+  · Negative Appraisals → Memory                  No negative appraisal node present.
+  · Memory → Maladaptive Strategies               No memory symptoms described.
+  · Memory → Threat                               No memory symptoms described.
+  ✓ Threat → Maladaptive Strategies               Sense of danger is explicitly linked to checking, scanning, and not going back in.
+      "probably nothing but feels like something could happen any second and im just standing here checking everyone and every sound instead of going back in"

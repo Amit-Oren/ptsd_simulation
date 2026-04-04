@@ -1,0 +1,89 @@
+{
+  "patient_id": 5,
+  "timestamp": "2026-04-05 00:02:50",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4",
+      "validator": "gpt-5.4",
+      "dialogue_state": "gpt-5.4",
+      "client": "gpt-5.4",
+      "bot": "gpt-5.4",
+      "moderator": "gpt-5.4",
+      "analyst": "gpt-5.4",
+      "vignette_analyst": "gpt-5.4"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 2,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 29,
+    "gender": "M",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 43,
+    "trauma_type": "Military, Terror"
+  },
+  "self_report": {
+    "trigger_items": "Loud noises,Related media content,Related news",
+    "appraisals_items_original": "I can't trust that I will do the right thing | I have to be especially careful because you never know what can happen next | I can't stop bad things from happening to me",
+    "memory_items_original": "When I think about the frightening event I can sometimes smell things that I smelt when the frightening event happened. | I can talk about what happened very easily. | My memories of the frightening event are very clear and detailed.",
+    "threat_items_original": "Taking too many risks or doing things that could cause you harm? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "strategies_items_original": "keep mind occupied all the time | control feelings | numb emotions",
+    "avoidance_items_original": "Seeing other people that were involved in the event or that look similar | Hospitals/ Ambulances/ Physical Examinations | Situations in which other people evaluate me / my appearance / my performance"
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.3110599078341014,
+    "Triggers -- Memory": 0.282258064516129,
+    "Triggers -- Negative Appraisals": 0.0615835777126099,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0787878787878787,
+    "Negative Appraisals -- Threat": 0.7305194805194806,
+    "Negative Appraisals -- Memory": 0.5113636363636364,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.3166666666666667,
+    "Memory -- Threat": 0.1607142857142857,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.4833333333333333,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "observation": {
+    "datetime": "2024-07-23 12:09:26",
+    "index": 2,
+    "nodes": {
+      "Triggers": 1,
+      "Negative Appraisals": 0,
+      "Memory": 0,
+      "Threat": 1,
+      "Maladaptive Strategies": 1
+    },
+    "edges": {
+      "Triggers -- Maladaptive Strategies": 0,
+      "Triggers -- Threat": 0,
+      "Triggers -- Memory": 0,
+      "Triggers -- Negative Appraisals": 0,
+      "Negative Appraisals -- Maladaptive Strategies": 0,
+      "Negative Appraisals -- Threat": 0,
+      "Negative Appraisals -- Memory": 0,
+      "Negative Appraisals -- Triggers": 0,
+      "Memory -- Maladaptive Strategies": 0,
+      "Memory -- Threat": 0,
+      "Memory -- Negative Appraisals": 0,
+      "Memory -- Triggers": 0,
+      "Threat -- Maladaptive Strategies": 0,
+      "Threat -- Memory": 0,
+      "Threat -- Negative Appraisals": 0,
+      "Threat -- Triggers": 0,
+      "Maladaptive Strategies -- Memory": 0,
+      "Maladaptive Strategies -- Negative Appraisals": 0
+    }
+  }
+}

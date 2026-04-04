@@ -1,6 +1,6 @@
 simulation:
   num_patients: 1
-  patient_ids: [4]   # e.g. [23] or [23, 45] — overrides num_patients if set
+  patient_ids: [7]   # e.g. [23] or [23, 45] — overrides num_patients if set
   num_turns: 10
   seed: 30
   obs_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # single int or list of session indices
@@ -17,14 +17,14 @@ simulation:
   #   full_moderated             full pipeline with moderated validation (human text)
 
 models:
-  persona_crafter: gpt-5.4
-  validator: gpt-5.4
-  dialogue_state: gpt-5.4
-  client: gpt-5.4
-  bot: gpt-5.4
-  moderator: gpt-5.4
-  analyst: gpt-5.4
-  vignette_analyst: gpt-5.4
+  persona_crafter: gpt-5.4-mini
+  validator: gpt-5.4-mini
+  dialogue_state: gpt-5.4-mini
+  client: gpt-5.4-mini
+  bot: gpt-5.4-mini
+  moderator: gpt-5.4-mini
+  analyst: gpt-5.4-mini
+  vignette_analyst: gpt-5.4-mini
 
 agents:
   bot: BotAgent

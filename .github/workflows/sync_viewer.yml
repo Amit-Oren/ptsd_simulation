@@ -1,0 +1,56 @@
+name: Sync viewer repo
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "streamlit_app/**"
+      - "config/formulation_config.py"
+      - "requirements.txt"
+      - "data/output/**"
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout private repo
+        uses: actions/checkout@v4
+
+      - name: Checkout public viewer repo
+        uses: actions/checkout@v4
+        with:
+          repository: amit-oren/ptsd-simulation-viewer   # ← change to your public repo
+          token: ${{ secrets.VIEWER_REPO_TOKEN }}
+          path: viewer_repo
+
+      - name: Sync files
+        run: |
+          # streamlit app
+          rsync -av --delete streamlit_app/ viewer_repo/streamlit_app/
+
+          # formulation config (needed for edge definitions)
+          mkdir -p viewer_repo/config
+          cp config/formulation_config.py viewer_repo/config/formulation_config.py
+
+          # requirements
+          cp requirements.txt viewer_repo/requirements.txt
+
+          # experiment outputs (only JSON + txt, skip raw input data)
+          mkdir -p viewer_repo/data/output
+          rsync -av --delete \
+            --include="experiment_*/" \
+            --include="experiment_*.json" \
+            --include="experiment_*.txt" \
+            --include="patient_*_summary.json" \
+            --exclude="*" \
+            data/output/ viewer_repo/data/output/
+
+      - name: Commit and push to viewer repo
+        working-directory: viewer_repo
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git diff --cached --quiet || git commit -m "Sync from private repo"
+          git push

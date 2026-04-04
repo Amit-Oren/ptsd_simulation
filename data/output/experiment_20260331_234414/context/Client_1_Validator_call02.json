@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "agent_name": "Client_1_Validator",
+    "role": "Validator",
+    "call_index": 2,
+    "timestamp": "2026-03-31 23:44:58"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a clinical validator checking whether a patient's message\naccurately reflects their current PTSD component profile.\n\nTHE MODEL:\nActive components (must appear in the message):\n  - Triggers\n  - Negative Appraisals\n  - Memory\n  - Threat\n  - Maladaptive Strategies\n\nInactive components (must NOT appear in the message):\n  (none)\n\nActive causal edges (must be reflected as links in the message):\n  - Negative Appraisals → Threat: 1.0000\n  - Memory → Threat: 1.0000\n  - Threat → Maladaptive Strategies: 1.0000\n\nRULES:\n- Every active component must be present in the message (explicit or clearly implied).\n- Every inactive component must NOT appear in the message.\n- Every active edge must be reflected — the message should show A causing or triggering B.\n\nReturn a JSON object with two fields:\n- \"verdict\": exactly \"PASS\" or \"FAIL\"\n- \"reasoning\": one sentence explaining which rule passed or was violated"
+    },
+    {
+      "role": "user",
+      "content": "Persona:\nMaria is a 32-year-old woman who has been navigating the aftermath of a traumatic assault that occurred two years ago. Since that night, she has found herself frequently overwhelmed by feelings of dread and danger, even in safe environments. These intrusive feelings seem to magnify the slightest cues in her surroundings, leading her to interpret benign situations as threatening. As a result, she has developed a tendency to isolate herself from friends and loved ones, choosing instead to stay at home where she feels a semblance of control. Each day becomes a negotiation with her internal landscape, rife with anxiety and hypervigilance that seem to overshadow her previous vibrant personality.\n\nMaria's memories of the assault are fragmented and distressing, often surfacing unexpectedly. While she struggles to remember precise details, the emotional weight of these memories is palpable. They contribute to a pervasive sense of vulnerability, intensifying her belief that the world is inherently unsafe. At times, this belief manifests in her surroundings; she feels her heart race at the sound of footsteps behind her, convinced that danger lurks around every corner. As these automatic thoughts take hold, she finds herself caught in a cycle of fear, further distancing herself from experiences that could challenge her beliefs.\n\nIn seeking to cope with her distress, Maria has adopted a range of maladaptive strategies, though they often leave her feeling more isolated and misunderstood. She frequently engages in avoidance behaviors—refraining from social gatherings and even avoiding certain streets she once walked without a second thought. Each time she declines an invitation or cancels plans, she feels a pang of guilt, yet the prospect of facing her fears seems insurmountable. This cycle of avoidance reinforces her emotional isolation, deepening her sense of despair.\n\nThe toll that this has taken on her relationships is evident. Friends express concern and confusion over Maria's withdrawal, and as she pulls away, the very support systems that could help her heal become strained. Conversations that were once filled with laughter and warmth now feel laden with tension, as her loved ones struggle to understand the invisible battles she faces. Maria often feels misunderstood and alone, a sentiment that only deepens her sense of despair.\n\nAs she continues to grapple with these challenges, Maria’s journey is marked by a complex interplay of fear, isolation, and longing for connection. The weight of her trauma colors her world, making the path to recovery seem daunting yet essential. Through all of this, she clings to the hope that one day she might reclaim the life she once knew, a life free from the shackles of fear and filled with the warmth of genuine connection.\n\nMessage:\nI just heard a car door slam outside, and my heart instantly raced. It's like I'm back there again, feeling the weight of danger lurking around every corner. I wish I could just step outside without this paralyzing fear, but the thought of facing it all feels like too much right now."
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"verdict\": \"PASS\",\n  \"reasoning\": \"All active components are present and the active causal edges are reflected in the message.\"\n}"
+    }
+  ]
+}

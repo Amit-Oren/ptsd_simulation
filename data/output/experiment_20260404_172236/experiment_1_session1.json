@@ -1,0 +1,267 @@
+{
+  "patient_id": 1,
+  "experiment_timestamp": "2026-04-04 17:24:32",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "moderator": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 5,
+    "obs_index": 1,
+    "max_retries": 2,
+    "seed": 24
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 60,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Being looked at sexually,Being alone with men,Hearing related names",
+    "trigger_category": "Interpersonal, Interpersonal, Trauma-Related",
+    "trigger_subcategory": "Sexual Objectification, Male Presence, Name Reminders",
+    "appraisals_items_label": "Must stay on guard   | World is dangerous   | Something in me caused event  ",
+    "appraisals_items_original": "I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen",
+    "memory_items_label": "Visual Memories | Snapshot Memory | Bodily Reenactment",
+    "memory_items_original": "My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.",
+    "threat_items_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Rumination: Prevention | Hypervigilance towards people | Stay Near Exit",
+    "strategies_items_original": "ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit",
+    "avoidance_items_label": "Avoid Reminders | Avoid Sex | Avoid Evaluation",
+    "avoidance_items_original": "Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance"
+  },
+  "obs_datetime": "2024-07-26 18:00:11",
+  "obs_index": 1,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1339285714285715,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.9375,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.625,
+    "Memory -- Negative Appraisals": 0.3214285714285715,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.2291666666666667,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    }
+  },
+  "persona": "Maria is a 32-year-old woman who has been grappling with the aftermath of a traumatic car accident that occurred two years ago. The crash, which left her witnessing the severe injury of a close friend, has since cast a long shadow over her daily life. Every time she hears the sound of screeching tires or a honking horn, her heart races, and she is immediately flooded with a sense of impending doom. These triggers not only evoke a visceral sense of threat but also lead her to ruminate on the event, replaying the moments of horror in her mind, often spiraling into negative thoughts about her own safety and the unpredictability of life.\n\nMaria often finds herself caught in a web of negative appraisals, viewing the world through a lens of danger. She frequently thinks that she might be involved in another accident or that her loved ones are at constant risk. This relentless cycle of fear and worry has left her feeling trapped, as if she were living in a perpetual state of alertness. The memories of that fateful day haunt her, reinforcing her belief that she is unsafe and that horrific events are lurking just around the corner, waiting to unfold. These thoughts not only exacerbate her anxiety but also contribute to a profound sense of disconnection from those around her.\n\nTo cope with these overwhelming feelings, Maria has developed maladaptive strategies, such as isolating herself from friends and family. Initially, she thought that avoiding situations where she might encounter cars or driving altogether would provide her with a sense of security. However, this avoidance has only deepened her sense of loneliness and despair. Conversations with friends about everyday activities now feel daunting, as she worries they might inadvertently remind her of her trauma. As her social circle shrinks, she becomes increasingly aware of how her life has been hijacked by fear, leaving her frustrated and disheartened.\n\nThe toll of her experiences has seeped into every aspect of her life, affecting her work performance and personal relationships. Once a vibrant and social individual, Maria now finds it a struggle to engage in conversations or activities that once brought her joy. The emotional burden of her trauma and the relentless cycle of threat and negative appraisal weigh heavily on her, casting a pall over her once-bright spirit. As she navigates this difficult terrain, Maria longs for a return to the life she once knew, yet feels paralyzed by the memories and fears that continue to dominate her existence.",
+  "persona_attempts": [
+    {
+      "output": "Maria is a 32-year-old woman who has been grappling with the aftermath of a traumatic car accident that occurred two years ago. The crash, which left her witnessing the severe injury of a close friend, has since cast a long shadow over her daily life. Every time she hears the sound of screeching tires or a honking horn, her heart races, and she is immediately flooded with a sense of impending doom. These triggers not only evoke a visceral sense of threat but also lead her to ruminate on the event, replaying the moments of horror in her mind, often spiraling into negative thoughts about her own safety and the unpredictability of life.\n\nMaria often finds herself caught in a web of negative appraisals, viewing the world through a lens of danger. She frequently thinks that she might be involved in another accident or that her loved ones are at constant risk. This relentless cycle of fear and worry has left her feeling trapped, as if she were living in a perpetual state of alertness. The memories of that fateful day haunt her, reinforcing her belief that she is unsafe and that horrific events are lurking just around the corner, waiting to unfold. These thoughts not only exacerbate her anxiety but also contribute to a profound sense of disconnection from those around her.\n\nTo cope with these overwhelming feelings, Maria has developed maladaptive strategies, such as isolating herself from friends and family. Initially, she thought that avoiding situations where she might encounter cars or driving altogether would provide her with a sense of security. However, this avoidance has only deepened her sense of loneliness and despair. Conversations with friends about everyday activities now feel daunting, as she worries they might inadvertently remind her of her trauma. As her social circle shrinks, she becomes increasingly aware of how her life has been hijacked by fear, leaving her frustrated and disheartened.\n\nThe toll of her experiences has seeped into every aspect of her life, affecting her work performance and personal relationships. Once a vibrant and social individual, Maria now finds it a struggle to engage in conversations or activities that once brought her joy. The emotional burden of her trauma and the relentless cycle of threat and negative appraisal weigh heavily on her, casting a pall over her once-bright spirit. As she navigates this difficult terrain, Maria longs for a return to the life she once knew, yet feels paralyzed by the memories and fears that continue to dominate her existence.",
+      "passed": false,
+      "feedback": "The vignette contains the forbidden edge 'Memory → Maladaptive Strategies,' as it implies that her memories of the traumatic event lead her to develop avoidance strategies."
+    },
+    {
+      "output": "Maria is a 32-year-old woman who has been grappling with the aftermath of a traumatic car accident that occurred two years ago. The crash, which left her witnessing the severe injury of a close friend, has since cast a long shadow over her daily life. Every time she hears the sound of screeching tires or a honking horn, her heart races, and she is immediately flooded with a sense of impending doom. These triggers not only evoke a visceral sense of threat but also lead her to ruminate on the event, replaying the moments of horror in her mind, often spiraling into negative thoughts about her own safety and the unpredictability of life.\n\nMaria often finds herself caught in a web of negative appraisals, viewing the world through a lens of danger. She frequently thinks that she might be involved in another accident or that her loved ones are at constant risk. This relentless cycle of fear and worry has left her feeling trapped, as if she were living in a perpetual state of alertness. The memories of that fateful day haunt her, reinforcing her belief that she is unsafe and that horrific events are lurking just around the corner, waiting to unfold. These thoughts not only exacerbate her anxiety but also contribute to a profound sense of disconnection from those around her.\n\nTo cope with these overwhelming feelings, Maria has developed maladaptive strategies, such as isolating herself from friends and family. Initially, she thought that avoiding situations where she might encounter cars or driving altogether would provide her with a sense of security. However, this avoidance has only deepened her sense of loneliness and despair. Conversations with friends about everyday activities now feel daunting, as she worries they might inadvertently remind her of her trauma. As her social circle shrinks, she becomes increasingly aware of how her life has been hijacked by fear, leaving her frustrated and disheartened.\n\nThe toll of her experiences has seeped into every aspect of her life, affecting her work performance and personal relationships. Once a vibrant and social individual, Maria now finds it a struggle to engage in conversations or activities that once brought her joy. The emotional burden of her trauma and the relentless cycle of threat and negative appraisal weigh heavily on her, casting a pall over her once-bright spirit. As she navigates this difficult terrain, Maria longs for a return to the life she once knew, yet feels paralyzed by the memories and fears that continue to dominate her existence.",
+      "passed": false,
+      "feedback": "The vignette implies the forbidden edge 'Negative Appraisals → Memory' by linking negative appraisals to the memories of the traumatic event, suggesting that negative thoughts about her safety influence her recollection of the trauma."
+    }
+  ],
+  "initial_message": "I just heard a car horn blaring outside, and my heart dropped. It’s like I’m right back there, feeling that same rush of panic and helplessness, and I can’t shake the thought that something terrible could happen to me or someone I care about.",
+  "message_attempts": [
+    {
+      "output": "I just heard a car horn blaring outside, and my heart dropped. It’s like I’m right back there, feeling that same rush of panic and helplessness, and I can’t shake the thought that something terrible could happen again.",
+      "passed": false,
+      "feedback": "The message includes the inactive component 'Memory', which must not appear."
+    },
+    {
+      "output": "I just heard a car horn blaring outside, and my heart dropped. It’s like I’m right back there, feeling that same rush of panic and helplessness, and I can’t shake the thought that something terrible could happen.",
+      "passed": false,
+      "feedback": "The message reflects triggers and threat but does not explicitly include negative appraisals, which are necessary for the active edge linking negative appraisals to threat."
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I just heard a car horn blaring outside, and my heart dropped. It’s like I’m right back there, feeling that same rush of panic and helplessness, and I can’t shake the thought that something terrible could happen to me or someone I care about.",
+      "moderated": "just heard a car horn and my heart dropped, can’t shake the panic that something bad will happen"
+    },
+    {
+      "turn_index": 2,
+      "raw": "I can't help but think that if I get in a car again, I could end up in another accident. What if something happens to my family when they're out driving? It feels like danger is just lurking around every corner, and I can't escape it.",
+      "moderated": "i keep worrying that if i drive again, i'll crash or something bad will happen to my family"
+    },
+    {
+      "turn_index": 4,
+      "raw": "It’s definitely a solid 9 right now. Just the thought of getting into a car sends me spiraling, and I can't shake the fear that something awful could happen to me or my loved ones. It feels so overwhelming.",
+      "moderated": "it's a solid 9 right now, just thinking about getting in a car makes me spiral and i'm so scared something bad will happen to me or my loved ones"
+    },
+    {
+      "turn_index": 6,
+      "raw": "My chest feels tight, like there's a weight pressing down on me, and I can feel my heart racing. It’s almost like I’m on high alert, ready to jump at any moment, and I can’t catch my breath properly.",
+      "moderated": "my chest feels tight and my heart's racing like i'm on high alert"
+    },
+    {
+      "turn_index": 8,
+      "raw": "Right now, I'm just trying to breathe slowly, but it’s hard. I find myself wanting to retreat to a quiet space, hoping that isolating will bring me some kind of relief, even though I know it just leaves me feeling more alone.",
+      "moderated": "just trying to breathe but it’s tough and i just want to hide away"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "just heard a car horn and my heart dropped, can’t shake the panic that something bad will happen"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What thoughts are running through your mind right now after hearing the horn?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "i keep worrying that if i drive again, i'll crash or something bad will happen to my family"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "How intense is the worry about driving or something happening to your family, on a scale from 1 to 10?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "it's a solid 9 right now, just thinking about getting in a car makes me spiral and i'm so scared something bad will happen to me or my loved ones"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "What physical sensations are you experiencing along with that fear?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "my chest feels tight and my heart's racing like i'm on high alert"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "How are you managing those physical sensations in this moment?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "just trying to breathe but it’s tough and i just want to hide away"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "What are you doing to distract yourself from wanting to hide away?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client explicitly mentions a trigger (the car horn) that activates distress, leading to panic.",
+        "quote": "just heard a car horn and my heart dropped, can’t shake the panic that something bad will happen"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses a negative appraisal regarding the potential consequences of driving and the safety of their family.",
+        "quote": "i keep worrying that if i drive again, i'll crash or something bad will happen to my family"
+      },
+      "Memory": {
+        "score": 0,
+        "explanation": "There are no explicit references to intrusive memories, flashbacks or strong sensory recall related to past trauma.",
+        "quote": ""
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client conveys an ongoing sense of danger by expressing fear that something bad will happen to them or their loved ones.",
+        "quote": "i'm so scared something bad will happen to me or my loved ones"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client resorts to avoidance behaviors, such as wanting to hide away from the situation.",
+        "quote": "i just want to hide away"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The trigger of hearing the car horn leads the client to want to hide away, which is a maladaptive strategy.",
+        "quote": "just want to hide away"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The client's reaction to the car horn indicates an increased sense of threat.",
+        "quote": "can’t shake the panic that something bad will happen"
+      },
+      "Triggers--Memory": {
+        "score": 0,
+        "explanation": "There is no indication that the trigger leads to intrusive memories or flashbacks.",
+        "quote": ""
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The trigger of the car horn leads to negative appraisals about driving and potential harm.",
+        "quote": "i keep worrying that if i drive again, i'll crash or something bad will happen to my family"
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The negative appraisal regarding driving leads the client to want to hide away, a maladaptive strategy.",
+        "quote": "i just want to hide away"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The negative appraisal creates an ongoing sense of threat regarding personal and family safety.",
+        "quote": "i'm so scared something bad will happen to me or my loved ones"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": "There is no indication that negative appraisals lead to memory issues or retrieval of trauma memories.",
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 0,
+        "explanation": "There is no evidence that memory of the trauma is leading to maladaptive strategies in this conversation.",
+        "quote": ""
+      },
+      "Memory--Threat": {
+        "score": 0,
+        "explanation": "There is no indication that memory is leading to a sense of ongoing threat.",
+        "quote": ""
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The sense of threat leads the client to consider hiding away as a strategy to cope.",
+        "quote": "i just want to hide away"
+      }
+    }
+  }
+}

@@ -1,0 +1,404 @@
+{
+  "patient_id": 2,
+  "experiment_timestamp": "2026-04-04 19:50:32",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "moderator": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 2,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "A-binary",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 50,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Loud noises,Physical touch, Talking to strangers",
+    "trigger_category": "Sensory, Sensory, Interpersonal",
+    "trigger_subcategory": "Auditory (Loud Noises), Tactile (Touch), Stranger Interaction",
+    "appraisals_items_label": "Event happened because of me   | I am weak   | People can't be trusted  ",
+    "appraisals_items_original": "The event happened because of the way I acted | I am a weak person | People can't be trusted",
+    "memory_items_label": "Verbal Access | Snapshot Memory | Vivid Memory",
+    "memory_items_original": "I can talk about what happened very easily. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | My memories of the frightening event are very clear and detailed.",
+    "threat_items_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Drug Use | Avoid Event Site | Avoid Crowds",
+    "strategies_items_original": "take drugs | avoid site of the event | avoid crowded places",
+    "avoidance_items_label": "Avoid Location | Avoid Sex | Avoid Physical Stress",
+    "avoidance_items_original": "Going to or near the place where the event happened | Sex | Situations that put my body under stress"
+  },
+  "obs_datetime": "2024-07-23 12:19:32",
+  "obs_index": 2,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 1,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.15,
+    "Triggers -- Memory": 0.1125,
+    "Triggers -- Negative Appraisals": 0.0,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.5,
+    "Negative Appraisals -- Memory": 0.1625,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.4875,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.75,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 2,
+      "passed": 1,
+      "failed": 1,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "At 21 years old, this Israeli student is navigating the complexities of university life while grappling with the aftermath of a traumatic sexual assault. They present with a significant level of distress, reflected in their PCL-5 score of 50, which highlights the pervasive impact of their experiences. The assault has left them feeling vulnerable and distrustful, leading them to believe that their own actions contributed to the event, reinforcing a narrative of self-blame. They view themselves as weak, perpetuating a cycle of negative self-appraisal that shapes their interactions with others and their perception of the world.\n\nDay to day, the patient encounters various triggers that evoke a profound sense of threat. Loud noises can send them into a state of heightened alertness, while physical touch, even from friends, can feel overwhelming and reminiscent of their trauma. Conversations with strangers become laden with anxiety, as they anticipate potential harm lurking in every interaction. Their memories of the assault remain vivid, with each moment etched in their mind like a series of snapshots, making it difficult for them to escape the haunting recollection of fear and horror. The clarity of these memories only deepens their distress, contributing to a hypervigilant state where feelings of guilt and shame are ever-present.\n\nIn response to these overwhelming emotions, they have developed maladaptive coping strategies. They often resort to drug use as a means of numbing their pain, while avoiding places that remind them of the assault. Crowded environments become a source of anxiety, prompting them to isolate themselves from social situations that might trigger their symptoms. The thought of engaging in sexual intimacy feels fraught with stress, further alienating them from potential connections and complicating their relationships with peers.\n\nThe toll of their trauma is profound, impacting not only their academic performance but also their ability to form meaningful relationships. Trust issues have arisen, making it challenging for them to connect with others, and the weight of their negative self-image influences their self-esteem and sense of belonging. They are caught in a cycle where their persistent feelings of threat dictate their behavior, pushing them further into isolation and despair. As they seek to navigate this challenging landscape, the interplay between their experiences and feelings of threat continues to shape their journey toward healing.",
+  "persona_attempts": [
+    {
+      "output": "At 21 years old, this Israeli student is navigating the complexities of university life while grappling with the aftermath of a traumatic sexual assault. They present with a significant level of distress, reflected in their PCL-5 score of 50, which highlights the pervasive impact of their experiences. The assault has left them feeling vulnerable and distrustful, leading them to believe that their own actions contributed to the event, reinforcing a narrative of self-blame. They view themselves as weak, perpetuating a cycle of negative self-appraisal that shapes their interactions with others and their perception of the world.\n\nDay to day, the patient encounters various triggers that evoke a profound sense of threat. Loud noises can send them into a state of heightened alertness, while physical touch, even from friends, can feel overwhelming and reminiscent of their trauma. Conversations with strangers become laden with anxiety, as they anticipate potential harm lurking in every interaction. Their memories of the assault remain vivid, with each moment etched in their mind like a series of snapshots, making it difficult for them to escape the haunting recollection of fear and horror. The clarity of these memories only deepens their distress, contributing to a hypervigilant state where feelings of guilt and shame are ever-present.\n\nIn response to these overwhelming emotions, they have developed maladaptive coping strategies. They often resort to drug use as a means of numbing their pain, while avoiding places that remind them of the assault. Crowded environments become a source of anxiety, prompting them to isolate themselves from social situations that might trigger their symptoms. The thought of engaging in sexual intimacy feels fraught with stress, further alienating them from potential connections and complicating their relationships with peers.\n\nThe toll of their trauma is profound, impacting not only their academic performance but also their ability to form meaningful relationships. Trust issues have arisen, making it challenging for them to connect with others, and the weight of their negative self-image influences their self-esteem and sense of belonging. They are caught in a cycle where their persistent feelings of threat dictate their behavior, pushing them further into isolation and despair, while maintaining a constant struggle against the shadows of their past. As they seek to navigate this challenging landscape, the interplay between their experiences, memories, and feelings of threat continues to shape their journey toward healing.",
+      "passed": false,
+      "feedback": "The vignette contains the forbidden edge 'Threat → Memory,' as it implies that the feeling of threat influences the clarity of their memories, which is not permitted. Additionally, 'Negative Appraisals → Threat' is also implied by the narrative of self-blame perpetuating feelings of threat."
+    },
+    {
+      "output": "At 21 years old, this Israeli student is navigating the complexities of university life while grappling with the aftermath of a traumatic sexual assault. They present with a significant level of distress, reflected in their PCL-5 score of 50, which highlights the pervasive impact of their experiences. The assault has left them feeling vulnerable and distrustful, leading them to believe that their own actions contributed to the event, reinforcing a narrative of self-blame. They view themselves as weak, perpetuating a cycle of negative self-appraisal that shapes their interactions with others and their perception of the world.\n\nDay to day, the patient encounters various triggers that evoke a profound sense of threat. Loud noises can send them into a state of heightened alertness, while physical touch, even from friends, can feel overwhelming and reminiscent of their trauma. Conversations with strangers become laden with anxiety, as they anticipate potential harm lurking in every interaction. Their memories of the assault remain vivid, with each moment etched in their mind like a series of snapshots, making it difficult for them to escape the haunting recollection of fear and horror. The clarity of these memories only deepens their distress, contributing to a hypervigilant state where feelings of guilt and shame are ever-present.\n\nIn response to these overwhelming emotions, they have developed maladaptive coping strategies. They often resort to drug use as a means of numbing their pain, while avoiding places that remind them of the assault. Crowded environments become a source of anxiety, prompting them to isolate themselves from social situations that might trigger their symptoms. The thought of engaging in sexual intimacy feels fraught with stress, further alienating them from potential connections and complicating their relationships with peers.\n\nThe toll of their trauma is profound, impacting not only their academic performance but also their ability to form meaningful relationships. Trust issues have arisen, making it challenging for them to connect with others, and the weight of their negative self-image influences their self-esteem and sense of belonging. They are caught in a cycle where their persistent feelings of threat dictate their behavior, pushing them further into isolation and despair, while maintaining a constant struggle against the shadows of their past. As they seek to navigate this challenging landscape, the interplay between their experiences and feelings of threat continues to shape their journey toward healing.",
+      "passed": false,
+      "feedback": "The vignette contains the forbidden edge 'Negative Appraisals → Maladaptive Strategies', as the patient's negative self-appraisal influences their coping strategies, which is not permitted."
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "The patient resorts to drug use and isolation as maladaptive strategies in response to triggers that evoke distress.",
+      "quote": "they have developed maladaptive coping strategies. They often resort to drug use as a means of numbing their pain, while avoiding places that remind them of the assault."
+    },
+    "Triggers--Threat": {
+      "weight": 1.0,
+      "explanation": "The triggers the patient experiences evoke a profound sense of threat, leading to heightened alertness and anxiety.",
+      "quote": "the patient encounters various triggers that evoke a profound sense of threat."
+    },
+    "Triggers--Memory": {
+      "weight": 0.6,
+      "explanation": "Triggers such as loud noises and physical touch are linked to the patient's vivid memories of the assault, suggesting a connection between the two.",
+      "quote": "loud noises can send them into a state of heightened alertness, while physical touch, even from friends, can feel overwhelming and reminiscent of their trauma."
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 0.8,
+      "explanation": "The patient's experience of triggers leads to heightened anxiety and self-blame, influencing their negative self-appraisal.",
+      "quote": "their memories of the assault remain vivid... making it difficult for them to escape the haunting recollection of fear and horror."
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "The patient's negative self-appraisals contribute to their use of maladaptive strategies like drug use and social avoidance.",
+      "quote": "perpetuating a cycle of negative self-appraisal that shapes their interactions with others and their perception of the world."
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 1.0,
+      "explanation": "Negative self-appraisals create a heightened sense of threat, as the patient feels vulnerable and distrustful in interactions.",
+      "quote": "They view themselves as weak, perpetuating a cycle of negative self-appraisal that shapes their interactions with others and their perception of the world."
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.6,
+      "explanation": "The patient's negative beliefs about themselves are reinforced by their vivid, distressing memories of the trauma.",
+      "quote": "Their memories of the assault remain vivid, with each moment etched in their mind."
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.4,
+      "explanation": "Negative self-appraisals may influence their perception of interactions as threatening, however, the connection is not directly stated.",
+      "quote": ""
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "The vivid memories of the assault lead the patient to engage in maladaptive strategies to cope with the distress they feel.",
+      "quote": "In response to these overwhelming emotions, they have developed maladaptive coping strategies."
+    },
+    "Memory--Threat": {
+      "weight": 1.0,
+      "explanation": "The clarity and vividness of the patient's memories directly contribute to their ongoing sense of threat and hypervigilance.",
+      "quote": "The clarity of these memories only deepens their distress, contributing to a hypervigilant state."
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "The distressing memories reinforce the patient's negative beliefs about themselves, such as self-blame and feelings of weakness.",
+      "quote": "They view themselves as weak, perpetuating a cycle of negative self-appraisal."
+    },
+    "Memory--Triggers": {
+      "weight": 0.8,
+      "explanation": "The traumatic memories serve as triggers that evoke strong emotional responses and feelings of threat.",
+      "quote": "loud noises can send them into a state of heightened alertness, while physical touch... can feel overwhelming and reminiscent of their trauma."
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "The sense of threat drives the patient to adopt maladaptive strategies such as avoidance and drug use to cope with their anxiety.",
+      "quote": "The toll of their trauma is profound, impacting not only their academic performance but also their ability to form meaningful relationships."
+    },
+    "Threat--Memory": {
+      "weight": 1.0,
+      "explanation": "The ongoing sense of threat is heavily influenced by the vivid and distressing memories of the assault, maintaining the cycle of distress.",
+      "quote": "The clarity of these memories only deepens their distress, contributing to a hypervigilant state."
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "The sense of threat exacerbates the patient's negative self-appraisals, reinforcing feelings of vulnerability and self-blame.",
+      "quote": "They view themselves as weak, perpetuating a cycle of negative self-appraisal."
+    },
+    "Threat--Triggers": {
+      "weight": 1.0,
+      "explanation": "The sense of threat is triggered by various stimuli that remind the patient of their trauma, leading to heightened alertness.",
+      "quote": "The patient encounters various triggers that evoke a profound sense of threat."
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.6,
+      "explanation": "The use of maladaptive strategies may prevent the patient from processing their memories effectively, but this connection is implied rather than explicit.",
+      "quote": "In response to these overwhelming emotions, they have developed maladaptive coping strategies."
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 0.8,
+      "explanation": "The patient's maladaptive strategies reinforce their negative self-image and further complicate their self-perception.",
+      "quote": "Trust issues have arisen, making it challenging for them to connect with others."
+    }
+  },
+  "initial_message": "I just heard a loud noise outside, and my heart raced like I was back in that moment. It’s like I can’t escape the feeling that something bad is lurking around every corner, and I can’t help but think that I’m weak for feeling this way. All I want to do is hide away where it feels safe.",
+  "message_attempts": [
+    {
+      "output": "I just heard a loud noise outside, and my heart raced like I was back in that moment. It’s like I can’t escape the feeling that something bad is lurking around every corner, and all I want to do is hide away where it feels safe.",
+      "passed": false,
+      "feedback": "The message does not include the component of Negative Appraisals, which is essential for linking to Threat."
+    },
+    {
+      "output": "I just heard a loud noise outside, and my heart raced like I was back in that moment. It’s like I can’t escape the feeling that something bad is lurking around every corner, and I can’t help but think that I’m weak for feeling this way. All I want to do is hide away where it feels safe.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I just heard a loud noise outside, and my heart raced like I was back in that moment. It’s like I can’t escape the feeling that something bad is lurking around every corner, and I can’t help but think that I’m weak for feeling this way. All I want to do is hide away where it feels safe.",
+      "moderated": "just heard a loud noise and my heart dropped like im back in it again, feels like something bad is always around, feel so weak for this, just wanna hide"
+    },
+    {
+      "turn_index": 2,
+      "raw": "It lingered for what felt like ages. I was sitting in the library, trying to focus on my studies, but my mind kept drifting back to that noise. I couldn't shake the sense of threat; it made it hard to breathe, and I ended up just staring blankly at my notes, feeling completely lost.",
+      "moderated": "couldn't focus in the library, that noise just wouldn't leave my mind and felt like i couldn't breathe"
+    },
+    {
+      "turn_index": 4,
+      "raw": "I kept replaying the moments of the assault in my head, each detail so vivid it was like I was watching a movie I couldn’t turn off. I felt this overwhelming weight of guilt and shame, thinking that somehow I could have prevented it, and that just made everything feel heavier, like I was drowning in those memories.",
+      "moderated": "i can’t stop replaying the assault in my head and it just makes everything feel worse like i’m drowning in guilt and shame"
+    },
+    {
+      "turn_index": 6,
+      "raw": "I couldn't concentrate at all; it was like I was trapped in my own head. The noise of people around me felt amplified, and I kept glancing at the door, feeling like I needed to escape. I ended up packing my things and leaving because I couldn't shake the feeling of being on edge, like I was just waiting for something bad to happen again.",
+      "moderated": "couldn't focus at all, felt trapped in my head and the noise was just too much, had to leave because I felt like something bad was about to happen"
+    },
+    {
+      "turn_index": 8,
+      "raw": "Once I left the library, I found a quiet corner of the campus to sit and smoke a joint. It helped numb the overwhelming feelings for a little while, but I knew deep down it was just a temporary escape. I still felt that lingering anxiety, but at least for a moment, I could block out the world around me.",
+      "moderated": "found a quiet spot after the library and smoked a joint to feel less overwhelmed for a bit but the anxiety is still there"
+    },
+    {
+      "turn_index": 10,
+      "raw": "It's different now; it’s more like a dull thrum of anxiety instead of that sharp, panicky feeling from the library. I can breathe a bit easier, but there's still this underlying sense of threat that I can't shake. It's like a constant reminder that I'm not completely safe, and I can feel it in my chest, just waiting for something to trigger it again.",
+      "moderated": "just this dull anxiety now, like i can breathe but the threat is still there, always in my chest waiting to hit again"
+    },
+    {
+      "turn_index": 12,
+      "raw": "My shoulders feel tense and tight, like I’m carrying the weight of the world. I can feel my heart racing a little, and there’s this knot in my stomach that won’t go away. It’s as if my body is always on high alert, bracing for something that might happen, even if I’m just sitting alone.",
+      "moderated": "my shoulders are so tense and i feel like i can’t relax at all"
+    },
+    {
+      "turn_index": 14,
+      "raw": "Yeah, there was a moment earlier when I was sitting outside in the sun. I closed my eyes and took a few deep breaths, and for a second, it felt like the tension in my shoulders loosened just enough to let me feel a bit of relief. But as soon as I opened my eyes and remembered everything, that tightness crept back in.",
+      "moderated": "was feeling a bit of relief sitting outside but then it all came rushing back"
+    },
+    {
+      "turn_index": 16,
+      "raw": "I was just sitting there, feeling the warmth of the sun on my skin, and I let myself focus on the sounds around me, like the rustling leaves and distant laughter. It felt calming, almost like I could momentarily forget the anxiety, but it didn’t last long before the weight of everything came crashing back.",
+      "moderated": "was nice for a bit but then all the anxiety just hit me again"
+    },
+    {
+      "turn_index": 18,
+      "raw": "When the anxiety returned, I felt this wave of frustration and sadness wash over me. I started thinking about how exhausting it is to constantly battle these feelings, and I couldn’t shake the belief that I’ll always be stuck like this, unable to truly enjoy moments of peace. It made me feel trapped, like I’m just waiting for the next wave of anxiety to hit.",
+      "moderated": "just so frustrated and sad again, feels like i’m stuck in this endless cycle and can’t enjoy anything"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "just heard a loud noise and my heart dropped like im back in it again, feels like something bad is always around, feel so weak for this, just wanna hide"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "It sounds distressing to feel that way. How long did the feeling last after you heard the noise?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "couldn't focus in the library, that noise just wouldn't leave my mind and felt like i couldn't breathe"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "What thoughts or images were coming to mind while you were trying to focus in the library?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "i can’t stop replaying the assault in my head and it just makes everything feel worse like i’m drowning in guilt and shame"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "How did those thoughts affect your ability to concentrate or engage with your surroundings in the library?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "couldn't focus at all, felt trapped in my head and the noise was just too much, had to leave because I felt like something bad was about to happen"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "What did you do after you left the library to help yourself feel safer or more grounded?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "found a quiet spot after the library and smoked a joint to feel less overwhelmed for a bit but the anxiety is still there"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "How would you describe the anxiety you're feeling now compared to when you were in the library?"},
+
+    {"speaker": "client", "turn_index": 10, "text": "just this dull anxiety now, like i can breathe but the threat is still there, always in my chest waiting to hit again"},
+
+    {"speaker": "bot", "turn_index": 11, "text": "What do you notice in your body when you feel that dull anxiety?"},
+
+    {"speaker": "client", "turn_index": 12, "text": "my shoulders are so tense and i feel like i can’t relax at all"},
+
+    {"speaker": "bot", "turn_index": 13, "text": "Have you experienced any moments today where the tension in your shoulders eased up, even briefly?"},
+
+    {"speaker": "client", "turn_index": 14, "text": "was feeling a bit of relief sitting outside but then it all came rushing back"},
+
+    {"speaker": "bot", "turn_index": 15, "text": "What were you doing outside that helped you feel a bit of relief?"},
+
+    {"speaker": "client", "turn_index": 16, "text": "was nice for a bit but then all the anxiety just hit me again"},
+
+    {"speaker": "bot", "turn_index": 17, "text": "When the anxiety returned, what thoughts or feelings came up for you?"},
+
+    {"speaker": "client", "turn_index": 18, "text": "just so frustrated and sad again, feels like i’m stuck in this endless cycle and can’t enjoy anything"},
+
+    {"speaker": "bot", "turn_index": 19, "text": "What activities or moments have you tried recently that you hoped would bring you some enjoyment?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client describes hearing a loud noise, which serves as a trigger for their distress.",
+        "quote": "just heard a loud noise and my heart dropped like im back in it again, feels like something bad is always around, feel so weak for this, just wanna hide"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses feelings of weakness and frustration, which indicate negative appraisals about themselves and their situation.",
+        "quote": "feel so weak for this"
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client mentions replaying the assault in their head, which indicates intrusive memories related to their trauma.",
+        "quote": "i can’t stop replaying the assault in my head and it just makes everything feel worse like i’m drowning in guilt and shame"
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client frequently expresses a sense of ongoing threat, such as feeling like something bad is about to happen and anxiety that feels present.",
+        "quote": "feel like something bad is about to happen"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes using smoking as a way to cope with overwhelming feelings, which reflects a maladaptive strategy.",
+        "quote": "found a quiet spot after the library and smoked a joint to feel less overwhelmed for a bit but the anxiety is still there"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The loud noise triggered the client's distress, leading to the use of smoking as a coping strategy.",
+        "quote": "just heard a loud noise and my heart dropped like im back in it again, feels like something bad is always around, feel so weak for this, just wanna hide"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "Hearing the noise triggered a sense of ongoing threat, as the client mentions feeling like something bad is always around.",
+        "quote": "just heard a loud noise and my heart dropped like im back in it again, feels like something bad is always around"
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The loud noise triggered the client’s intrusive memories of the assault, which they described in their next turn.",
+        "quote": "just heard a loud noise and my heart dropped like im back in it again"
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The triggers related to the loud noise led to feelings of weakness and inadequacy for the client.",
+        "quote": "feel so weak for this"
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's negative appraisal of themselves as weak likely contributed to their use of maladaptive coping strategies.",
+        "quote": "feel so weak for this"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The negative appraisal of feeling weak contributes to an ongoing sense of threat, as it affects the client's perception of their safety.",
+        "quote": "feel so weak for this"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "The negative feelings of guilt and shame are tied to the memories of the assault the client is replaying.",
+        "quote": "i can’t stop replaying the assault in my head and it just makes everything feel worse like i’m drowning in guilt and shame"
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The intrusive memories are leading to the client feeling overwhelmed and subsequently using maladaptive strategies like smoking.",
+        "quote": "i can’t stop replaying the assault in my head and it just makes everything feel worse like i’m drowning in guilt and shame"
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The replaying of traumatic memories contributes to the client's sense of ongoing threat.",
+        "quote": "i can’t stop replaying the assault in my head and it just makes everything feel worse like i’m drowning in guilt and shame"
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's ongoing sense of threat drives them to use maladaptive coping strategies, such as smoking to feel less overwhelmed.",
+        "quote": "found a quiet spot after the library and smoked a joint to feel less overwhelmed for a bit but the anxiety is still there"
+      }
+    }
+  }
+}

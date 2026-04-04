@@ -1,0 +1,174 @@
+PATIENT 1  |  seed: 2  |  
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[Attempt 1]  FAIL
+Sarah, a 32-year-old marketing executive, has spent the past eighteen months grappling with the
+aftermath of a traumatic car accident that left her with not only physical scars but also emotional
+ones. Since that day, she has found herself engulfed by a persistent sense of threat. The mere sound
+of a car engine or the sight of a busy intersection sends her heart racing, as if she were reliving
+the moment of impact all over again. This heightened state of alertness has woven itself into the
+fabric of her daily life, compelling her to avoid driving whenever possible. While her friends and
+family encourage her to confront her fears, Sarah often dismisses their suggestions, believing that
+steering clear of these situations is the only way to maintain her safety.
+
+As Sarah navigates her world, she finds herself haunted by negative thoughts that paint her as
+helpless and fragile. Memories of the accident replay in her mind, tainting her perspective with a
+sense of inevitability that danger lurks around every corner. This cognitive distortion has led her
+to develop a warped view of herself, where she perceives herself as a victim rather than a survivor.
+The weight of these negative appraisals has become a relentless companion, feeding into her anxiety
+and reinforcing her belief that she cannot trust herself or her surroundings.
+
+Despite her desire to regain control, Sarah often resorts to maladaptive coping strategies. She
+isolates herself from social gatherings, fearing that she might encounter triggers that could
+provoke her anxiety. While these strategies provide a temporary sense of relief, they further
+entrench her feelings of loneliness and despair. Her relationships with friends and family are
+strained; they express concern about her withdrawal, yet she feels unable to articulate the depth of
+her struggle. Each day becomes a balancing act between the pull of her old life and the suffocating
+grip of her anxiety.
+
+The toll this has taken on Sarah is palpable. Once a vibrant and outgoing individual, she now feels
+like a shadow of her former self. Her career has stagnated as she frequently seeks excuses to avoid
+meetings that require travel or presentations, fearing that the stress may trigger her symptoms.
+Nights are often sleepless, as racing thoughts keep her awake, replaying what-ifs and scenarios that
+never materialize. The cycle of anxiety and avoidance has left her feeling trapped, longing for the
+freedom she once took for granted.
+
+In the quiet moments, when the world around her is still, Sarah grapples with the realization that
+she is caught in a loop of fear and avoidance. The trauma of the accident has not only altered how
+she perceives her environment but has also reshaped her identity. As she contemplates her next
+steps, she feels an urgency to break free from this cycle, yearning for a way to reclaim her life
+and restore the connections with those she loves. Yet, the path to healing remains uncertain,
+clouded by the shadows of her past experiences and the daunting prospect of facing her fears head-
+on.
+
+Feedback:
+The vignette contains several forbidden edges, specifically the link between Negative Appraisals and
+Maladaptive Strategies, as Sarah's negative self-perception leads her to develop maladaptive coping
+strategies like social isolation. This violates the criteria for forbidden edges.
+
+[Attempt 2]  FAIL
+Sarah, a 32-year-old marketing executive, has spent the past eighteen months grappling with the
+aftermath of a traumatic car accident that left her with not only physical scars but also emotional
+ones. Since that day, she has found herself engulfed by a persistent sense of threat. The mere sound
+of a car engine or the sight of a busy intersection sends her heart racing, as if she were reliving
+the moment of impact all over again. This heightened state of alertness has woven itself into the
+fabric of her daily life, compelling her to avoid driving whenever possible. While her friends and
+family encourage her to confront her fears, Sarah often dismisses their suggestions, believing that
+steering clear of these situations is the only way to maintain her safety.
+
+As Sarah navigates her world, she finds herself haunted by negative thoughts that paint her as
+helpless and fragile. Memories of the accident replay in her mind, tainting her perspective with a
+sense of inevitability that danger lurks around every corner. This cognitive distortion has led her
+to develop a warped view of herself, where she perceives herself as a victim rather than a survivor.
+The weight of these negative appraisals has become a relentless companion, feeding into her anxiety
+and reinforcing her belief that she cannot trust herself or her surroundings.
+
+Despite her desire to regain control, Sarah often resorts to avoidance as a coping strategy. She
+isolates herself from social gatherings, fearing that she might encounter triggers that could
+provoke her anxiety. While this avoidance provides a temporary sense of relief, it further entrench
+her feelings of loneliness and despair. Her relationships with friends and family are strained; they
+express concern about her withdrawal, yet she feels unable to articulate the depth of her struggle.
+Each day becomes a balancing act between the pull of her old life and the suffocating grip of her
+anxiety.
+
+The toll this has taken on Sarah is palpable. Once a vibrant and outgoing individual, she now feels
+like a shadow of her former self. Her career has stagnated as she frequently seeks excuses to avoid
+meetings that require travel or presentations, fearing that the stress may trigger her symptoms.
+Nights are often sleepless, as racing thoughts keep her awake, replaying what-ifs and scenarios that
+never materialize. The cycle of anxiety and avoidance has left her feeling trapped, longing for the
+freedom she once took for granted.
+
+In the quiet moments, when the world around her is still, Sarah grapples with the realization that
+she is caught in a loop of fear and avoidance. The trauma of the accident has not only altered how
+she perceives her environment but has also reshaped her identity. As she contemplates her next
+steps, she feels an urgency to break free from this cycle, yearning for a way to reclaim her life
+and restore the connections with those she loves. Yet, the path to healing remains uncertain,
+clouded by the shadows of her past experiences and the daunting prospect of facing her fears head-
+on.
+
+Feedback:
+The vignette contains forbidden edges, particularly the link between Negative Appraisals and Memory,
+as Sarah's negative thoughts about herself are described as being influenced by memories of the
+accident. This creates an implicit violation of the cognitive model.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+Sarah, a 32-year-old marketing executive, has spent the past eighteen months grappling with the
+aftermath of a traumatic car accident that left her with not only physical scars but also emotional
+ones. Since that day, she has found herself engulfed by a persistent sense of threat. The mere sound
+of a car engine or the sight of a busy intersection sends her heart racing, as if she were reliving
+the moment of impact all over again. This heightened state of alertness has woven itself into the
+fabric of her daily life, compelling her to avoid driving whenever possible. While her friends and
+family encourage her to confront her fears, Sarah often dismisses their suggestions, believing that
+steering clear of these situations is the only way to maintain her safety.
+
+As Sarah navigates her world, she finds herself haunted by negative thoughts that paint her as
+helpless and fragile. This cognitive distortion has led her to develop a warped view of herself,
+where she perceives herself as a victim rather than a survivor. The weight of these negative
+appraisals has become a relentless companion, feeding into her anxiety and reinforcing her belief
+that she cannot trust herself or her surroundings. Yet, the specific memories of the accident seem
+to hold a distance, as they do not directly fuel her distorted self-image but rather echo in the
+background of her fear.
+
+Despite her desire to regain control, Sarah often resorts to avoidance as a coping strategy. She
+isolates herself from social gatherings, fearing that she might encounter triggers that could
+provoke her anxiety. While this avoidance provides a temporary sense of relief, it further
+entrenches her feelings of loneliness and despair. Her relationships with friends and family are
+strained; they express concern about her withdrawal, yet she feels unable to articulate the depth of
+her struggle. Each day becomes a balancing act between the pull of her old life and the suffocating
+grip of her anxiety.
+
+The toll this has taken on Sarah is palpable. Once a vibrant and outgoing individual, she now feels
+like a shadow of her former self. Her career has stagnated as she frequently seeks excuses to avoid
+meetings that require travel or presentations, fearing that the stress may trigger her symptoms.
+Nights are often sleepless, as racing thoughts keep her awake, replaying what-ifs and scenarios that
+never materialize. The cycle of anxiety and avoidance has left her feeling trapped, longing for the
+freedom she once took for granted.
+
+In the quiet moments, when the world around her is still, Sarah grapples with the realization that
+she is caught in a loop of fear and avoidance. The trauma of the accident has not only altered how
+she perceives her environment but has also reshaped her identity. As she contemplates her next
+steps, she feels an urgency to break free from this cycle, yearning for a way to reclaim her life
+and restore the connections with those she loves. Yet, the path to healing remains uncertain,
+clouded by the shadows of her past experiences and the daunting prospect of facing her fears head-
+on.
+
+AGGREGATE EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers -- Maladaptive Strategies: 0.0000
+  Triggers -- Threat: 0.1250
+  Triggers -- Memory: 0.0000
+  Triggers -- Negative Appraisals: 0.1339
+  Negative Appraisals -- Maladaptive Strategies: 0.0000
+  Negative Appraisals -- Threat: 0.9375
+  Negative Appraisals -- Memory: 0.0000
+  Negative Appraisals -- Triggers: 0.0000
+  Memory -- Maladaptive Strategies: 0.0000
+  Memory -- Threat: 0.6250
+  Memory -- Negative Appraisals: 0.3214
+  Memory -- Triggers: 0.0000
+  Threat -- Maladaptive Strategies: 0.2292
+  Threat -- Memory: 0.0000
+  Threat -- Negative Appraisals: 0.0000
+  Threat -- Triggers: 0.0000
+  Maladaptive Strategies -- Memory: 0.0000
+  Maladaptive Strategies -- Negative Appraisals: 0.0000
+
+OBSERVATION NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+OBSERVATION EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+ANALYSIS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+""

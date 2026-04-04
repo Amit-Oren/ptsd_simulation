@@ -1,0 +1,404 @@
+{
+  "patient_id": 3,
+  "experiment_timestamp": "2026-04-04 22:54:03",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "moderator": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 4,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 62,
+    "trauma_type": "Car accident"
+  },
+  "self_report": {
+    "trigger_items": "Car sounds,Neck pain,Driving with people",
+    "trigger_category": "Sensory, Sensory, Situational",
+    "trigger_subcategory": "Auditory (Cars), Somatic Pain (Neck), Driving with Others",
+    "appraisals_items_label": "Must stay on guard   | World is dangerous   | Can't stop bad things  ",
+    "appraisals_items_original": "I have to be on guard all the time | The world is a dangerous place | I can't stop bad things from happening to me",
+    "memory_items_label": "Reliving Event | Memory Replay | Vivid Memory",
+    "memory_items_original": "When I remember the frightening event I feel like it is happening right now. | My memories of the frightening event are like a film that plays over and over. | My memories of the frightening event are very clear and detailed.",
+    "threat_items_label": "Hypervigilance | Concentration | Sleep Problems",
+    "threat_items_original": "Being “superalert” or watchful or on guard? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "threat_items_original_label": "Hypervigilance | Concentration | Sleep Problems",
+    "threat_items_original_original": "Being “superalert” or watchful or on guard? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "strategies_items_label": "Rumination: Prevention | Avoid Event Site | Mirror Checking",
+    "strategies_items_original": "ruminate about how event could have been prevented | avoid site of the event | keep checking mirrors",
+    "avoidance_items_label": "Avoid Reminders | Avoid Location | Avoid Exercise",
+    "avoidance_items_original": "Being reminded of the event by others | Going to or near the place where the event happened | Exercise"
+  },
+  "obs_datetime": "2024-07-17 15:58:10",
+  "obs_index": 4,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 0
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.4,
+    "Triggers -- Memory": 0.5333333333333333,
+    "Triggers -- Negative Appraisals": 0.5333333333333333,
+    "Negative Appraisals -- Maladaptive Strategies": 0.6666666666666666,
+    "Negative Appraisals -- Threat": 0.8,
+    "Negative Appraisals -- Memory": 1.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 1.0,
+    "Memory -- Threat": 0.8,
+    "Memory -- Negative Appraisals": 0.3333333333333334,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.8,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    }
+  },
+  "persona": "At 21 years old, Yael, an Israeli student, is grappling with the aftermath of a traumatic car accident that has left her feeling trapped in a cycle of fear and apprehension. Once a vibrant and social individual, she now finds herself constantly on edge, hyper-aware of her surroundings, and burdened by a pervasive sense of danger. Car sounds trigger memories of the accident, flooding her mind with vivid recollections that feel as real as the moment they occurred. Each recollection is like a film playing on repeat, intensifying her distress and reinforcing a belief that she must remain perpetually vigilant to prevent further harm.\n\nYael's worldview has shifted drastically; she feels that the world has become an unsafe place, instilling a belief that she cannot escape the grasp of misfortune. This unyielding mindset has led her to adopt maladaptive strategies to cope with her heightened anxiety, including rumination about what could have been done differently to avert the accident. Compounding her distress, she avoids driving whenever possible and feels compelled to check mirrors obsessively whenever she is a passenger, a behavior she believes will keep her safe. Yet, these strategies provide little relief and often leave her feeling more isolated, as friends and family struggle to understand her need to avoid certain places or conversations that might remind her of the accident.\n\nThe toll of her experiences has seeped into every facet of her life, impacting her studies and relationships. Concentration has become a formidable challenge, as intrusive thoughts about the accident invade her focus, making it difficult to engage fully in her academic pursuits. Sleep eludes her, as nightmares and racing thoughts plague her nights, leaving her fatigued and irritable during the day. Friends have expressed concern over her withdrawal, noting that the vibrant young woman they once knew seems to be fading away, replaced by someone who feels burdened by the weight of her trauma.\n\nIn moments of quiet reflection, Yael wrestles with the stark contrast between her past and her present. The joy she once derived from life has become overshadowed by a persistent sense of dread. Each day is a battle against the memories that replay in her mind, and the negative appraisals that cloud her judgment. She longs for a sense of safety and normalcy but feels trapped in a cycle of avoidance and hyperarousal that seems inescapable. As she navigates the complexities of her thoughts and emotions, Yael is left to ponder whether she can reclaim her life from the shadows of her past.",
+  "persona_attempts": [
+    {
+      "output": "At 21 years old, Yael, an Israeli student, is grappling with the aftermath of a traumatic car accident that has left her feeling trapped in a cycle of fear and apprehension. Once a vibrant and social individual, she now finds herself constantly on edge, hyper-aware of her surroundings, and burdened by a pervasive sense of danger. Car sounds trigger memories of the accident, flooding her mind with vivid recollections that feel as real as the moment they occurred. Each recollection is like a film playing on repeat, intensifying her distress and reinforcing a belief that she must remain perpetually vigilant to prevent further harm. \n\nYael's worldview has shifted drastically; she feels that the world has become an unsafe place, instilling a belief that she cannot escape the grasp of misfortune. This unyielding mindset has led her to adopt maladaptive strategies to cope with her heightened anxiety, including rumination about what could have been done differently to avert the accident. Compounding her distress, she avoids driving whenever possible and feels compelled to check mirrors obsessively whenever she is a passenger, a behavior she believes will keep her safe. Yet, these strategies provide little relief and often leave her feeling more isolated, as friends and family struggle to understand her need to avoid certain places or conversations that might remind her of the accident.\n\nThe toll of her experiences has seeped into every facet of her life, impacting her studies and relationships. Concentration has become a formidable challenge, as intrusive thoughts about the accident invade her focus, making it difficult to engage fully in her academic pursuits. Sleep eludes her, as nightmares and racing thoughts plague her nights, leaving her fatigued and irritable during the day. Friends have expressed concern over her withdrawal, noting that the vibrant young woman they once knew seems to be fading away, replaced by someone who feels burdened by the weight of her trauma.\n\nIn moments of quiet reflection, Yael wrestles with the stark contrast between her past and her present. The joy she once derived from life has become overshadowed by a persistent sense of dread. Each day is a battle against the memories that replay in her mind, and the negative appraisals that cloud her judgment. She longs for a sense of safety and normalcy but feels trapped in a cycle of avoidance and hyperarousal that seems inescapable. As she navigates the complexities of her thoughts and emotions, Yael is left to ponder whether she can reclaim her life from the shadows of her past.",
+      "passed": false,
+      "feedback": "The vignette includes the edge 'Negative Appraisals → Maladaptive Strategies,' which is forbidden."
+    },
+    {
+      "output": "At 21 years old, Yael, an Israeli student, is grappling with the aftermath of a traumatic car accident that has left her feeling trapped in a cycle of fear and apprehension. Once a vibrant and social individual, she now finds herself constantly on edge, hyper-aware of her surroundings, and burdened by a pervasive sense of danger. Car sounds trigger memories of the accident, flooding her mind with vivid recollections that feel as real as the moment they occurred. Each recollection is like a film playing on repeat, intensifying her distress and reinforcing a belief that she must remain perpetually vigilant to prevent further harm.\n\nYael's worldview has shifted drastically; she feels that the world has become an unsafe place, instilling a belief that she cannot escape the grasp of misfortune. This unyielding mindset has led her to adopt maladaptive strategies to cope with her heightened anxiety, including rumination about what could have been done differently to avert the accident. Compounding her distress, she avoids driving whenever possible and feels compelled to check mirrors obsessively whenever she is a passenger, a behavior she believes will keep her safe. Yet, these strategies provide little relief and often leave her feeling more isolated, as friends and family struggle to understand her need to avoid certain places or conversations that might remind her of the accident.\n\nThe toll of her experiences has seeped into every facet of her life, impacting her studies and relationships. Concentration has become a formidable challenge, as intrusive thoughts about the accident invade her focus, making it difficult to engage fully in her academic pursuits. Sleep eludes her, as nightmares and racing thoughts plague her nights, leaving her fatigued and irritable during the day. Friends have expressed concern over her withdrawal, noting that the vibrant young woman they once knew seems to be fading away, replaced by someone who feels burdened by the weight of her trauma.\n\nIn moments of quiet reflection, Yael wrestles with the stark contrast between her past and her present. The joy she once derived from life has become overshadowed by a persistent sense of dread. Each day is a battle against the memories that replay in her mind, and the negative appraisals that cloud her judgment. She longs for a sense of safety and normalcy but feels trapped in a cycle of avoidance and hyperarousal that seems inescapable. As she navigates the complexities of her thoughts and emotions, Yael is left to ponder whether she can reclaim her life from the shadows of her past.",
+      "passed": false,
+      "feedback": "The vignette contains the forbidden edge 'Negative Appraisals → Triggers' since it implies that her negative worldview leads to avoidance behaviors, which can be interpreted as triggering. Additionally, the edge 'Triggers → Maladaptive Strategies' is also present since her triggers (car sounds) lead to her maladaptive coping strategies."
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "Car sounds trigger her memories of the accident, leading her to adopt maladaptive strategies like rumination and avoidance.",
+      "quote": "Car sounds trigger memories of the accident, flooding her mind with vivid recollections that feel as real as the moment they occurred."
+    },
+    "Triggers--Threat": {
+      "weight": 1.0,
+      "explanation": "The memories triggered by car sounds contribute to her pervasive sense of danger and fear of her surroundings.",
+      "quote": "she now finds herself constantly on edge, hyper-aware of her surroundings, and burdened by a pervasive sense of danger."
+    },
+    "Triggers--Memory": {
+      "weight": 1.0,
+      "explanation": "Car sounds directly trigger vivid recollections of the accident, indicating a strong connection between triggers and memory.",
+      "quote": "Car sounds trigger memories of the accident, flooding her mind with vivid recollections."
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "The memories elicited by triggers reinforce her negative beliefs about the world being unsafe and her inability to escape misfortune.",
+      "quote": "she feels that the world has become an unsafe place, instilling a belief that she cannot escape the grasp of misfortune."
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "Her belief that she cannot escape misfortune leads her to employ maladaptive strategies like rumination and avoidance.",
+      "quote": "This unyielding mindset has led her to adopt maladaptive strategies to cope with her heightened anxiety."
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 1.0,
+      "explanation": "Her negative appraisals contribute to a heightened sense of threat and danger in her environment.",
+      "quote": "she now finds herself constantly on edge, hyper-aware of her surroundings, and burdened by a pervasive sense of danger."
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 1.0,
+      "explanation": "Her negative beliefs about herself and her situation are reinforced by intrusive memories of the accident.",
+      "quote": "Each day is a battle against the memories that replay in her mind, and the negative appraisals that cloud her judgment."
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.8,
+      "explanation": "Her negative beliefs about safety and misfortune likely lead her to be more sensitive to triggers related to the accident, although this is not explicitly stated.",
+      "quote": ""
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "Her intrusive memories of the accident lead her to engage in maladaptive strategies like rumination and avoidance.",
+      "quote": "she avoids driving whenever possible and feels compelled to check mirrors obsessively."
+    },
+    "Memory--Threat": {
+      "weight": 1.0,
+      "explanation": "The intrusive memories contribute to her persistent sense of threat and danger in her life.",
+      "quote": "she now finds herself constantly on edge, hyper-aware of her surroundings, and burdened by a pervasive sense of danger."
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "Her memories of the accident lead to negative appraisals about her safety and her worldview.",
+      "quote": "The joy she once derived from life has become overshadowed by a persistent sense of dread."
+    },
+    "Memory--Triggers": {
+      "weight": 1.0,
+      "explanation": "Her memories of the accident are directly triggered by external stimuli such as car sounds.",
+      "quote": "Car sounds trigger memories of the accident."
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "Her heightened sense of threat compels her to use maladaptive coping strategies to manage her anxiety.",
+      "quote": "This unyielding mindset has led her to adopt maladaptive strategies to cope with her heightened anxiety."
+    },
+    "Threat--Memory": {
+      "weight": 1.0,
+      "explanation": "Her sense of threat is perpetuated by intrusive memories of the accident that replay in her mind.",
+      "quote": "Each day is a battle against the memories that replay in her mind."
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "Her perception of ongoing threat feeds into negative appraisals about her life and safety.",
+      "quote": "she feels that the world has become an unsafe place."
+    },
+    "Threat--Triggers": {
+      "weight": 1.0,
+      "explanation": "The sense of threat is often reactivated by specific triggers related to her traumatic experience.",
+      "quote": "Car sounds trigger memories of the accident."
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 1.0,
+      "explanation": "The use of maladaptive strategies like avoidance and rumination can exacerbate her intrusive memories.",
+      "quote": "these strategies provide little relief and often leave her feeling more isolated."
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "Her maladaptive strategies are influenced by her negative appraisals about herself and her situation.",
+      "quote": "This unyielding mindset has led her to adopt maladaptive strategies."
+    }
+  },
+  "initial_message": "I was sitting on the bus today, and the sound of the engine revving sent a jolt through me. It felt like a reminder of how easily things can change, and I found myself just watching everyone around me, trying to focus on the moment.",
+  "message_attempts": [
+    {
+      "output": "I was sitting on the bus today, and the sound of the engine revving sent a jolt through me. It felt like a reminder that danger is always lurking, and I couldn’t shake the feeling that I needed to be on high alert, even in a place that used to feel safe.",
+      "passed": false,
+      "feedback": "The message includes elements of negative appraisals by expressing that danger is always lurking and that she must be on high alert, which violates the rule of inactive components."
+    },
+    {
+      "output": "I was sitting on the bus today, and the sound of the engine revving sent a jolt through me. It felt like a reminder of how easily things can change, and I couldn’t shake the feeling that I needed to be on high alert, even in a place that used to feel safe.",
+      "passed": false,
+      "feedback": "The message includes a negative appraisal ('I couldn’t shake the feeling that I needed to be on high alert') and implies maladaptive strategies, violating the rule that inactive components must not appear."
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I was sitting on the bus today, and the sound of the engine revving sent a jolt through me. It felt like a reminder of how easily things can change, and I found myself just watching everyone around me, trying to focus on the moment.",
+      "moderated": "the bus engine revving freaked me out today, felt like a reminder that things can change so fast"
+    },
+    {
+      "turn_index": 2,
+      "raw": "When the engine revved, my heart raced, and I felt this overwhelming sense of danger wash over me. It was like my mind instantly flashed back to the accident, and I couldn't shake the feeling that something bad was going to happen again. I just wanted to escape that moment.",
+      "moderated": "the engine revving just freaks me out and makes me feel like something bad is coming again"
+    },
+    {
+      "turn_index": 4,
+      "raw": "After that moment on the bus, I couldn't concentrate on anything. I kept replaying the sound in my head, feeling more and more anxious. Even when I got to class, I found myself zoning out, unable to focus on the lecture, just fixated on that fear and the memories it brought up.",
+      "moderated": "cant stop thinking about the bus sound and now i can’t focus at all"
+    },
+    {
+      "turn_index": 6,
+      "raw": "Since that sound on the bus, my concentration has been a real struggle. It's like every time I try to focus on my studies, those intrusive thoughts about the accident creep in, pulling me away from whatever I'm supposed to be doing. I feel frustrated and exhausted, like I'm fighting against my own mind all day long.",
+      "moderated": "cant focus at all since that sound on the bus, just feels like my mind won’t let me"
+    },
+    {
+      "turn_index": 8,
+      "raw": "Yes, ever since the bus ride, I've noticed my muscles are more tense, like I'm constantly bracing for something. My stomach feels tight, and I've had this dull ache in my chest that just won't go away, making it hard to relax. It's as if my body is on high alert, just waiting for the next sound or trigger.",
+      "moderated": "my muscles are so tense and my chest aches like i can't relax at all"
+    },
+    {
+      "turn_index": 10,
+      "raw": "Today, I tried to distract myself by scrolling through my phone, watching videos, and avoiding anything that reminded me of driving or cars. I thought that if I kept my mind busy, maybe I could push those feelings away. But deep down, it just made me feel more isolated and restless.",
+      "moderated": "just tried to distract myself all day but it just made me feel more alone and restless"
+    },
+    {
+      "turn_index": 12,
+      "raw": "The restlessness has made me feel really irritable and on edge. I keep snapping at my friends when they check in on me, and I feel bad about it afterward. My mind races with thoughts about how I used to enjoy hanging out, but now I just feel trapped in this anxious state, missing the person I used to be.",
+      "moderated": "just feel really irritable and on edge lately, keep snapping at my friends and then feel bad about it, miss who I used to be"
+    },
+    {
+      "turn_index": 14,
+      "raw": "In recent interactions, even simple questions like \"Are you okay?\" or \"Do you want to go out?\" trigger my irritability. It feels like they’re reminders of how far I’ve fallen from being the person I was, and instead of responding calmly, I just get defensive or shut down. It’s frustrating because I want to connect, but those moments just amplify my sense of disconnection.",
+      "moderated": "little things just set me off lately"
+    },
+    {
+      "turn_index": 16,
+      "raw": "Being in crowded places, especially near busy roads or parking lots, really ramps up my sensitivity. The noise of cars and the hustle around me makes my heart race, and I feel like I’m trapped in a bubble of anxiety. It’s hard to breathe, and I just want to get out of there as quickly as possible.",
+      "moderated": "crowded places make me super anxious, especially near busy roads, feel like i can't breathe and just wanna escape"
+    },
+    {
+      "turn_index": 18,
+      "raw": "When I’m in those crowded places, I often try to find a way out, like looking for an exit or stepping outside for fresh air. If I can’t leave, I’ll focus on my breathing, counting to calm myself, but it feels like a temporary fix. I end up feeling even more isolated, as if I'm stuck in my own world while everyone else moves on around me.",
+      "moderated": "in crowded places i just want to escape and it makes me feel so alone"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "the bus engine revving freaked me out today, felt like a reminder that things can change so fast"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What thoughts or feelings came up for you in that moment when the bus engine revved?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "the engine revving just freaks me out and makes me feel like something bad is coming again"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "How did that feeling affect what you did next or how you felt for the rest of the day?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "cant stop thinking about the bus sound and now i can’t focus at all"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "What have you noticed about your concentration or attention since that sound?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "cant focus at all since that sound on the bus, just feels like my mind won’t let me"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "Have you found yourself experiencing any physical sensations or changes in your body since that moment?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "my muscles are so tense and my chest aches like i can't relax at all"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "What have you been doing to cope with that tension or discomfort in your body today?"},
+
+    {"speaker": "client", "turn_index": 10, "text": "just tried to distract myself all day but it just made me feel more alone and restless"},
+
+    {"speaker": "bot", "turn_index": 11, "text": "How has the feeling of restlessness affected your mood or thoughts since then?"},
+
+    {"speaker": "client", "turn_index": 12, "text": "just feel really irritable and on edge lately, keep snapping at my friends and then feel bad about it, miss who I used to be"},
+
+    {"speaker": "bot", "turn_index": 13, "text": "What kinds of things have been triggering that irritability for you in recent interactions?"},
+
+    {"speaker": "client", "turn_index": 14, "text": "little things just set me off lately"},
+
+    {"speaker": "bot", "turn_index": 15, "text": "Have you noticed any specific situations or environments that tend to increase that sensitivity for you?"},
+
+    {"speaker": "client", "turn_index": 16, "text": "crowded places make me super anxious, especially near busy roads, feel like i can't breathe and just wanna escape"},
+
+    {"speaker": "bot", "turn_index": 17, "text": "How do you usually handle that feeling of anxiety when you're in those crowded places?"},
+
+    {"speaker": "client", "turn_index": 18, "text": "in crowded places i just want to escape and it makes me feel so alone"},
+
+    {"speaker": "bot", "turn_index": 19, "text": "What thoughts go through your mind when you're trying to escape those situations?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client explicitly mentions a specific trigger (the bus engine revving) that caused distress.",
+        "quote": "the bus engine revving freaked me out today, felt like a reminder that things can change so fast"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses negative thoughts about their state of being ('miss who I used to be'), indicating a negative appraisal of self.",
+        "quote": "miss who I used to be"
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client mentions intrusive thoughts about the bus sound that disrupt their focus, indicating memory recall related to the trauma.",
+        "quote": "cant stop thinking about the bus sound and now i can’t focus at all"
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client expresses a feeling of impending danger ('makes me feel like something bad is coming again'), indicating a sense of threat.",
+        "quote": "the engine revving just freaks me out and makes me feel like something bad is coming again"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes using distraction as a coping mechanism, which led to feelings of loneliness and restlessness, indicating a maladaptive strategy.",
+        "quote": "just tried to distract myself all day but it just made me feel more alone and restless"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The trigger of the bus engine sound leads the client to use distraction as a coping strategy, which is maladaptive.",
+        "quote": "just tried to distract myself all day but it just made me feel more alone and restless"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The trigger of the bus engine revving leads to a feeling of imminent danger, indicating a direct relationship.",
+        "quote": "the engine revving just freaks me out and makes me feel like something bad is coming again"
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The trigger of the bus engine sound leads to intrusive thoughts, indicating a causal relationship with memory recall.",
+        "quote": "cant stop thinking about the bus sound and now i can’t focus at all"
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 0,
+        "explanation": "There is no evidence in the conversation that the triggers directly led to negative appraisals of the self or the world.",
+        "quote": ""
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The negative appraisal of missing who they used to be contributes to feelings of irritability, which leads to maladaptive strategies like attempting to distract themselves.",
+        "quote": "miss who I used to be"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 0,
+        "explanation": "No direct evidence that negative appraisals led to a sense of threat.",
+        "quote": ""
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": "There is no evidence that negative appraisals triggered any specific memories.",
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The intrusive memories and thoughts about the bus sound lead to distraction attempts, a maladaptive strategy.",
+        "quote": "just tried to distract myself all day but it just made me feel more alone and restless"
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The memories of the bus sound are associated with feelings of ongoing threat, indicating a relationship between memory and threat.",
+        "quote": "the engine revving just freaks me out and makes me feel like something bad is coming again"
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Feelings of threat lead the client to use distraction as a coping strategy, which is maladaptive.",
+        "quote": "just tried to distract myself all day but it just made me feel more alone and restless"
+      }
+    }
+  }
+}

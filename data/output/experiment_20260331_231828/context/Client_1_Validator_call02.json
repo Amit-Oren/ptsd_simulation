@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "agent_name": "Client_1_Validator",
+    "role": "Validator",
+    "call_index": 2,
+    "timestamp": "2026-03-31 23:19:14"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a clinical validator checking whether a patient's message\naccurately reflects their current PTSD component profile.\n\nTHE MODEL:\nActive components (must appear in the message):\n  - Triggers\n  - Negative Appraisals\n  - Memory\n  - Threat\n  - Maladaptive Strategies\n\nInactive components (must NOT appear in the message):\n  (none)\n\nActive causal edges (must be reflected as links in the message):\n  - Negative Appraisals → Threat: 1.0000\n  - Memory → Threat: 1.0000\n  - Threat → Maladaptive Strategies: 1.0000\n\nRULES:\n- Every active component must be present in the message (explicit or clearly implied).\n- Every inactive component must NOT appear in the message.\n- Every active edge must be reflected — the message should show A causing or triggering B.\n\nReturn a JSON object with two fields:\n- \"verdict\": exactly \"PASS\" or \"FAIL\"\n- \"reasoning\": one sentence explaining which rule passed or was violated"
+    },
+    {
+      "role": "user",
+      "content": "Persona:\nSarah, a 32-year-old graphic designer, has always been known for her creativity and warmth. However, since experiencing a traumatic car accident six months ago, she has been struggling to navigate her daily life. The accident, which resulted in serious injuries to her best friend, has left Sarah feeling engulfed in a pervasive sense of threat that she cannot shake. Although she tries to maintain her routine, the anxiety that accompanies her memories of the incident often feels insurmountable, leading her to withdraw from social interactions and avoid places that remind her of that fateful day.\n\nEach time Sarah hears a car engine revving or sees a vehicle approaching fast, her heart races, and her mind spirals into vivid recollections of the crash. These memories aren’t just fleeting; they linger and distort her perception of safety. The once comforting streets of her neighborhood now feel like a minefield, filled with reminders of her vulnerability. This constant state of alertness has led her to develop negative appraisals of her environment, viewing it as dangerous and unpredictable. She often finds herself ruminating on the “what-ifs” of that day, wondering how she might have prevented the accident, despite knowing deep down that it was beyond her control.\n\nTo cope with her overwhelming emotions, Sarah has resorted to a range of maladaptive strategies. She often isolates herself, spending evenings at home rather than meeting friends or engaging in activities she once loved. While she attempts to distract herself through work and binge-watching television, these strategies provide only temporary relief. The toll this has taken on her relationships is becoming increasingly evident. Friends have expressed concern over her withdrawal, but Sarah feels trapped in a cycle of shame and fear, believing they cannot understand the depth of her pain.\n\nAs the weeks go by, the emotional burden weighs heavily on her. The once vibrant and outgoing Sarah feels like a shadow of her former self, trapped in a life colored by fear and regret. Her inability to confront her memories and the persistent sense of threat she experiences leave her feeling helpless. In her quieter moments, she yearns for the peace she once felt, but the grip of her trauma tightens, making it difficult for her to envision a future free from this burden. Each day unfolds with the same familiar struggle, as Sarah fights to reclaim her life from the aftermath of a single, devastating event.\n\nMessage:\nI just walked past a parked car, and my heart started racing as the engine roared to life. It felt like I was right back there, trapped in that moment, and now all I want to do is hide away in my apartment again."
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"verdict\": \"FAIL\",\n  \"reasoning\": \"The message lacks explicit mention of negative appraisals, which are necessary to establish the link between negative appraisals and the sense of threat.\"\n}"
+    }
+  ]
+}

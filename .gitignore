@@ -219,7 +219,6 @@ __marimo__/
 ptsd_simulation/
 
 # Project — sensitive data
-data/output/
 data/preprosscing/*.csv
 data/preprosscing/*.xlsx
 data/preprosscing/*.xls

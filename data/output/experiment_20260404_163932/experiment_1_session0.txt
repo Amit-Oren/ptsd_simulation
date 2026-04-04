@@ -1,0 +1,373 @@
+PATIENT 1  |  2026-04-04 16:41:06
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   5
+  obs_index:   0
+  max_retries: 2
+  seed:        24
+  models:
+    persona_crafter: gpt-4o-mini
+    validator: gpt-4o-mini
+    dialogue_state: gpt-4o-mini
+    client: gpt-4o-mini
+    bot: gpt-4o-mini
+    moderator: gpt-4o-mini
+    analyst: gpt-4o-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age: 21
+  gender: F
+  nationality: Israeli
+  profession: Student
+  pcl5: 60
+  trauma_type: Sexual assault
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  trigger_items: Being looked at sexually,Being alone with men,Hearing related names
+  trigger_category: Interpersonal, Interpersonal, Trauma-Related
+  trigger_subcategory: Sexual Objectification, Male Presence, Name Reminders
+  appraisals_items_label: Must stay on guard   | World is dangerous   | Something in me caused event  
+  appraisals_items_original: I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen
+  memory_items_label: Visual Memories | Snapshot Memory | Bodily Reenactment
+  memory_items_original: My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.
+  threat_items_label: Negative Emotions | Hypervigilance | Startle Response
+  threat_items_original: Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?
+  threat_items_original_label: Negative Emotions | Hypervigilance | Startle Response
+  threat_items_original_original: Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?
+  strategies_items_label: Rumination: Prevention | Hypervigilance towards people | Stay Near Exit
+  strategies_items_original: ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit
+  avoidance_items_label: Avoid Reminders | Avoid Sex | Avoid Evaluation
+  avoidance_items_original: Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona: 2 attempt(s) — FAIL
+  message: 2 attempt(s) — PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[Attempt 1]  FAIL
+Sarah, a 34-year-old school teacher, had always been known for her vibrant personality and deep
+compassion for her students. However, after experiencing a traumatic car accident six months ago,
+her life took a drastic turn. The incident, which involved her vehicle colliding with a truck, left
+her physically uninjured but psychologically scarred. Now, the sound of a revving engine or the
+sight of a large vehicle triggers a wave of anxiety that feels as if it could swallow her whole.
+Each trigger brings with it a sense of imminent danger, as if the accident could reoccur at any
+moment.
+
+In the aftermath of the trauma, Sarah has found herself grappling with persistent negative thoughts
+about her safety and competence. She often tells herself that she could have done something
+differently to avoid the accident, cycling through a series of “what if” scenarios in her mind.
+These distorted appraisals of her experience amplify her fears, leading her to perceive everyday
+situations as threatening. The simple act of driving, once a routine part of her life, has become a
+source of overwhelming dread. She feels trapped in a mindset that reinforces her sense of
+vulnerability.
+
+Sarah's memories of the accident haunt her, replaying in vivid detail and heightening her sense of
+threat. Even when she attempts to engage in normal daily activities, such as going to the grocery
+store, intrusive recollections flood her mind, leaving her feeling disoriented and fearful. The
+intensity of these memories often overshadows her ability to concentrate or enjoy time with friends
+and family. Her relationships have begun to suffer; she frequently cancels plans, fearing she will
+encounter triggers that might lead to panic. Friends express concern, but Sarah feels isolated,
+unable to articulate the depth of her distress.
+
+To cope with these mounting pressures, Sarah has developed maladaptive strategies. She avoids
+driving whenever possible, relying on others for transportation or opting to stay home instead.
+Though this provides temporary relief from her anxiety, it contributes to a growing sense of
+helplessness and frustration. The more she withdraws from her usual activities, the more her world
+shrinks, reinforcing her fears and leaving her feeling trapped within her own mind.
+
+As the days turn into weeks, Sarah grapples with an internal battle that seems to intensify. Each
+trigger, each anxious thought, and each unwelcome memory weaves a web of distress that she feels
+powerless to escape. Her vibrant spirit, once a hallmark of her identity, now feels subdued beneath
+the weight of her trauma. Sarah longs for the day when she can reclaim her life, free from the grip
+of fear and the shadows of her past.
+
+Feedback:
+The vignette contains several forbidden edges, such as 'Negative Appraisals → Threat' and 'Triggers
+→ Maladaptive Strategies,' which are explicitly stated or implied through the narrative. For
+example, Sarah's negative thoughts about her safety lead to a heightened sense of threat, and her
+avoidance of driving is directly tied to her triggers.
+
+[Attempt 2]  FAIL
+Sarah, a 34-year-old school teacher, had always been known for her vibrant personality and deep
+compassion for her students. However, after experiencing a traumatic car accident six months ago,
+her life took a drastic turn. The incident, which involved her vehicle colliding with a truck, left
+her physically uninjured but psychologically scarred. Now, the sound of a revving engine or the
+sight of a large vehicle triggers a wave of anxiety that feels as if it could swallow her whole.
+Each trigger brings with it a sense of imminent danger, as if the accident could reoccur at any
+moment.
+
+In the aftermath of the trauma, Sarah has found herself grappling with persistent negative thoughts
+about her safety and competence. She often tells herself that she could have done something
+differently to avoid the accident, cycling through a series of “what if” scenarios in her mind.
+These distorted appraisals of her experience shape her perception of everyday situations, making
+them feel threatening. The simple act of driving, once a routine part of her life, has become a
+source of overwhelming dread. She feels trapped in a mindset that reinforces her sense of
+vulnerability.
+
+Sarah's memories of the accident haunt her, replaying in vivid detail and contributing to her
+heightened sense of threat. Even when she attempts to engage in normal daily activities, such as
+going to the grocery store, intrusive recollections flood her mind, leaving her feeling disoriented
+and fearful. The intensity of these memories often overshadows her ability to concentrate or enjoy
+time with friends and family. Her relationships have begun to suffer; she frequently cancels plans,
+fearing she will encounter triggers that might lead to panic. Friends express concern, but Sarah
+feels isolated, unable to articulate the depth of her distress.
+
+To cope with these mounting pressures, Sarah has developed maladaptive strategies. She avoids
+driving whenever possible, relying on others for transportation or opting to stay home instead.
+Though this provides temporary relief from her anxiety, it contributes to a growing sense of
+helplessness and frustration. The more she withdraws from her usual activities, the more her world
+shrinks, reinforcing her fears and leaving her feeling trapped within her own mind.
+
+As the days turn into weeks, Sarah grapples with an internal battle that seems to intensify. Each
+trigger, each anxious thought, and each unwelcome memory weaves a web of distress that she feels
+powerless to escape. Her vibrant spirit, once a hallmark of her identity, now feels subdued beneath
+the weight of her trauma. Sarah longs for the day when she can reclaim her life, free from the grip
+of fear and the shadows of her past.
+
+Feedback:
+The vignette contains explicit links between Triggers and Threat, as well as Triggers and Negative
+Appraisals. However, it also implies a connection between Threat and Memory, which is a forbidden
+edge, as Sarah's heightened sense of threat is directly influenced by her intrusive memories,
+suggesting that Threat leads to Memory.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+Sarah, a 34-year-old school teacher, had always been known for her vibrant personality and deep
+compassion for her students. However, after experiencing a traumatic car accident six months ago,
+her life took a drastic turn. The incident, which involved her vehicle colliding with a truck, left
+her physically uninjured but psychologically scarred. Now, the sound of a revving engine or the
+sight of a large vehicle triggers a wave of anxiety that feels as if it could swallow her whole.
+Each trigger brings with it a sense of imminent danger, as if the accident could reoccur at any
+moment.
+
+In the aftermath of the trauma, Sarah has found herself grappling with persistent negative thoughts
+about her safety and competence. She often tells herself that she could have done something
+differently to avoid the accident, cycling through a series of “what if” scenarios in her mind.
+These distorted appraisals of her experience shape her perception of everyday situations, making
+them feel threatening. The simple act of driving, once a routine part of her life, has become a
+source of overwhelming dread. She feels trapped in a mindset that reinforces her sense of
+vulnerability.
+
+Sarah's memories of the accident haunt her, replaying in vivid detail and amplifying her anxiety.
+Even when she attempts to engage in normal daily activities, such as going to the grocery store,
+intrusive recollections flood her mind, leaving her feeling disoriented and fearful. The intensity
+of these memories often overshadows her ability to concentrate or enjoy time with friends and
+family. Her relationships have begun to suffer; she frequently cancels plans, fearing she will
+encounter triggers that might lead to panic. Friends express concern, but Sarah feels isolated,
+unable to articulate the depth of her distress.
+
+To cope with these mounting pressures, Sarah has developed maladaptive strategies. She avoids
+driving whenever possible, relying on others for transportation or opting to stay home instead.
+Though this provides temporary relief from her anxiety, it contributes to a growing sense of
+helplessness and frustration. The more she withdraws from her usual activities, the more her world
+shrinks, reinforcing her fears and leaving her feeling trapped within her own mind.
+
+As the days turn into weeks, Sarah grapples with an internal battle that seems to intensify. Each
+trigger, each anxious thought, and each unwelcome memory weaves a web of distress that she feels
+powerless to escape. Her vibrant spirit, once a hallmark of her identity, now feels subdued beneath
+the weight of her trauma. Sarah longs for the day when she can reclaim her life, free from the grip
+of fear and the shadows of her past.
+
+AGGREGATE EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers -- Maladaptive Strategies: 0.0000
+  Triggers -- Threat: 0.1250
+  Triggers -- Memory: 0.0000
+  Triggers -- Negative Appraisals: 0.1339
+  Negative Appraisals -- Maladaptive Strategies: 0.0000
+  Negative Appraisals -- Threat: 0.9375
+  Negative Appraisals -- Memory: 0.0000
+  Negative Appraisals -- Triggers: 0.0000
+  Memory -- Maladaptive Strategies: 0.0000
+  Memory -- Threat: 0.6250
+  Memory -- Negative Appraisals: 0.3214
+  Memory -- Triggers: 0.0000
+  Threat -- Maladaptive Strategies: 0.2292
+  Threat -- Memory: 0.0000
+  Threat -- Negative Appraisals: 0.0000
+  Threat -- Triggers: 0.0000
+  Maladaptive Strategies -- Memory: 0.0000
+  Maladaptive Strategies -- Negative Appraisals: 0.0000
+
+OBSERVATION  |  2024-07-26 12:00:12  |  index: 0
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    Triggers: 1
+    Negative Appraisals: 1
+    Memory: 1
+    Threat: 1
+    Maladaptive Strategies: 1
+  Edges:
+    Triggers -- Maladaptive Strategies: 0
+    Triggers -- Threat: 0
+    Triggers -- Memory: 0
+    Triggers -- Negative Appraisals: 0
+    Negative Appraisals -- Maladaptive Strategies: 0
+    Negative Appraisals -- Threat: 1
+    Negative Appraisals -- Memory: 0
+    Negative Appraisals -- Triggers: 0
+    Memory -- Maladaptive Strategies: 0
+    Memory -- Threat: 1
+    Memory -- Negative Appraisals: 0
+    Memory -- Triggers: 0
+    Threat -- Maladaptive Strategies: 1
+    Threat -- Memory: 0
+    Threat -- Negative Appraisals: 0
+    Threat -- Triggers: 0
+    Maladaptive Strategies -- Memory: 0
+    Maladaptive Strategies -- Negative Appraisals: 0
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[Attempt 1]  FAIL
+I just walked past a parked truck on my way to the store, and my heart dropped. The sound of the
+engine starting made me freeze—it's like I'm right back in that moment, and all I can think is,
+"What if it happens again?" I feel so trapped.
+
+Feedback:
+The message does not clearly reflect the causal edges of Negative Appraisals leading to Threat and
+Threat leading to Maladaptive Strategies.
+
+[Attempt 2]  PASS
+I just walked past a parked truck on my way to the store, and my heart dropped. The sound of the
+engine starting made me freeze—it's like I'm right back in that moment, and all I can think is,
+"What if it happens again?" It feels so threatening, like I’m in danger, and now I'm just wanting to
+avoid driving altogether. I feel so trapped.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+I just walked by a parked truck on my way to the store, and my heart just dropped. When the engine
+started, I froze—it's like I'm right back there, and all I can think is, "What if it happens again?"
+It feels so threatening, like I'm in danger, and now I just want to avoid driving altogether. I feel
+so trapped.
+
+[1] BOT
+How long did that feeling of being in danger last after you heard the engine start?
+
+[2] CLIENT
+It just wouldn’t go away, even after I drove past the truck. I kept hearing that sound in my head,
+and then my hands were shaking when I was in the store. I couldn’t even think straight about what to
+get; all that was on my mind was how vulnerable I felt.
+
+[3] BOT
+What thoughts were going through your mind while you were in the store?
+
+[4] CLIENT
+I can't stop replaying that day in my head, like I keep asking myself, “What if I had taken a
+different route?” or “What if I had seen it coming?” Those thoughts just weigh me down, and
+honestly, I just wanted to escape before anything else set off my anxiety.
+
+[5] BOT
+How often do you find yourself having those kinds of thoughts throughout the day?
+
+[6] CLIENT
+They're like always there, you know? Even when I'm just at home trying to chill, those memories and
+those what-if thoughts just won't leave me alone. It's really draining, and then, bam, out of
+nowhere, I feel like I'm just... on edge all the time.
+
+[7] BOT
+How do you usually feel when those memories and thoughts come up at home?
+
+[8] CLIENT
+When those memories hit, it’s like this wave of panic just crashes over me. My chest gets tight, and
+I feel all disoriented, like I can’t breathe. I just wanna run away, so I end up isolating myself
+and canceling plans with friends because I can’t handle the thought of being triggered again.
+
+[9] BOT
+What do you notice happening in your body when that wave of panic hits?
+
+ANALYSIS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+{
+  "nodes": {
+    "Triggers": {
+      "score": 1,
+      "explanation": "The client describes a trigger when they walk by a parked truck and hear its engine start, which activates their distress.",
+      "quote": "I just walked by a parked truck on my way to the store, and my heart just dropped. When the engine started, I froze."
+    },
+    "Negative Appraisals": {
+      "score": 1,
+      "explanation": "The client expresses feelings of vulnerability and thoughts of being trapped, which indicate negative appraisals about their safety and well-being.",
+      "quote": "I feel so trapped."
+    },
+    "Memory": {
+      "score": 1,
+      "explanation": "The client describes intrusive memories and thoughts related to the trauma, including replays of the traumatic day.",
+      "quote": "I can't stop replaying that day in my head."
+    },
+    "Threat": {
+      "score": 1,
+      "explanation": "The client indicates a persistent sense of danger and physical symptoms of anxiety, such as feeling like they are in danger and having panic attacks.",
+      "quote": "It feels so threatening, like I'm in danger."
+    },
+    "Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The client describes avoiding situations like driving and isolating themselves from friends, which are maladaptive coping strategies.",
+      "quote": "I end up isolating myself and canceling plans with friends because I can’t handle the thought of being triggered again."
+    }
+  },
+  "edges": {
+    "Triggers--Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The client's experience of the trigger (the truck's engine) leads to their desire to avoid driving, which is a maladaptive strategy.",
+      "quote": "I just want to avoid driving altogether."
+    },
+    "Triggers--Threat": {
+      "score": 1,
+      "explanation": "The trigger of the truck's engine leads to feelings of being in danger, indicating a direct relationship between the two.",
+      "quote": "It feels so threatening, like I'm in danger."
+    },
+    "Triggers--Memory": {
+      "score": 1,
+      "explanation": "The trigger activates intrusive memories of the traumatic event, as the client describes being taken back to that moment.",
+      "quote": "it's like I'm right back there."
+    },
+    "Triggers--Negative Appraisals": {
+      "score": 1,
+      "explanation": "The trigger leads to negative appraisals, as the client thinks about the possibility of the trauma happening again.",
+      "quote": "all I can think is, 'What if it happens again?'"
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The client's feelings of vulnerability lead to the maladaptive strategy of isolation and avoiding triggers.",
+      "quote": "I just wanna run away, so I end up isolating myself."
+    },
+    "Negative Appraisals--Threat": {
+      "score": 1,
+      "explanation": "The client's negative appraisal of feeling trapped contributes to their ongoing sense of threat.",
+      "quote": "I feel so trapped."
+    },
+    "Negative Appraisals--Memory": {
+      "score": 1,
+      "explanation": "The negative appraisals lead to intrusive memories, as the client questions their actions during the trauma.",
+      "quote": "I keep asking myself, 'What if I had taken a different route?'"
+    },
+    "Memory--Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The memories lead to maladaptive strategies of avoidance and isolation, as the client feels overwhelmed by their thoughts.",
+      "quote": "I just wanted to escape before anything else set off my anxiety."
+    },
+    "Memory--Threat": {
+      "score": 1,
+      "explanation": "The intrusive memories create a sense of ongoing threat, as indicated by the client's feelings of being on edge.",
+      "quote": "I feel like I'm just... on edge all the time."
+    },
+    "Threat--Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The ongoing sense of threat contributes to maladaptive strategies like avoidance and isolation.",
+      "quote": "I end up isolating myself and canceling plans with friends."
+    }
+  }
+}

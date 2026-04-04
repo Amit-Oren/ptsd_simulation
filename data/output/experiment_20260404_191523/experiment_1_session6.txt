@@ -1,0 +1,363 @@
+PATIENT 1  |  session 6  |  2026-04-04 19:23:01
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   6
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-4o-mini
+    validator            gpt-4o-mini
+    dialogue_state       gpt-4o-mini
+    client               gpt-4o-mini
+    bot                  gpt-4o-mini
+    moderator            gpt-4o-mini
+    analyst              gpt-4o-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             21
+  gender          F
+  nationality     Israeli
+  profession      Student
+  pcl5            60
+  trauma_type     Sexual assault
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Being looked at sexually,Being alone with men,Hearing related names
+  Negative Appraisals:
+    • I have to be on guard all the time
+    • The world is a dangerous place
+    • There is something about me that made the event happen
+  Memory:
+    • My memories of the frightening event are mostly pictures or images.
+    • I remember the frightening event as a few moments, and each moment is a picture in my mind.
+    • When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.
+  Threat:
+    • Having strong negative feelings such as fear, horror, anger, guilt, or shame?
+    • Being “superalert” or watchful or on guard?
+    • Feeling jumpy or easily startled?
+  Maladaptive Strategies:
+    • ruminate about how event could have been prevented
+    • vigilant for dangerous people
+    • make sure to stay close to exit
+  Avoidance:
+    • Being reminded of the event by others
+    • Sex
+    • Situations in which other people evaluate me / my appearance / my performance
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.1250
+  Triggers → Memory                                  0.0000
+  Triggers → Negative Appraisals                     0.1339
+  Negative Appraisals → Maladaptive Strategies       0.0000
+  Negative Appraisals → Threat                       0.9375
+  Negative Appraisals → Memory                       0.0000
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.0000
+  Memory → Threat                                    0.6250
+  Memory → Negative Appraisals                       0.3214
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.2292
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-07-29 12:00:10  |  index 6
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    ✓ Negative Appraisals
+    · Memory
+    ✓ Threat
+    · Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    ✓ Triggers → Threat
+    · Triggers → Memory
+    ✓ Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    ✓ Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    · Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              2 attempt(s)  →  FAIL
+  message              2 attempt(s)  →  FAIL
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+Lina, a 21-year-old Israeli student, has found her world profoundly altered since the traumatic
+sexual assault she experienced a year ago. Once a vibrant and engaged young woman, she now navigates
+daily life with a constant sense of apprehension. Simple acts such as walking through campus or
+attending social gatherings have become fraught with anxiety. She is hyperaware of her surroundings,
+particularly when she encounters men, often feeling an overwhelming urge to escape or find a safe
+space. The sensation of being looked at sexually triggers a wave of fear, sending her thoughts
+spiraling into a dark place where she feels trapped in her past experience, reliving moments that
+play like haunting images in her mind.
+
+These intrusive memories, often evoked by seemingly innocuous reminders, reinforce her belief that
+the world is a perilous place. Lina grapples with the conviction that there is something inherently
+wrong with her, a notion that the assault was somehow a reflection of her worth. This internalized
+belief compounds her feelings of guilt and shame, further isolating her from peers. While Lina tries
+to maintain her studies, she finds herself distracted, her mind frequently returning to the event,
+where she can almost physically feel the tension in her body mirroring the moment of trauma.
+
+In her efforts to cope, she has developed maladaptive strategies. She often ruminates on how the
+attack could have been prevented, scrutinizing every choice she made that night. This constant
+vigilance leaves her feeling exhausted and on edge. Social situations, particularly those that
+involve evaluation, amplify her anxiety; she feels as if she is under a spotlight, constantly
+judging her appearance and performance. Her relationships have suffered; friends notice her
+withdrawal and inability to engage, while Lina feels increasingly disconnected, fearing that they
+might not understand her struggle.
+
+To cope with her heightened state of threat, she has begun to stay close to exits in public places,
+a habit that underscores her need for control amidst chaos. The toll this takes on her life is
+significant; her academic performance is slipping, and her once-rich social life has dwindled to a
+few close friends who remain worried but unsure of how to help. As Lina continues to grapple with
+her reality, the cycle of fear and avoidance ensnares her deeper, making it all the more challenging
+to reclaim the life she once knew. The shadows of her trauma linger, shaping her perceptions and
+responses, as she seeks to find a way to navigate a world that feels so overwhelmingly dangerous.
+
+  Feedback: The vignette contains the forbidden edge 'Negative Appraisals → Maladaptive Strategies', as Lina's
+internalized belief about her worth and the assault seems to lead to her maladaptive coping
+strategies. This implies a causative relationship that violates the model.
+
+  [2] FAIL
+Lina, a 21-year-old Israeli student, has found her world profoundly altered since the traumatic
+sexual assault she experienced a year ago. Once a vibrant and engaged young woman, she now navigates
+daily life with a constant sense of apprehension. Simple acts such as walking through campus or
+attending social gatherings have become fraught with anxiety. She is hyperaware of her surroundings,
+particularly when she encounters men, often feeling an overwhelming urge to escape or find a safe
+space. The sensation of being looked at sexually triggers a wave of fear, sending her thoughts
+spiraling into a dark place where she feels trapped in her past experience, reliving moments that
+play like haunting images in her mind.
+
+These intrusive memories, often evoked by seemingly innocuous reminders, reinforce her belief that
+the world is a perilous place. Lina grapples with the conviction that there is something inherently
+wrong with her, a notion that the assault was somehow a reflection of her worth. This internalized
+belief compounds her feelings of guilt and shame, further isolating her from peers. While Lina tries
+to maintain her studies, she finds herself distracted, her mind frequently returning to the event,
+where she can almost physically feel the tension in her body mirroring the moment of trauma.
+
+In her efforts to cope, she has developed maladaptive strategies. She often ruminates on how the
+attack could have been prevented, scrutinizing every choice she made that night. This constant
+vigilance leaves her feeling exhausted and on edge. Social situations, particularly those that
+involve evaluation, amplify her anxiety; she feels as if she is under a spotlight, constantly
+judging her appearance and performance. Her relationships have suffered; friends notice her
+withdrawal and inability to engage, while Lina feels increasingly disconnected, fearing that they
+might not understand her struggle.
+
+To cope with her heightened state of threat, she has begun to stay close to exits in public places,
+a habit that underscores her need for control amidst chaos. The toll this takes on her life is
+significant; her academic performance is slipping, and her once-rich social life has dwindled to a
+few close friends who remain worried but unsure of how to help. As Lina continues to grapple with
+her reality, the cycle of fear and avoidance ensnares her deeper, making it all the more challenging
+to reclaim the life she once knew. The shadows of her trauma linger, shaping her perceptions and
+responses, as she seeks to find a way to navigate a world that feels so overwhelmingly dangerous.
+
+  Feedback: The vignette contains the forbidden edge 'Negative Appraisals → Maladaptive Strategies', as Lina's
+negative beliefs about herself lead to her maladaptive coping strategies. This violates the model.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+Lina, a 21-year-old Israeli student, has found her world profoundly altered since the traumatic
+sexual assault she experienced a year ago. Once a vibrant and engaged young woman, she now navigates
+daily life with a constant sense of apprehension. Simple acts such as walking through campus or
+attending social gatherings have become fraught with anxiety. She is hyperaware of her surroundings,
+particularly when she encounters men, often feeling an overwhelming urge to escape or find a safe
+space. The sensation of being looked at sexually triggers a wave of fear, sending her thoughts
+spiraling into a dark place where she feels trapped in her past experience, reliving moments that
+play like haunting images in her mind.
+
+These intrusive memories, often evoked by seemingly innocuous reminders, reinforce her belief that
+the world is a perilous place. Lina grapples with the conviction that there is something inherently
+wrong with her, a notion that the assault was somehow a reflection of her worth. This internalized
+belief compounds her feelings of guilt and shame, further isolating her from peers. While Lina tries
+to maintain her studies, she finds herself distracted, her mind frequently returning to the event,
+where she can almost physically feel the tension in her body mirroring the moment of trauma.
+
+In her efforts to cope, she has developed maladaptive strategies. She often ruminates on how the
+attack could have been prevented, scrutinizing every choice she made that night. This constant
+vigilance leaves her feeling exhausted and on edge. Social situations, particularly those that
+involve evaluation, amplify her anxiety; she feels as if she is under a spotlight, constantly
+judging her appearance and performance. Her relationships have suffered; friends notice her
+withdrawal and inability to engage, while Lina feels increasingly disconnected, fearing that they
+might not understand her struggle.
+
+To cope with her heightened state of threat, she has begun to stay close to exits in public places,
+a habit that underscores her need for control amidst chaos. The toll this takes on her life is
+significant; her academic performance is slipping, and her once-rich social life has dwindled to a
+few close friends who remain worried but unsure of how to help. As Lina continues to grapple with
+her reality, the cycle of fear and avoidance ensnares her deeper, making it all the more challenging
+to reclaim the life she once knew. The shadows of her trauma linger, shaping her perceptions and
+responses, as she seeks to find a way to navigate a world that feels so overwhelmingly dangerous.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+I just walked past a group of guys on campus, and my heart started racing. It’s like I can feel
+their eyes on me, and all I want to do is disappear or run away. I hate feeling this way—like I’m
+constantly on edge, waiting for something bad to happen again.
+
+  Feedback: The message contains inactive components (Memory and Maladaptive Strategies), which should not be
+present.
+
+  [2] FAIL
+I just walked past a group of guys on campus, and my heart started racing. It’s like I can feel
+their eyes on me, and all I want to do is disappear or run away. I hate feeling this way—like I’m
+constantly on edge, waiting for something bad to happen.
+
+  Feedback: The message contains components related to threat and triggers, but it also implies the presence of
+maladaptive strategies, which are inactive and should not be included.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+just walked past some guys and my heart's racing, feels like i wanna disappear or run away, hate
+feeling this way
+  (raw) I just walked past a group of guys on campus, and my heart started racing. It’s like I can feel
+their eyes on me, and all I want to do is disappear or run away. I hate feeling this way—like I’m
+constantly on edge.
+
+[1] BOT
+What thoughts are going through your mind right now as you feel that way?
+
+[2] CLIENT
+i keep thinking maybe it was my fault and it makes me feel so small like something bad is gonna
+happen again
+  (raw) I can't shake the thought that maybe I did something wrong, that I somehow brought this on myself.
+It makes me feel small and worthless, like I’m just waiting for something bad to happen again.
+
+[3] BOT
+Are you experiencing any physical sensations in your body right now, besides your racing heart?
+
+[4] CLIENT
+my hands are all clammy and my chest is tight like something bad is about to happen
+  (raw) Yeah, my hands feel clammy, and there's this tightness in my chest that won't go away. I can almost
+feel the tension creeping into my shoulders, like I’m bracing myself for something terrible to
+happen.
+
+[5] BOT
+How long have you been feeling this way since you walked past those guys?
+
+[6] CLIENT
+it feels like forever and i can't stop thinking about it, just want to escape
+  (raw) It’s been a few minutes, but it feels like forever. I can’t focus on anything else; my mind keeps
+replaying that moment, and I just want to escape this feeling.
+
+[7] BOT
+What are you doing right now to cope with those feelings?
+
+[8] CLIENT
+staying near the exit in the library helps me feel a bit more in control but the anxiety is still
+suffocating
+  (raw) I’m trying to stay close to the exit in the library, so I have a way out if I need it. It gives me a
+little bit of control, but I can’t shake off the anxiety—it’s like a weight on my chest.
+
+[9] BOT
+Have you noticed any specific triggers in your surroundings that are increasing your anxiety right
+now?
+
+[10] CLIENT
+the laughter from those students makes me really tense like i just want to hide
+  (raw) Yeah, the sound of laughter from a nearby group of students makes me tense up. It reminds me of how
+I used to feel in social situations, and now I just want to hide, thinking they might be judging me
+or something.
+
+[11] BOT
+Are there any thoughts about the situation that you find yourself repeating?
+
+[12] CLIENT
+i just feel like people always judge me and it’s stuck in my head that i’ll never fit in again
+  (raw) I keep thinking about how easy it is for people to judge or misunderstand me. It’s like a loop in my
+head, telling me that I’ll never be able to fit in again or that people will always see me as
+broken.
+
+[13] BOT
+What do you wish you could do right now to feel a bit more at ease?
+
+[14] CLIENT
+just wanna go outside and breathe without this weight on me
+  (raw) I wish I could just walk outside and breathe without feeling this weight on my chest. Maybe find a
+quiet spot where I can be alone for a bit, away from all the eyes and noise that make me feel so
+exposed.
+
+[15] BOT
+Is there anything in your immediate environment that makes you feel even a little more comfortable
+or safe?
+
+[16] CLIENT
+found a spot in the library that feels a bit safe but still can’t shake the feeling of being watched
+  (raw) There’s a corner table in the library that feels slightly secluded, and sitting there helps a bit.
+Having my back against the wall makes me feel less vulnerable, but even then, I can’t completely
+shake the feeling that someone might notice me.
+
+[17] BOT
+Are there any specific actions or movements in your environment that are contributing to that
+feeling of being watched?
+
+[18] CLIENT
+i freak out when people walk by and look at me like they’re judging me
+  (raw) When people walk by and glance in my direction, it sends a jolt of anxiety through me. It feels like
+everyone is looking at me, judging me, and I can't help but wonder what they see when they look at
+me.
+
+[19] BOT
+What do you notice about your thoughts when someone walks by?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     The client describes feeling anxious and racing heart after walking past some guys, indicating an external trigger.
+      "just walked past some guys and my heart's racing, feels like i wanna disappear or run away, hate feeling this way"
+  ✓ Negative Appraisals          The client expresses feelings of worthlessness and fear of judgment, indicating maladaptive interpretations about self and social situations.
+      "i just feel like people always judge me and it’s stuck in my head that i’ll never fit in again"
+  · Memory                       There is no clear evidence of intrusive memories or flashbacks mentioned by the client.
+  ✓ Threat                       The client expresses a sense of impending danger, both physically and psychologically, mentioning feelings of anxiety and wanting to escape.
+      "my hands are all clammy and my chest is tight like something bad is about to happen"
+  ✓ Maladaptive Strategies       The client describes avoidance behaviors (staying near the exit, wanting to hide) as coping mechanisms for anxiety.
+      "staying near the exit in the library helps me feel a bit more in control but the anxiety is still suffocating"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The client's racing heart and anxiety after walking past some guys led to the strategy of staying near the exit for control.
+      "staying near the exit in the library helps me feel a bit more in control but the anxiety is still suffocating"
+  ✓ Triggers → Threat                             Walking past the guys triggered an immediate sense of danger and anxiety for the client.
+      "just walked past some guys and my heart's racing, feels like i wanna disappear or run away, hate feeling this way"
+  · Triggers → Memory                             There is no evidence of memory-related triggers in the conversation.
+  ✓ Triggers → Negative Appraisals                The situation of walking past some guys triggered negative thoughts about self-worth and social acceptance.
+      "i keep thinking maybe it was my fault and it makes me feel so small like something bad is gonna happen again"
+  ✓ Negative Appraisals → Maladaptive Strategies  The feeling of being judged and never fitting in again leads the client to employ avoidance strategies as coping mechanisms.
+      "staying near the exit in the library helps me feel a bit more in control but the anxiety is still suffocating"
+  ✓ Negative Appraisals → Threat                  The belief that people are always judging the client contributes to a sense of psychological threat.
+      "i just feel like people always judge me and it’s stuck in my head that i’ll never fit in again"
+  · Negative Appraisals → Memory                  No evidence of negative appraisals leading to memory-related issues in the conversation.
+  · Memory → Maladaptive Strategies               There is no mention of memories leading to maladaptive strategies in the conversation.
+  · Memory → Threat                               There is no evidence of memories contributing to the sense of threat in the conversation.
+  ✓ Threat → Maladaptive Strategies               The ongoing sense of threat and anxiety leads the client to adopt avoidance strategies.
+      "staying near the exit in the library helps me feel a bit more in control but the anxiety is still suffocating"

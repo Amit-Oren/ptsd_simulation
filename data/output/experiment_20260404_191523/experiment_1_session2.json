@@ -1,0 +1,399 @@
+{
+  "patient_id": 1,
+  "experiment_timestamp": "2026-04-04 19:19:13",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "moderator": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 2,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 60,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Being looked at sexually,Being alone with men,Hearing related names",
+    "trigger_category": "Interpersonal, Interpersonal, Trauma-Related",
+    "trigger_subcategory": "Sexual Objectification, Male Presence, Name Reminders",
+    "appraisals_items_label": "Must stay on guard   | World is dangerous   | Something in me caused event  ",
+    "appraisals_items_original": "I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen",
+    "memory_items_label": "Visual Memories | Snapshot Memory | Bodily Reenactment",
+    "memory_items_original": "My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.",
+    "threat_items_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Rumination: Prevention | Hypervigilance towards people | Stay Near Exit",
+    "strategies_items_original": "ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit",
+    "avoidance_items_label": "Avoid Reminders | Avoid Sex | Avoid Evaluation",
+    "avoidance_items_original": "Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance"
+  },
+  "obs_datetime": "2024-07-27 12:33:18",
+  "obs_index": 2,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 0
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1339285714285715,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.9375,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.625,
+    "Memory -- Negative Appraisals": 0.3214285714285715,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.2291666666666667,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "Lina, a 21-year-old Israeli student, has found her world profoundly altered since the traumatic sexual assault she experienced a year ago. Once a vibrant and engaged young woman, she now navigates daily life with a constant sense of apprehension. Simple acts such as walking through campus or attending social gatherings have become fraught with anxiety. She is hyperaware of her surroundings, particularly when she encounters men, often feeling an overwhelming urge to escape or find a safe space. The sensation of being looked at sexually triggers a wave of fear, sending her thoughts spiraling into a dark place where she feels trapped in her past experience, reliving moments that play like haunting images in her mind.\n\nThese intrusive memories, often evoked by seemingly innocuous reminders, reinforce her belief that the world is a perilous place. Lina grapples with the conviction that there is something inherently wrong with her, a notion that the assault was somehow a reflection of her worth. This internalized belief compounds her feelings of guilt and shame, further isolating her from peers. While Lina tries to maintain her studies, she finds herself distracted, her mind frequently returning to the event, where she can almost physically feel the tension in her body mirroring the moment of trauma.\n\nIn her efforts to cope, she has developed maladaptive strategies. She often ruminates on how the attack could have been prevented, scrutinizing every choice she made that night. This constant vigilance leaves her feeling exhausted and on edge. Social situations, particularly those that involve evaluation, amplify her anxiety; she feels as if she is under a spotlight, constantly judging her appearance and performance. Her relationships have suffered; friends notice her withdrawal and inability to engage, while Lina feels increasingly disconnected, fearing that they might not understand her struggle.\n\nTo cope with her heightened state of threat, she has begun to stay close to exits in public places, a habit that underscores her need for control amidst chaos. The toll this takes on her life is significant; her academic performance is slipping, and her once-rich social life has dwindled to a few close friends who remain worried but unsure of how to help. As Lina continues to grapple with her reality, the cycle of fear and avoidance ensnares her deeper, making it all the more challenging to reclaim the life she once knew. The shadows of her trauma linger, shaping her perceptions and responses, as she seeks to find a way to navigate a world that feels so overwhelmingly dangerous.",
+  "persona_attempts": [
+    {
+      "output": "Lina, a 21-year-old Israeli student, has found her world profoundly altered since the traumatic sexual assault she experienced a year ago. Once a vibrant and engaged young woman, she now navigates daily life with a constant sense of apprehension. Simple acts such as walking through campus or attending social gatherings have become fraught with anxiety. She is hyperaware of her surroundings, particularly when she encounters men, often feeling an overwhelming urge to escape or find a safe space. The sensation of being looked at sexually triggers a wave of fear, sending her thoughts spiraling into a dark place where she feels trapped in her past experience, reliving moments that play like haunting images in her mind.\n\nThese intrusive memories, often evoked by seemingly innocuous reminders, reinforce her belief that the world is a perilous place. Lina grapples with the conviction that there is something inherently wrong with her, a notion that the assault was somehow a reflection of her worth. This internalized belief compounds her feelings of guilt and shame, further isolating her from peers. While Lina tries to maintain her studies, she finds herself distracted, her mind frequently returning to the event, where she can almost physically feel the tension in her body mirroring the moment of trauma. \n\nIn her efforts to cope, she has developed maladaptive strategies. She often ruminates on how the attack could have been prevented, scrutinizing every choice she made that night. This constant vigilance leaves her feeling exhausted and on edge. Social situations, particularly those that involve evaluation, amplify her anxiety; she feels as if she is under a spotlight, constantly judging her appearance and performance. Her relationships have suffered; friends notice her withdrawal and inability to engage, while Lina feels increasingly disconnected, fearing that they might not understand her struggle.\n\nTo cope with her heightened state of threat, she has begun to stay close to exits in public places, a habit that underscores her need for control amidst chaos. The toll this takes on her life is significant; her academic performance is slipping, and her once-rich social life has dwindled to a few close friends who remain worried but unsure of how to help. As Lina continues to grapple with her reality, the cycle of fear and avoidance ensnares her deeper, making it all the more challenging to reclaim the life she once knew. The shadows of her trauma linger, shaping her perceptions and responses, as she seeks to find a way to navigate a world that feels so overwhelmingly dangerous.",
+      "passed": false,
+      "feedback": "The vignette contains the forbidden edge 'Negative Appraisals → Maladaptive Strategies', as Lina's internalized belief about her worth and the assault seems to lead to her maladaptive coping strategies. This implies a causative relationship that violates the model."
+    },
+    {
+      "output": "Lina, a 21-year-old Israeli student, has found her world profoundly altered since the traumatic sexual assault she experienced a year ago. Once a vibrant and engaged young woman, she now navigates daily life with a constant sense of apprehension. Simple acts such as walking through campus or attending social gatherings have become fraught with anxiety. She is hyperaware of her surroundings, particularly when she encounters men, often feeling an overwhelming urge to escape or find a safe space. The sensation of being looked at sexually triggers a wave of fear, sending her thoughts spiraling into a dark place where she feels trapped in her past experience, reliving moments that play like haunting images in her mind.\n\nThese intrusive memories, often evoked by seemingly innocuous reminders, reinforce her belief that the world is a perilous place. Lina grapples with the conviction that there is something inherently wrong with her, a notion that the assault was somehow a reflection of her worth. This internalized belief compounds her feelings of guilt and shame, further isolating her from peers. While Lina tries to maintain her studies, she finds herself distracted, her mind frequently returning to the event, where she can almost physically feel the tension in her body mirroring the moment of trauma.\n\nIn her efforts to cope, she has developed maladaptive strategies. She often ruminates on how the attack could have been prevented, scrutinizing every choice she made that night. This constant vigilance leaves her feeling exhausted and on edge. Social situations, particularly those that involve evaluation, amplify her anxiety; she feels as if she is under a spotlight, constantly judging her appearance and performance. Her relationships have suffered; friends notice her withdrawal and inability to engage, while Lina feels increasingly disconnected, fearing that they might not understand her struggle.\n\nTo cope with her heightened state of threat, she has begun to stay close to exits in public places, a habit that underscores her need for control amidst chaos. The toll this takes on her life is significant; her academic performance is slipping, and her once-rich social life has dwindled to a few close friends who remain worried but unsure of how to help. As Lina continues to grapple with her reality, the cycle of fear and avoidance ensnares her deeper, making it all the more challenging to reclaim the life she once knew. The shadows of her trauma linger, shaping her perceptions and responses, as she seeks to find a way to navigate a world that feels so overwhelmingly dangerous.",
+      "passed": false,
+      "feedback": "The vignette contains the forbidden edge 'Negative Appraisals → Maladaptive Strategies', as Lina's negative beliefs about herself lead to her maladaptive coping strategies. This violates the model."
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Lina's overwhelming urge to escape when encountering men acts as a trigger for her maladaptive strategies such as rumination.",
+      "quote": "she often ruminates on how the attack could have been prevented, scrutinizing every choice she made that night."
+    },
+    "Triggers--Threat": {
+      "weight": 1.0,
+      "explanation": "Lina's hyperawareness and anxiety about her surroundings when encountering men indicate a clear sense of current danger triggered by these encounters.",
+      "quote": "she now navigates daily life with a constant sense of apprehension."
+    },
+    "Triggers--Memory": {
+      "weight": 1.0,
+      "explanation": "The feeling of being looked at sexually triggers intrusive memories of the assault, showing a direct connection between triggers and memory.",
+      "quote": "The sensation of being looked at sexually triggers a wave of fear, sending her thoughts spiraling into a dark place where she feels trapped in her past experience."
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 0.8,
+      "explanation": "The overwhelming fear triggered by reminders reinforces Lina's negative self-appraisal about her worth and safety in the world.",
+      "quote": "this internalized belief compounds her feelings of guilt and shame."
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "Lina's belief that the assault reflects something inherently wrong with her drives her to engage in rumination as a maladaptive coping strategy.",
+      "quote": "she often ruminates on how the attack could have been prevented."
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 1.0,
+      "explanation": "Her negative beliefs about herself and the world contribute to her heightened sense of threat in social situations.",
+      "quote": "this internalized belief compounds her feelings of guilt and shame, further isolating her from peers."
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.8,
+      "explanation": "Lina's negative self-appraisal reinforces her intrusive memories of the traumatic event, suggesting a connection.",
+      "quote": "these intrusive memories... reinforce her belief that the world is a perilous place."
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.6,
+      "explanation": "Her negative self-perception suggests that she may be more sensitive to triggers that remind her of the trauma.",
+      "quote": "her conviction that there is something inherently wrong with her."
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "Lina's reliving of the traumatic moments serves as a basis for her rumination, highlighting a clear causal link.",
+      "quote": "her mind frequently returning to the event, where she can almost physically feel the tension in her body mirroring the moment of trauma."
+    },
+    "Memory--Threat": {
+      "weight": 1.0,
+      "explanation": "The intrusive memories of the assault create a constant sense of threat for Lina, indicating a direct link between memory and threat.",
+      "quote": "these intrusive memories... reinforce her belief that the world is a perilous place."
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "The haunting memories of her trauma reinforce her belief that there is something wrong with her, linking memory to negative appraisals.",
+      "quote": "this internalized belief compounds her feelings of guilt and shame."
+    },
+    "Memory--Triggers": {
+      "weight": 1.0,
+      "explanation": "The intrusive memories are triggered by reminders of the trauma, establishing a clear causal connection.",
+      "quote": "these intrusive memories, often evoked by seemingly innocuous reminders."
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "Lina's heightened state of threat drives her to develop maladaptive strategies like staying close to exits in public places.",
+      "quote": "she has begun to stay close to exits in public places, a habit that underscores her need for control amidst chaos."
+    },
+    "Threat--Memory": {
+      "weight": 1.0,
+      "explanation": "The constant threat Lina feels contributes to her intrusive memories, linking the two elements directly.",
+      "quote": "the shadows of her trauma linger, shaping her perceptions and responses."
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "Her sense of current danger exacerbates her negative beliefs about herself and her worth.",
+      "quote": "this internalized belief compounds her feelings of guilt and shame."
+    },
+    "Threat--Triggers": {
+      "weight": 1.0,
+      "explanation": "The sense of threat is directly linked to the internal and external cues that trigger her anxiety and fear.",
+      "quote": "a constant sense of apprehension."
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 1.0,
+      "explanation": "Her rumination on the traumatic event directly affects her memory of the assault, reinforcing the cycle of distress.",
+      "quote": "she often ruminates on how the attack could have been prevented."
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "Lina's maladaptive strategies, such as rumination, contribute to her negative self-appraisals and feelings of guilt and shame.",
+      "quote": "this internalized belief compounds her feelings of guilt and shame."
+    }
+  },
+  "initial_message": "I just walked past a group of guys on campus, and my heart raced as I felt their eyes on me. It’s like I’m stuck in this loop of panic, convinced that every glance is a threat, reminding me of that night.",
+  "message_attempts": [
+    {
+      "output": "I just walked past a group of guys on campus, and my heart raced as I felt their eyes on me. It’s like I’m stuck in this loop of panic, convinced that every glance is a threat, reminding me of that night.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I just walked past a group of guys on campus, and my heart raced as I felt their eyes on me. It’s like I’m stuck in this loop of panic, convinced that every glance is a threat, reminding me of that night.",
+      "moderated": "just walked past some guys and my heart’s racing, feel like every glance is a threat and it’s freaking me out"
+    },
+    {
+      "turn_index": 2,
+      "raw": "I can’t shake the feeling that I did something wrong, that I somehow brought this upon myself. It’s like I’m under constant scrutiny, judging myself for not being strong enough to just move on.",
+      "moderated": "i keep feeling like it’s my fault and like everyone’s judging me for not getting over it"
+    },
+    {
+      "turn_index": 4,
+      "raw": "My palms are sweaty, and I can feel this tight knot in my stomach that just won’t loosen. Every time I hear someone laugh or talk nearby, it feels like a jolt of electricity running through me, making me want to bolt for the nearest exit.",
+      "moderated": "my palms are sweaty and my stomach is in knots, i just wanna run when i hear people laughing nearby"
+    },
+    {
+      "turn_index": 6,
+      "raw": "When that knot tightens, I usually try to find a distraction, like scrolling through my phone or focusing on my breathing. But often, I just end up feeling more trapped, like I can’t escape the weight of it all.",
+      "moderated": "whenever that knot tightens, i just feel more trapped and heavy"
+    },
+    {
+      "turn_index": 8,
+      "raw": "When that heaviness hits, my mind spirals into thoughts of how everything feels unsafe and how I can’t trust anyone. It’s like I’m replaying everything, thinking about how I could have avoided it, and it makes me feel even more isolated.",
+      "moderated": "i just feel like everything's unsafe and can't trust anyone, can't stop replaying it all and it just makes me feel more alone"
+    },
+    {
+      "turn_index": 10,
+      "raw": "I keep fixating on the choices I made that night, like what I wore or how I acted. I can’t help but think if I had just done something differently, maybe it wouldn’t have happened, and that thought just deepens the shame I already feel.",
+      "moderated": "i can't stop thinking about what i wore and how i acted that night like if i did something different maybe it wouldn't have happened and it just makes me feel worse"
+    },
+    {
+      "turn_index": 12,
+      "raw": "It makes me feel so incredibly guilty and worthless, like I’m to blame for what happened. That guilt washes over me, and I just want to disappear, as if hiding will somehow protect me from feeling this way.",
+      "moderated": "i just feel so guilty and worthless like it’s my fault and i just want to disappear"
+    },
+    {
+      "turn_index": 14,
+      "raw": "When those feelings hit, I often withdraw from everyone around me and just go silent. I’ll sit alone in my room, trying to convince myself that it’s better to be invisible than to deal with the shame of being seen.",
+      "moderated": "i just go quiet and hide in my room when it gets bad"
+    },
+    {
+      "turn_index": 16,
+      "raw": "It’s becoming a daily thing; I can’t remember the last time I felt comfortable being around people. Whenever I start to feel that heaviness or guilt, my instinct is to retreat, thinking that being alone is the only way to cope.",
+      "moderated": "i just cant shake this feeling of being uncomfortable around people like i just wanna be alone to cope"
+    },
+    {
+      "turn_index": 18,
+      "raw": "Just the thought of being around others makes my heart race. I feel this intense fear of judgment, like everyone is watching and scrutinizing me, and it makes me feel even more trapped in my own head.",
+      "moderated": "just thinking about being around people makes my heart race and i feel like everyone's judging me"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "just walked past some guys and my heart’s racing, feel like every glance is a threat and it’s freaking me out"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What thoughts are going through your mind right now as you feel that way?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "i keep feeling like it’s my fault and like everyone’s judging me for not getting over it"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "What physical sensations are you experiencing alongside those thoughts?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "my palms are sweaty and my stomach is in knots, i just wanna run when i hear people laughing nearby"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "How do you typically respond when you start feeling those physical sensations?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "whenever that knot tightens, i just feel more trapped and heavy"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "What do you notice happening in your mind when you feel that heaviness?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "i just feel like everything's unsafe and can't trust anyone, can't stop replaying it all and it just makes me feel more alone"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "In those moments when you're replaying those thoughts, what do you find yourself focusing on the most?"},
+
+    {"speaker": "client", "turn_index": 10, "text": "i can't stop thinking about what i wore and how i acted that night like if i did something different maybe it wouldn't have happened and it just makes me feel worse"},
+
+    {"speaker": "bot", "turn_index": 11, "text": "When you find yourself thinking about those actions and choices, how does it affect your emotions in the moment?"},
+
+    {"speaker": "client", "turn_index": 12, "text": "i just feel so guilty and worthless like it’s my fault and i just want to disappear"},
+
+    {"speaker": "bot", "turn_index": 13, "text": "What do you do when those feelings of guilt and worthlessness become overwhelming?"},
+
+    {"speaker": "client", "turn_index": 14, "text": "i just go quiet and hide in my room when it gets bad"},
+
+    {"speaker": "bot", "turn_index": 15, "text": "How often do you find yourself choosing to retreat to your room when you're feeling this way?"},
+
+    {"speaker": "client", "turn_index": 16, "text": "i just cant shake this feeling of being uncomfortable around people like i just wanna be alone to cope"},
+
+    {"speaker": "bot", "turn_index": 17, "text": "What thoughts or feelings come up for you when you think about being around other people?"},
+
+    {"speaker": "client", "turn_index": 18, "text": "just thinking about being around people makes my heart race and i feel like everyone's judging me"},
+
+    {"speaker": "bot", "turn_index": 19, "text": "In those moments when your heart races, what do you find yourself wanting to do?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client explicitly describes triggers that activate their distress, such as 'just walked past some guys' and 'thinking about being around people.'",
+        "quote": "just walked past some guys and my heart’s racing, feel like every glance is a threat and it’s freaking me out"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses negative appraisals about themselves and their situation, stating 'i keep feeling like it’s my fault' and 'i just feel so guilty and worthless.'",
+        "quote": "i keep feeling like it’s my fault and like everyone’s judging me for not getting over it"
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client indicates intrusive memories and ruminations, saying 'can't stop replaying it all' and 'i can't stop thinking about what i wore and how i acted that night.'",
+        "quote": "can't stop replaying it all and it just makes me feel more alone"
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client expresses a sense of ongoing threat, stating 'i just feel like everything's unsafe and can't trust anyone.'",
+        "quote": "i just feel like everything's unsafe and can't trust anyone"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes avoidance behaviors, such as wanting to run away and retreating to their room when feelings become overwhelming, indicating maladaptive coping strategies.",
+        "quote": "i just go quiet and hide in my room when it gets bad"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's description of wanting to run when confronted with people indicates a trigger leading to avoidance behavior.",
+        "quote": "i just wanna run when i hear people laughing nearby"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The client's mention of feeling like 'every glance is a threat' shows that triggers lead to a sense of threat.",
+        "quote": "feel like every glance is a threat and it’s freaking me out"
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The act of replaying thoughts and memories is triggered by interactions with others, as indicated by the client's statements.",
+        "quote": "i can't stop thinking about what i wore and how i acted that night"
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The initial trigger of feeling threatened leads to negative appraisals about self-worth and blame.",
+        "quote": "i keep feeling like it’s my fault and like everyone’s judging me for not getting over it"
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Feelings of guilt and worthlessness lead the client to retreat and isolate themselves.",
+        "quote": "i just go quiet and hide in my room when it gets bad"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The client's negative appraisal of themselves contributes to the ongoing sense of threat in social situations.",
+        "quote": "i just feel like everything's unsafe and can't trust anyone"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "Feelings of guilt and worthlessness are tied to intrusive memories of the trauma, as indicated by the client's comments.",
+        "quote": "i can't stop thinking about what i wore and how i acted that night"
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Intrusive memories lead to avoidance behaviors, as the client attempts to cope with these memories by hiding.",
+        "quote": "i just go quiet and hide in my room when it gets bad"
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The client's memories contribute to a sense of ongoing threat, indicated by their feelings of unsafety.",
+        "quote": "i just feel like everything's unsafe and can't trust anyone"
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The ongoing sense of threat leads the client to use maladaptive strategies like avoidance and isolation.",
+        "quote": "i just wanna run when i hear people laughing nearby"
+      }
+    }
+  }
+}

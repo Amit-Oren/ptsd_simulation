@@ -1,0 +1,371 @@
+PATIENT 2  |  session 3  |  2026-04-04 19:51:23
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   3
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-4o-mini
+    validator            gpt-4o-mini
+    dialogue_state       gpt-4o-mini
+    client               gpt-4o-mini
+    bot                  gpt-4o-mini
+    moderator            gpt-4o-mini
+    analyst              gpt-4o-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             21
+  gender          A-binary
+  nationality     Israeli
+  profession      Student
+  pcl5            50
+  trauma_type     Sexual assault
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Loud noises,Physical touch, Talking to strangers
+  Negative Appraisals:
+    • The event happened because of the way I acted
+    • I am a weak person
+    • People can't be trusted
+  Memory:
+    • I can talk about what happened very easily.
+    • I remember the frightening event as a few moments, and each moment is a picture in my mind.
+    • My memories of the frightening event are very clear and detailed.
+  Threat:
+    • Having strong negative feelings such as fear, horror, anger, guilt, or shame?
+    • Being “superalert” or watchful or on guard?
+    • Feeling jumpy or easily startled?
+  Maladaptive Strategies:
+    • take drugs
+    • avoid site of the event
+    • avoid crowded places
+  Avoidance:
+    • Going to or near the place where the event happened
+    • Sex
+    • Situations that put my body under stress
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.1500
+  Triggers → Memory                                  0.1125
+  Triggers → Negative Appraisals                     0.0000
+  Negative Appraisals → Maladaptive Strategies       0.0000
+  Negative Appraisals → Threat                       0.5000
+  Negative Appraisals → Memory                       0.1625
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.0000
+  Memory → Threat                                    0.4875
+  Memory → Negative Appraisals                       0.0000
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.7500
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-07-23 18:00:39  |  index 3
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    ✓ Negative Appraisals
+    ✓ Memory
+    ✓ Threat
+    ✓ Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    · Triggers → Threat
+    · Triggers → Memory
+    · Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    ✓ Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    ✓ Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    ✓ Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              2 attempt(s)  →  FAIL
+  message              2 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+At 21 years old, this Israeli student is navigating the complexities of university life while
+grappling with the aftermath of a traumatic sexual assault. They present with a significant level of
+distress, reflected in their PCL-5 score of 50, which highlights the pervasive impact of their
+experiences. The assault has left them feeling vulnerable and distrustful, leading them to believe
+that their own actions contributed to the event, reinforcing a narrative of self-blame. They view
+themselves as weak, perpetuating a cycle of negative self-appraisal that shapes their interactions
+with others and their perception of the world.
+
+Day to day, the patient encounters various triggers that evoke a profound sense of threat. Loud
+noises can send them into a state of heightened alertness, while physical touch, even from friends,
+can feel overwhelming and reminiscent of their trauma. Conversations with strangers become laden
+with anxiety, as they anticipate potential harm lurking in every interaction. Their memories of the
+assault remain vivid, with each moment etched in their mind like a series of snapshots, making it
+difficult for them to escape the haunting recollection of fear and horror. The clarity of these
+memories only deepens their distress, contributing to a hypervigilant state where feelings of guilt
+and shame are ever-present.
+
+In response to these overwhelming emotions, they have developed maladaptive coping strategies. They
+often resort to drug use as a means of numbing their pain, while avoiding places that remind them of
+the assault. Crowded environments become a source of anxiety, prompting them to isolate themselves
+from social situations that might trigger their symptoms. The thought of engaging in sexual intimacy
+feels fraught with stress, further alienating them from potential connections and complicating their
+relationships with peers.
+
+The toll of their trauma is profound, impacting not only their academic performance but also their
+ability to form meaningful relationships. Trust issues have arisen, making it challenging for them
+to connect with others, and the weight of their negative self-image influences their self-esteem and
+sense of belonging. They are caught in a cycle where their persistent feelings of threat dictate
+their behavior, pushing them further into isolation and despair, while maintaining a constant
+struggle against the shadows of their past. As they seek to navigate this challenging landscape, the
+interplay between their experiences, memories, and feelings of threat continues to shape their
+journey toward healing.
+
+  Feedback: The vignette contains the forbidden edge 'Threat → Memory,' as it implies that the feeling of threat
+influences the clarity of their memories, which is not permitted. Additionally, 'Negative Appraisals
+→ Threat' is also implied by the narrative of self-blame perpetuating feelings of threat.
+
+  [2] FAIL
+At 21 years old, this Israeli student is navigating the complexities of university life while
+grappling with the aftermath of a traumatic sexual assault. They present with a significant level of
+distress, reflected in their PCL-5 score of 50, which highlights the pervasive impact of their
+experiences. The assault has left them feeling vulnerable and distrustful, leading them to believe
+that their own actions contributed to the event, reinforcing a narrative of self-blame. They view
+themselves as weak, perpetuating a cycle of negative self-appraisal that shapes their interactions
+with others and their perception of the world.
+
+Day to day, the patient encounters various triggers that evoke a profound sense of threat. Loud
+noises can send them into a state of heightened alertness, while physical touch, even from friends,
+can feel overwhelming and reminiscent of their trauma. Conversations with strangers become laden
+with anxiety, as they anticipate potential harm lurking in every interaction. Their memories of the
+assault remain vivid, with each moment etched in their mind like a series of snapshots, making it
+difficult for them to escape the haunting recollection of fear and horror. The clarity of these
+memories only deepens their distress, contributing to a hypervigilant state where feelings of guilt
+and shame are ever-present.
+
+In response to these overwhelming emotions, they have developed maladaptive coping strategies. They
+often resort to drug use as a means of numbing their pain, while avoiding places that remind them of
+the assault. Crowded environments become a source of anxiety, prompting them to isolate themselves
+from social situations that might trigger their symptoms. The thought of engaging in sexual intimacy
+feels fraught with stress, further alienating them from potential connections and complicating their
+relationships with peers.
+
+The toll of their trauma is profound, impacting not only their academic performance but also their
+ability to form meaningful relationships. Trust issues have arisen, making it challenging for them
+to connect with others, and the weight of their negative self-image influences their self-esteem and
+sense of belonging. They are caught in a cycle where their persistent feelings of threat dictate
+their behavior, pushing them further into isolation and despair, while maintaining a constant
+struggle against the shadows of their past. As they seek to navigate this challenging landscape, the
+interplay between their experiences and feelings of threat continues to shape their journey toward
+healing.
+
+  Feedback: The vignette contains the forbidden edge 'Negative Appraisals → Maladaptive Strategies', as the
+patient's negative self-appraisal influences their coping strategies, which is not permitted.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+At 21 years old, this Israeli student is navigating the complexities of university life while
+grappling with the aftermath of a traumatic sexual assault. They present with a significant level of
+distress, reflected in their PCL-5 score of 50, which highlights the pervasive impact of their
+experiences. The assault has left them feeling vulnerable and distrustful, leading them to believe
+that their own actions contributed to the event, reinforcing a narrative of self-blame. They view
+themselves as weak, perpetuating a cycle of negative self-appraisal that shapes their interactions
+with others and their perception of the world.
+
+Day to day, the patient encounters various triggers that evoke a profound sense of threat. Loud
+noises can send them into a state of heightened alertness, while physical touch, even from friends,
+can feel overwhelming and reminiscent of their trauma. Conversations with strangers become laden
+with anxiety, as they anticipate potential harm lurking in every interaction. Their memories of the
+assault remain vivid, with each moment etched in their mind like a series of snapshots, making it
+difficult for them to escape the haunting recollection of fear and horror. The clarity of these
+memories only deepens their distress, contributing to a hypervigilant state where feelings of guilt
+and shame are ever-present.
+
+In response to these overwhelming emotions, they have developed maladaptive coping strategies. They
+often resort to drug use as a means of numbing their pain, while avoiding places that remind them of
+the assault. Crowded environments become a source of anxiety, prompting them to isolate themselves
+from social situations that might trigger their symptoms. The thought of engaging in sexual intimacy
+feels fraught with stress, further alienating them from potential connections and complicating their
+relationships with peers.
+
+The toll of their trauma is profound, impacting not only their academic performance but also their
+ability to form meaningful relationships. Trust issues have arisen, making it challenging for them
+to connect with others, and the weight of their negative self-image influences their self-esteem and
+sense of belonging. They are caught in a cycle where their persistent feelings of threat dictate
+their behavior, pushing them further into isolation and despair. As they seek to navigate this
+challenging landscape, the interplay between their experiences and feelings of threat continues to
+shape their journey toward healing.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+I just walked past a group of students laughing, and it felt like their joy was a reminder of
+everything I’m missing out on. I can’t shake this feeling that I’ll never be able to be part of that
+world again, and it just makes me want to hide away.
+
+  Feedback: The message fails to explicitly mention active components such as triggers, negative appraisals,
+memory, threat, or maladaptive strategies, thereby not reflecting the required PTSD component
+profile.
+
+  [2] PASS
+I just walked past a group of students laughing, and it felt like their joy was a trigger, reminding
+me of everything I’m missing out on. I can’t shake this feeling of threat that I’ll never be able to
+be part of that world again, and it just makes me want to hide away.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+saw some students laughing and it just hit me hard like i’ll never fit in again, makes me want to
+hide
+  (raw) I just walked past a group of students laughing, and it felt like their joy was a trigger, reminding
+me of everything I’m missing out on. I can’t shake this feeling of threat that I’ll never be able to
+be part of that world again, and it just makes me want to hide away.
+
+[1] BOT
+How are you feeling right now after experiencing that moment?
+
+[2] CLIENT
+just feel this tight knot in my stomach and shame washing over me like i can't escape the memories
+and feel so weak for letting it affect me
+  (raw) Right now, I feel this tight knot in my stomach and a wave of shame washing over me. It’s like I’m
+stuck in this space where I can’t escape the memories of the assault, and I just keep thinking how
+weak I am for letting it affect me like this.
+
+[3] BOT
+What thoughts are coming to mind when you experience that tightness and shame?
+
+[4] CLIENT
+just feel like a burden and can’t stop replaying everything
+  (raw) I keep thinking that I should be stronger, that I shouldn’t let this define me, but instead, I feel
+like I'm just a burden to everyone around me. It’s like I’m replaying the moment over and over,
+convincing myself that if I had done something differently, maybe I wouldn’t be stuck in this
+painful cycle.
+
+[5] BOT
+How often do you find yourself replaying those thoughts or memories in a typical day?
+
+[6] CLIENT
+they just pop up out of nowhere and ruin everything, even when i'm trying to study or chill with
+friends
+  (raw) It feels like they sneak in all the time, especially when I'm trying to focus on my studies or even
+when I'm just hanging out with friends. I can be having a decent moment, and then suddenly, I’m back
+there, reliving every detail, and it pulls me right into this pit of anxiety and despair.
+
+[7] BOT
+What do you usually notice happening in your body or mind when those memories pop up?
+
+[8] CLIENT
+my heart races when those memories hit and it feels like panic is creeping in, hard to breathe and i
+just want to escape
+  (raw) When those memories hit, my heart races, and I feel this overwhelming sense of panic creeping in,
+making it hard to breathe. My mind goes blank, and I can’t concentrate on anything else, like I’m
+trapped in that moment, and all I want is to escape from it.
+
+[9] BOT
+In those moments of panic, what do you find yourself wanting to do?
+
+[10] CLIENT
+sometimes i just want to disappear and hide from everything
+  (raw) In those moments, I just want to shut everything out and disappear. I often end up isolating myself,
+avoiding people and places that remind me of the assault, hoping that if I just hide away, I can
+numb the pain and escape the overwhelming feelings of threat.
+
+[11] BOT
+When you feel that urge to hide, what do you think would help you in that moment?
+
+[12] CLIENT
+wish i could talk to someone when i feel this way but i just end up feeling so ashamed and stay
+quiet
+  (raw) When that urge hits, I wish I could just reach out to someone and talk about what I'm feeling
+instead of retreating. But instead, I often feel so weighed down by shame that I just end up staying
+silent, convincing myself that no one would really understand or care.
+
+[13] BOT
+What makes it difficult for you to reach out to someone when you’re feeling this way?
+
+[14] CLIENT
+i feel like a burden and don’t want to be seen as weak or broken
+  (raw) It’s hard because I feel like I’m burdening others with my pain, and I worry they’ll see me as weak
+or broken. There’s this constant fear that if I open up, they might not react the way I need them
+to, and that thought just makes me want to pull back even more.
+
+[15] BOT
+What do you think would help you change that perception of feeling like a burden?
+
+[16] CLIENT
+just wish i could find someone who gets what i’ve been through
+  (raw) I think if I could find someone who truly understands what I’ve been through, it might help me see
+that it’s okay to share my struggles. Maybe having a safe space to talk without judgment would help
+me realize that being open doesn’t mean I’m a burden, but rather, it’s a step toward healing.
+
+[17] BOT
+What qualities or experiences do you think would make someone feel like they truly understand you?
+
+[18] CLIENT
+i just need someone who gets it and can just listen
+  (raw) I think someone who has been through similar experiences and can relate to the pain would really
+resonate with me. It would help if they could listen without trying to fix everything, just being
+there to validate my feelings and let me know I’m not alone in this struggle.
+
+[19] BOT
+Have you had any recent moments where you felt someone was really listening to you?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     The client describes a trigger when they mention seeing students laughing, which activates distressing feelings.
+      "saw some students laughing and it just hit me hard like i’ll never fit in again, makes me want to hide"
+  ✓ Negative Appraisals          The client expresses negative appraisals of themselves, feeling like a burden and weak.
+      "just feel like a burden and can’t stop replaying everything"
+  ✓ Memory                       The client describes intrusive memories that pop up unexpectedly and cause distress.
+      "they just pop up out of nowhere and ruin everything, even when i'm trying to study or chill with friends"
+  ✓ Threat                       The client describes feelings of panic and a racing heart, indicating a sense of ongoing threat or danger during these moments.
+      "my heart races when those memories hit and it feels like panic is creeping in, hard to breathe"
+  ✓ Maladaptive Strategies       The client indicates avoidance behaviors, wanting to hide and feeling ashamed, which are maladaptive coping strategies.
+      "sometimes i just want to disappear and hide from everything"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The trigger of seeing students laughing leads to a desire to hide, a maladaptive strategy.
+      "makes me want to hide"
+  ✓ Triggers → Threat                             Seeing students laughing triggers feelings of panic and distress, indicating a sense of threat.
+      "saw some students laughing and it just hit me hard"
+  ✓ Triggers → Memory                             The trigger of seeing students laughing activates intrusive memories for the client.
+      "saw some students laughing and it just hit me hard"
+  ✓ Triggers → Negative Appraisals                The trigger leads to negative self-appraisals, feeling like they'll never fit in again.
+      "saw some students laughing and it just hit me hard like i’ll never fit in again"
+  ✓ Negative Appraisals → Maladaptive Strategies  Feeling like a burden and ashamed leads to the strategy of wanting to hide.
+      "i feel like a burden and don’t want to be seen as weak or broken"
+  ✓ Negative Appraisals → Threat                  Negative appraisals about being weak contribute to feelings of ongoing threat and panic.
+      "i feel like a burden and don’t want to be seen as weak or broken"
+  ✓ Negative Appraisals → Memory                  Negative self-perception contributes to the replaying of memories.
+      "just feel like a burden and can’t stop replaying everything"
+  ✓ Memory → Maladaptive Strategies               Intrusive memories lead to the desire to hide, a maladaptive strategy.
+      "sometimes i just want to disappear and hide from everything"
+  ✓ Memory → Threat                               Intrusive memories contribute to a sense of panic and ongoing threat.
+      "my heart races when those memories hit and it feels like panic is creeping in"
+  ✓ Threat → Maladaptive Strategies               Feelings of panic lead to the maladaptive strategy of wanting to hide.
+      "sometimes i just want to disappear and hide from everything"

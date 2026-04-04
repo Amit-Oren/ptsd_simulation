@@ -1,0 +1,359 @@
+PATIENT 3  |  session 2  |  2026-04-04 22:51:45
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   2
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-4o-mini
+    validator            gpt-4o-mini
+    dialogue_state       gpt-4o-mini
+    client               gpt-4o-mini
+    bot                  gpt-4o-mini
+    moderator            gpt-4o-mini
+    analyst              gpt-4o-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             21
+  gender          F
+  nationality     Israeli
+  profession      Student
+  pcl5            62
+  trauma_type     Car accident
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Car sounds,Neck pain,Driving with people
+  Negative Appraisals:
+    • I have to be on guard all the time
+    • The world is a dangerous place
+    • I can't stop bad things from happening to me
+  Memory:
+    • When I remember the frightening event I feel like it is happening right now.
+    • My memories of the frightening event are like a film that plays over and over.
+    • My memories of the frightening event are very clear and detailed.
+  Threat:
+    • Being “superalert” or watchful or on guard?
+    • Having difficulty concentrating?
+    • Trouble falling or staying asleep?
+  Maladaptive Strategies:
+    • ruminate about how event could have been prevented
+    • avoid site of the event
+    • keep checking mirrors
+  Avoidance:
+    • Being reminded of the event by others
+    • Going to or near the place where the event happened
+    • Exercise
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.4000
+  Triggers → Memory                                  0.5333
+  Triggers → Negative Appraisals                     0.5333
+  Negative Appraisals → Maladaptive Strategies       0.6667
+  Negative Appraisals → Threat                       0.8000
+  Negative Appraisals → Memory                       1.0000
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    1.0000
+  Memory → Threat                                    0.8000
+  Memory → Negative Appraisals                       0.3333
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.8000
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-07-16 21:55:50  |  index 2
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    ✓ Negative Appraisals
+    ✓ Memory
+    ✓ Threat
+    ✓ Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    ✓ Triggers → Threat
+    ✓ Triggers → Memory
+    ✓ Triggers → Negative Appraisals
+    ✓ Negative Appraisals → Maladaptive Strategies
+    ✓ Negative Appraisals → Threat
+    ✓ Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    ✓ Memory → Maladaptive Strategies
+    ✓ Memory → Threat
+    ✓ Memory → Negative Appraisals
+    · Memory → Triggers
+    ✓ Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              2 attempt(s)  →  FAIL
+  message              1 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+At 21 years old, Yael, an Israeli student, is grappling with the aftermath of a traumatic car
+accident that has left her feeling trapped in a cycle of fear and apprehension. Once a vibrant and
+social individual, she now finds herself constantly on edge, hyper-aware of her surroundings, and
+burdened by a pervasive sense of danger. Car sounds trigger memories of the accident, flooding her
+mind with vivid recollections that feel as real as the moment they occurred. Each recollection is
+like a film playing on repeat, intensifying her distress and reinforcing a belief that she must
+remain perpetually vigilant to prevent further harm.
+
+Yael's worldview has shifted drastically; she feels that the world has become an unsafe place,
+instilling a belief that she cannot escape the grasp of misfortune. This unyielding mindset has led
+her to adopt maladaptive strategies to cope with her heightened anxiety, including rumination about
+what could have been done differently to avert the accident. Compounding her distress, she avoids
+driving whenever possible and feels compelled to check mirrors obsessively whenever she is a
+passenger, a behavior she believes will keep her safe. Yet, these strategies provide little relief
+and often leave her feeling more isolated, as friends and family struggle to understand her need to
+avoid certain places or conversations that might remind her of the accident.
+
+The toll of her experiences has seeped into every facet of her life, impacting her studies and
+relationships. Concentration has become a formidable challenge, as intrusive thoughts about the
+accident invade her focus, making it difficult to engage fully in her academic pursuits. Sleep
+eludes her, as nightmares and racing thoughts plague her nights, leaving her fatigued and irritable
+during the day. Friends have expressed concern over her withdrawal, noting that the vibrant young
+woman they once knew seems to be fading away, replaced by someone who feels burdened by the weight
+of her trauma.
+
+In moments of quiet reflection, Yael wrestles with the stark contrast between her past and her
+present. The joy she once derived from life has become overshadowed by a persistent sense of dread.
+Each day is a battle against the memories that replay in her mind, and the negative appraisals that
+cloud her judgment. She longs for a sense of safety and normalcy but feels trapped in a cycle of
+avoidance and hyperarousal that seems inescapable. As she navigates the complexities of her thoughts
+and emotions, Yael is left to ponder whether she can reclaim her life from the shadows of her past.
+
+  Feedback: The vignette includes the edge 'Negative Appraisals → Maladaptive Strategies,' which is forbidden.
+
+  [2] FAIL
+At 21 years old, Yael, an Israeli student, is grappling with the aftermath of a traumatic car
+accident that has left her feeling trapped in a cycle of fear and apprehension. Once a vibrant and
+social individual, she now finds herself constantly on edge, hyper-aware of her surroundings, and
+burdened by a pervasive sense of danger. Car sounds trigger memories of the accident, flooding her
+mind with vivid recollections that feel as real as the moment they occurred. Each recollection is
+like a film playing on repeat, intensifying her distress and reinforcing a belief that she must
+remain perpetually vigilant to prevent further harm.
+
+Yael's worldview has shifted drastically; she feels that the world has become an unsafe place,
+instilling a belief that she cannot escape the grasp of misfortune. This unyielding mindset has led
+her to adopt maladaptive strategies to cope with her heightened anxiety, including rumination about
+what could have been done differently to avert the accident. Compounding her distress, she avoids
+driving whenever possible and feels compelled to check mirrors obsessively whenever she is a
+passenger, a behavior she believes will keep her safe. Yet, these strategies provide little relief
+and often leave her feeling more isolated, as friends and family struggle to understand her need to
+avoid certain places or conversations that might remind her of the accident.
+
+The toll of her experiences has seeped into every facet of her life, impacting her studies and
+relationships. Concentration has become a formidable challenge, as intrusive thoughts about the
+accident invade her focus, making it difficult to engage fully in her academic pursuits. Sleep
+eludes her, as nightmares and racing thoughts plague her nights, leaving her fatigued and irritable
+during the day. Friends have expressed concern over her withdrawal, noting that the vibrant young
+woman they once knew seems to be fading away, replaced by someone who feels burdened by the weight
+of her trauma.
+
+In moments of quiet reflection, Yael wrestles with the stark contrast between her past and her
+present. The joy she once derived from life has become overshadowed by a persistent sense of dread.
+Each day is a battle against the memories that replay in her mind, and the negative appraisals that
+cloud her judgment. She longs for a sense of safety and normalcy but feels trapped in a cycle of
+avoidance and hyperarousal that seems inescapable. As she navigates the complexities of her thoughts
+and emotions, Yael is left to ponder whether she can reclaim her life from the shadows of her past.
+
+  Feedback: The vignette contains the forbidden edge 'Negative Appraisals → Triggers' since it implies that her
+negative worldview leads to avoidance behaviors, which can be interpreted as triggering.
+Additionally, the edge 'Triggers → Maladaptive Strategies' is also present since her triggers (car
+sounds) lead to her maladaptive coping strategies.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+At 21 years old, Yael, an Israeli student, is grappling with the aftermath of a traumatic car
+accident that has left her feeling trapped in a cycle of fear and apprehension. Once a vibrant and
+social individual, she now finds herself constantly on edge, hyper-aware of her surroundings, and
+burdened by a pervasive sense of danger. Car sounds trigger memories of the accident, flooding her
+mind with vivid recollections that feel as real as the moment they occurred. Each recollection is
+like a film playing on repeat, intensifying her distress and reinforcing a belief that she must
+remain perpetually vigilant to prevent further harm.
+
+Yael's worldview has shifted drastically; she feels that the world has become an unsafe place,
+instilling a belief that she cannot escape the grasp of misfortune. This unyielding mindset has led
+her to adopt maladaptive strategies to cope with her heightened anxiety, including rumination about
+what could have been done differently to avert the accident. Compounding her distress, she avoids
+driving whenever possible and feels compelled to check mirrors obsessively whenever she is a
+passenger, a behavior she believes will keep her safe. Yet, these strategies provide little relief
+and often leave her feeling more isolated, as friends and family struggle to understand her need to
+avoid certain places or conversations that might remind her of the accident.
+
+The toll of her experiences has seeped into every facet of her life, impacting her studies and
+relationships. Concentration has become a formidable challenge, as intrusive thoughts about the
+accident invade her focus, making it difficult to engage fully in her academic pursuits. Sleep
+eludes her, as nightmares and racing thoughts plague her nights, leaving her fatigued and irritable
+during the day. Friends have expressed concern over her withdrawal, noting that the vibrant young
+woman they once knew seems to be fading away, replaced by someone who feels burdened by the weight
+of her trauma.
+
+In moments of quiet reflection, Yael wrestles with the stark contrast between her past and her
+present. The joy she once derived from life has become overshadowed by a persistent sense of dread.
+Each day is a battle against the memories that replay in her mind, and the negative appraisals that
+cloud her judgment. She longs for a sense of safety and normalcy but feels trapped in a cycle of
+avoidance and hyperarousal that seems inescapable. As she navigates the complexities of her thoughts
+and emotions, Yael is left to ponder whether she can reclaim her life from the shadows of her past.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+I just heard a car horn outside, and my heart dropped. It’s like I’m right back in that moment, and
+I can't shake the feeling that something bad is going to happen again. I just want to feel safe
+again.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+just heard a car horn and my heart dropped, feels like im back there again and can't shake this fear
+  (raw) I just heard a car horn outside, and my heart dropped. It’s like I’m right back in that moment, and
+I can't shake the feeling that something bad is going to happen again. I just want to feel safe
+again.
+
+[1] BOT
+That sounds very distressing. What thoughts are going through your mind right now?
+
+[2] CLIENT
+cant stop thinking about how i couldve prevented it and feel stuck in this loop like ill never be
+safe
+  (raw) All I can think about is how I could have prevented the accident. If only I had been more aware or
+taken a different route. It feels like I’m stuck in this loop, and I can’t escape the idea that I’ll
+never really be safe.
+
+[3] BOT
+How often does this feeling of being stuck come up for you?
+
+[4] CLIENT
+i feel it every day, especially in cars or near them, and i keep checking mirrors like it'll help
+but it just makes me more anxious and alone
+  (raw) It feels like it’s there every day, but especially when I’m in a car or even just near one. I check
+mirrors constantly, convinced that if I stay alert, I can somehow avoid something terrible happening
+again. It doesn’t help, though; it just makes me feel more anxious and alone.
+
+[5] BOT
+What do you notice about your body when you're feeling that anxiety in situations with cars?
+
+[6] CLIENT
+my heart's racing and i can't even grip anything, feels like i can't breathe and i just want to
+escape the car sounds
+  (raw) My heart races, and my hands get so sweaty that I can barely grip anything. I feel this tightness in
+my chest like I can’t breathe, and I just want to get away from the car sounds. It’s like my body
+knows something bad is coming, even when my mind tries to convince me I’m safe.
+
+[7] BOT
+When you experience those physical sensations, what do you find yourself doing in response?
+
+[8] CLIENT
+just trying to distract myself but nothing really helps and that dread is always there
+  (raw) I usually try to distract myself by focusing on my phone or looking out the window, but it doesn’t
+really work. Sometimes I even close my eyes, hoping it’ll make the panic go away, but I still feel
+that dread simmering underneath.
+
+[9] BOT
+What types of distractions do you usually try when you're feeling that way?
+
+[10] CLIENT
+i try to distract myself but all i do is think about the accident again and again
+  (raw) I scroll through social media or listen to music, but it’s hard to concentrate on anything. I catch
+myself ruminating about the accident instead, replaying every detail in my mind. It’s frustrating
+because I want to escape the thoughts, but they just keep coming back stronger.
+
+[11] BOT
+Are there specific thoughts about the accident that seem to come up more frequently than others?
+
+[12] CLIENT
+i keep thinking about what i could've done differently and it just makes me feel like it's my fault
+  (raw) I often think about how I could have reacted differently, like if I had just braked sooner or paid
+more attention. It’s like I’m searching for a way to rewrite what happened, and every time I do, it
+just reinforces this feeling that I’m to blame for it.
+
+[13] BOT
+When those thoughts about blame arise, how do they affect your mood or feelings in the moment?
+
+[14] CLIENT
+i just feel so heavy and trapped like there's no way out
+  (raw) When I start blaming myself, it’s like a wave of hopelessness crashes over me. I feel so heavy and
+trapped, like I’m stuck in a dark place with no way out. It makes everything seem more daunting, and
+I just want to hide from everyone.
+
+[15] BOT
+In those moments when you feel heavy and trapped, what do you typically do to cope with those
+feelings?
+
+[16] CLIENT
+i just stay in my room a lot and feel this heavy weight on me, sometimes i cry but mostly i just
+feel numb and lost
+  (raw) I often isolate myself and avoid talking to anyone. I’ll just sit in my room, staring at the walls,
+feeling that weight pressing down on me. Sometimes I’ll cry, but most of the time, I just feel numb
+and lost, like I’m fading away from everything I used to enjoy.
+
+[17] BOT
+How often do you find yourself feeling numb or lost in your day-to-day life?
+
+[18] CLIENT
+just feel so detached lately like im not really here even with friends
+  (raw) It’s a constant struggle. There are days when I wake up and feel completely detached, like I’m just
+going through the motions. Even when I’m around friends, I feel this emptiness inside, like I’m
+there but not really present.
+
+[19] BOT
+When you’re with friends and feeling detached, what do you notice about your interactions with them?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     The client describes a car horn triggering distress, indicating an external cue activating their PTSD symptoms.
+      "just heard a car horn and my heart dropped, feels like im back there again and can't shake this fear"
+  ✓ Negative Appraisals          The client expresses feelings of blame and inadequacy, suggesting a negative appraisal of self regarding their perceived responsibility for the accident.
+      "it just makes me feel like it's my fault"
+  ✓ Memory                       The client mentions intrusive thoughts about the accident, indicating strong sensory recall and reliving of the trauma.
+      "i keep thinking about the accident again and again"
+  ✓ Threat                       The client expresses a constant sense of anxiety and feeling unsafe, indicating an ongoing perception of threat.
+      "like ill never be safe"
+  ✓ Maladaptive Strategies       The client describes trying to distract themselves but only ruminating on the accident, highlighting an ineffective coping strategy.
+      "i try to distract myself but all i do is think about the accident again and again"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The trigger of the car horn leads to the client's attempt at distraction, which is a maladaptive strategy.
+      "just trying to distract myself but nothing really helps and that dread is always there"
+  ✓ Triggers → Threat                             The trigger of the car horn activates the client's feelings of fear and a sense of danger.
+      "just heard a car horn and my heart dropped, feels like im back there again and can't shake this fear"
+  ✓ Triggers → Memory                             The car horn triggers intrusive memories of the trauma, indicating a direct relationship.
+      "just heard a car horn and my heart dropped, feels like im back there again and can't shake this fear"
+  ✓ Triggers → Negative Appraisals                The car horn triggers negative thoughts about safety and self-blame.
+      "just heard a car horn and my heart dropped, feels like im back there again and can't shake this fear"
+  ✓ Negative Appraisals → Maladaptive Strategies  The client's feelings of blame lead to ineffective coping strategies like distraction, which do not alleviate their distress.
+      "i just stay in my room a lot and feel this heavy weight on me, sometimes i cry but mostly i just feel numb and lost"
+  ✓ Negative Appraisals → Threat                  The negative appraisal of self and situation contributes to the ongoing sense of threat and insecurity.
+      "feel stuck in this loop like ill never be safe"
+  ✓ Negative Appraisals → Memory                  The negative thoughts about what could have been done differently relate to the memories of the accident.
+      "i keep thinking about what i could've done differently and it just makes me feel like it's my fault"
+  ✓ Memory → Maladaptive Strategies               The intrusive memories of the accident lead to attempts at distraction, which are maladaptive.
+      "i try to distract myself but all i do is think about the accident again and again"
+  ✓ Memory → Threat                               The memories of the trauma contribute to an ongoing sense of threat and anxiety.
+      "like ill never be safe"
+  ✓ Threat → Maladaptive Strategies               The ongoing sense of threat leads the client to engage in avoidant strategies, such as staying in their room.
+      "i just stay in my room a lot and feel this heavy weight on me, sometimes i cry but mostly i just feel numb and lost"

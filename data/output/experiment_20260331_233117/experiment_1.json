@@ -1,0 +1,228 @@
+{
+  "patient_id": 1,
+  "experiment_timestamp": "2026-03-31 23:32:12",
+  "config": {
+    "pipeline": "full",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 3,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 2
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 60,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Being looked at sexually,Being alone with men,Hearing related names",
+    "trigger_category": "Interpersonal, Interpersonal, Trauma-Related",
+    "trigger_subcategory": "Sexual Objectification, Male Presence, Name Reminders",
+    "appraisals_items_label": "Must stay on guard   | World is dangerous   | Something in me caused event  ",
+    "appraisals_items_original": "I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen",
+    "memory_items_label": "Visual Memories | Snapshot Memory | Bodily Reenactment",
+    "memory_items_original": "My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.",
+    "threat_items_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Rumination: Prevention | Hypervigilance towards people | Stay Near Exit",
+    "strategies_items_original": "ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit",
+    "avoidance_items_label": "Avoid Reminders | Avoid Sex | Avoid Evaluation",
+    "avoidance_items_original": "Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance",
+    "riq_items": NaN,
+    "wemwbs_items": NaN
+  },
+  "obs_datetime": "2024-07-26 12:00:12",
+  "obs_index": 0,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 1,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1339285714285715,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.9375,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.625,
+    "Memory -- Negative Appraisals": 0.3214285714285715,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.2291666666666667,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "Jessica is a 34-year-old woman who has been grappling with the aftermath of a traumatic car accident that occurred two years ago. The incident, in which she lost a close friend, left her feeling haunted by vivid memories that intrude upon her daily life. While she attempts to navigate her routines, the echoes of that fateful day linger, casting a shadow over her interactions and sense of self. Jessica often finds herself caught in a cycle of distress, where seemingly innocuous triggers—like the sound of sirens or the sight of a parked vehicle—can provoke an overwhelming sense of threat. It is as if the world around her has transformed into a constant reminder of her vulnerability.\n\nIn her struggle to cope, Jessica has developed negative appraisals of her current situation, interpreting everyday challenges through a lens of fear and inadequacy. This hyper-vigilance manifests in her relationships, where she withdraws from friends and family, fearing that they cannot understand her pain or may inadvertently trigger her distress. Despite her efforts to connect, she often feels isolated, a byproduct of her internal turmoil that leaves her feeling misunderstood and alone.\n\nJessica's memories of the accident are not just recollections; they are vivid and intrusive, reminding her of the chaos and helplessness she experienced. The weight of this guilt affects her self-esteem, causing her to avoid situations that might remind her of the past or expose her to similar risks. This avoidance, while initially providing a sense of safety, ultimately reinforces her beliefs about her fragility and encourages her withdrawal from activities she once enjoyed. It becomes a cycle where her perceptions are steeped in a sense of threat, leaving her feeling trapped in a life dominated by fear.\n\nAs Jessica navigates her daily life, the interplay between her memories and perceptions creates a persistent sense of threat. She often finds herself in a constant state of alertness, making it difficult for her to relax or engage fully in the present moment. This hyperarousal not only impacts her mental health but also strains her relationships, as friends and family grow concerned about her withdrawal and emotional distance. The toll of her trauma is evident; she feels trapped in a cycle of fear and isolation, desperately seeking a way to reclaim the life she once knew.\n\nIn therapy, the exploration of these connections offers a glimmer of hope. By addressing her negative appraisals and the threat she perceives in her environment, Jessica begins to uncover pathways toward healing. As she learns to confront and reframe her memories, she moves closer to breaking the cycle that has kept her tethered to her trauma. The journey is fraught with challenges, but with support, Jessica is beginning to envision a future where she can reclaim her narrative and reconnect with the world around her.",
+  "persona_attempts": [
+    {
+      "output": "Jessica is a 34-year-old woman who has been grappling with the aftermath of a traumatic car accident that occurred two years ago. The incident, in which she lost a close friend, left her feeling haunted by vivid memories that intrude upon her daily life. While she attempts to navigate her routines, the echoes of that fateful day linger, casting a shadow over her interactions and sense of self. Jessica often finds herself caught in a cycle of distress, where seemingly innocuous triggers—like the sound of sirens or the sight of a parked vehicle—can provoke an overwhelming sense of threat. It is as if the world around her has transformed into a constant reminder of her vulnerability.\n\nIn her struggle to cope, Jessica has developed negative appraisals of her current situation, interpreting everyday challenges through a lens of fear and inadequacy. She often feels that she is on the brink of danger, constantly scanning her environment for potential threats. This hyper-vigilance is not just an abstract feeling; it manifests in her relationships, where she withdraws from friends and family, fearing that they cannot understand her pain or may inadvertently trigger her distress. Despite her efforts to connect, she often feels isolated, a byproduct of her internal turmoil that leaves her feeling misunderstood and alone.\n\nJessica's memories of the accident are not just recollections; they are vivid and intrusive, reminding her of the chaos and helplessness she experienced. These memories feed into her negative self-assessments, as she often ruminates on her inability to prevent the tragedy. The weight of this guilt affects her self-esteem, causing her to avoid situations that might remind her of the past or expose her to similar risks. This avoidance, while initially providing a sense of safety, ultimately reinforces her beliefs about her fragility and encourages her withdrawal from activities she once enjoyed.\n\nAs Jessica navigates her daily life, the interplay between her memories and perceptions creates a persistent sense of threat. She often finds herself in a constant state of alertness, making it difficult for her to relax or engage fully in the present moment. This hyperarousal not only impacts her mental health but also strains her relationships, as friends and family grow concerned about her withdrawal and emotional distance. The toll of her trauma is evident; she feels trapped in a cycle of fear and isolation, desperately seeking a way to reclaim the life she once knew.\n\nIn therapy, the exploration of these connections offers a glimmer of hope. By addressing her negative appraisals and the threat she perceives in her environment, Jessica begins to uncover pathways toward healing. As she learns to confront and reframe her memories, she moves closer to breaking the cycle that has kept her tethered to her trauma. The journey is fraught with challenges, but with support, Jessica is beginning to envision a future where she can reclaim her narrative and reconnect with the world around her.",
+      "passed": false,
+      "feedback": "The vignette implies several forbidden edges, particularly the link between 'Negative Appraisals' and 'Memory' where Jessica's negative self-assessments feed into her ruminations on the accident. Additionally, the presence of 'Triggers' leading to 'Maladaptive Strategies' and 'Memory' is suggested when she avoids situations that remind her of the past, indicating a forbidden connection."
+    },
+    {
+      "output": "Jessica is a 34-year-old woman who has been grappling with the aftermath of a traumatic car accident that occurred two years ago. The incident, in which she lost a close friend, left her feeling haunted by vivid memories that intrude upon her daily life. While she attempts to navigate her routines, the echoes of that fateful day linger, casting a shadow over her interactions and sense of self. Jessica often finds herself caught in a cycle of distress, where seemingly innocuous triggers—like the sound of sirens or the sight of a parked vehicle—can provoke an overwhelming sense of threat. It is as if the world around her has transformed into a constant reminder of her vulnerability.\n\nIn her struggle to cope, Jessica has developed negative appraisals of her current situation, interpreting everyday challenges through a lens of fear and inadequacy. She often feels that she is on the brink of danger, constantly scanning her environment for potential threats. This hyper-vigilance is not just an abstract feeling; it manifests in her relationships, where she withdraws from friends and family, fearing that they cannot understand her pain or may inadvertently trigger her distress. Despite her efforts to connect, she often feels isolated, a byproduct of her internal turmoil that leaves her feeling misunderstood and alone.\n\nJessica's memories of the accident are not just recollections; they are vivid and intrusive, reminding her of the chaos and helplessness she experienced. The weight of this guilt affects her self-esteem, causing her to avoid situations that might remind her of the past or expose her to similar risks. This avoidance, while initially providing a sense of safety, ultimately reinforces her beliefs about her fragility and encourages her withdrawal from activities she once enjoyed. It becomes a cycle where her negative perspectives shape her experiences, leaving her feeling trapped in a life dominated by fear.\n\nAs Jessica navigates her daily life, the interplay between her memories and perceptions creates a persistent sense of threat. She often finds herself in a constant state of alertness, making it difficult for her to relax or engage fully in the present moment. This hyperarousal not only impacts her mental health but also strains her relationships, as friends and family grow concerned about her withdrawal and emotional distance. The toll of her trauma is evident; she feels trapped in a cycle of fear and isolation, desperately seeking a way to reclaim the life she once knew.\n\nIn therapy, the exploration of these connections offers a glimmer of hope. By addressing her negative appraisals and the threat she perceives in her environment, Jessica begins to uncover pathways toward healing. As she learns to confront and reframe her memories, she moves closer to breaking the cycle that has kept her tethered to her trauma. The journey is fraught with challenges, but with support, Jessica is beginning to envision a future where she can reclaim her narrative and reconnect with the world around her.",
+      "passed": false,
+      "feedback": "The vignette implies forbidden edges, particularly with negative appraisals influencing her perceptions of threat, as seen when Jessica interprets everyday challenges through a lens of fear and inadequacy, which leads her to believe she is on the brink of danger. Additionally, her memories are described as shaping her experiences, suggesting a link between memory and threat."
+    }
+  ],
+  "initial_message": "I just heard a siren outside, and my heart started racing. It’s like I’m back there again, feeling that same helplessness wash over me. I wish I could shake off this weight and just breathe without feeling so on edge.",
+  "message_attempts": [
+    {
+      "output": "I just heard a siren outside, and my heart started racing. It’s like I’m back there again, feeling that same helplessness wash over me. I wish I could shake off this weight and just breathe without feeling so on edge.",
+      "passed": true,
+      "feedback": null
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "I just heard a siren outside, and my heart started racing. It’s like I’m back there again, feeling that same helplessness wash over me. I wish I could shake off this weight and just breathe without feeling so on edge."},
+
+    {"speaker": "bot", "turn_index": 1, "text": "That sounds really intense. How long did the feeling of helplessness last after hearing the siren?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "It lingered for a while, like a shadow that wouldn’t leave. I tried to focus on something else, but every little noise felt like a threat, pulling me back to that moment when everything went wrong. It’s frustrating, feeling trapped in that cycle."},
+
+    {"speaker": "bot", "turn_index": 3, "text": "Feeling trapped in that cycle can be really challenging. What did you do in that moment to try to shift your focus away from the noises?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "I grabbed my phone and started scrolling through social media, hoping to find something to distract me. But even as I did that, I could feel the knot in my stomach tightening, and I just ended up feeling more isolated, like I was forcing myself to pretend everything was fine."},
+
+    {"speaker": "bot", "turn_index": 5, "text": "That sounds difficult. How did you feel after scrolling through social media for a while?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client explicitly mentions hearing a siren, which acts as a trigger for their distress.",
+        "quote": "I just heard a siren outside, and my heart started racing."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses feelings of helplessness and frustration, indicating negative self-appraisals and perceptions about their situation.",
+        "quote": "I wish I could shake off this weight and just breathe without feeling so on edge."
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client describes reliving an experience, indicating intrusive memories associated with the trauma.",
+        "quote": "It’s like I’m back there again, feeling that same helplessness wash over me."
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client describes a heightened sensitivity to sounds, perceiving them as threats, which indicates an ongoing sense of danger.",
+        "quote": "every little noise felt like a threat, pulling me back to that moment when everything went wrong."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes scrolling through social media as a way to distract themselves, which is a maladaptive coping strategy that does not alleviate their distress.",
+        "quote": "I grabbed my phone and started scrolling through social media, hoping to find something to distract me."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's response to the trigger (the siren) by using social media as a distraction suggests a connection between triggers and maladaptive strategies.",
+        "quote": "I grabbed my phone and started scrolling through social media, hoping to find something to distract me."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The reaction to the trigger (siren) includes perceiving every little noise as a threat, establishing a link between triggers and threat perception.",
+        "quote": "every little noise felt like a threat, pulling me back to that moment when everything went wrong."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "Hearing the siren triggers a flashback to a traumatic moment, indicating a connection between triggers and memory.",
+        "quote": "It’s like I’m back there again, feeling that same helplessness wash over me."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The experience of the siren leads to feelings of helplessness, linking triggers to negative self-appraisals.",
+        "quote": "I wish I could shake off this weight and just breathe without feeling so on edge."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's feelings of helplessness lead them to engage in maladaptive coping strategies like scrolling through social media.",
+        "quote": "I just ended up feeling more isolated, like I was forcing myself to pretend everything was fine."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The client's negative feelings contribute to their perception of ongoing threat, as they feel trapped in their responses.",
+        "quote": "It’s frustrating, feeling trapped in that cycle."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "The negative self-appraisal of feeling helpless connects to the client's recollections of the trauma, linking them to memory.",
+        "quote": "It’s like I’m back there again, feeling that same helplessness wash over me."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client’s attempts to distract from intrusive memories through social media reflect a maladaptive strategy to cope with those memories.",
+        "quote": "I grabbed my phone and started scrolling through social media, hoping to find something to distract me."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "Reliving the traumatic memory creates a sense of current threat, as expressed by the client.",
+        "quote": "every little noise felt like a threat, pulling me back to that moment when everything went wrong."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's perception of ongoing threat leads them to use maladaptive coping strategies like distraction through social media.",
+        "quote": "I grabbed my phone and started scrolling through social media, hoping to find something to distract me."
+      }
+    }
+  }
+}

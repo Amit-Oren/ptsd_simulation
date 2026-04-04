@@ -1,0 +1,106 @@
+{
+  "patient_id": 1,
+  "experiment_timestamp": "2026-03-31 22:33:51",
+  "config": {
+    "pipeline": "vignette_validation",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 3,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 2
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 60,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Being looked at sexually,Being alone with men,Hearing related names",
+    "trigger_category": "Interpersonal, Interpersonal, Trauma-Related",
+    "trigger_subcategory": "Sexual Objectification, Male Presence, Name Reminders",
+    "appraisals_items_label": "Must stay on guard   | World is dangerous   | Something in me caused event  ",
+    "appraisals_items_original": "I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen",
+    "memory_items_label": "Visual Memories | Snapshot Memory | Bodily Reenactment",
+    "memory_items_original": "My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.",
+    "threat_items_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Rumination: Prevention | Hypervigilance towards people | Stay Near Exit",
+    "strategies_items_original": "ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit",
+    "avoidance_items_label": "Avoid Reminders | Avoid Sex | Avoid Evaluation",
+    "avoidance_items_original": "Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance",
+    "riq_items": NaN,
+    "wemwbs_items": NaN
+  },
+  "obs_datetime": "",
+  "obs_index": 0,
+  "obs_nodes": {},
+  "obs_edges": {},
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1339285714285715,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.9375,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.625,
+    "Memory -- Negative Appraisals": 0.3214285714285715,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.2291666666666667,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 0,
+      "passed": 0,
+      "failed": 0,
+      "ultimately_passed": null
+    }
+  },
+  "persona": "Emily, a 32-year-old woman, presents with an array of challenges that have significantly impacted her daily life and relationships. Several months ago, she was involved in a traumatic car accident that left her physically unscathed but psychologically shaken. Since that day, Emily has grappled with persistent feelings of unease, often perceiving the world around her as a constant threat. Even mundane situations, such as crossing the street or driving, can trigger a surge of anxiety, leading her to avoid these activities altogether. This pervasive sense of danger, although rooted in her traumatic experience, has become a fixture in her life, shaping her interactions and decisions.\n\nEmily often finds herself ruminating on the accident, replaying the events in her mind. These memories, while distressing, are not the sole sources of her turmoil; rather, they serve as a catalyst for negative thoughts about her safety and competence. She frequently tells herself that she should have been more vigilant, that the accident was a reflection of her inadequacies. This internal dialogue fosters a profound sense of helplessness, making her feel trapped in a cycle of self-blame and fear. The weight of these negative appraisals has begun to seep into her relationships, creating distance between her and her loved ones, who struggle to understand her emotional turmoil.\n\nTo cope with her overwhelming feelings, Emily has resorted to avoidance as a strategy. She often isolates herself, opting to stay home rather than engage in social activities that once brought her joy. This withdrawal has not only intensified her feelings of loneliness but has also fueled her anxious thoughts, as she finds herself obsessing over what could go wrong in any given situation. The avoidance of triggers—once a temporary relief—has now solidified into a pattern that constricts her life, leaving her feeling more vulnerable and less in control.\n\nThe toll on Emily's overall well-being is evident. She feels as though she is living in a fog, where moments of clarity are overshadowed by waves of anxiety and dread. The vibrancy she once associated with life has dulled, replaced by a constant state of vigilance. Friends and family have expressed concern, noting her withdrawal and mood shifts, yet Emily struggles to articulate her experience, fearing that they might not understand the depth of her distress.\n\nIn the quiet moments, when she is alone with her thoughts, Emily yearns for the person she used to be—someone who embraced life without the incessant weight of fear. She recognizes that her relationship with her trauma has shaped her perception of herself and the world, and while she longs to reclaim her sense of safety, the path forward feels daunting. As she navigates through this challenging landscape, the desire for healing remains a flicker of hope amidst the shadows of her past.",
+  "persona_attempts": [
+    {
+      "output": "Emily, a 32-year-old woman, presents with an array of challenges that have significantly impacted her daily life and relationships. Several months ago, she was involved in a traumatic car accident that left her physically unscathed but psychologically shaken. Since that day, Emily has grappled with persistent feelings of unease, often perceiving the world around her as a constant threat. Even mundane situations, such as crossing the street or driving, can trigger a surge of anxiety, leading her to avoid these activities altogether. This pervasive sense of danger, although rooted in her traumatic experience, has become a fixture in her life, shaping her interactions and decisions.\n\nEmily often finds herself ruminating on the accident, replaying the events in her mind. These memories, while distressing, are not the sole sources of her turmoil; rather, they serve as a catalyst for negative thoughts about her safety and competence. She frequently tells herself that she should have been more vigilant, that the accident was a reflection of her inadequacies. This internal dialogue fosters a profound sense of helplessness, making her feel trapped in a cycle of self-blame and fear. The weight of these negative appraisals has begun to seep into her relationships, creating distance between her and her loved ones, who struggle to understand her emotional turmoil.\n\nTo cope with her overwhelming feelings, Emily has resorted to maladaptive strategies. She often isolates herself, opting to stay home rather than engage in social activities that once brought her joy. This withdrawal has not only intensified her feelings of loneliness but has also fueled her anxious thoughts, as she finds herself obsessing over what could go wrong in any given situation. The avoidance of triggers—once a temporary relief—has now solidified into a pattern that constricts her life, leaving her feeling more vulnerable and less in control.\n\nThe toll on Emily's overall well-being is evident. She feels as though she is living in a fog, where moments of clarity are overshadowed by waves of anxiety and dread. The vibrancy she once associated with life has dulled, replaced by a constant state of vigilance. Friends and family have expressed concern, noting her withdrawal and mood shifts, yet Emily struggles to articulate her experience, fearing that they might not understand the depth of her distress. \n\nIn the quiet moments, when she is alone with her thoughts, Emily yearns for the person she used to be—someone who embraced life without the incessant weight of fear. She recognizes that her relationship with her trauma has shaped her perception of herself and the world, and while she longs to reclaim her sense of safety, the path forward feels daunting. As she navigates through this challenging landscape, the desire for healing remains a flicker of hope amidst the shadows of her past.",
+      "passed": false,
+      "feedback": "The vignette contains several forbidden edges. For instance, Emily's negative appraisals about her safety and competence (negative appraisals) lead to her feelings of helplessness (maladaptive strategies), which is a violation of the forbidden edge where Negative Appraisals → Maladaptive Strategies is present."
+    },
+    {
+      "output": "Emily, a 32-year-old woman, presents with an array of challenges that have significantly impacted her daily life and relationships. Several months ago, she was involved in a traumatic car accident that left her physically unscathed but psychologically shaken. Since that day, Emily has grappled with persistent feelings of unease, often perceiving the world around her as a constant threat. Even mundane situations, such as crossing the street or driving, can trigger a surge of anxiety, leading her to avoid these activities altogether. This pervasive sense of danger, although rooted in her traumatic experience, has become a fixture in her life, shaping her interactions and decisions.\n\nEmily often finds herself ruminating on the accident, replaying the events in her mind. These memories, while distressing, are not the sole sources of her turmoil; rather, they serve as a catalyst for negative thoughts about her safety and competence. She frequently tells herself that she should have been more vigilant, that the accident was a reflection of her inadequacies. This internal dialogue fosters a profound sense of helplessness, making her feel trapped in a cycle of self-blame and fear. The weight of these negative appraisals has begun to seep into her relationships, creating distance between her and her loved ones, who struggle to understand her emotional turmoil.\n\nTo cope with her overwhelming feelings, Emily has resorted to avoidance as a strategy. She often isolates herself, opting to stay home rather than engage in social activities that once brought her joy. This withdrawal has not only intensified her feelings of loneliness but has also fueled her anxious thoughts, as she finds herself obsessing over what could go wrong in any given situation. The avoidance of triggers—once a temporary relief—has now solidified into a pattern that constricts her life, leaving her feeling more vulnerable and less in control.\n\nThe toll on Emily's overall well-being is evident. She feels as though she is living in a fog, where moments of clarity are overshadowed by waves of anxiety and dread. The vibrancy she once associated with life has dulled, replaced by a constant state of vigilance. Friends and family have expressed concern, noting her withdrawal and mood shifts, yet Emily struggles to articulate her experience, fearing that they might not understand the depth of her distress.\n\nIn the quiet moments, when she is alone with her thoughts, Emily yearns for the person she used to be—someone who embraced life without the incessant weight of fear. She recognizes that her relationship with her trauma has shaped her perception of herself and the world, and while she longs to reclaim her sense of safety, the path forward feels daunting. As she navigates through this challenging landscape, the desire for healing remains a flicker of hope amidst the shadows of her past.",
+      "passed": false,
+      "feedback": "The vignette presents multiple forbidden edges, including implicit links between Negative Appraisals and Maladaptive Strategies, as well as Threat and Memory. For example, Emily's negative self-talk about her safety and competence implies a link between Negative Appraisals and Maladaptive Strategies, as her avoidance behavior is a direct response to her negative thoughts."
+    }
+  ],
+  "initial_message": "",
+  "message_attempts": []
+,
+
+  "conversation": [
+  ],
+
+  "analysis": ""
+}

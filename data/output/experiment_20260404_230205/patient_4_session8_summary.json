@@ -1,0 +1,89 @@
+{
+  "patient_id": 4,
+  "timestamp": "2026-04-04 23:11:41",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4",
+      "validator": "gpt-5.4",
+      "dialogue_state": "gpt-5.4",
+      "client": "gpt-5.4",
+      "bot": "gpt-5.4",
+      "moderator": "gpt-5.4",
+      "analyst": "gpt-5.4",
+      "vignette_analyst": "gpt-5.4"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 8,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 23,
+    "gender": "M",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 43,
+    "trauma_type": "Interpersonal"
+  },
+  "self_report": {
+    "trigger_items": "Seeing the offender,Uncomprehinsible chatter,Being naked",
+    "appraisals_items_original": "You can never know who will harm you | I feel isolated and set apart from others | There is something wrong with me as a person",
+    "memory_items_original": "My memories of the frightening event are like a film that plays over and over. | My memories of the frightening event are very clear and detailed. | Remembering what happened during the frightening event is just like looking at photographs of it in my mind.",
+    "threat_items_original": "Irritable behavior, angry outbursts, or acting aggressively? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "strategies_items_original": "keep mind occupied all the time | ruminate about how to get even with assailant | look down",
+    "avoidance_items_original": "Seeing other people that were involved in the event or that look similar | Thinking about the event | Going to or near the place where the event happened"
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.178125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1026785714285714,
+    "Negative Appraisals -- Maladaptive Strategies": 0.5357142857142857,
+    "Negative Appraisals -- Threat": 0.2785714285714286,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.0,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.0,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "observation": {
+    "datetime": "2024-07-21 18:12:15",
+    "index": 8,
+    "nodes": {
+      "Triggers": 1,
+      "Negative Appraisals": 0,
+      "Memory": 0,
+      "Threat": 1,
+      "Maladaptive Strategies": 0
+    },
+    "edges": {
+      "Triggers -- Maladaptive Strategies": 0,
+      "Triggers -- Threat": 0,
+      "Triggers -- Memory": 0,
+      "Triggers -- Negative Appraisals": 0,
+      "Negative Appraisals -- Maladaptive Strategies": 0,
+      "Negative Appraisals -- Threat": 0,
+      "Negative Appraisals -- Memory": 0,
+      "Negative Appraisals -- Triggers": 0,
+      "Memory -- Maladaptive Strategies": 0,
+      "Memory -- Threat": 0,
+      "Memory -- Negative Appraisals": 0,
+      "Memory -- Triggers": 0,
+      "Threat -- Maladaptive Strategies": 0,
+      "Threat -- Memory": 0,
+      "Threat -- Negative Appraisals": 0,
+      "Threat -- Triggers": 0,
+      "Maladaptive Strategies -- Memory": 0,
+      "Maladaptive Strategies -- Negative Appraisals": 0
+    }
+  }
+}

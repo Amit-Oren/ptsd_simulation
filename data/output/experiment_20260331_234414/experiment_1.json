@@ -1,0 +1,228 @@
+{
+  "patient_id": 1,
+  "experiment_timestamp": "2026-03-31 23:45:17",
+  "config": {
+    "pipeline": "full",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 3,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 2
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 60,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Being looked at sexually,Being alone with men,Hearing related names",
+    "trigger_category": "Interpersonal, Interpersonal, Trauma-Related",
+    "trigger_subcategory": "Sexual Objectification, Male Presence, Name Reminders",
+    "appraisals_items_label": "Must stay on guard   | World is dangerous   | Something in me caused event  ",
+    "appraisals_items_original": "I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen",
+    "memory_items_label": "Visual Memories | Snapshot Memory | Bodily Reenactment",
+    "memory_items_original": "My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.",
+    "threat_items_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Rumination: Prevention | Hypervigilance towards people | Stay Near Exit",
+    "strategies_items_original": "ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit",
+    "avoidance_items_label": "Avoid Reminders | Avoid Sex | Avoid Evaluation",
+    "avoidance_items_original": "Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance",
+    "riq_items": NaN,
+    "wemwbs_items": NaN
+  },
+  "obs_datetime": "2024-07-26 12:00:12",
+  "obs_index": 0,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 1,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1339285714285715,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.9375,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.625,
+    "Memory -- Negative Appraisals": 0.3214285714285715,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.2291666666666667,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "Maria is a 32-year-old woman who has been navigating the aftermath of a traumatic assault that occurred two years ago. Since that night, she has found herself frequently overwhelmed by feelings of dread and danger, even in safe environments. These intrusive feelings seem to magnify the slightest cues in her surroundings, leading her to interpret benign situations as threatening. As a result, she has developed a tendency to isolate herself from friends and loved ones, choosing instead to stay at home where she feels a semblance of control. Each day becomes a negotiation with her internal landscape, rife with anxiety and hypervigilance that seem to overshadow her previous vibrant personality.\n\nMaria's memories of the assault are fragmented and distressing, often surfacing unexpectedly. While she struggles to remember precise details, the emotional weight of these memories is palpable. They contribute to a pervasive sense of vulnerability, intensifying her belief that the world is inherently unsafe. At times, this belief manifests in her surroundings; she feels her heart race at the sound of footsteps behind her, convinced that danger lurks around every corner. As these automatic thoughts take hold, she finds herself caught in a cycle of fear, further distancing herself from experiences that could challenge her beliefs.\n\nIn seeking to cope with her distress, Maria has adopted a range of maladaptive strategies, though they often leave her feeling more isolated and misunderstood. She frequently engages in avoidance behaviors—refraining from social gatherings and even avoiding certain streets she once walked without a second thought. Each time she declines an invitation or cancels plans, she feels a pang of guilt, yet the prospect of facing her fears seems insurmountable. This cycle of avoidance reinforces her emotional isolation, deepening her sense of despair.\n\nThe toll that this has taken on her relationships is evident. Friends express concern and confusion over Maria's withdrawal, and as she pulls away, the very support systems that could help her heal become strained. Conversations that were once filled with laughter and warmth now feel laden with tension, as her loved ones struggle to understand the invisible battles she faces. Maria often feels misunderstood and alone, a sentiment that only deepens her sense of despair.\n\nAs she continues to grapple with these challenges, Maria’s journey is marked by a complex interplay of fear, isolation, and longing for connection. The weight of her trauma colors her world, making the path to recovery seem daunting yet essential. Through all of this, she clings to the hope that one day she might reclaim the life she once knew, a life free from the shackles of fear and filled with the warmth of genuine connection.",
+  "persona_attempts": [
+    {
+      "output": "Maria is a 32-year-old woman who has been navigating the aftermath of a traumatic assault that occurred two years ago. Since that night, she has found herself frequently overwhelmed by feelings of dread and danger, even in safe environments. These intrusive feelings seem to magnify the slightest cues in her surroundings, leading her to interpret benign situations as threatening. As a result, she has developed a tendency to isolate herself from friends and loved ones, choosing instead to stay at home where she feels a semblance of control. Each day becomes a negotiation with her internal landscape, rife with anxiety and hypervigilance that seem to overshadow her previous vibrant personality.\n\nMaria's memories of the assault are fragmented and distressing, often surfacing unexpectedly. While she struggles to remember precise details, the emotional weight of these memories is palpable. They contribute to a pervasive sense of vulnerability, intensifying her belief that the world is inherently unsafe. This belief has led her to engage in negative appraisals of herself and others, as she questions her ability to protect herself and fears that she might be targeted again. As these thoughts take hold, Maria's perception of threat becomes almost automatic; she feels her heart race at the sound of footsteps behind her, convinced that danger lurks around every corner.\n\nIn seeking to cope with her distress, Maria has adopted a range of maladaptive strategies, though they often leave her feeling more isolated and misunderstood. She frequently engages in avoidance behaviors—refraining from social gatherings and even avoiding certain streets she once walked without a second thought. Each time she declines an invitation or cancels plans, she feels a pang of guilt, yet the prospect of facing her fears seems insurmountable. This cycle of avoidance further entrenches her negative beliefs about her safety and worth, reinforcing her emotional isolation.\n\nThe toll that this has taken on her relationships is evident. Friends express concern and confusion over Maria's withdrawal, and as she pulls away, the very support systems that could help her heal become strained. Conversations that were once filled with laughter and warmth now feel laden with tension, as her loved ones struggle to understand the invisible battles she faces. Maria often feels misunderstood and alone, a sentiment that only deepens her sense of despair.\n\nAs she continues to grapple with these challenges, Maria’s journey is marked by a complex interplay of fear, isolation, and longing for connection. The weight of her trauma colors her world, making the path to recovery seem daunting yet essential. Through all of this, she clings to the hope that one day she might reclaim the life she once knew, a life free from the shackles of fear and filled with the warmth of genuine connection.",
+      "passed": false,
+      "feedback": "The vignette implies forbidden edges such as 'Negative Appraisals → Triggers' and 'Negative Appraisals → Threat' when it describes Maria's negative beliefs about safety automatically leading to perceptions of threat. Additionally, the mention of her isolation due to maladaptive strategies suggests a link that violates the forbidden edges."
+    },
+    {
+      "output": "Maria is a 32-year-old woman who has been navigating the aftermath of a traumatic assault that occurred two years ago. Since that night, she has found herself frequently overwhelmed by feelings of dread and danger, even in safe environments. These intrusive feelings seem to magnify the slightest cues in her surroundings, leading her to interpret benign situations as threatening. As a result, she has developed a tendency to isolate herself from friends and loved ones, choosing instead to stay at home where she feels a semblance of control. Each day becomes a negotiation with her internal landscape, rife with anxiety and hypervigilance that seem to overshadow her previous vibrant personality.\n\nMaria's memories of the assault are fragmented and distressing, often surfacing unexpectedly. While she struggles to remember precise details, the emotional weight of these memories is palpable. They contribute to a pervasive sense of vulnerability, intensifying her belief that the world is inherently unsafe. This belief seems to feed into her perception of threat; she feels her heart race at the sound of footsteps behind her, convinced that danger lurks around every corner. As these automatic thoughts take hold, she finds herself caught in a cycle of fear, further distancing herself from experiences that could challenge her beliefs.\n\nIn seeking to cope with her distress, Maria has adopted a range of maladaptive strategies, though they often leave her feeling more isolated and misunderstood. She frequently engages in avoidance behaviors—refraining from social gatherings and even avoiding certain streets she once walked without a second thought. Each time she declines an invitation or cancels plans, she feels a pang of guilt, yet the prospect of facing her fears seems insurmountable. This cycle of avoidance reinforces her emotional isolation, deepening her sense of despair.\n\nThe toll that this has taken on her relationships is evident. Friends express concern and confusion over Maria's withdrawal, and as she pulls away, the very support systems that could help her heal become strained. Conversations that were once filled with laughter and warmth now feel laden with tension, as her loved ones struggle to understand the invisible battles she faces. Maria often feels misunderstood and alone, a sentiment that only deepens her sense of despair.\n\nAs she continues to grapple with these challenges, Maria’s journey is marked by a complex interplay of fear, isolation, and longing for connection. The weight of her trauma colors her world, making the path to recovery seem daunting yet essential. Through all of this, she clings to the hope that one day she might reclaim the life she once knew, a life free from the shackles of fear and filled with the warmth of genuine connection.",
+      "passed": false,
+      "feedback": "The vignette contains a forbidden edge where Negative Appraisals (her belief that the world is inherently unsafe) lead to Threat (her perception of danger at the sound of footsteps), which is explicitly stated in the line 'this belief seems to feed into her perception of threat.' This violation is significant enough to result in a failure."
+    }
+  ],
+  "initial_message": "I just heard a car door slam outside, and my heart instantly raced. It's like I'm back there again, feeling the weight of danger lurking around every corner. I wish I could just step outside without this paralyzing fear, but the thought of facing it all feels like too much right now.",
+  "message_attempts": [
+    {
+      "output": "I just heard a car door slam outside, and my heart instantly raced. It's like I'm back there again, feeling the weight of danger lurking around every corner. I wish I could just step outside without this paralyzing fear, but the thought of facing it all feels like too much right now.",
+      "passed": true,
+      "feedback": null
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "I just heard a car door slam outside, and my heart instantly raced. It's like I'm back there again, feeling the weight of danger lurking around every corner. I wish I could just step outside without this paralyzing fear, but the thought of facing it all feels like too much right now."},
+
+    {"speaker": "bot", "turn_index": 1, "text": "That sounds really intense. What thoughts went through your mind right after you heard the car door slam?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "As soon as I heard the car door, I thought, \"What if someone is watching me?\" It’s like an automatic response—my mind jumps to the worst-case scenario. I can feel my body tense up, just waiting for something bad to happen, and I can’t shake the feeling that I need to hide away to be safe."},
+
+    {"speaker": "bot", "turn_index": 3, "text": "How often do you find yourself having those automatic thoughts when you hear sudden noises?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "It happens almost every time I hear a sudden noise, like a door closing or footsteps. I can’t help but think something bad is about to happen. It’s exhausting, always being on high alert, and I feel like I’m trapped in this cycle of fear."},
+
+    {"speaker": "bot", "turn_index": 5, "text": "What do you typically do in the moments right after those thoughts come up?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client explicitly describes a trigger (car door slam) that activates their distress.",
+        "quote": "I just heard a car door slam outside, and my heart instantly raced."
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses a maladaptive interpretation of their situation, feeling trapped and fearing danger.",
+        "quote": "I wish I could just step outside without this paralyzing fear."
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client mentions experiencing a sense of reliving or strong sensory recall related to the trauma.",
+        "quote": "It's like I'm back there again, feeling the weight of danger lurking around every corner."
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client conveys an ongoing sense of current danger and hypervigilance.",
+        "quote": "...just waiting for something bad to happen, and I can’t shake the feeling that I need to hide away to be safe."
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's automatic response and tendency to hide indicate a maladaptive coping strategy.",
+        "quote": "I feel like I’m trapped in this cycle of fear."
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes how the trigger (car door slam) leads them to feel trapped in a cycle of fear, indicating a maladaptive strategy.",
+        "quote": "I feel like I’m trapped in this cycle of fear."
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The trigger of the car door slam is linked to the client's sense of ongoing threat and hypervigilance.",
+        "quote": "It's like I'm back there again, feeling the weight of danger lurking around every corner."
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The client's description of hearing the car door slam relates to reliving past trauma.",
+        "quote": "It's like I'm back there again, feeling the weight of danger lurking around every corner."
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The trigger (car door slam) leads to negative appraisals about safety and fear.",
+        "quote": "I wish I could just step outside without this paralyzing fear."
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's negative appraisal of being paralyzed by fear leads to a coping strategy of hiding.",
+        "quote": "I need to hide away to be safe."
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The negative appraisal of feeling paralyzed by fear indicates a sense of ongoing threat.",
+        "quote": "I wish I could just step outside without this paralyzing fear."
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "The negative appraisal connects to the client's memory of trauma as it contributes to their fear and distress.",
+        "quote": "It's like I'm back there again, feeling the weight of danger lurking around every corner."
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client's reliving of trauma influences their maladaptive strategy of feeling trapped in fear.",
+        "quote": "I feel like I’m trapped in this cycle of fear."
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The client's memory of trauma creates a heightened sense of threat in their current experiences.",
+        "quote": "...just waiting for something bad to happen."
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The ongoing sense of threat leads the client to adopt maladaptive strategies such as hiding.",
+        "quote": "I need to hide away to be safe."
+      }
+    }
+  }
+}

@@ -1,0 +1,340 @@
+PATIENT 4  |  session 9  |  2026-04-04 23:12:38
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   10
+  obs_index:   9
+  max_retries: 2
+  seed:        30
+  models:
+    persona_crafter      gpt-5.4
+    validator            gpt-5.4
+    dialogue_state       gpt-5.4
+    client               gpt-5.4
+    bot                  gpt-5.4
+    moderator            gpt-5.4
+    analyst              gpt-5.4
+    vignette_analyst     gpt-5.4
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             23
+  gender          M
+  nationality     Israeli
+  profession      Student
+  pcl5            43
+  trauma_type     Interpersonal
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Seeing the offender,Uncomprehinsible chatter,Being naked
+  Negative Appraisals:
+    • You can never know who will harm you
+    • I feel isolated and set apart from others
+    • There is something wrong with me as a person
+  Memory:
+    • My memories of the frightening event are like a film that plays over and over.
+    • My memories of the frightening event are very clear and detailed.
+    • Remembering what happened during the frightening event is just like looking at photographs of it in my mind.
+  Threat:
+    • Irritable behavior, angry outbursts, or acting aggressively?
+    • Having difficulty concentrating?
+    • Trouble falling or staying asleep?
+  Maladaptive Strategies:
+    • keep mind occupied all the time
+    • ruminate about how to get even with assailant
+    • look down
+  Avoidance:
+    • Seeing other people that were involved in the event or that look similar
+    • Thinking about the event
+    • Going to or near the place where the event happened
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0000
+  Triggers → Threat                                  0.1781
+  Triggers → Memory                                  0.0000
+  Triggers → Negative Appraisals                     0.1027
+  Negative Appraisals → Maladaptive Strategies       0.5357
+  Negative Appraisals → Threat                       0.2786
+  Negative Appraisals → Memory                       0.0000
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.0000
+  Memory → Threat                                    0.0000
+  Memory → Negative Appraisals                       0.0000
+  Memory → Triggers                                  0.0000
+  Threat → Maladaptive Strategies                    0.0000
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-07-22 12:31:04  |  index 9
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    · Negative Appraisals
+    · Memory
+    · Threat
+    · Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    · Triggers → Threat
+    · Triggers → Memory
+    · Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    · Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    · Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              2 attempt(s)  →  FAIL
+  message              1 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] FAIL
+He is a 23-year-old Israeli student who presents with clinically significant post-traumatic distress
+following an interpersonal trauma. Since the event, his daily life has become organized around a
+persistent sense of danger and disconnection. He describes feeling set apart from other people, as
+though something about him has been permanently altered, and he speaks with conviction about a world
+in which “you can never know who will harm you.” These beliefs now shape much of how he moves
+through university life and social situations.
+
+Certain cues quickly unsettle him, particularly seeing the offender, hearing incomprehensible
+chatter, or situations involving being naked. When confronted with these reminders, he becomes
+sharply on edge and struggles to regain a sense of control. He is more irritable and prone to angry
+outbursts, finds it hard to concentrate on his studies, and has ongoing difficulty falling or
+staying asleep. The same moments also intensify his sense that other people are unsafe and
+unknowable, while reinforcing his belief that there is something wrong with him and that he is
+fundamentally isolated from others.
+
+He reports that the trauma remains vividly present in memory: it returns like a film playing over
+and over, with unusually clear, detailed images, at times like looking at photographs in his mind.
+Alongside this, his view of himself and others has narrowed. Feeling damaged and separate, he copes
+by keeping his mind occupied constantly, often looking down and withdrawing from fuller engagement
+with people around him.
+
+His attempts to manage the aftermath also include repeatedly thinking about the event, ruminating
+about how to get even with the assailant, and at times seeing other people who were involved or who
+resemble them, as well as going to or near the place where it happened. These patterns appear to
+keep him emotionally tied to the trauma and have taken a toll on his relationships, his sense of
+safety, and his ability to function as a student.
+
+  Feedback: The vignette includes the inactive component Memory and multiple forbidden edges, including Triggers
+→ Memory (cues make the trauma return vividly), Memory → Negative Appraisals (the vivid memory is
+described alongside/narrowing his view of himself and others), and Triggers → Maladaptive Strategies
+(reminders leading him to manage by looking down, withdrawing, or repeatedly thinking/approaching
+trauma-related people and places).
+
+  [2] FAIL
+He is a 23-year-old Israeli student who presents with clinically significant post-traumatic distress
+following an interpersonal trauma. Since the event, his daily life has become organized around a
+persistent sense of danger and disconnection. He describes feeling set apart from other people, as
+though something about him has been permanently altered, and he speaks with conviction about a world
+in which “you can never know who will harm you.” These beliefs now shape much of how he moves
+through university life and social situations.
+
+Certain cues quickly unsettle him, particularly seeing the offender, hearing incomprehensible
+chatter, or situations involving being naked. When confronted with these reminders, he becomes
+sharply on edge and struggles to regain a sense of control. He is more irritable and prone to angry
+outbursts, finds it hard to concentrate on his studies, and has ongoing difficulty falling or
+staying asleep. The same moments also intensify his sense that other people are unsafe and
+unknowable, while reinforcing his belief that there is something wrong with him and that he is
+fundamentally isolated from others.
+
+Alongside this, his view of himself and others has narrowed. Feeling damaged and separate, he copes
+by keeping his mind occupied constantly, often looking down and withdrawing from fuller engagement
+with people around him.
+
+His attempts to manage the aftermath also include repeatedly thinking about the event, ruminating
+about how to get even with the assailant, and at times seeing other people who were involved or who
+resemble them, as well as going to or near the place where it happened. These patterns appear to
+keep him emotionally tied to the trauma and have taken a toll on his relationships, his sense of
+safety, and his ability to function as a student.
+
+  Feedback: The vignette includes required edges such as Triggers → Threat, Triggers → Negative Appraisals,
+Negative Appraisals → Maladaptive Strategies, and Negative Appraisals → Threat, but it also implies
+the forbidden edge Triggers → Maladaptive Strategies by describing reminders being followed by
+attempts to manage the aftermath, including rumination and approaching related people/places. It
+also suggests Threat → Maladaptive Strategies because his persistent sense of danger/disconnection
+appears to organize his coping behaviors like constant distraction, looking down, and withdrawal.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+He is a 23-year-old Israeli student who presents with clinically significant post-traumatic distress
+following an interpersonal trauma. Since the event, his daily life has become organized around a
+persistent sense of danger and disconnection. He describes feeling set apart from other people, as
+though something about him has been permanently altered, and he speaks with conviction about a world
+in which “you can never know who will harm you.” These beliefs now shape much of how he moves
+through university life and social situations.
+
+Certain cues quickly unsettle him, particularly seeing the offender, hearing incomprehensible
+chatter, or situations involving being naked. When confronted with these reminders, he becomes
+sharply on edge and struggles to regain a sense of control. He is more irritable and prone to angry
+outbursts, finds it hard to concentrate on his studies, and has ongoing difficulty falling or
+staying asleep. The same moments also intensify his sense that other people are unsafe and
+unknowable, while reinforcing his belief that there is something wrong with him and that he is
+fundamentally isolated from others.
+
+His view of himself and others has narrowed. Believing that he is damaged, separate from others, and
+unable to know who may harm him, he copes by keeping his mind occupied constantly, often looking
+down and withdrawing from fuller engagement with people around him.
+
+He also spends time repeatedly thinking about the event, ruminating about how to get even with the
+assailant, and at times seeing other people who were involved or who resemble them, as well as going
+to or near the place where it happened. These patterns appear to keep him emotionally tied to the
+trauma and have taken a toll on his relationships, his sense of safety, and his ability to function
+as a student.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+I’m sitting in the campus cafeteria right now, and the noise around me suddenly started sounding
+like this blurry, impossible-to-follow chatter that makes my whole body tense up. I keep staring
+down at my tray and trying to act normal, but I just want to get out of here.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+in the cafeteria and all the noise is getting to me i just wanna leave
+  (raw) I’m sitting in the campus cafeteria right now, and the noise around me suddenly started sounding
+like this blurry, impossible-to-follow chatter that makes my whole body tense up. I keep staring
+down at my tray and trying to act normal, but I just want to get out of here.
+
+[1] BOT
+That sounds rough. What feels strongest right now: the noise itself, being around people, or
+something else?
+
+[2] CLIENT
+its the noise when everyone talks at once and i cant make out the words i just freeze up and wait
+for it to stop
+  (raw) It’s the noise—when a few people start talking at once and I can’t make out the words, it hits me
+immediately and I stop hearing anything else properly. Even if no one’s doing anything to me, I’m
+just stuck there with my shoulders locked and waiting for it to stop.
+
+[3] BOT
+When that happens right now, do you feel more stuck in your body, in your thoughts, or both?
+
+[4] CLIENT
+yeah like yesterday in the library these two guys started talking over each other and my whole body
+just locked up
+  (raw) In my body first—like yesterday in the library, two guys behind me started talking over each other
+and my jaw clenched so hard it hurt. I just sat there rigid, staring at the same line in my notes
+without taking in a word.
+
+[5] BOT
+What do you notice in your body right now?
+
+[6] CLIENT
+walked past the lockers and saw someone changing and my whole body just locked up chest still feels
+tight
+  (raw) My neck’s tight and my chest feels kind of pinned, like when I was walking past the gym lockers
+earlier and caught sight of someone changing. I had to keep moving because my whole body went stiff
+the second I saw it.
+
+[7] BOT
+Thanks for saying that. What’s going through your mind right now?
+
+[8] CLIENT
+still feel weird from earlier in the locker room keep looking at the door like somethings gonna
+happen
+  (raw) Not much, honestly—I’m mostly just locked onto that feeling from earlier in the locker area, like my
+skin still hasn’t unclenched from it. Even now I keep glancing at the door because I don’t want
+anything like that to catch me off guard again.
+
+[9] BOT
+What are you expecting might happen right now?
+
+[10] CLIENT
+just feels like anything could set me off and i have to stay ready for it
+  (raw) That something will set me off again out of nowhere, like if I hear that muddled talking from the
+hallway or someone walks in half-dressed from the changing room next door. It feels like I have to
+stay braced for that.
+
+[11] BOT
+What are you doing right now to stay ready?
+
+[12] CLIENT
+got one earbud in and just staring at the floor so i dont see the wrong thing
+  (raw) I’ve got one earbud in with music, not even really listening to it, just trying to drown out
+whatever’s outside the room. And I keep my eyes on the floor or the door so I don’t accidentally
+look up at the wrong moment.
+
+[13] BOT
+How keyed up do you feel right now, from 0 to 10?
+
+[14] CLIENT
+like a 7 some guy laughed outside and it sounded like that chatter for a sec and my whole body just
+tensed up
+  (raw) Like a 7. A guy laughed outside a minute ago and for a second it blurred into that same kind of
+chatter, and my whole back tightened before I even knew what was happening.
+
+[15] BOT
+When your body tenses like that, how long does it usually take to ease off?
+
+[16] CLIENT
+walked past the changing area and my body stayed tense the whole class like i never really left
+  (raw) Sometimes a few minutes, sometimes it just sticks around; today after I passed the changing area, my
+shoulders stayed tight all through class. Even when I was just sitting there, it felt like my body
+hadn’t realized I’d already left.
+
+[17] BOT
+Right now, does the place around you feel fully like the present, or partly like that moment?
+
+[18] CLIENT
+yeah mostly im here but it takes one small thing like everyone talking at once and suddenly im on
+edge again
+  (raw) Mostly the present, but it only takes something small to mess with that—like hearing people talk all
+at once in the corridor and suddenly I’m not settled in the room anymore. Then I’m just tense and
+listening for it again.
+
+[19] BOT
+What’s the small thing that most often flips you back on edge?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     The client identifies specific external cues that activate distress, especially overlapping noise, laughter resembling chatter, and cues related to the changing area.
+      "its the noise when everyone talks at once and i cant make out the words i just freeze up and wait for it to stop"
+  · Negative Appraisals          None
+  ✓ Memory                       There is evidence of trauma-related reactivation or partial reliving, with the client describing that a cue makes them feel as if they never really left the earlier situation.
+      "walked past the changing area and my body stayed tense the whole class like i never really left"
+  ✓ Threat                       The client expresses a current sense of danger and hypervigilance, expecting that something may happen and feeling a need to stay ready.
+      "still feel weird from earlier in the locker room keep looking at the door like somethings gonna happen"
+  ✓ Maladaptive Strategies       The client describes safety/avoidance behaviors used to manage distress, including using an earbud and staring at the floor to avoid triggering cues.
+      "got one earbud in and just staring at the floor so i dont see the wrong thing"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The client implies that triggering cues lead them to use avoidance/safety behaviors to manage distress.
+      "got one earbud in and just staring at the floor so i dont see the wrong thing"
+  ✓ Triggers → Threat                             The client states that small sensory cues, such as overlapping voices or laughter sounding similar, put them back on edge and tense their body.
+      "like a 7 some guy laughed outside and it sounded like that chatter for a sec and my whole body just tensed up"
+  · Triggers → Memory                             None
+  · Triggers → Negative Appraisals                None
+  · Negative Appraisals → Maladaptive Strategies  None
+  · Negative Appraisals → Threat                  None
+  · Negative Appraisals → Memory                  None
+  · Memory → Maladaptive Strategies               None
+  · Memory → Threat                               None
+  ✓ Threat → Maladaptive Strategies               The client explicitly links needing to stay ready with engaging in safety behaviors such as blocking input and avoiding looking around.
+      "just feels like anything could set me off and i have to stay ready for it"

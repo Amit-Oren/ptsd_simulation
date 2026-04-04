@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "agent_name": "Client_3_Validator",
+    "role": "Validator",
+    "call_index": 5,
+    "timestamp": "2026-04-04 22:51:48"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are a clinical validator checking whether a patient's message\naccurately reflects their current PTSD component profile.\n\nTHE MODEL:\nActive components (must appear in the message):\n  - Triggers\n  - Threat\n\nInactive components (must NOT appear in the message):\n  - Negative Appraisals\n  - Memory\n  - Maladaptive Strategies\n\nActive causal edges (must be reflected as links in the message):\n  (none)\n\nRULES:\n- An active component must be present in the message (explicit or clearly implied).\n- Every inactive component must NOT appear in the message.\n- Every active edge must be reflected — the message should show A causing or triggering B.\n\nReturn a JSON object with two fields:\n- \"verdict\": exactly \"PASS\" or \"FAIL\"\n- \"reasoning\": one sentence explaining which rule passed or was violated"
+    },
+    {
+      "role": "user",
+      "content": "Persona:\nAt 21 years old, Yael, an Israeli student, is grappling with the aftermath of a traumatic car accident that has left her feeling trapped in a cycle of fear and apprehension. Once a vibrant and social individual, she now finds herself constantly on edge, hyper-aware of her surroundings, and burdened by a pervasive sense of danger. Car sounds trigger memories of the accident, flooding her mind with vivid recollections that feel as real as the moment they occurred. Each recollection is like a film playing on repeat, intensifying her distress and reinforcing a belief that she must remain perpetually vigilant to prevent further harm.\n\nYael's worldview has shifted drastically; she feels that the world has become an unsafe place, instilling a belief that she cannot escape the grasp of misfortune. This unyielding mindset has led her to adopt maladaptive strategies to cope with her heightened anxiety, including rumination about what could have been done differently to avert the accident. Compounding her distress, she avoids driving whenever possible and feels compelled to check mirrors obsessively whenever she is a passenger, a behavior she believes will keep her safe. Yet, these strategies provide little relief and often leave her feeling more isolated, as friends and family struggle to understand her need to avoid certain places or conversations that might remind her of the accident.\n\nThe toll of her experiences has seeped into every facet of her life, impacting her studies and relationships. Concentration has become a formidable challenge, as intrusive thoughts about the accident invade her focus, making it difficult to engage fully in her academic pursuits. Sleep eludes her, as nightmares and racing thoughts plague her nights, leaving her fatigued and irritable during the day. Friends have expressed concern over her withdrawal, noting that the vibrant young woman they once knew seems to be fading away, replaced by someone who feels burdened by the weight of her trauma.\n\nIn moments of quiet reflection, Yael wrestles with the stark contrast between her past and her present. The joy she once derived from life has become overshadowed by a persistent sense of dread. Each day is a battle against the memories that replay in her mind, and the negative appraisals that cloud her judgment. She longs for a sense of safety and normalcy but feels trapped in a cycle of avoidance and hyperarousal that seems inescapable. As she navigates the complexities of her thoughts and emotions, Yael is left to ponder whether she can reclaim her life from the shadows of her past.\n\nMessage:\nI just walked past a busy street, and the sound of honking cars made my heart race. It feels like I’m constantly on edge, like danger is lurking around every corner, and I can’t shake off this sense that something bad is going to happen again."
+    },
+    {
+      "role": "assistant",
+      "content": "{\n  \"verdict\": \"FAIL\",\n  \"reasoning\": \"The message contains negative appraisals, which should not appear according to the rules.\"\n}"
+    }
+  ]
+}

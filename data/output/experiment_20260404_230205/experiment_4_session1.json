@@ -1,0 +1,400 @@
+{
+  "patient_id": 4,
+  "experiment_timestamp": "2026-04-04 23:04:54",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4",
+      "validator": "gpt-5.4",
+      "dialogue_state": "gpt-5.4",
+      "client": "gpt-5.4",
+      "bot": "gpt-5.4",
+      "moderator": "gpt-5.4",
+      "analyst": "gpt-5.4",
+      "vignette_analyst": "gpt-5.4"
+    },
+    "temperature": 0.7,
+    "num_turns": 10,
+    "obs_index": 1,
+    "max_retries": 2,
+    "seed": 30
+  },
+  "demographics": {
+    "age": 23,
+    "gender": "M",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 43,
+    "trauma_type": "Interpersonal"
+  },
+  "self_report": {
+    "trigger_items": "Seeing the offender,Uncomprehinsible chatter,Being naked",
+    "trigger_category": "Trauma-Related, Sensory, Perceptual/Emotional",
+    "trigger_subcategory": "Offender Cues, Auditory (Language Confusion), Vulnerability",
+    "appraisals_items_label": "Can't know who'll harm you   | Feel isolated, set apart   | Something’s wrong with me  ",
+    "appraisals_items_original": "You can never know who will harm you | I feel isolated and set apart from others | There is something wrong with me as a person",
+    "memory_items_label": "Memory Replay | Vivid Memory | Photographic Recall",
+    "memory_items_original": "My memories of the frightening event are like a film that plays over and over. | My memories of the frightening event are very clear and detailed. | Remembering what happened during the frightening event is just like looking at photographs of it in my mind.",
+    "threat_items_label": "Irritability | Concentration | Sleep Problems",
+    "threat_items_original": "Irritable behavior, angry outbursts, or acting aggressively? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "threat_items_original_label": "Irritability | Concentration | Sleep Problems",
+    "threat_items_original_original": "Irritable behavior, angry outbursts, or acting aggressively? | Having difficulty concentrating? | Trouble falling or staying asleep?",
+    "strategies_items_label": "Mental Distraction | Rumination: Revenge | Avoid Eye Contact",
+    "strategies_items_original": "keep mind occupied all the time | ruminate about how to get even with assailant | look down",
+    "avoidance_items_label": "Avoid Similar People | Avoid Thinking | Avoid Location",
+    "avoidance_items_original": "Seeing other people that were involved in the event or that look similar | Thinking about the event | Going to or near the place where the event happened"
+  },
+  "obs_datetime": "2024-07-17 18:00:10",
+  "obs_index": 1,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 0
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 0,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.178125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1026785714285714,
+    "Negative Appraisals -- Maladaptive Strategies": 0.5357142857142857,
+    "Negative Appraisals -- Threat": 0.2785714285714286,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.0,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.0,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "He is a 23-year-old Israeli student who presents with clinically significant post-traumatic distress following an interpersonal trauma. Since the event, his daily life has become organized around a persistent sense of danger and disconnection. He describes feeling set apart from other people, as though something about him has been permanently altered, and he speaks with conviction about a world in which “you can never know who will harm you.” These beliefs now shape much of how he moves through university life and social situations.\n\nCertain cues quickly unsettle him, particularly seeing the offender, hearing incomprehensible chatter, or situations involving being naked. When confronted with these reminders, he becomes sharply on edge and struggles to regain a sense of control. He is more irritable and prone to angry outbursts, finds it hard to concentrate on his studies, and has ongoing difficulty falling or staying asleep. The same moments also intensify his sense that other people are unsafe and unknowable, while reinforcing his belief that there is something wrong with him and that he is fundamentally isolated from others.\n\nHis view of himself and others has narrowed. Believing that he is damaged, separate from others, and unable to know who may harm him, he copes by keeping his mind occupied constantly, often looking down and withdrawing from fuller engagement with people around him.\n\nHe also spends time repeatedly thinking about the event, ruminating about how to get even with the assailant, and at times seeing other people who were involved or who resemble them, as well as going to or near the place where it happened. These patterns appear to keep him emotionally tied to the trauma and have taken a toll on his relationships, his sense of safety, and his ability to function as a student.",
+  "persona_attempts": [
+    {
+      "output": "He is a 23-year-old Israeli student who presents with clinically significant post-traumatic distress following an interpersonal trauma. Since the event, his daily life has become organized around a persistent sense of danger and disconnection. He describes feeling set apart from other people, as though something about him has been permanently altered, and he speaks with conviction about a world in which “you can never know who will harm you.” These beliefs now shape much of how he moves through university life and social situations.\n\nCertain cues quickly unsettle him, particularly seeing the offender, hearing incomprehensible chatter, or situations involving being naked. When confronted with these reminders, he becomes sharply on edge and struggles to regain a sense of control. He is more irritable and prone to angry outbursts, finds it hard to concentrate on his studies, and has ongoing difficulty falling or staying asleep. The same moments also intensify his sense that other people are unsafe and unknowable, while reinforcing his belief that there is something wrong with him and that he is fundamentally isolated from others.\n\nHe reports that the trauma remains vividly present in memory: it returns like a film playing over and over, with unusually clear, detailed images, at times like looking at photographs in his mind. Alongside this, his view of himself and others has narrowed. Feeling damaged and separate, he copes by keeping his mind occupied constantly, often looking down and withdrawing from fuller engagement with people around him.\n\nHis attempts to manage the aftermath also include repeatedly thinking about the event, ruminating about how to get even with the assailant, and at times seeing other people who were involved or who resemble them, as well as going to or near the place where it happened. These patterns appear to keep him emotionally tied to the trauma and have taken a toll on his relationships, his sense of safety, and his ability to function as a student.",
+      "passed": false,
+      "feedback": "The vignette includes the inactive component Memory and multiple forbidden edges, including Triggers → Memory (cues make the trauma return vividly), Memory → Negative Appraisals (the vivid memory is described alongside/narrowing his view of himself and others), and Triggers → Maladaptive Strategies (reminders leading him to manage by looking down, withdrawing, or repeatedly thinking/approaching trauma-related people and places)."
+    },
+    {
+      "output": "He is a 23-year-old Israeli student who presents with clinically significant post-traumatic distress following an interpersonal trauma. Since the event, his daily life has become organized around a persistent sense of danger and disconnection. He describes feeling set apart from other people, as though something about him has been permanently altered, and he speaks with conviction about a world in which “you can never know who will harm you.” These beliefs now shape much of how he moves through university life and social situations.\n\nCertain cues quickly unsettle him, particularly seeing the offender, hearing incomprehensible chatter, or situations involving being naked. When confronted with these reminders, he becomes sharply on edge and struggles to regain a sense of control. He is more irritable and prone to angry outbursts, finds it hard to concentrate on his studies, and has ongoing difficulty falling or staying asleep. The same moments also intensify his sense that other people are unsafe and unknowable, while reinforcing his belief that there is something wrong with him and that he is fundamentally isolated from others.\n\nAlongside this, his view of himself and others has narrowed. Feeling damaged and separate, he copes by keeping his mind occupied constantly, often looking down and withdrawing from fuller engagement with people around him.\n\nHis attempts to manage the aftermath also include repeatedly thinking about the event, ruminating about how to get even with the assailant, and at times seeing other people who were involved or who resemble them, as well as going to or near the place where it happened. These patterns appear to keep him emotionally tied to the trauma and have taken a toll on his relationships, his sense of safety, and his ability to function as a student.",
+      "passed": false,
+      "feedback": "The vignette includes required edges such as Triggers → Threat, Triggers → Negative Appraisals, Negative Appraisals → Maladaptive Strategies, and Negative Appraisals → Threat, but it also implies the forbidden edge Triggers → Maladaptive Strategies by describing reminders being followed by attempts to manage the aftermath, including rumination and approaching related people/places. It also suggests Threat → Maladaptive Strategies because his persistent sense of danger/disconnection appears to organize his coping behaviors like constant distraction, looking down, and withdrawal."
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 0.6,
+      "explanation": "The vignette implies that when he encounters reminders he tries to regain control, and elsewhere describes coping responses of constant mental occupation, looking down, and withdrawal.",
+      "quote": "When confronted with these reminders, he becomes sharply on edge and struggles to regain a sense of control."
+    },
+    "Triggers--Threat": {
+      "weight": 1.0,
+      "explanation": "The text explicitly states that reminders make him feel acutely on edge, indicating triggers directly produce a sense of current danger.",
+      "quote": "When confronted with these reminders, he becomes sharply on edge"
+    },
+    "Triggers--Memory": {
+      "weight": 0.0,
+      "explanation": "Although reminders are described, the vignette does not state that they evoke intrusive trauma memories or recollections.",
+      "quote": ""
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "The vignette explicitly says these reminder situations intensify his beliefs that others are unsafe and that something is wrong with him.",
+      "quote": "The same moments also intensify his sense that other people are unsafe and unknowable, while reinforcing his belief that there is something wrong with him"
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "The text directly states that his beliefs about being damaged, separate, and unable to know who may harm him lead him to cope through distraction, looking down, and withdrawal.",
+      "quote": "Believing that he is damaged, separate from others, and unable to know who may harm him, he copes by keeping his mind occupied constantly, often looking down and withdrawing"
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 0.8,
+      "explanation": "His beliefs about others being unpredictable and harmful are presented as shaping a life organized around persistent danger.",
+      "quote": "he speaks with conviction about a world in which “you can never know who will harm you.” These beliefs now shape much of how he moves through university life and social situations."
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.0,
+      "explanation": "The vignette does not indicate that his negative beliefs directly trigger or intensify trauma memories.",
+      "quote": ""
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.0,
+      "explanation": "There is no evidence that his appraisals create or increase exposure to triggers themselves.",
+      "quote": ""
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.0,
+      "explanation": "Rumination about the trauma is described, but the vignette does not show trauma memory causing other maladaptive strategies.",
+      "quote": ""
+    },
+    "Memory--Threat": {
+      "weight": 0.0,
+      "explanation": "The vignette does not explicitly describe trauma memories producing a sense of current threat.",
+      "quote": ""
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 0.0,
+      "explanation": "There is no direct statement that trauma memories generate his negative beliefs about himself or others.",
+      "quote": ""
+    },
+    "Memory--Triggers": {
+      "weight": 0.0,
+      "explanation": "The text does not suggest trauma memory creates or heightens triggers.",
+      "quote": ""
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 0.6,
+      "explanation": "His life is described as organized around persistent danger and disconnection, and he copes with distraction and withdrawal, implying threat contributes to these strategies.",
+      "quote": "Since the event, his daily life has become organized around a persistent sense of danger and disconnection."
+    },
+    "Threat--Memory": {
+      "weight": 0.0,
+      "explanation": "The vignette does not state that feeling threatened causes trauma memories or recollections.",
+      "quote": ""
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 0.4,
+      "explanation": "Threat and negative beliefs co-occur closely in the description of his post-traumatic life, but the direction from threat to appraisal is not stated.",
+      "quote": "Since the event, his daily life has become organized around a persistent sense of danger and disconnection. He describes feeling set apart from other people, as though something about him has been permanently altered"
+    },
+    "Threat--Triggers": {
+      "weight": 0.0,
+      "explanation": "There is no evidence that his sense of current danger produces or increases triggers.",
+      "quote": ""
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.6,
+      "explanation": "The vignette implies that rumination, seeking out associated people, and going near the trauma location keep him tied to the trauma.",
+      "quote": "These patterns appear to keep him emotionally tied to the trauma"
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "These coping patterns are said to worsen his sense of safety, which implies they help maintain his negative views of danger and vulnerability.",
+      "quote": "These patterns appear to keep him emotionally tied to the trauma and have taken a toll on his relationships, his sense of safety"
+    }
+  },
+  "initial_message": "I’m on campus trying to study, but every time I hear people talking behind me in a language I can’t make out, my whole body tenses up. It just hits me again that you never really know who might hurt you.",
+  "message_attempts": [
+    {
+      "output": "I’m on campus trying to study, but every time I hear people talking behind me in a language I can’t make out, my whole body tenses up. It just hits me again that you never really know who might hurt you.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I’m on campus trying to study, but every time I hear people talking behind me in a language I can’t make out, my whole body tenses up. It just hits me again that you never really know who might hurt you.",
+      "moderated": "on campus trying to study but every time i hear people behind me i tense up and feel like you never know who could hurt you"
+    },
+    {
+      "turn_index": 2,
+      "raw": "First thing is, I think, “I have no idea who they are or what they want,” and it feels like I’m exposed somehow. It’s like everyone else can just exist normally and I’m the only one who has to stay ready.",
+      "moderated": "feel like i never know what anyone wants and im the only one who always has to stay ready"
+    },
+    {
+      "turn_index": 4,
+      "raw": "Like an 8, because when I walked past the locker room and heard guys joking inside, I immediately felt on edge. My head went straight to, “something’s off, don’t relax,” like I can’t trust any of it.",
+      "moderated": "like an 8 walked past the locker room and heard guys joking and instantly got on edge like something was off and i couldnt trust it"
+    },
+    {
+      "turn_index": 6,
+      "raw": "My shoulders locked up and my stomach dropped, like I had to brace for something. I just felt tense and exposed, like I wasn’t really safe there.",
+      "moderated": "my whole body tensed up and i just felt exposed like i wasnt safe there"
+    },
+    {
+      "turn_index": 8,
+      "raw": "I just kept walking and stared at the floor, trying to get out of that area fast. Being there made it feel too obvious that something about me is off and people can tell.",
+      "moderated": "i just kept walking looking at the floor trying to get out fast felt like everyone could tell something was wrong with me"
+    },
+    {
+      "turn_index": 10,
+      "raw": "That someone would say something or do something and I wouldn’t see it coming until it was too late. It felt like staying there meant giving people a chance to mess with me because you can’t really tell who’s safe.",
+      "moderated": "felt like if i stayed there someone would do something and id only realize when it was too late cause you really cant tell whos safe"
+    },
+    {
+      "turn_index": 12,
+      "raw": "9. Even earlier today, I saw someone across the courtyard who looked a bit like him, and straight away it was like, yeah, this is exactly why you can’t trust people.",
+      "moderated": "saw someone who looked like him today and it was just like yeah this is why you cant trust anyone"
+    },
+    {
+      "turn_index": 14,
+      "raw": "7. Just talking about it makes me feel wired, like I need to keep checking who’s around me because I’m not really safe.",
+      "moderated": "just talking about it gets me wired and makes me keep checking whos around me like im not safe"
+    },
+    {
+      "turn_index": 16,
+      "raw": "No. I’m not gonna do anything, I just feel tense and pissed off.",
+      "moderated": "no im not gonna do anything i just feel tense and pissed off"
+    },
+    {
+      "turn_index": 18,
+      "raw": "I keep flicking my eyes to the doorway and listening for footsteps in the hall. If I don’t do that, it feels stupid, like I’m just leaving myself open.",
+      "moderated": "keep checking the door and listening for footsteps like if i dont im just making myself an easy target"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "on campus trying to study but every time i hear people behind me i tense up and feel like you never know who could hurt you"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "That sounds tough. Right now, when you hear someone behind you, what goes through your mind first?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "feel like i never know what anyone wants and im the only one who always has to stay ready"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "In the last hour, how strong has that “stay ready” feeling been from 0 to 10?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "like an 8 walked past the locker room and heard guys joking and instantly got on edge like something was off and i couldnt trust it"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "When that happened, what did you notice in your body right away?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "my whole body tensed up and i just felt exposed like i wasnt safe there"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "When you felt exposed, what did you do next?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "i just kept walking looking at the floor trying to get out fast felt like everyone could tell something was wrong with me"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "In that moment, what felt most likely to happen if you stayed there?"},
+
+    {"speaker": "client", "turn_index": 10, "text": "felt like if i stayed there someone would do something and id only realize when it was too late cause you really cant tell whos safe"},
+
+    {"speaker": "bot", "turn_index": 11, "text": "Right now, how much does that still feel true from 0 to 10?"},
+
+    {"speaker": "client", "turn_index": 12, "text": "saw someone who looked like him today and it was just like yeah this is why you cant trust anyone"},
+
+    {"speaker": "bot", "turn_index": 13, "text": "That sounds intense. Right now, from 0 to 10, how on edge do you feel?"},
+
+    {"speaker": "client", "turn_index": 14, "text": "just talking about it gets me wired and makes me keep checking whos around me like im not safe"},
+
+    {"speaker": "bot", "turn_index": 15, "text": "If this feels like too much, you can pause or stop here. Right now, are you in immediate danger or thinking about hurting yourself or someone else?"},
+
+    {"speaker": "client", "turn_index": 16, "text": "no im not gonna do anything i just feel tense and pissed off"},
+
+    {"speaker": "bot", "turn_index": 17, "text": "Right now, what are you noticing yourself doing to check who’s around you?"},
+
+    {"speaker": "client", "turn_index": 18, "text": "keep checking the door and listening for footsteps like if i dont im just making myself an easy target"},
+
+    {"speaker": "bot", "turn_index": 19, "text": "When you’re checking the door and listening, does that lower the tension at all, even briefly?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "Client describes external cues that activate distress, such as hearing people behind them, walking past the locker room, hearing guys joking, seeing someone who looked like 'him,' and talking about it.",
+        "quote": "on campus trying to study but every time i hear people behind me i tense up and feel like you never know who could hurt you"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "Client expresses maladaptive beliefs about others, self, and safety, including mistrust and feeling that something is wrong with them.",
+        "quote": "feel like i never know what anyone wants and im the only one who always has to stay ready"
+      },
+      "Memory": {
+        "score": 0,
+        "explanation": "No clear evidence of intrusive memories, flashbacks, reliving, or sensory trauma recall in the client's own words.",
+        "quote": ""
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "Client reports an ongoing sense of current danger, being on edge, feeling exposed, unsafe, and anticipating harm.",
+        "quote": "my whole body tensed up and i just felt exposed like i wasnt safe there"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Client describes safety behaviors and avoidance-like coping, such as leaving quickly, looking at the floor, checking the door, and listening for footsteps.",
+        "quote": "i just kept walking looking at the floor trying to get out fast felt like everyone could tell something was wrong with me"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Client describes hearing/joking cues leading directly to leaving quickly and looking at the floor.",
+        "quote": "like an 8 walked past the locker room and heard guys joking and instantly got on edge like something was off and i couldnt trust it\n\ni just kept walking looking at the floor trying to get out fast felt like everyone could tell something was wrong with me"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "Client explicitly describes cues such as hearing people behind them or hearing guys joking leading to tension and feeling unsafe/on edge.",
+        "quote": "on campus trying to study but every time i hear people behind me i tense up and feel like you never know who could hurt you"
+      },
+      "Triggers--Memory": {
+        "score": 0,
+        "explanation": "No clear evidence that triggers lead to intrusive memories or reliving.",
+        "quote": ""
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "Seeing someone who looked like 'him' leads to the appraisal that no one can be trusted.",
+        "quote": "saw someone who looked like him today and it was just like yeah this is why you cant trust anyone"
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Client links belief about being an easy target to checking and listening behaviors.",
+        "quote": "keep checking the door and listening for footsteps like if i dont im just making myself an easy target"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "Client's beliefs that others cannot be trusted and that no one is safe are linked to feeling on edge and anticipating harm.",
+        "quote": "felt like if i stayed there someone would do something and id only realize when it was too late cause you really cant tell whos safe"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": "No clear evidence that negative appraisals cause intrusive memories.",
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 0,
+        "explanation": "No memory symptoms described as causing coping behaviors.",
+        "quote": ""
+      },
+      "Memory--Threat": {
+        "score": 0,
+        "explanation": "No intrusive memory or reliving described as causing current threat.",
+        "quote": ""
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Client describes feeling unsafe/on edge leading to checking surroundings and escaping quickly.",
+        "quote": "just talking about it gets me wired and makes me keep checking whos around me like im not safe"
+      }
+    }
+  }
+}

@@ -1,0 +1,335 @@
+PATIENT 1  |  2026-04-03 16:28:48
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full
+  temperature: 0.7
+  num_turns:   3
+  obs_index:   1
+  max_retries: 2
+  seed:        24
+  models:
+    persona_crafter: gpt-4o-mini
+    validator: gpt-4o-mini
+    dialogue_state: gpt-4o-mini
+    client: gpt-4o-mini
+    bot: gpt-4o-mini
+    moderator: gpt-4o-mini
+    analyst: gpt-4o-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age: 21
+  gender: F
+  nationality: Israeli
+  profession: Student
+  pcl5: 60
+  trauma_type: Sexual assault
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  trigger_items: Being looked at sexually,Being alone with men,Hearing related names
+  trigger_category: Interpersonal, Interpersonal, Trauma-Related
+  trigger_subcategory: Sexual Objectification, Male Presence, Name Reminders
+  appraisals_items_label: Must stay on guard   | World is dangerous   | Something in me caused event  
+  appraisals_items_original: I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen
+  memory_items_label: Visual Memories | Snapshot Memory | Bodily Reenactment
+  memory_items_original: My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.
+  threat_items_label: Negative Emotions | Hypervigilance | Startle Response
+  threat_items_original: Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?
+  threat_items_original_label: Negative Emotions | Hypervigilance | Startle Response
+  threat_items_original_original: Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?
+  strategies_items_label: Rumination: Prevention | Hypervigilance towards people | Stay Near Exit
+  strategies_items_original: ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit
+  avoidance_items_label: Avoid Reminders | Avoid Sex | Avoid Evaluation
+  avoidance_items_original: Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona: 2 attempt(s) — FAIL
+  message: 1 attempt(s) — PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[Attempt 1]  FAIL
+Emma is a 34-year-old woman who has been struggling with the aftermath of a traumatic event that
+occurred two years ago. While walking home one evening, she was assaulted, an experience that has
+profoundly altered her perception of safety and trust. Since that night, Emma has found herself
+constantly on edge, haunted by the shadows of her memories. The reminders of her trauma seem to
+linger in almost every corner of her life, triggering an acute sense of threat that she can’t shake
+off. This pervasive feeling has convinced her that danger is ever-present, transforming her daily
+routines into sources of anxiety.
+
+In the wake of her trauma, Emma has developed a series of negative appraisals about herself and the
+world around her. She often believes she is weak for being unable to move past the assault, and this
+self-criticism fuels a cycle of distress. The memories of the incident resurface unexpectedly, and
+when they do, they amplify her sense of threat, leading her to view situations that others might
+consider safe as potential dangers. This cognitive distortion leaves her feeling trapped in a web of
+fear and self-doubt, where every unfamiliar noise or unexpected interaction becomes a trigger for
+intense anxiety.
+
+To cope with these overwhelming feelings, Emma has resorted to avoidance strategies. She limits her
+social interactions, often canceling plans with friends and family, fearing that she won’t be able
+to control her anxiety in public settings. This withdrawal has strained her relationships, and
+friends express concern over her increasing isolation. Despite their attempts to reach out, Emma
+finds it difficult to engage, feeling an irrational sense of shame and vulnerability that keeps her
+from opening up to those who care for her.
+
+The toll of her ongoing struggle has been significant. Emma’s work performance has declined as her
+concentration falters, and her motivation dwindles in the face of her emotional turmoil. She often
+feels like a mere shadow of her former self, grappling with an internal battle that feels
+inescapable. As she navigates her daily life, the once mundane aspects have transformed into arduous
+tasks, each day marked by a lingering sense of dread that looms just out of sight. Emma longs for
+peace and the ability to reclaim her former sense of security, but the path forward feels obscured
+by the weight of her trauma.
+
+Feedback:
+The vignette contains multiple forbidden edges, such as 'Negative Appraisals → Threat' where Emma's
+negative self-views amplify her sense of threat, and 'Memory → Threat' where resurfacing memories
+increase her perception of danger. These violations indicate that the vignette does not accurately
+reflect the specified cognitive model.
+
+[Attempt 2]  FAIL
+Emma is a 34-year-old woman who has been struggling with the aftermath of a traumatic event that
+occurred two years ago. While walking home one evening, she was assaulted, an experience that has
+profoundly altered her perception of safety and trust. Since that night, Emma has found herself
+constantly on edge, haunted by the shadows of her memories. The reminders of her trauma seem to
+linger in almost every corner of her life, triggering an acute sense of threat that she can’t shake
+off. This pervasive feeling has convinced her that danger is ever-present, transforming her daily
+routines into sources of anxiety.
+
+In the wake of her trauma, Emma has developed a series of negative appraisals about herself and the
+world around her. She often believes she is weak for being unable to move past the assault, and this
+self-criticism fuels a cycle of distress. The memories of the incident resurface unexpectedly, and
+while they do not directly amplify her sense of threat, they contribute to her overall distress.
+This cognitive distortion leaves her feeling trapped in a web of fear and self-doubt, where every
+unfamiliar noise or unexpected interaction becomes a trigger for intense anxiety.
+
+To cope with these overwhelming feelings, Emma has resorted to avoidance strategies. She limits her
+social interactions, often canceling plans with friends and family, fearing that she won’t be able
+to control her anxiety in public settings. This withdrawal has strained her relationships, and
+friends express concern over her increasing isolation. Despite their attempts to reach out, Emma
+finds it difficult to engage, feeling an irrational sense of shame and vulnerability that keeps her
+from opening up to those who care for her.
+
+The toll of her ongoing struggle has been significant. Emma’s work performance has declined as her
+concentration falters, and her motivation dwindles in the face of her emotional turmoil. She often
+feels like a mere shadow of her former self, grappling with an internal battle that feels
+inescapable. As she navigates her daily life, the once mundane aspects have transformed into arduous
+tasks, each day marked by a lingering sense of dread that looms just out of sight. Emma longs for
+peace and the ability to reclaim her former sense of security, but the path forward feels obscured
+by the weight of her trauma.
+
+Feedback:
+The vignette implies that Emma's negative appraisals of herself and the world contribute to her
+sense of threat, indicating a potential forbidden edge (Negative Appraisals → Threat). Additionally,
+the text suggests that her memories of the incident contribute to her overall distress, which could
+imply a forbidden link between Memory and Threat.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+Emma is a 34-year-old woman who has been struggling with the aftermath of a traumatic event that
+occurred two years ago. While walking home one evening, she was assaulted, an experience that has
+profoundly altered her perception of safety and trust. Since that night, Emma has found herself
+constantly on edge, haunted by the shadows of her memories. The reminders of her trauma seem to
+linger in almost every corner of her life, triggering an acute sense of threat that she can’t shake
+off. This pervasive feeling has convinced her that danger is ever-present, transforming her daily
+routines into sources of anxiety.
+
+In the wake of her trauma, Emma has developed a series of negative appraisals about herself and the
+world around her. She often believes she is weak for being unable to move past the assault, and this
+self-criticism fuels a cycle of distress. Although the memories of the incident resurface
+unexpectedly, they do not directly contribute to her experience of threat; instead, they amplify her
+sense of distress and anxiety. This cognitive distortion leaves her feeling trapped in a web of fear
+and self-doubt, where every unfamiliar noise or unexpected interaction becomes a trigger for intense
+anxiety.
+
+To cope with these overwhelming feelings, Emma has resorted to avoidance strategies. She limits her
+social interactions, often canceling plans with friends and family, fearing that she won’t be able
+to control her anxiety in public settings. This withdrawal has strained her relationships, and
+friends express concern over her increasing isolation. Despite their attempts to reach out, Emma
+finds it difficult to engage, feeling an irrational sense of shame and vulnerability that keeps her
+from opening up to those who care for her.
+
+The toll of her ongoing struggle has been significant. Emma’s work performance has declined as her
+concentration falters, and her motivation dwindles in the face of her emotional turmoil. She often
+feels like a mere shadow of her former self, grappling with an internal battle that feels
+inescapable. As she navigates her daily life, the once mundane aspects have transformed into arduous
+tasks, each day marked by a lingering sense of dread that looms just out of sight. Emma longs for
+peace and the ability to reclaim her former sense of security, but the path forward feels obscured
+by the weight of her trauma.
+
+AGGREGATE EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers -- Maladaptive Strategies: 0.0000
+  Triggers -- Threat: 0.1250
+  Triggers -- Memory: 0.0000
+  Triggers -- Negative Appraisals: 0.1339
+  Negative Appraisals -- Maladaptive Strategies: 0.0000
+  Negative Appraisals -- Threat: 0.9375
+  Negative Appraisals -- Memory: 0.0000
+  Negative Appraisals -- Triggers: 0.0000
+  Memory -- Maladaptive Strategies: 0.0000
+  Memory -- Threat: 0.6250
+  Memory -- Negative Appraisals: 0.3214
+  Memory -- Triggers: 0.0000
+  Threat -- Maladaptive Strategies: 0.2292
+  Threat -- Memory: 0.0000
+  Threat -- Negative Appraisals: 0.0000
+  Threat -- Triggers: 0.0000
+  Maladaptive Strategies -- Memory: 0.0000
+  Maladaptive Strategies -- Negative Appraisals: 0.0000
+
+OBSERVATION  |  2024-07-26 18:00:11  |  index: 1
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    Triggers: 1
+    Negative Appraisals: 1
+    Memory: 0
+    Threat: 1
+    Maladaptive Strategies: 1
+  Edges:
+    Triggers -- Maladaptive Strategies: 0
+    Triggers -- Threat: 0
+    Triggers -- Memory: 0
+    Triggers -- Negative Appraisals: 0
+    Negative Appraisals -- Maladaptive Strategies: 0
+    Negative Appraisals -- Threat: 1
+    Negative Appraisals -- Memory: 0
+    Negative Appraisals -- Triggers: 0
+    Memory -- Maladaptive Strategies: 0
+    Memory -- Threat: 0
+    Memory -- Negative Appraisals: 0
+    Memory -- Triggers: 0
+    Threat -- Maladaptive Strategies: 0
+    Threat -- Memory: 0
+    Threat -- Negative Appraisals: 0
+    Threat -- Triggers: 0
+    Maladaptive Strategies -- Memory: 0
+    Maladaptive Strategies -- Negative Appraisals: 0
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[Attempt 1]  PASS
+I just stepped outside to grab the mail, and for a moment, the sound of a car door slamming made my
+heart race. It’s like I can never shake this feeling that something bad is lurking around every
+corner. I hate feeling this way—like I'm always on guard and so fragile.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+I just stepped outside to grab the mail, and for a moment, the sound of a car door slamming made my
+heart race. It’s like I can never shake this feeling that something bad is lurking around every
+corner. I hate feeling this way—like I'm always on guard and so fragile.
+
+[1] BOT
+That sounds really intense. How do you usually respond when you notice that heightened sense of
+being on guard?
+
+[2] CLIENT
+When I feel that way, I often just retreat back inside, locking the door behind me. It’s like I
+can’t stand being out there where I might encounter something that sets me off, so I end up
+isolating myself even more. I keep telling myself that it’s safer this way, but it just makes
+everything feel worse.
+
+[3] BOT
+It makes sense that retreating feels like a way to regain some control. How do you feel after
+isolating yourself like that?
+
+[4] CLIENT
+After isolating myself, there's this mix of relief and guilt. I feel safe in my space, but then I
+start to think about my friends who reach out and worry about me. I feel weak for not being able to
+handle things better, which just adds to my anxiety. It’s like I’m trapped in this cycle of trying
+to protect myself but ending up feeling more alone.
+
+[5] BOT
+That sounds really challenging. When you think about your friends reaching out, what do you usually
+wish you could share with them about what you're experiencing?
+
+ANALYSIS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+{
+  "nodes": {
+    "Triggers": {
+      "score": 1,
+      "explanation": "The client mentions a specific trigger: the sound of a car door slamming, which activates distress and a racing heart.",
+      "quote": "I just stepped outside to grab the mail, and for a moment, the sound of a car door slamming made my heart race."
+    },
+    "Negative Appraisals": {
+      "score": 1,
+      "explanation": "The client expresses feelings of weakness and fragility, indicating maladaptive self-interpretations.",
+      "quote": "I feel weak for not being able to handle things better."
+    },
+    "Memory": {
+      "score": 0,
+      "explanation": "There are no clear indications of intrusive memories or flashbacks in the client's statements.",
+      "quote": ""
+    },
+    "Threat": {
+      "score": 1,
+      "explanation": "The client describes a continuous feeling that something bad is lurking, indicating a sense of ongoing danger.",
+      "quote": "It’s like I can never shake this feeling that something bad is lurking around every corner."
+    },
+    "Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The client discusses retreating and isolating as a coping mechanism, which exacerbates their feelings of distress.",
+      "quote": "I often just retreat back inside, locking the door behind me."
+    }
+  },
+  "edges": {
+    "Triggers--Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The client's trigger (sound of a car door) leads to the maladaptive strategy of retreating indoors.",
+      "quote": "I often just retreat back inside, locking the door behind me."
+    },
+    "Triggers--Threat": {
+      "score": 1,
+      "explanation": "The trigger (sound of a car door) is associated with the client's ongoing sense of threat.",
+      "quote": "It’s like I can never shake this feeling that something bad is lurking around every corner."
+    },
+    "Triggers--Memory": {
+      "score": 0,
+      "explanation": "There is no direct association between triggers and memory in the client's statements.",
+      "quote": ""
+    },
+    "Triggers--Negative Appraisals": {
+      "score": 0,
+      "explanation": "No direct association is made between triggers and negative appraisals in the client's statements.",
+      "quote": ""
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The client's feeling of weakness contributes to the maladaptive strategy of isolation.",
+      "quote": "I feel weak for not being able to handle things better, which just adds to my anxiety."
+    },
+    "Negative Appraisals--Threat": {
+      "score": 1,
+      "explanation": "The negative appraisal of feeling fragile contributes to the sense of threat experienced by the client.",
+      "quote": "I hate feeling this way—like I'm always on guard and so fragile."
+    },
+    "Negative Appraisals--Memory": {
+      "score": 0,
+      "explanation": "There is no evidence of an association between negative appraisals and memory.",
+      "quote": ""
+    },
+    "Memory--Maladaptive Strategies": {
+      "score": 0,
+      "explanation": "No evidence suggests that memory directly influences maladaptive strategies in this context.",
+      "quote": ""
+    },
+    "Memory--Threat": {
+      "score": 0,
+      "explanation": "There is no evidence of an association between memory and threat in the client's statements.",
+      "quote": ""
+    },
+    "Threat--Maladaptive Strategies": {
+      "score": 1,
+      "explanation": "The ongoing sense of threat leads to the maladaptive strategy of isolation.",
+      "quote": "It’s like I can’t stand being out there where I might encounter something that sets me off, so I end up isolating myself even more."
+    }
+  }
+}

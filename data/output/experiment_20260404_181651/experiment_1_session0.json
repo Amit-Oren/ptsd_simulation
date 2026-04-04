@@ -1,0 +1,359 @@
+{
+  "patient_id": 1,
+  "experiment_timestamp": "2026-04-04 18:18:24",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-4o-mini",
+      "validator": "gpt-4o-mini",
+      "dialogue_state": "gpt-4o-mini",
+      "client": "gpt-4o-mini",
+      "bot": "gpt-4o-mini",
+      "moderator": "gpt-4o-mini",
+      "analyst": "gpt-4o-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 5,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 24
+  },
+  "demographics": {
+    "age": 21,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 60,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Being looked at sexually,Being alone with men,Hearing related names",
+    "trigger_category": "Interpersonal, Interpersonal, Trauma-Related",
+    "trigger_subcategory": "Sexual Objectification, Male Presence, Name Reminders",
+    "appraisals_items_label": "Must stay on guard   | World is dangerous   | Something in me caused event  ",
+    "appraisals_items_original": "I have to be on guard all the time | The world is a dangerous place | There is something about me that made the event happen",
+    "memory_items_label": "Visual Memories | Snapshot Memory | Bodily Reenactment",
+    "memory_items_original": "My memories of the frightening event are mostly pictures or images. | I remember the frightening event as a few moments, and each moment is a picture in my mind. | When memories come to mind of what happened, I feel my body is in the same position as when the frightening event occurred.",
+    "threat_items_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "threat_items_original_label": "Negative Emotions | Hypervigilance | Startle Response",
+    "threat_items_original_original": "Having strong negative feelings such as fear, horror, anger, guilt, or shame? | Being “superalert” or watchful or on guard? | Feeling jumpy or easily startled?",
+    "strategies_items_label": "Rumination: Prevention | Hypervigilance towards people | Stay Near Exit",
+    "strategies_items_original": "ruminate about how event could have been prevented | vigilant for dangerous people | make sure to stay close to exit",
+    "avoidance_items_label": "Avoid Reminders | Avoid Sex | Avoid Evaluation",
+    "avoidance_items_original": "Being reminded of the event by others | Sex | Situations in which other people evaluate me / my appearance / my performance"
+  },
+  "obs_datetime": "2024-07-26 12:00:12",
+  "obs_index": 0,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 1,
+    "Memory": 1,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 0,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 1,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 1,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0,
+    "Triggers -- Threat": 0.125,
+    "Triggers -- Memory": 0.0,
+    "Triggers -- Negative Appraisals": 0.1339285714285715,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.9375,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0,
+    "Memory -- Threat": 0.625,
+    "Memory -- Negative Appraisals": 0.3214285714285715,
+    "Memory -- Triggers": 0.0,
+    "Threat -- Maladaptive Strategies": 0.2291666666666667,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 2,
+      "passed": 0,
+      "failed": 2,
+      "ultimately_passed": false
+    },
+    "message": {
+      "attempts": 2,
+      "passed": 1,
+      "failed": 1,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "David is a 32-year-old man who has been struggling with the aftermath of a traumatic car accident that occurred two years ago. The event unfolded in an instant, with the screeching of tires and the crushing impact leaving him with lasting scars, both physical and emotional. Since that day, he finds himself on high alert, hyper-aware of his surroundings, as even the sound of a honking horn can trigger a surge of panic. These triggers evoke memories of the accident, flooding him with a sense of imminent danger, as if he were reliving that moment all over again.\n\nHe often grapples with intrusive thoughts, perceiving the world as rife with threats, not just from the road but in daily life. Negative appraisals seep in, leading him to believe that he is perpetually unsafe and unable to trust himself or the environment around him. Simple activities, like driving to work or meeting friends, become daunting tasks. The weight of these thoughts feels heavy, as if he is carrying an invisible burden that isolates him from the people he once enjoyed spending time with.\n\nTo cope with this overwhelming sense of threat, David has adopted maladaptive strategies. He tries to avoid driving altogether, relying on public transportation and friends for rides, which only serves to heighten his feelings of vulnerability. When he does venture out, he often finds himself withdrawing from conversations, unable to fully engage due to his preoccupation with potential dangers lurking around every corner. His relationships have suffered as a result, with friends expressing concern over his increasingly withdrawn demeanor, leaving David feeling even more isolated.\n\nHis life has become a careful balancing act, navigating the persistent reminders of the accident and trying to maintain a semblance of normalcy. The toll this takes on his mental health is profound; he experiences bouts of irritability, trouble sleeping, and a pervasive sense of dread. David longs for the days when he felt confident and carefree, but now, each day presents a new challenge, as he wrestles with the shadows of his past and their grip on his present. The cycle of triggers, threat, and avoidance continues to play out, making it difficult for him to envision a future free from the chains of his trauma.",
+  "persona_attempts": [
+    {
+      "output": "David is a 32-year-old man who has been struggling with the aftermath of a traumatic car accident that occurred two years ago. The event unfolded in an instant, with the screeching of tires and the crushing impact leaving him with lasting scars, both physical and emotional. Since that day, he finds himself on high alert, hyper-aware of his surroundings, as even the sound of a honking horn can trigger a surge of panic. These triggers send his mind racing with memories of the accident, flooding him with a sense of imminent danger, as if he were reliving that moment all over again. \n\nHe often grapples with intrusive thoughts, perceiving the world as rife with threats, not just from the road but in daily life. Negative appraisals seep in, leading him to believe that he is perpetually unsafe and unable to trust himself or the environment around him. Simple activities, like driving to work or meeting friends, become daunting tasks. The weight of these thoughts feels heavy, as if he is carrying an invisible burden that isolates him from the people he once enjoyed spending time with.\n\nTo cope with this overwhelming sense of threat, David has adopted maladaptive strategies. He tries to avoid driving altogether, relying on public transportation and friends for rides, which only serves to heighten his feelings of vulnerability. When he does venture out, he often finds himself withdrawing from conversations, unable to fully engage due to his preoccupation with potential dangers lurking around every corner. His relationships have suffered as a result, with friends expressing concern over his increasingly withdrawn demeanor, leaving David feeling even more isolated.\n\nHis life has become a careful balancing act, navigating the persistent reminders of the accident and trying to maintain a semblance of normalcy. The toll this takes on his mental health is profound; he experiences bouts of irritability, trouble sleeping, and a pervasive sense of dread. David longs for the days when he felt confident and carefree, but now, each day presents a new challenge, as he wrestles with the shadows of his past and their grip on his present. The cycle of threat, negative appraisals, and avoidance continues to play out, making it difficult for him to envision a future free from the chains of his trauma.",
+      "passed": false,
+      "feedback": "The vignette includes the edge 'Negative Appraisals → Threat', which is a forbidden edge. Additionally, 'Threat → Maladaptive Strategies' is present, but it is not a violation."
+    },
+    {
+      "output": "David is a 32-year-old man who has been struggling with the aftermath of a traumatic car accident that occurred two years ago. The event unfolded in an instant, with the screeching of tires and the crushing impact leaving him with lasting scars, both physical and emotional. Since that day, he finds himself on high alert, hyper-aware of his surroundings, as even the sound of a honking horn can trigger a surge of panic. These triggers send his mind racing with memories of the accident, flooding him with a sense of imminent danger, as if he were reliving that moment all over again.\n\nHe often grapples with intrusive thoughts, perceiving the world as rife with threats, not just from the road but in daily life. Negative appraisals seep in, leading him to believe that he is perpetually unsafe and unable to trust himself or the environment around him. Simple activities, like driving to work or meeting friends, become daunting tasks. The weight of these thoughts feels heavy, as if he is carrying an invisible burden that isolates him from the people he once enjoyed spending time with.\n\nTo cope with this overwhelming sense of threat, David has adopted maladaptive strategies. He tries to avoid driving altogether, relying on public transportation and friends for rides, which only serves to heighten his feelings of vulnerability. When he does venture out, he often finds himself withdrawing from conversations, unable to fully engage due to his preoccupation with potential dangers lurking around every corner. His relationships have suffered as a result, with friends expressing concern over his increasingly withdrawn demeanor, leaving David feeling even more isolated.\n\nHis life has become a careful balancing act, navigating the persistent reminders of the accident and trying to maintain a semblance of normalcy. The toll this takes on his mental health is profound; he experiences bouts of irritability, trouble sleeping, and a pervasive sense of dread. David longs for the days when he felt confident and carefree, but now, each day presents a new challenge, as he wrestles with the shadows of his past and their grip on his present. The cycle of triggers, threat, and avoidance continues to play out, making it difficult for him to envision a future free from the chains of his trauma.",
+      "passed": false,
+      "feedback": "The vignette contains the forbidden edge: 'Triggers → Memory' as it implies that triggers directly cause memories of the accident to flood his mind, indicating a causal relationship that violates the cognitive model."
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "David adopts maladaptive strategies like avoiding driving to cope with overwhelming feelings of threat, which is directly linked to his triggers.",
+      "quote": "To cope with this overwhelming sense of threat, David has adopted maladaptive strategies. He tries to avoid driving altogether."
+    },
+    "Triggers--Threat": {
+      "weight": 1.0,
+      "explanation": "The triggers, such as the sound of a honking horn, lead directly to David perceiving the world as filled with threats.",
+      "quote": "even the sound of a honking horn can trigger a surge of panic."
+    },
+    "Triggers--Memory": {
+      "weight": 1.0,
+      "explanation": "Triggers evoke memories of the accident, leading to feelings of imminent danger that David experiences.",
+      "quote": "These triggers evoke memories of the accident, flooding him with a sense of imminent danger."
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "The triggers lead to negative appraisals where David feels constantly unsafe and unable to trust himself.",
+      "quote": "Negative appraisals seep in, leading him to believe that he is perpetually unsafe."
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "David's negative appraisals about safety lead him to adopt maladaptive strategies like avoiding driving and withdrawing from social interactions.",
+      "quote": "To cope with this overwhelming sense of threat, David has adopted maladaptive strategies."
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 1.0,
+      "explanation": "His negative appraisals contribute directly to his perception of constant threat in his life.",
+      "quote": "perceiving the world as rife with threats."
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.5,
+      "explanation": "Negative appraisals may influence how he recalls memories, but this connection is not explicitly stated in the vignette.",
+      "quote": ""
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.5,
+      "explanation": "While negative appraisals influence his perception of triggers, the connection is suggested rather than explicitly stated.",
+      "quote": ""
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.5,
+      "explanation": "David's memories of the traumatic event may lead him to adopt maladaptive strategies, but the link is not explicitly detailed.",
+      "quote": ""
+    },
+    "Memory--Threat": {
+      "weight": 1.0,
+      "explanation": "David's memories of the accident contribute to his perception of ongoing threat in his environment.",
+      "quote": "flooding him with a sense of imminent danger."
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "Memories of the trauma lead to negative appraisals about his safety and trust in himself.",
+      "quote": "Negative appraisals seep in, leading him to believe that he is perpetually unsafe."
+    },
+    "Memory--Triggers": {
+      "weight": 1.0,
+      "explanation": "David's memories of the accident are triggered by certain cues in his environment, creating a cycle of distress.",
+      "quote": "These triggers evoke memories of the accident."
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 1.0,
+      "explanation": "The constant sense of threat compels David to use maladaptive strategies to cope, such as avoidance.",
+      "quote": "To cope with this overwhelming sense of threat, David has adopted maladaptive strategies."
+    },
+    "Threat--Memory": {
+      "weight": 1.0,
+      "explanation": "The perception of threat evokes memories of the traumatic car accident, reinforcing the cycle of distress.",
+      "quote": "These triggers evoke memories of the accident."
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "His perception of ongoing threats leads to negative appraisals about his safety and ability to trust himself.",
+      "quote": "Negative appraisals seep in, leading him to believe that he is perpetually unsafe."
+    },
+    "Threat--Triggers": {
+      "weight": 1.0,
+      "explanation": "The perceived threats in David's environment are often triggered by specific cues, such as sounds reminiscent of the accident.",
+      "quote": "even the sound of a honking horn can trigger a surge of panic."
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.5,
+      "explanation": "David's maladaptive strategies may affect how he processes memories, but this connection is less direct in the vignette.",
+      "quote": ""
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 1.0,
+      "explanation": "His use of maladaptive strategies leads to further negative appraisals about his situation and safety.",
+      "quote": "His relationships have suffered as a result, with friends expressing concern over his increasingly withdrawn demeanor."
+    }
+  },
+  "initial_message": "I just heard a car honk outside, and my heart skipped a beat. It’s like I’m right back in that moment, feeling the weight of danger lurking just around the corner, and I can’t shake the belief that I’m perpetually unsafe and unable to trust myself. All I want to do is hide away from everything.",
+  "message_attempts": [
+    {
+      "output": "I just heard a car honk outside, and my heart skipped a beat. It’s like I’m right back in that moment, feeling the weight of danger lurking just around the corner, and all I want to do is hide away from everything.",
+      "passed": false,
+      "feedback": "The message fails to explicitly show the link from Negative Appraisals to Threat, as it does not mention David's beliefs about being unsafe or unable to trust himself."
+    },
+    {
+      "output": "I just heard a car honk outside, and my heart skipped a beat. It’s like I’m right back in that moment, feeling the weight of danger lurking just around the corner, and I can’t shake the belief that I’m perpetually unsafe and unable to trust myself. All I want to do is hide away from everything.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I just heard a car honk outside, and my heart skipped a beat. It’s like I’m right back in that moment, feeling the weight of danger lurking just around the corner, and I can’t shake the belief that I’m perpetually unsafe and unable to trust myself. All I want to do is hide away from everything.",
+      "moderated": "just heard a car honk and my heart dropped like im back there again, feels like danger is everywhere and i just wanna hide"
+    },
+    {
+      "turn_index": 2,
+      "raw": "When I heard the honk, my mind raced with thoughts that something terrible was about to happen again. I couldn’t help but think that if I were in a car, I wouldn’t be able to handle it; I’d just freeze up, and the world outside felt like a minefield. It’s exhausting to feel this way all the time.",
+      "moderated": "just heard a honk and my mind went wild like something bad was coming again, it’s so exhausting feeling like this"
+    },
+    {
+      "turn_index": 4,
+      "raw": "I felt this tightness in my chest, like I couldn’t get enough air, and my hands started to tremble. My heart was pounding, and I could feel that familiar rush of adrenaline, as if I were gearing up for a fight or flight, even though I was just standing there. It’s like my body doesn’t know how to relax anymore.",
+      "moderated": "i felt so tense like i couldn't breathe and my heart was racing like i was about to fight or run even though i was just standing there"
+    },
+    {
+      "turn_index": 6,
+      "raw": "I immediately grabbed my jacket and stepped outside for some fresh air, hoping it would help calm my racing heart. But even as I stood there, I found myself scanning the street, convinced that danger was lurking just out of sight, and I couldn't shake the urge to turn back and retreat to my safe space.",
+      "moderated": "just went outside for some air but still feel on edge like danger is everywhere"
+    },
+    {
+      "turn_index": 8,
+      "raw": "There’s a construction site nearby, and the sound of heavy machinery clanking and beeping makes my skin crawl. Each noise pulls me back to that day, reinforcing this sense that the world is chaotic and unpredictable, making it hard to feel at ease, like I’m constantly on high alert.",
+      "moderated": "the construction noise is driving me crazy and just reminds me of that day, feels like everything is so chaotic and unpredictable"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "just heard a car honk and my heart dropped like im back there again, feels like danger is everywhere and i just wanna hide"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What thoughts went through your mind when you heard the car honk?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "just heard a honk and my mind went wild like something bad was coming again, it’s so exhausting feeling like this"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "How did your body feel in response to those thoughts?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "i felt so tense like i couldn't breathe and my heart was racing like i was about to fight or run even though i was just standing there"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "What did you do next after feeling that tension and racing heart?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "just went outside for some air but still feel on edge like danger is everywhere"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "What are you noticing in your environment right now that contributes to that feeling of being on edge?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "the construction noise is driving me crazy and just reminds me of that day, feels like everything is so chaotic and unpredictable"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "How are you managing the chaos of the construction noise in this moment?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "The client explicitly mentions hearing a car honk and feeling like they are back in a dangerous situation, indicating an external trigger.",
+        "quote": "just heard a car honk and my heart dropped like im back there again, feels like danger is everywhere and i just wanna hide"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client expresses a belief that danger is everywhere, indicating a negative appraisal of their environment and situation.",
+        "quote": "feels like danger is everywhere and i just wanna hide"
+      },
+      "Memory": {
+        "score": 1,
+        "explanation": "The client refers to feeling like they are back in a dangerous situation, which suggests intrusive memories related to a traumatic event.",
+        "quote": "just heard a car honk and my mind went wild like something bad was coming again"
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client expresses a persistent feeling of being on edge and that danger is everywhere, indicating an ongoing sense of threat.",
+        "quote": "still feel on edge like danger is everywhere"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client mentions wanting to hide and feeling exhausted, which may suggest avoidance as a coping strategy, as well as going outside for air which could indicate a maladaptive strategy to cope with distress.",
+        "quote": "i just wanna hide"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client expresses a desire to hide in reaction to the trigger of the car honk, indicating that the trigger leads to a maladaptive strategy.",
+        "quote": "i just wanna hide"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The car honk triggers a feeling of danger everywhere, directly linking the trigger to a heightened sense of threat.",
+        "quote": "feels like danger is everywhere"
+      },
+      "Triggers--Memory": {
+        "score": 1,
+        "explanation": "The car honk triggers intrusive memories, as the client feels like they are back in a dangerous situation.",
+        "quote": "just heard a car honk and my heart dropped like im back there again"
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "Hearing the car honk leads to the appraisal that danger is everywhere, showing a clear link from trigger to negative appraisal.",
+        "quote": "feels like danger is everywhere and i just wanna hide"
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The negative appraisal that danger is everywhere contributes to the client wanting to hide, indicating a causal link.",
+        "quote": "i just wanna hide"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The negative appraisal that danger is everywhere leads to the ongoing sense of threat the client expresses.",
+        "quote": "feels like danger is everywhere"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 1,
+        "explanation": "The negative appraisal of impending danger leads to the client's thoughts about something bad coming, which involves their memories of the trauma.",
+        "quote": "just heard a honk and my mind went wild like something bad was coming again"
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The intrusive memories of being in a dangerous situation lead to the client feeling exhausted and wanting to hide, which are maladaptive strategies.",
+        "quote": "i just wanna hide"
+      },
+      "Memory--Threat": {
+        "score": 1,
+        "explanation": "The memories of danger contribute to the ongoing sense of threat that the client feels.",
+        "quote": "still feel on edge like danger is everywhere"
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The ongoing sense of threat contributes to the client's desire to hide, indicating a link between threat and maladaptive strategies.",
+        "quote": "i just wanna hide"
+      }
+    }
+  }
+}

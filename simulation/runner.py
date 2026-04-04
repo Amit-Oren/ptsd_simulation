@@ -1,232 +1,156 @@
-import json
-import textwrap
+import logging
 import numpy as np
-from pathlib import Path
 from datetime import datetime
-from config.config import Config
-from langchain_openai import ChatOpenAI
-from agents.client_agent import ClientAgent
-from agents.analyst_agent import AnalystAgent
-from agents.response_crafter_agent import ResponseCrafterAgent
-from agents.persona_crafter_agent import PersonaCrafterAgent
-from agents.dialogue_state_agent import DialogueStateAgent
+from pathlib import Path
+from typing import cast
+from agents.base_agent import set_context_subdir
 from agents.validator_agent import ValidatorAgent
-from data.input import get_available_ids, prepare_patient_components, get_observation_components
+from data.input.input import get_available_ids
+from simulation.factory import build_llm
+from simulation.output import to_serializable, write_json, write_txt, write_summary_json
+from simulation.pipelines import PIPELINES
+from simulation.steps import (
+    step_persona, step_validate_persona, step_analyse_vignette,
+    step_dialogue_state, step_validate_message,
+    step_conversation, step_conversation_moderated, step_analysis,
+)
 
-
-OUTPUT_DIR = Path("data/output")
-MAX_VALIDATION_RETRIES = 3
-WRAP_WIDTH = 100
-
-
-def _wrap(text: str) -> str:
-    """Wrap a long string at word boundaries."""
-    return "\n".join(
-        textwrap.fill(line, width=WRAP_WIDTH) if line.strip() else ""
-        for line in text.splitlines()
-    )
-
-
-def _write_json(output: dict, f):
-    """Write output JSON with blank lines between conversation turns."""
-    conversation = output.pop("conversation")
-    analysis = output.pop("analysis")
-
-    f.write(json.dumps(output, indent=2, ensure_ascii=False)[:-1])  # strip closing }
-
-    f.write(',\n\n  "conversation": [\n')
-    for i, turn in enumerate(conversation):
-        f.write("    " + json.dumps(turn, ensure_ascii=False))
-        f.write(",\n\n" if i < len(conversation) - 1 else "\n")
-    f.write("  ],\n\n")
-
-    f.write('  "analysis": ' + json.dumps(analysis, indent=2, ensure_ascii=False).replace("\n", "\n  "))
-    f.write("\n}\n")
-
-
-def _write_txt(output: dict, path: Path):
-    """Write a human-readable text report with wrapped long strings."""
-    SEP = "─" * WRAP_WIDTH
-
-    with open(path, "w", encoding="utf-8") as f:
-        f.write(f"PATIENT {output['patient_id']}  |  seed: {output['seed']}  |  {output['obs_datetime']}\n")
-        f.write(SEP + "\n\n")
-
-        f.write("PERSONA\n")
-        f.write(SEP + "\n")
-        f.write(_wrap(output["persona"]) + "\n\n")
-
-        f.write("AGGREGATE EDGES\n")
-        f.write(SEP + "\n")
-        for edge, val in output["agg_edges"].items():
-            f.write(f"  {edge}: {val:.4f}\n")
-        f.write("\n")
-
-        f.write("OBSERVATION NODES\n")
-        f.write(SEP + "\n")
-        for node, val in output["obs_nodes"].items():
-            f.write(f"  {node}: {val}\n")
-        f.write("\n")
-
-        f.write("OBSERVATION EDGES\n")
-        f.write(SEP + "\n")
-        for edge, val in output["obs_edges"].items():
-            f.write(f"  {edge}: {val}\n")
-        f.write("\n")
-
-        f.write("CONVERSATION\n")
-        f.write(SEP + "\n")
-        for turn in output["conversation"]:
-            speaker = turn["speaker"].upper()
-            f.write(f"\n[{turn['turn_index']}] {speaker}\n")
-            f.write(_wrap(turn["text"]) + "\n")
-        f.write("\n")
-
-        f.write("ANALYSIS\n")
-        f.write(SEP + "\n")
-        f.write(json.dumps(output["analysis"], indent=2, ensure_ascii=False) + "\n")
-
-
-def _to_serializable(obj):
-    if isinstance(obj, dict):
-        def _key(k):
-            if isinstance(k, tuple):
-                return " -- ".join(k)
-            if isinstance(k, np.integer):
-                return int(k)
-            return k
-        return {_key(k): _to_serializable(v) for k, v in obj.items()}
-    if isinstance(obj, list):
-        return [_to_serializable(i) for i in obj]
-    if isinstance(obj, np.integer):
-        return int(obj)
-    if isinstance(obj, np.floating):
-        return float(obj)
-    return obj
+logger = logging.getLogger(__name__)
 
 
 class SimulationRunner:
-    def __init__(self, num_patients: int, num_turns: int, model: str, seed: int,
-                 patient_ids: list = None, obs_index: int = 0):
-        self.num_patients = num_patients
-        self.num_turns = num_turns
-        self.model = model
-        self.seed = seed
-        self.patient_ids = patient_ids
-        self.obs_index = obs_index
+    def __init__(self, num_patients: int, num_turns: int, seed: int,
+                 models: dict, agent_classes: dict,
+                 experiment_dir: Path,
+                 patient_ids: list = None, obs_index: int | list = 0,
+                 max_retries: int = 2, temperature: float = 0.7,
+                 pipeline: str = "full", persona_context: bool = False):
+        self.num_patients  = num_patients
+        self.num_turns     = num_turns
+        self.seed          = seed
+        self.patient_ids   = patient_ids
+        self.obs_index     = obs_index if isinstance(obs_index, list) else [obs_index]
+        self.max_retries   = max_retries
+        self.agent_classes = agent_classes
+        self.experiment_dir = experiment_dir
+        self.pipeline_name  = pipeline
+        self.pipeline       = PIPELINES[pipeline]
+        self.persona_context = persona_context
+        self.models        = models
+        self.temperature   = temperature
         np.random.seed(seed)
-        self.llm = ChatOpenAI(model=self.model, api_key=Config.OPENAI_API_KEY)
+        self._llms = {role: build_llm(model_name, temperature) for role, model_name in models.items()}
 
     def _sample_patients(self) -> list:
         available = get_available_ids()
         return list(np.random.choice(available, size=self.num_patients, replace=False))
 
-    def _generate_validated_message(self, dialogue_state, validator, persona, nodes, edges, label) -> str:
-        message = None
-        for attempt in range(MAX_VALIDATION_RETRIES):
-            message = dialogue_state.create_message()
-            result = validator.validate(persona=persona, message=message, nodes=nodes, edges=edges)
-            if result.valid:
-                print(f"[{label}] Initial message validated on attempt {attempt + 1}.")
-                return message
-            print(f"[{label}] Validation failed (attempt {attempt + 1}): {result.reason}")
-        print(f"[{label}] Max retries reached. Using last generated message.")
-        return message
+    # Steps that run once per patient (not per session)
+    _PATIENT_STEPS = {"persona", "validate_persona", "analyse_vignette"}
 
     def run(self):
-        OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
         patient_ids = self.patient_ids if self.patient_ids is not None else self._sample_patients()
 
         for patient_id in patient_ids:
             label = f"Client_{patient_id}"
-            print(f"\n=== Patient {patient_id} ===")
+            logger.info("=== Patient %s starting ===", patient_id)
 
-            # ── Step 1: Aggregate EMA → Persona ──────────────────────────────
-            _, agg_edges = prepare_patient_components(patient_id)  # agg_nodes always zero
-            persona_crafter = PersonaCrafterAgent(
-                name=f"{label}_PersonaCrafter", role="PersonaCrafter",
-                llm=self.llm, patient_id=patient_id
-            )
-            persona = persona_crafter.create_persona()
-            print(f"[{label}] Persona created.")
-
-            # ── Step 2: Conversation EMA → observation nodes & edges ──────────
-            obs_datetime, obs_nodes, obs_edges = get_observation_components(patient_id, self.obs_index)
-            print(f"[{label}] Observation datetime: {obs_datetime}")
-
-            # ── Step 3: Dialogue State Agent → candidate initial message ──────
-            dialogue_state = DialogueStateAgent(
-                name=f"{label}_DialogueState", role="DialogueState",
-                llm=self.llm, patient_id=patient_id, persona=persona
-            )
-
-            # ── Step 4: Validator → validate (with retry on failure) ──────────
+            patient_state: dict = {}
             validator = ValidatorAgent(
-                name=f"{label}_Validator", role="Validator", llm=self.llm
-            )
-            initial_message = self._generate_validated_message(
-                dialogue_state, validator, persona, obs_nodes, obs_edges, label
+                name=f"{label}_Validator", role="Validator", llm=self._llms["validator"],
             )
 
-            # ── Step 5: Client Agent ──────────────────────────────────────────
-            client = ClientAgent(
-                name=label, role="Patient", llm=self.llm,
-                persona=persona, nodes=obs_nodes, edges=obs_edges,
-                initial_message=initial_message
-            )
+            # Run patient-level steps once (persona, validate_persona)
+            set_context_subdir(f"patient_{patient_id}")
+            for step in self.pipeline:
+                if step not in self._PATIENT_STEPS:
+                    continue
+                logger.info("[%s] step_%s: starting", label, step)
+                if step == "persona":
+                    patient_state.update(step_persona(label, patient_id, self._llms, self.persona_context))
+                elif step == "validate_persona":
+                    patient_state.update(step_validate_persona(label, patient_state, validator, self.max_retries))
+                elif step == "analyse_vignette":
+                    patient_state.update(step_analyse_vignette(label, patient_state, self._llms, self.agent_classes))
+                logger.info("[%s] step_%s: done", label, step)
 
-            # ── Step 6: PTSD Bot (Response Crafter) ──────────────────────────
-            bot = ResponseCrafterAgent(name="Bot", role="Bot", llm=self.llm)
+            # Run session-level steps once per obs_index
+            for obs_index in self.obs_index:
+                set_context_subdir(f"session{obs_index}")
+                logger.info("[%s] === Session obs_index=%d starting ===", label, obs_index)
+                state = dict(patient_state)
 
-            # ── Step 7: Conversation loop ─────────────────────────────────────
-            conversation = []
-            turn_index = 0
+                for step in self.pipeline:
+                    if step in self._PATIENT_STEPS:
+                        continue
+                    logger.info("[%s] step_%s (obs=%d): starting", label, step, obs_index)
+                    if step == "dialogue_state":
+                        state.update(step_dialogue_state(label, patient_id, state, self._llms, obs_index))
+                    elif step == "validate_message":
+                        state.update(step_validate_message(label, state, validator, self.max_retries))
+                    elif step == "conversation":
+                        state.update(step_conversation(label, state, self._llms, self.agent_classes, self.num_turns))
+                    elif step == "conversation_moderated":
+                        state.update(step_conversation_moderated(label, state, self._llms, self.agent_classes, self.num_turns))
+                    elif step == "analysis":
+                        state.update(step_analysis(label, state, self._llms, self.agent_classes))
+                    logger.info("[%s] step_%s (obs=%d): done", label, step, obs_index)
 
-            conversation.append({"speaker": "client", "turn_index": turn_index, "text": initial_message})
-            turn_index += 1
+                self._save(patient_id, obs_index, state)
 
-            bot_response = bot.respond(initial_message)
-            conversation.append({"speaker": "bot", "turn_index": turn_index, "text": bot_response})
-            turn_index += 1
+    def _validation_summary(self, attempts: list) -> dict:
+        passed    = sum(1 for a in attempts if a["passed"])
+        failed    = sum(1 for a in attempts if not a["passed"])
+        ultimately_passed = attempts[-1]["passed"] if attempts else None
+        return {"attempts": len(attempts), "passed": passed, "failed": failed,
+                "ultimately_passed": ultimately_passed}
 
-            for _ in range(self.num_turns - 1):
-                client_response = client.respond(bot_response)
-                conversation.append({"speaker": "client", "turn_index": turn_index, "text": client_response})
-                turn_index += 1
+    def _save(self, patient_id, obs_index: int, state: dict):
+        persona_attempts  = state.get("persona_attempts", [])
+        message_attempts  = state.get("message_attempts", [])
 
-                bot_response = bot.respond(client_response)
-                conversation.append({"speaker": "bot", "turn_index": turn_index, "text": bot_response})
-                turn_index += 1
+        output = cast(dict, to_serializable({
+            "patient_id":          patient_id,
+            "experiment_timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            "config": {
+                "pipeline":     self.pipeline_name,
+                "models":       self.models,
+                "temperature":  self.temperature,
+                "num_turns":    self.num_turns,
+                "obs_index":    obs_index,
+                "max_retries":  self.max_retries,
+                "seed":         self.seed,
+            },
+            "demographics":    state.get("demographics", {}),
+            "self_report":     state.get("self_report", {}),
+            "obs_datetime":    str(state.get("obs_datetime", "")),
+            "obs_index":       obs_index,
+            "obs_nodes":       state.get("obs_nodes", {}),
+            "obs_edges":       state.get("obs_edges", {}),
+            "agg_edges":       state.get("agg_edges", {}),
+            "validation_summary": {
+                "persona":  self._validation_summary(persona_attempts),
+                "message":  self._validation_summary(message_attempts),
+            },
+            "persona":           state.get("persona", ""),
+            "persona_attempts":  persona_attempts,
+            "vignette_analysis": state.get("vignette_analysis", {}),
+            "initial_message":  state.get("initial_message", ""),
+            "message_attempts": message_attempts,
+            "conversation":     state.get("conversation", []),
+            "moderation_log":   state.get("moderation_log", []),
+            "analysis":         state.get("analysis", ""),
+        }))
 
-            # ── Step 8: Conversation Analyst ──────────────────────────────────
-            analyst = AnalystAgent(name="Analyst", role="Analyst", llm=self.llm)
-            conversation_text = "\n".join(
-                f"{t['speaker'].upper()} (turn {t['turn_index']}): {t['text']}"
-                for t in conversation
-            )
-            analysis = analyst.respond(conversation_text)
-            print(f"[{label}] Analysis complete.")
+        base    = self.experiment_dir / f"experiment_{patient_id}_session{obs_index}"
+        summary = self.experiment_dir / f"patient_{patient_id}_session{obs_index}_summary"
 
-            # ── Save output ───────────────────────────────────────────────────
-            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        with open(f"{base}.json", "w", encoding="utf-8") as f:
+            write_json(output.copy(), f)
 
-            output = _to_serializable({
-                "patient_id": patient_id,
-                "seed": self.seed,
-                "obs_datetime": str(obs_datetime),
-                "persona": persona,
-                "agg_edges": agg_edges,
-                "obs_nodes": obs_nodes,
-                "obs_edges": obs_edges,
-                "conversation": conversation,
-                "analysis": analysis,
-            })
+        write_txt(output, f"{base}.txt")
 
-            json_file = OUTPUT_DIR / f"conversation_{patient_id}_{timestamp}.json"
-            with open(json_file, "w", encoding="utf-8") as f:
-                _write_json(output.copy(), f)
+        write_summary_json(output, f"{summary}.json")
 
-            txt_file = OUTPUT_DIR / f"conversation_{patient_id}_{timestamp}.txt"
-            _write_txt(output, txt_file)
-
-            print(f"[{label}] Saved to {json_file.name} + {txt_file.name}")
+        label = f"Client_{patient_id}"
+        logger.info("[%s] saved → %s.json / .txt / _summary.json", label, base.name)

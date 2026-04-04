@@ -1,24 +1,27 @@
 import json
 import logging
 from abc import ABC
-from pathlib import Path
 from datetime import datetime
-from langgraph.prebuilt import create_react_agent
+from pathlib import Path
+from langchain.agents import create_agent
+from langchain.messages import SystemMessage, HumanMessage
 
-_LOG_DIR = Path("data/output")
-_RUN_TIMESTAMP = datetime.now().strftime("%Y%m%d_%H%M%S")
-_shared_handler = None
+logger = logging.getLogger(__name__)
+
+_EXPERIMENT_DIR: Path = Path("data/output")
+_CONTEXT_SUBDIR: str = ""
 
 
-def _get_shared_handler():
-    global _shared_handler
-    if _shared_handler is None:
-        _LOG_DIR.mkdir(parents=True, exist_ok=True)
-        _shared_handler = logging.FileHandler(
-            _LOG_DIR / f"simulation_log_{_RUN_TIMESTAMP}.txt", encoding="utf-8"
-        )
-        _shared_handler.setFormatter(logging.Formatter("%(asctime)s - %(name)s - %(message)s\n"))
-    return _shared_handler
+def set_experiment_dir(path: Path) -> None:
+    """Set the experiment directory. Called once from main.py."""
+    global _EXPERIMENT_DIR
+    _EXPERIMENT_DIR = path
+
+
+def set_context_subdir(subdir: str) -> None:
+    """Set the context subfolder (e.g. 'session0', 'patient_1'). Called per session."""
+    global _CONTEXT_SUBDIR
+    _CONTEXT_SUBDIR = subdir
 
 
 class BaseAgent(ABC):
@@ -29,21 +32,14 @@ class BaseAgent(ABC):
         self.llm = llm
         self.tools = tools or []
         self.messages = []
-        self.logger = self._setup_logger()
-        self.agent = self._setup_agent()
+        self._call_index = 0
+        self.agent = self.setup_agent()
 
-    def _setup_logger(self):
-        logger = logging.getLogger(self.name)
-        logger.setLevel(logging.INFO)
-        if not logger.handlers:
-            logger.addHandler(_get_shared_handler())
-        return logger
-
-    def _setup_agent(self):
-        return create_react_agent(
+    def setup_agent(self):
+        return create_agent(
             model=self.llm,
             tools=self.tools,
-            prompt=self.system_prompt,
+            system_prompt=SystemMessage(content=self.system_prompt)
         )
 
     def respond(self, message: str) -> str:
@@ -63,14 +59,28 @@ class BaseAgent(ABC):
         self.messages = []
 
     def log_response(self, input_msg: str, response: str):
-        """Log interaction to file"""
-        log_entry = {
-            "timestamp": datetime.now().isoformat(),
-            "agent": self.name,
-            "input": input_msg,
-            "response": response
+        self._write_finetune(input_msg, response)
+        self._call_index += 1
+
+    def _write_finetune(self, input_msg: str, response: str):
+        finetune_dir = _EXPERIMENT_DIR / "context" / _CONTEXT_SUBDIR if _CONTEXT_SUBDIR else _EXPERIMENT_DIR / "context"
+        finetune_dir.mkdir(parents=True, exist_ok=True)
+        filename = f"{self.name}_call{self._call_index:02d}.json"
+        data = {
+            "meta": {
+                "agent_name": self.name,
+                "role":       self.role,
+                "call_index": self._call_index,
+                "timestamp":  datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+            },
+            "messages": [
+                {"role": "system",    "content": self.system_prompt},
+                {"role": "user",      "content": input_msg},
+                {"role": "assistant", "content": response},
+            ],
         }
-        self.logger.info(json.dumps(log_entry))
+        with open(finetune_dir / filename, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
 
     def __repr__(self):
         return f"<Agent name={self.name} role={self.role}>"

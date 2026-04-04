@@ -1,7 +1,10 @@
+import logging
 from typing import Optional, Literal
 from pydantic import BaseModel
 from .base_agent import BaseAgent
 from config.prompts import ANALYST_AGENT_PROMPT
+
+logger = logging.getLogger(__name__)
 
 
 class NodeScore(BaseModel):
@@ -70,6 +73,15 @@ class AnalystAgent(BaseAgent):
 
     def respond(self, message: str) -> dict:
         structured_llm = self.llm.with_structured_output(AnalysisResult)
-        result = structured_llm.invoke(message)
-        self.log_response(message, str(result))
-        return _format_result(result)
+        result = structured_llm.invoke([
+            {"role": "system", "content": self.system_prompt},
+            {"role": "user", "content": message},
+        ])
+        self.log_response(message, result.model_dump_json(indent=2))
+        formatted = _format_result(result)
+        nodes_scored = sum(v["score"] for v in formatted["nodes"].values())
+        edges_scored = sum(v["score"] for v in formatted["edges"].values())
+        logger.info("[%s] analysis complete — %d/%d nodes active, %d/%d edges active",
+                    self.name, nodes_scored, len(formatted["nodes"]),
+                    edges_scored, len(formatted["edges"]))
+        return formatted

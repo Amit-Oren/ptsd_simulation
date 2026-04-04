@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from dotenv import load_dotenv
 
-load_dotenv(Path(__file__).parent / ".env")
+load_dotenv(Path(__file__).parent.parent / ".env")
 
 
 class Config:
@@ -31,6 +31,8 @@ MODELS = {
     "gpt-4": "openai",
     "gpt-4-turbo": "openai",
     "gpt-4o-mini": "openai",
+    "gpt-5.4-mini": "openai",
+    "gpt-5.4": "openai",
 
     # Anthropic
     "claude-3-opus": "anthropic",
@@ -42,6 +44,6 @@ MODELS = {
 }
 
 
-def get_model_provider(model_name: str) -> str:
-    """Get the provider for a given model"""
+def get_model_provider(model_name: str) -> str | None:
+    """Get the provider for a given model, or None if unknown."""
     return MODELS.get(model_name)

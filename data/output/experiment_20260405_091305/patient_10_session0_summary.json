@@ -1,0 +1,89 @@
+{
+  "patient_id": 10,
+  "timestamp": "2026-04-05 09:13:42",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4-mini",
+      "validator": "gpt-5.4-mini",
+      "dialogue_state": "gpt-5.4-mini",
+      "client": "gpt-5.4-mini",
+      "bot": "gpt-5.4-mini",
+      "moderator": "gpt-5.4-mini",
+      "analyst": "gpt-5.4-mini",
+      "vignette_analyst": "gpt-5.4-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 5,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 60
+  },
+  "demographics": {
+    "age": 23,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 41,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Cold,Being touched unprepared,Crowded places",
+    "appraisals_items_original": "You can never know who will harm you | If I think about the event, I will not be able to handle it | Somebody else would have stopped the event from happening",
+    "memory_items_original": "I can’t seem to put the frightening event into words. | When I remember the frightening event I feel like it is happening right now. | My memories of the frightening event are like a film that plays over and over.",
+    "threat_items_original": "Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)? | Being “superalert” or watchful or on guard? | Trouble falling or staying asleep?",
+    "strategies_items_original": "keep mind occupied all the time | vigilant for dangerous people | stay up until very late",
+    "avoidance_items_original": "Talking with others about the event or its aftermath | Being in circumstances that remind me of the event (eg, being in the dark). | Situations that put my body under stress"
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0391414141414141,
+    "Triggers -- Threat": 0.5151515151515151,
+    "Triggers -- Memory": 0.1590909090909091,
+    "Triggers -- Negative Appraisals": 0.0,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.1988636363636364,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0694444444444444,
+    "Memory -- Threat": 0.3125,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.053030303030303,
+    "Threat -- Maladaptive Strategies": 0.6319444444444444,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "observation": {
+    "datetime": "2024-12-04 12:45:46",
+    "index": 0,
+    "nodes": {
+      "Triggers": 1,
+      "Negative Appraisals": 0,
+      "Memory": 0,
+      "Threat": 1,
+      "Maladaptive Strategies": 1
+    },
+    "edges": {
+      "Triggers -- Maladaptive Strategies": 0,
+      "Triggers -- Threat": 1,
+      "Triggers -- Memory": 0,
+      "Triggers -- Negative Appraisals": 0,
+      "Negative Appraisals -- Maladaptive Strategies": 0,
+      "Negative Appraisals -- Threat": 0,
+      "Negative Appraisals -- Memory": 0,
+      "Negative Appraisals -- Triggers": 0,
+      "Memory -- Maladaptive Strategies": 0,
+      "Memory -- Threat": 0,
+      "Memory -- Negative Appraisals": 0,
+      "Memory -- Triggers": 0,
+      "Threat -- Maladaptive Strategies": 1,
+      "Threat -- Memory": 0,
+      "Threat -- Negative Appraisals": 0,
+      "Threat -- Triggers": 0,
+      "Maladaptive Strategies -- Memory": 0,
+      "Maladaptive Strategies -- Negative Appraisals": 0
+    }
+  }
+}

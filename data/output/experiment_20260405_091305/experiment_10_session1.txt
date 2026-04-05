@@ -1,0 +1,256 @@
+PATIENT 10  |  session 1  |  2026-04-05 09:14:01
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+CONFIG
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  pipeline:    full_moderated
+  temperature: 0.7
+  num_turns:   5
+  obs_index:   1
+  max_retries: 2
+  seed:        60
+  models:
+    persona_crafter      gpt-5.4-mini
+    validator            gpt-5.4-mini
+    dialogue_state       gpt-5.4-mini
+    client               gpt-5.4-mini
+    bot                  gpt-5.4-mini
+    moderator            gpt-5.4-mini
+    analyst              gpt-5.4-mini
+    vignette_analyst     gpt-5.4-mini
+
+DEMOGRAPHICS
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  age             23
+  gender          F
+  nationality     Israeli
+  profession      Student
+  pcl5            41
+  trauma_type     Sexual assault
+
+SELF-REPORT
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers:
+    • Cold,Being touched unprepared,Crowded places
+  Negative Appraisals:
+    • You can never know who will harm you
+    • If I think about the event, I will not be able to handle it
+    • Somebody else would have stopped the event from happening
+  Memory:
+    • I can’t seem to put the frightening event into words.
+    • When I remember the frightening event I feel like it is happening right now.
+    • My memories of the frightening event are like a film that plays over and over.
+  Threat:
+    • Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)?
+    • Being “superalert” or watchful or on guard?
+    • Trouble falling or staying asleep?
+  Maladaptive Strategies:
+    • keep mind occupied all the time
+    • vigilant for dangerous people
+    • stay up until very late
+  Avoidance:
+    • Talking with others about the event or its aftermath
+    • Being in circumstances that remind me of the event (eg, being in the dark).
+    • Situations that put my body under stress
+
+AGGREGATED EMA EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Triggers → Maladaptive Strategies                  0.0391
+  Triggers → Threat                                  0.5152
+  Triggers → Memory                                  0.1591
+  Triggers → Negative Appraisals                     0.0000
+  Negative Appraisals → Maladaptive Strategies       0.0000
+  Negative Appraisals → Threat                       0.1989
+  Negative Appraisals → Memory                       0.0000
+  Negative Appraisals → Triggers                     0.0000
+  Memory → Maladaptive Strategies                    0.0694
+  Memory → Threat                                    0.3125
+  Memory → Negative Appraisals                       0.0000
+  Memory → Triggers                                  0.0530
+  Threat → Maladaptive Strategies                    0.6319
+  Threat → Memory                                    0.0000
+  Threat → Negative Appraisals                       0.0000
+  Threat → Triggers                                  0.0000
+  Maladaptive Strategies → Memory                    0.0000
+  Maladaptive Strategies → Negative Appraisals       0.0000
+
+OBSERVATION  |  2024-12-04 18:30:50  |  index 1
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  Nodes:
+    ✓ Triggers
+    · Negative Appraisals
+    · Memory
+    ✓ Threat
+    ✓ Maladaptive Strategies
+  Edges:
+    · Triggers → Maladaptive Strategies
+    ✓ Triggers → Threat
+    · Triggers → Memory
+    · Triggers → Negative Appraisals
+    · Negative Appraisals → Maladaptive Strategies
+    · Negative Appraisals → Threat
+    · Negative Appraisals → Memory
+    · Negative Appraisals → Triggers
+    · Memory → Maladaptive Strategies
+    · Memory → Threat
+    · Memory → Negative Appraisals
+    · Memory → Triggers
+    ✓ Threat → Maladaptive Strategies
+    · Threat → Memory
+    · Threat → Negative Appraisals
+    · Threat → Triggers
+    · Maladaptive Strategies → Memory
+    · Maladaptive Strategies → Negative Appraisals
+
+VALIDATION SUMMARY
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  persona              1 attempt(s)  →  PASS
+  message              1 attempt(s)  →  PASS
+
+PERSONA VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+She is a 23-year-old Israeli student who has been struggling since a sexual assault that left her
+with a persistent sense that the world is unsafe. In day-to-day life, she describes being especially
+unsettled by cold air, by being touched without warning, and by crowded places, all of which can
+quickly make her feel as though she is back in danger. In those moments, her body reacts before she
+can think clearly: her heart pounds, breathing becomes difficult, and she feels intensely watchful,
+as if she must scan constantly for anyone who might harm her. Nights are also difficult, with
+trouble falling asleep or staying asleep adding to the exhaustion she already carries through the
+day.
+
+Her memory of the assault is not organized into a coherent story; she says she cannot seem to put it
+into words, and when she remembers it, it feels as if it is happening right now. The event returns
+to her in a repetitive, film-like way, intruding into ordinary moments and making her feel trapped
+in the same frightening scene. These memory experiences are tightly linked to the situations that
+unsettle her most, and they also feed her sense of immediate threat, deepening her hypervigilance
+and physical distress. She has come to expect danger in ways that shape her view of others, holding
+the conviction that one can never know who will harm them.
+
+To manage this ongoing fear, she keeps her mind occupied almost all the time and stays alert for
+dangerous people. She often stays up until very late, partly to avoid settling into sleep, and she
+describes herself as drawn into situations that remind her of the assault, including being in the
+dark. She also seeks out conversation with others about what happened and what followed, while at
+the same time putting her body under stress in ways that seem to leave her even more activated.
+These coping efforts appear to be her way of living with the constant sense of danger and the
+intrusions that accompany it.
+
+Over time, these patterns have taken a toll on her studies, rest, and relationships. She feels that
+if she thinks about the event, she will not be able to handle it, and she also carries a painful
+belief that somebody else would have stopped it from happening. The overall picture is of a young
+woman whose world has narrowed around fear, alertness, and exhaustion, with her daily life
+increasingly organized around avoiding overwhelm while still remaining braced for threat.
+
+PERSONA (final)
+────────────────────────────────────────────────────────────────────────────────────────────────────
+She is a 23-year-old Israeli student who has been struggling since a sexual assault that left her
+with a persistent sense that the world is unsafe. In day-to-day life, she describes being especially
+unsettled by cold air, by being touched without warning, and by crowded places, all of which can
+quickly make her feel as though she is back in danger. In those moments, her body reacts before she
+can think clearly: her heart pounds, breathing becomes difficult, and she feels intensely watchful,
+as if she must scan constantly for anyone who might harm her. Nights are also difficult, with
+trouble falling asleep or staying asleep adding to the exhaustion she already carries through the
+day.
+
+Her memory of the assault is not organized into a coherent story; she says she cannot seem to put it
+into words, and when she remembers it, it feels as if it is happening right now. The event returns
+to her in a repetitive, film-like way, intruding into ordinary moments and making her feel trapped
+in the same frightening scene. These memory experiences are tightly linked to the situations that
+unsettle her most, and they also feed her sense of immediate threat, deepening her hypervigilance
+and physical distress. She has come to expect danger in ways that shape her view of others, holding
+the conviction that one can never know who will harm them.
+
+To manage this ongoing fear, she keeps her mind occupied almost all the time and stays alert for
+dangerous people. She often stays up until very late, partly to avoid settling into sleep, and she
+describes herself as drawn into situations that remind her of the assault, including being in the
+dark. She also seeks out conversation with others about what happened and what followed, while at
+the same time putting her body under stress in ways that seem to leave her even more activated.
+These coping efforts appear to be her way of living with the constant sense of danger and the
+intrusions that accompany it.
+
+Over time, these patterns have taken a toll on her studies, rest, and relationships. She feels that
+if she thinks about the event, she will not be able to handle it, and she also carries a painful
+belief that somebody else would have stopped it from happening. The overall picture is of a young
+woman whose world has narrowed around fear, alertness, and exhaustion, with her daily life
+increasingly organized around avoiding overwhelm while still remaining braced for threat.
+
+INITIAL MESSAGE VALIDATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+  [1] PASS
+I was walking home just now and a cold wind hit me, and I instantly felt my whole body go tight like
+I needed to watch every person around me. I’m still trying to keep my breathing slow while I get
+inside.
+
+CONVERSATION
+────────────────────────────────────────────────────────────────────────────────────────────────────
+
+[0] CLIENT
+cold air hit me and now i feel on edge like i need to watch everyone around me
+  (raw) I was walking home just now and a cold wind hit me, and I instantly felt my whole body go tight like
+I needed to watch every person around me. I’m still trying to keep my breathing slow while I get
+inside.
+
+[1] BOT
+What do you notice in your body right now?
+
+[2] CLIENT
+heart is pounding and i keep looking around like someone is behind me
+  (raw) My heart is pounding and my chest feels tight, like I can’t quite get enough air. I keep scanning
+the street and checking who’s behind me, even though I want to just keep moving.
+
+[3] BOT
+How strong is that feeling right now, from 0 to 10?
+
+[4] CLIENT
+feels like an 8 rn i cant relax at all i have to stay on guard every second
+  (raw) It’s about an 8 right now. I’m still moving, but I feel like I need to stay on guard every second.
+
+[5] BOT
+What do you think would happen if you stopped watching for a moment?
+
+[6] CLIENT
+if i relax for a second i feel like something bad will happen again
+  (raw) I think I’d miss something dangerous and get caught off guard. If I let my attention slip, it feels
+like the bad thing could happen again before I can react.
+
+[7] BOT
+What is the worst thing you expect to happen right now?
+
+[8] CLIENT
+feels like someone could get too close too fast and i wont have time to react
+  (raw) That someone will come too close too fast and I won’t have time to stop it. Even thinking that makes
+my body tense up more, like I have to keep scanning or something will go wrong.
+
+[9] BOT
+What are you noticing around you right now that makes that feel more likely?
+
+ANALYSIS — NODES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers                     The client identifies an external cue that activates distress.
+      "cold air hit me and now i feel on edge like i need to watch everyone around me"
+  ✓ Negative Appraisals          The client expresses a maladaptive belief that danger will recur if they relax.
+      "if i relax for a second i feel like something bad will happen again"
+  · Memory                       There is no explicit intrusive memory, flashback, or trauma recall described.
+  ✓ Threat                       The client shows a current sense of danger and hypervigilance, expecting harm or needing constant watchfulness.
+      "i cant relax at all i have to stay on guard every second"
+  ✓ Maladaptive Strategies       The client describes safety behaviors and hypervigilant monitoring as coping strategies.
+      "i need to watch everyone around me"
+
+ANALYSIS — EDGES
+────────────────────────────────────────────────────────────────────────────────────────────────────
+  ✓ Triggers → Maladaptive Strategies             The cue leads to increased watching/vigilance.
+      "cold air hit me and now i feel on edge like i need to watch everyone around me"
+  ✓ Triggers → Threat                             The cue is followed by feeling on edge and needing to monitor others, indicating increased threat perception.
+      "cold air hit me and now i feel on edge like i need to watch everyone around me"
+  · Triggers → Memory                             No memory is described as being triggered.
+  · Triggers → Negative Appraisals                The cue does not clearly generate a maladaptive appraisal by itself in the conversation.
+  · Negative Appraisals → Maladaptive Strategies  No explicit causal link from appraisal to strategy is stated.
+  ✓ Negative Appraisals → Threat                  The belief that 'something bad will happen again' directly conveys ongoing threat.
+      "if i relax for a second i feel like something bad will happen again"
+  · Negative Appraisals → Memory                  No explicit link to trauma memory is present.
+  · Memory → Maladaptive Strategies               No memory content is present.
+  · Memory → Threat                               No memory content is present.
+  ✓ Threat → Maladaptive Strategies               Current threat leads to staying on guard and watching others.
+      "i cant relax at all i have to stay on guard every second"

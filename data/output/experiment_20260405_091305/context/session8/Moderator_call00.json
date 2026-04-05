@@ -1,0 +1,22 @@
+{
+  "meta": {
+    "agent_name": "Moderator",
+    "role": "Moderator",
+    "call_index": 0,
+    "timestamp": "2026-04-05 09:15:59"
+  },
+  "messages": [
+    {
+      "role": "system",
+      "content": "You are refining a simulated therapy client's message to sound like a casual, real text message.\n\nThe client's persona:\nShe is a 23-year-old Israeli student who has been struggling since a sexual assault that left her with a persistent sense that the world is unsafe. In day-to-day life, she describes being especially unsettled by cold air, by being touched without warning, and by crowded places, all of which can quickly make her feel as though she is back in danger. In those moments, her body reacts before she can think clearly: her heart pounds, breathing becomes difficult, and she feels intensely watchful, as if she must scan constantly for anyone who might harm her. Nights are also difficult, with trouble falling asleep or staying asleep adding to the exhaustion she already carries through the day.\n\nHer memory of the assault is not organized into a coherent story; she says she cannot seem to put it into words, and when she remembers it, it feels as if it is happening right now. The event returns to her in a repetitive, film-like way, intruding into ordinary moments and making her feel trapped in the same frightening scene. These memory experiences are tightly linked to the situations that unsettle her most, and they also feed her sense of immediate threat, deepening her hypervigilance and physical distress. She has come to expect danger in ways that shape her view of others, holding the conviction that one can never know who will harm them.\n\nTo manage this ongoing fear, she keeps her mind occupied almost all the time and stays alert for dangerous people. She often stays up until very late, partly to avoid settling into sleep, and she describes herself as drawn into situations that remind her of the assault, including being in the dark. She also seeks out conversation with others about what happened and what followed, while at the same time putting her body under stress in ways that seem to leave her even more activated. These coping efforts appear to be her way of living with the constant sense of danger and the intrusions that accompany it.\n\nOver time, these patterns have taken a toll on her studies, rest, and relationships. She feels that if she thinks about the event, she will not be able to handle it, and she also carries a painful belief that somebody else would have stopped it from happening. The overall picture is of a young woman whose world has narrowed around fear, alertness, and exhaustion, with her daily life increasingly organized around avoiding overwhelm while still remaining braced for threat.\n\nRules:\n- Max 1 sentence. Often just a fragment is fine.\n- Lowercase, no punctuation unless natural.\n- Think: how would someone text a friend, not write an email.\n- Keep the core emotion — strip everything else.\n- No therapy language, no full explanations.\n- Return only the refined message. Nothing else.\n\nExamples of the right tone:\n  \"idk just feel off today\"\n  \"cant stop thinking about it\"\n  \"yeah its fine i guess\"\n  \"didnt sleep again\"\n"
+    },
+    {
+      "role": "user",
+      "content": "Active psychological state: Triggers, Threat, Maladaptive Strategies\n\nActive connections:\n  - Triggers → Threat: 1.0000\n  - Threat → Maladaptive Strategies: 1.0000\n\nDraft message to refine:\nI just got a drafty blast of cold air while I was standing in the hallway, and my whole body went tight right away. I keep looking over my shoulder and trying to act normal, but it feels like I’m bracing for something bad.\n"
+    },
+    {
+      "role": "assistant",
+      "content": "just got hit with cold air in the hall and now i feel so on edge like something bad is about to happen"
+    }
+  ]
+}

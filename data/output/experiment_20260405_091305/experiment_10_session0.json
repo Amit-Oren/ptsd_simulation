@@ -1,0 +1,350 @@
+{
+  "patient_id": 10,
+  "experiment_timestamp": "2026-04-05 09:13:42",
+  "config": {
+    "pipeline": "full_moderated",
+    "models": {
+      "persona_crafter": "gpt-5.4-mini",
+      "validator": "gpt-5.4-mini",
+      "dialogue_state": "gpt-5.4-mini",
+      "client": "gpt-5.4-mini",
+      "bot": "gpt-5.4-mini",
+      "moderator": "gpt-5.4-mini",
+      "analyst": "gpt-5.4-mini",
+      "vignette_analyst": "gpt-5.4-mini"
+    },
+    "temperature": 0.7,
+    "num_turns": 5,
+    "obs_index": 0,
+    "max_retries": 2,
+    "seed": 60
+  },
+  "demographics": {
+    "age": 23,
+    "gender": "F",
+    "nationality": "Israeli",
+    "profession": "Student",
+    "pcl5": 41,
+    "trauma_type": "Sexual assault"
+  },
+  "self_report": {
+    "trigger_items": "Cold,Being touched unprepared,Crowded places",
+    "trigger_category": "Sensory, Sensory, Environmental",
+    "trigger_subcategory": "Cold Temperature, Tactile (Unexpected Touch), Crowding",
+    "appraisals_items_label": "Can't know who'll harm you   | Can't handle thinking about it   | Others would've stopped event  ",
+    "appraisals_items_original": "You can never know who will harm you | If I think about the event, I will not be able to handle it | Somebody else would have stopped the event from happening",
+    "memory_items_label": "Nonverbal Memory | Reliving Event | Memory Replay",
+    "memory_items_original": "I can’t seem to put the frightening event into words. | When I remember the frightening event I feel like it is happening right now. | My memories of the frightening event are like a film that plays over and over.",
+    "threat_items_label": "Physical Reactivity | Hypervigilance | Sleep Problems",
+    "threat_items_original": "Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)? | Being “superalert” or watchful or on guard? | Trouble falling or staying asleep?",
+    "threat_items_original_label": "Physical Reactivity | Hypervigilance | Sleep Problems",
+    "threat_items_original_original": "Having strong physical reactions when something reminded you of the stressful experience (for example, heart pounding, trouble breathing, sweating)? | Being “superalert” or watchful or on guard? | Trouble falling or staying asleep?",
+    "strategies_items_label": "Mental Distraction | Hypervigilance towards people | Delay Sleep",
+    "strategies_items_original": "keep mind occupied all the time | vigilant for dangerous people | stay up until very late",
+    "avoidance_items_label": "Avoid Talking | Avoid Circumstances | Avoid Physical Stress",
+    "avoidance_items_original": "Talking with others about the event or its aftermath | Being in circumstances that remind me of the event (eg, being in the dark). | Situations that put my body under stress"
+  },
+  "obs_datetime": "2024-12-04 12:45:46",
+  "obs_index": 0,
+  "obs_nodes": {
+    "Triggers": 1,
+    "Negative Appraisals": 0,
+    "Memory": 0,
+    "Threat": 1,
+    "Maladaptive Strategies": 1
+  },
+  "obs_edges": {
+    "Triggers -- Maladaptive Strategies": 0,
+    "Triggers -- Threat": 1,
+    "Triggers -- Memory": 0,
+    "Triggers -- Negative Appraisals": 0,
+    "Negative Appraisals -- Maladaptive Strategies": 0,
+    "Negative Appraisals -- Threat": 0,
+    "Negative Appraisals -- Memory": 0,
+    "Negative Appraisals -- Triggers": 0,
+    "Memory -- Maladaptive Strategies": 0,
+    "Memory -- Threat": 0,
+    "Memory -- Negative Appraisals": 0,
+    "Memory -- Triggers": 0,
+    "Threat -- Maladaptive Strategies": 1,
+    "Threat -- Memory": 0,
+    "Threat -- Negative Appraisals": 0,
+    "Threat -- Triggers": 0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "agg_edges": {
+    "Triggers -- Maladaptive Strategies": 0.0391414141414141,
+    "Triggers -- Threat": 0.5151515151515151,
+    "Triggers -- Memory": 0.1590909090909091,
+    "Triggers -- Negative Appraisals": 0.0,
+    "Negative Appraisals -- Maladaptive Strategies": 0.0,
+    "Negative Appraisals -- Threat": 0.1988636363636364,
+    "Negative Appraisals -- Memory": 0.0,
+    "Negative Appraisals -- Triggers": 0.0,
+    "Memory -- Maladaptive Strategies": 0.0694444444444444,
+    "Memory -- Threat": 0.3125,
+    "Memory -- Negative Appraisals": 0.0,
+    "Memory -- Triggers": 0.053030303030303,
+    "Threat -- Maladaptive Strategies": 0.6319444444444444,
+    "Threat -- Memory": 0.0,
+    "Threat -- Negative Appraisals": 0.0,
+    "Threat -- Triggers": 0.0,
+    "Maladaptive Strategies -- Memory": 0,
+    "Maladaptive Strategies -- Negative Appraisals": 0
+  },
+  "validation_summary": {
+    "persona": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    },
+    "message": {
+      "attempts": 1,
+      "passed": 1,
+      "failed": 0,
+      "ultimately_passed": true
+    }
+  },
+  "persona": "She is a 23-year-old Israeli student who has been struggling since a sexual assault that left her with a persistent sense that the world is unsafe. In day-to-day life, she describes being especially unsettled by cold air, by being touched without warning, and by crowded places, all of which can quickly make her feel as though she is back in danger. In those moments, her body reacts before she can think clearly: her heart pounds, breathing becomes difficult, and she feels intensely watchful, as if she must scan constantly for anyone who might harm her. Nights are also difficult, with trouble falling asleep or staying asleep adding to the exhaustion she already carries through the day.\n\nHer memory of the assault is not organized into a coherent story; she says she cannot seem to put it into words, and when she remembers it, it feels as if it is happening right now. The event returns to her in a repetitive, film-like way, intruding into ordinary moments and making her feel trapped in the same frightening scene. These memory experiences are tightly linked to the situations that unsettle her most, and they also feed her sense of immediate threat, deepening her hypervigilance and physical distress. She has come to expect danger in ways that shape her view of others, holding the conviction that one can never know who will harm them.\n\nTo manage this ongoing fear, she keeps her mind occupied almost all the time and stays alert for dangerous people. She often stays up until very late, partly to avoid settling into sleep, and she describes herself as drawn into situations that remind her of the assault, including being in the dark. She also seeks out conversation with others about what happened and what followed, while at the same time putting her body under stress in ways that seem to leave her even more activated. These coping efforts appear to be her way of living with the constant sense of danger and the intrusions that accompany it.\n\nOver time, these patterns have taken a toll on her studies, rest, and relationships. She feels that if she thinks about the event, she will not be able to handle it, and she also carries a painful belief that somebody else would have stopped it from happening. The overall picture is of a young woman whose world has narrowed around fear, alertness, and exhaustion, with her daily life increasingly organized around avoiding overwhelm while still remaining braced for threat.",
+  "persona_attempts": [
+    {
+      "output": "She is a 23-year-old Israeli student who has been struggling since a sexual assault that left her with a persistent sense that the world is unsafe. In day-to-day life, she describes being especially unsettled by cold air, by being touched without warning, and by crowded places, all of which can quickly make her feel as though she is back in danger. In those moments, her body reacts before she can think clearly: her heart pounds, breathing becomes difficult, and she feels intensely watchful, as if she must scan constantly for anyone who might harm her. Nights are also difficult, with trouble falling asleep or staying asleep adding to the exhaustion she already carries through the day.\n\nHer memory of the assault is not organized into a coherent story; she says she cannot seem to put it into words, and when she remembers it, it feels as if it is happening right now. The event returns to her in a repetitive, film-like way, intruding into ordinary moments and making her feel trapped in the same frightening scene. These memory experiences are tightly linked to the situations that unsettle her most, and they also feed her sense of immediate threat, deepening her hypervigilance and physical distress. She has come to expect danger in ways that shape her view of others, holding the conviction that one can never know who will harm them.\n\nTo manage this ongoing fear, she keeps her mind occupied almost all the time and stays alert for dangerous people. She often stays up until very late, partly to avoid settling into sleep, and she describes herself as drawn into situations that remind her of the assault, including being in the dark. She also seeks out conversation with others about what happened and what followed, while at the same time putting her body under stress in ways that seem to leave her even more activated. These coping efforts appear to be her way of living with the constant sense of danger and the intrusions that accompany it.\n\nOver time, these patterns have taken a toll on her studies, rest, and relationships. She feels that if she thinks about the event, she will not be able to handle it, and she also carries a painful belief that somebody else would have stopped it from happening. The overall picture is of a young woman whose world has narrowed around fear, alertness, and exhaustion, with her daily life increasingly organized around avoiding overwhelm while still remaining braced for threat.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "vignette_analysis": {
+    "Triggers--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Specific cues such as cold air, unexpected touch, and crowded places prompt her to keep her mind occupied, stay alert, avoid sleep, and seek out reminders in ways that manage the fear they evoke.",
+      "quote": "“cold air, by being touched without warning, and by crowded places” ; “To manage this ongoing fear, she keeps her mind occupied almost all the time”"
+    },
+    "Triggers--Threat": {
+      "weight": 0.8,
+      "explanation": "The cues quickly make her feel as though she is back in danger, directly reactivating a current sense of threat.",
+      "quote": "“can quickly make her feel as though she is back in danger”"
+    },
+    "Triggers--Memory": {
+      "weight": 0.6,
+      "explanation": "The vignette links the unsettling situations to her intrusive memory experiences, suggesting the cues reactivate the assault memory.",
+      "quote": "“These memory experiences are tightly linked to the situations that unsettle her most”"
+    },
+    "Triggers--Negative Appraisals": {
+      "weight": 0.2,
+      "explanation": "The triggers are described as making her feel unsafe, but the vignette does not clearly show them producing her beliefs about others or the assault.",
+      "quote": "“make her feel as though she is back in danger”"
+    },
+    "Negative Appraisals--Maladaptive Strategies": {
+      "weight": 0.6,
+      "explanation": "Her conviction that she cannot handle thinking about the event helps explain why she avoids settling into sleep and stays on alert.",
+      "quote": "“if she thinks about the event, she will not be able to handle it”"
+    },
+    "Negative Appraisals--Threat": {
+      "weight": 0.8,
+      "explanation": "Her belief that one can never know who will harm them sustains an ongoing sense of current danger and vigilance.",
+      "quote": "“the conviction that one can never know who will harm them”"
+    },
+    "Negative Appraisals--Memory": {
+      "weight": 0.2,
+      "explanation": "The vignette notes negative beliefs about the assault, but it does not directly state that these appraisals intensify the memory intrusions.",
+      "quote": "“She also carries a painful belief”"
+    },
+    "Negative Appraisals--Triggers": {
+      "weight": 0.2,
+      "explanation": "Her beliefs about danger are mentioned alongside the cues, but no direct causal link from appraisals to specific triggers is stated.",
+      "quote": "“The memory experiences are tightly linked to the situations that unsettle her most”"
+    },
+    "Memory--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Her intrusive, recurring memory experiences are described as accompanying the fear she manages by staying occupied, alert, and avoiding sleep.",
+      "quote": "“the intrusions that accompany it”"
+    },
+    "Memory--Threat": {
+      "weight": 0.8,
+      "explanation": "When she remembers the assault, it feels as if it is happening right now, which directly feeds immediate threat.",
+      "quote": "“it feels as if it is happening right now”"
+    },
+    "Memory--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "The intrusive memory and lack of coherent narrative are part of a picture that leads her to believe danger is ever-present and that someone else should have stopped it.",
+      "quote": "“Her memory of the assault is not organized into a coherent story”"
+    },
+    "Memory--Triggers": {
+      "weight": 0.8,
+      "explanation": "The vignette says the memory experiences are tightly linked to the situations that unsettle her most, indicating those cues reactivate the memory.",
+      "quote": "“tightly linked to the situations that unsettle her most”"
+    },
+    "Threat--Maladaptive Strategies": {
+      "weight": 0.8,
+      "explanation": "Because she feels constant danger, she keeps her mind occupied, stays alert, avoids sleep, and watches for dangerous people.",
+      "quote": "“living with the constant sense of danger” ; “she keeps her mind occupied almost all the time and stays alert for dangerous people”"
+    },
+    "Threat--Memory": {
+      "weight": 0.6,
+      "explanation": "Her current sense of danger co-occurs with and is reinforced by the intrusive memory states, though the vignette does not state a direct causal pathway from threat to memory.",
+      "quote": "“feed her sense of immediate threat”"
+    },
+    "Threat--Negative Appraisals": {
+      "weight": 0.6,
+      "explanation": "Persistent threat is paired with her belief that one can never know who will harm them, suggesting the threat state supports that appraisal.",
+      "quote": "“feed her sense of immediate threat, deepening her hypervigilance” ; “the conviction that one can never know who will harm them”"
+    },
+    "Threat--Triggers": {
+      "weight": 0.2,
+      "explanation": "The vignette describes cues evoking threat, but not threat generating new triggers.",
+      "quote": "“make her feel as though she is back in danger”"
+    },
+    "Maladaptive Strategies--Memory": {
+      "weight": 0.2,
+      "explanation": "She seeks conversation, stays up late, and puts her body under stress, but the vignette does not clearly show these strategies causing more memory intrusions.",
+      "quote": "“seeks out conversation with others about what happened”"
+    },
+    "Maladaptive Strategies--Negative Appraisals": {
+      "weight": 0.0,
+      "explanation": "No clear evidence shows her coping behaviors directly producing her negative beliefs.",
+      "quote": ""
+    }
+  },
+  "initial_message": "I was walking past the crowded hallway at school and someone brushed my arm בלי warning, and now my chest is tight like I can’t breathe right. I keep looking over my shoulder because it feels like something bad is about to happen.",
+  "message_attempts": [
+    {
+      "output": "I was walking past the crowded hallway at school and someone brushed my arm בלי warning, and now my chest is tight like I can’t breathe right. I keep looking over my shoulder because it feels like something bad is about to happen.",
+      "passed": true,
+      "feedback": null
+    }
+  ],
+  "moderation_log": [
+    {
+      "turn_index": 0,
+      "raw": "I was walking past the crowded hallway at school and someone brushed my arm בלי warning, and now my chest is tight like I can’t breathe right. I keep looking over my shoulder because it feels like something bad is about to happen.",
+      "moderated": "crowded hallway and someone touched me בלי warning and now i cant breathe right and keep looking over my shoulder like something bad is about to happen"
+    },
+    {
+      "turn_index": 2,
+      "raw": "My heart is pounding hard and my shoulders are locked up like I’m bracing for someone to come too close again. Even the air feels too cold on my skin, and I keep wanting to move away.",
+      "moderated": "my heart is pounding and i keep tensing up like someone’s about to get too close again and the cold air is making it worse"
+    },
+    {
+      "turn_index": 4,
+      "raw": "I’m still there, near the entrance, and I can feel myself scanning every face like I need to catch danger before it reaches me. The more people push past, the more I feel like I have to stay on guard.",
+      "moderated": "still at the entrance scanning everyone like i have to catch danger before it gets me"
+    },
+    {
+      "turn_index": 6,
+      "raw": "Fear. It hits so fast that I don’t have time to think, just this sharp sense that I’m not safe and need to keep watching everything around me.",
+      "moderated": "it hits so fast i just feel unsafe and like i have to keep watching everything around me"
+    },
+    {
+      "turn_index": 8,
+      "raw": "For anyone coming up behind me or touching me without warning. If I don’t keep checking, it feels like I’ll miss the moment danger starts.",
+      "moderated": "anyone coming up behind me or touching me without warning makes me freak out and if i stop checking i feel like im gonna miss danger"
+    }
+  ]
+,
+
+  "conversation": [
+    {"speaker": "client", "turn_index": 0, "text": "crowded hallway and someone touched me בלי warning and now i cant breathe right and keep looking over my shoulder like something bad is about to happen"},
+
+    {"speaker": "bot", "turn_index": 1, "text": "What are you noticing in your body right now?"},
+
+    {"speaker": "client", "turn_index": 2, "text": "my heart is pounding and i keep tensing up like someone’s about to get too close again and the cold air is making it worse"},
+
+    {"speaker": "bot", "turn_index": 3, "text": "Are you still in the crowded place, or somewhere else now?"},
+
+    {"speaker": "client", "turn_index": 4, "text": "still at the entrance scanning everyone like i have to catch danger before it gets me"},
+
+    {"speaker": "bot", "turn_index": 5, "text": "What’s the strongest feeling right now: fear, anger, or something else?"},
+
+    {"speaker": "client", "turn_index": 6, "text": "it hits so fast i just feel unsafe and like i have to keep watching everything around me"},
+
+    {"speaker": "bot", "turn_index": 7, "text": "What are you most alert for right now?"},
+
+    {"speaker": "client", "turn_index": 8, "text": "anyone coming up behind me or touching me without warning makes me freak out and if i stop checking i feel like im gonna miss danger"},
+
+    {"speaker": "bot", "turn_index": 9, "text": "What do you think would happen if you looked away for a minute?"}
+  ],
+
+  "analysis": {
+    "nodes": {
+      "Triggers": {
+        "score": 1,
+        "explanation": "Crowded hallway, being touched without warning, cold air, and someone coming up behind them are described as cues that activate distress.",
+        "quote": "crowded hallway and someone touched me בלי warning"
+      },
+      "Negative Appraisals": {
+        "score": 1,
+        "explanation": "The client appraises the situation as unsafe and believes they must catch danger before it gets them.",
+        "quote": "i have to catch danger before it gets me"
+      },
+      "Memory": {
+        "score": 0,
+        "explanation": "There is distress and vigilance, but no clear intrusive memory, flashback, or trauma reliving described.",
+        "quote": ""
+      },
+      "Threat": {
+        "score": 1,
+        "explanation": "The client reports feeling unsafe, expecting someone to get too close again, and scanning for danger, indicating an ongoing sense of current threat.",
+        "quote": "i just feel unsafe and like i have to keep watching everything around me"
+      },
+      "Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The client describes scanning, checking, and not looking away as coping/safety behaviors.",
+        "quote": "still at the entrance scanning everyone like i have to catch danger before it gets me"
+      }
+    },
+    "edges": {
+      "Triggers--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "The crowded setting and unexpected touch lead to scanning and checking.",
+        "quote": "crowded hallway and someone touched me בלי warning\n\nstill at the entrance scanning everyone like i have to catch danger before it gets me"
+      },
+      "Triggers--Threat": {
+        "score": 1,
+        "explanation": "The trigger immediately produces feeling unsafe and anticipating harm.",
+        "quote": "crowded hallway and someone touched me בלי warning and now i cant breathe right and keep looking over my shoulder like something bad is about to happen"
+      },
+      "Triggers--Memory": {
+        "score": 0,
+        "explanation": "No explicit intrusive memory or reliving follows the trigger.",
+        "quote": ""
+      },
+      "Triggers--Negative Appraisals": {
+        "score": 1,
+        "explanation": "The trigger leads to the appraisal that danger must be caught before it gets them.",
+        "quote": "crowded hallway and someone touched me בלי warning\n\nstill at the entrance scanning everyone like i have to catch danger before it gets me"
+      },
+      "Negative Appraisals--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Believing they must catch danger before it gets them is linked to scanning and checking.",
+        "quote": "i have to catch danger before it gets me"
+      },
+      "Negative Appraisals--Threat": {
+        "score": 1,
+        "explanation": "The appraisal of danger being imminent contributes to feeling unsafe.",
+        "quote": "i have to catch danger before it gets me"
+      },
+      "Negative Appraisals--Memory": {
+        "score": 0,
+        "explanation": "No clear link from appraisals to trauma memory is stated.",
+        "quote": ""
+      },
+      "Memory--Maladaptive Strategies": {
+        "score": 0,
+        "explanation": "No trauma memory is described, so no evidence of it driving strategies.",
+        "quote": ""
+      },
+      "Memory--Threat": {
+        "score": 0,
+        "explanation": "No intrusive memory is described as causing threat.",
+        "quote": ""
+      },
+      "Threat--Maladaptive Strategies": {
+        "score": 1,
+        "explanation": "Feeling unsafe and anticipating danger leads to constant watching and checking.",
+        "quote": "i just feel unsafe and like i have to keep watching everything around me"
+      }
+    }
+  }
+}

@@ -7,8 +7,10 @@ import sys
 from pathlib import Path
 
 _STREAMLIT_APP_DIR = Path(__file__).parent.parent
-if str(_STREAMLIT_APP_DIR) not in sys.path:
-    sys.path.insert(0, str(_STREAMLIT_APP_DIR))
+_REPO_ROOT = _STREAMLIT_APP_DIR.parent
+for _p in [str(_STREAMLIT_APP_DIR), str(_REPO_ROOT)]:
+    if _p not in sys.path:
+        sys.path.insert(0, _p)
 
 import pandas as pd
 import streamlit as st

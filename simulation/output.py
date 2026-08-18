@@ -15,13 +15,7 @@ def wrap(text: str) -> str:
 
 def to_serializable(obj):
     if isinstance(obj, dict):
-        def _key(k):
-            if isinstance(k, tuple):
-                return " -- ".join(k)
-            if isinstance(k, np.integer):
-                return int(k)
-            return k
-        return {_key(k): to_serializable(v) for k, v in obj.items()}
+        return {k: to_serializable(v) for k, v in obj.items()}
     if isinstance(obj, list):
         return [to_serializable(i) for i in obj]
     if isinstance(obj, np.integer):
@@ -35,10 +29,11 @@ def to_serializable(obj):
 
 def write_json(output: dict, f):
     """Write output JSON with blank lines between conversation turns."""
-    conversation = output.pop("conversation")
-    analysis     = output.pop("analysis")
+    conversation = output.get("conversation", [])
+    analysis     = output.get("analysis", {})
+    body = {k: v for k, v in output.items() if k not in ("conversation", "analysis")}
 
-    f.write(json.dumps(output, indent=2, ensure_ascii=False)[:-1])
+    f.write(json.dumps(body, indent=2, ensure_ascii=False)[:-1])
 
     f.write(',\n\n  "conversation": [\n')
     for i, turn in enumerate(conversation):
@@ -51,27 +46,23 @@ def write_json(output: dict, f):
 
 
 def write_summary_json(output: dict, path):
-    """Write a compact summary JSON: config, demographics, self_report, edges, observation."""
-    _SR_KEYS = [
-        "trigger_items", "appraisals_items_original",
-        "memory_items_original", "threat_items_original",
-        "strategies_items_original", "avoidance_items_original",
-    ]
-    sr_full = output.get("self_report", {})
-    sr_clean = {k: sr_full[k] for k in _SR_KEYS if k in sr_full}
-
+    """Write a compact summary JSON: config, demographics, self_report, cognitive model."""
+    analysis = output.get("analysis", {})
     summary = {
-        "patient_id":   output["patient_id"],
-        "timestamp":    output["experiment_timestamp"],
-        "config":       output.get("config", {}),
-        "demographics": output.get("demographics", {}),
-        "self_report":  sr_clean,
-        "agg_edges":    output.get("agg_edges", {}),
-        "observation": {
-            "datetime": output.get("obs_datetime", ""),
-            "index":    output.get("obs_index"),
-            "nodes":    output.get("obs_nodes", {}),
-            "edges":    output.get("obs_edges", {}),
+        "patient_idx":       output.get("patient_idx"),
+        "session_idx":       output.get("session_idx"),
+        "timestamp":         output["experiment_timestamp"],
+        "config":            output.get("config", {}),
+        "demographics":      output.get("demographics", {}),
+        "self_report":       output.get("self_report", {}),
+        "active_nodes":      output.get("active_nodes", []),
+        "agg_edges":         output.get("agg_edges", {}),
+        "vignette_analysis": output.get("vignette_analysis", {}),
+        "session": {
+            "obs_nodes":        output.get("obs_nodes", {}),
+            "obs_edges":        output.get("obs_edges", {}),
+            "analysis_summary": analysis.get("summary", ""),
+            "analysis_graph":   analysis.get("edges", {}),
         },
     }
     with open(path, "w", encoding="utf-8") as f:
@@ -89,7 +80,7 @@ def write_txt(output: dict, path):
     with open(path, "w", encoding="utf-8") as f:
 
         # ── Header ──────────────────────────────────────────────────────────
-        f.write(f"PATIENT {output['patient_id']}  |  session {output.get('obs_index', '?')}  |  {output['experiment_timestamp']}\n")
+        f.write(f"PATIENT {output.get('patient_idx', '?')}  |  session {output.get('session_idx', '?')}  |  {output['experiment_timestamp']}\n")
         f.write(SEP + "\n")
 
         # ── Config ──────────────────────────────────────────────────────────
@@ -98,7 +89,10 @@ def write_txt(output: dict, path):
         f.write(f"  pipeline:    {cfg.get('pipeline')}\n")
         f.write(f"  temperature: {cfg.get('temperature')}\n")
         f.write(f"  num_turns:   {cfg.get('num_turns')}\n")
-        f.write(f"  obs_index:   {cfg.get('obs_index')}\n")
+        f.write(f"  num_sessions:{cfg.get('num_sessions')}\n")
+        f.write(f"  n_items:     {cfg.get('n_items')}\n")
+        f.write(f"  node_prob:   {cfg.get('node_prob')}\n")
+        f.write(f"  edge_prob:   {cfg.get('edge_prob')}\n")
         f.write(f"  max_retries: {cfg.get('max_retries')}\n")
         f.write(f"  seed:        {cfg.get('seed')}\n")
         f.write("  models:\n")
@@ -109,44 +103,36 @@ def write_txt(output: dict, path):
         demo = output.get("demographics", {})
         f.write(section("DEMOGRAPHICS"))
         for k, v in demo.items():
-            f.write(f"  {k:<15} {v}\n")
+            f.write(f"  {k:<20} {v}\n")
 
-        # ── Self-report (key items only) ─────────────────────────────────────
+        # ── Self-report ──────────────────────────────────────────────────────
         sr = output.get("self_report", {})
-        _SR_LABELS = {
-            "trigger_items":               "Triggers",
-            "appraisals_items_original":   "Negative Appraisals",
-            "memory_items_original":       "Memory",
-            "threat_items_original":       "Threat",
-            "strategies_items_original":   "Maladaptive Strategies",
-            "avoidance_items_original":    "Avoidance",
-        }
         f.write(section("SELF-REPORT"))
-        for key, label in _SR_LABELS.items():
-            val = sr.get(key, "")
-            if val and not (isinstance(val, float) and math.isnan(val)):
-                items = [i.strip() for i in str(val).split("|") if i.strip()]
-                f.write(f"  {label}:\n")
-                for item in items:
+        for node, items in sr.items():
+            f.write(f"  {node}:\n")
+            for item in items:
+                if isinstance(item, dict):
+                    f.write(f"    • {item['key']}: {item['value']}\n")
+                else:
                     f.write(f"    • {item}\n")
 
-        # ── Aggregated edges ─────────────────────────────────────────────────
-        f.write(section("AGGREGATED EMA EDGES"))
-        for edge, val in output.get("agg_edges", {}).items():
-            arrow = edge.replace("--", "→")
-            f.write(f"  {arrow:<50} {val:.4f}\n")
+        # ── Cognitive model edges ────────────────────────────────────────────
+        f.write(section("COGNITIVE MODEL EDGES"))
+        for p, children in output.get("agg_edges", {}).items():
+            for c, val in children.items():
+                f.write(f"  {p} → {c:<40} {val:.4f}\n")
 
-        # ── Observation ──────────────────────────────────────────────────────
-        f.write(section(f"OBSERVATION  |  {output.get('obs_datetime', '')}  |  index {output.get('obs_index', '?')}"))
+        # ── Session state ────────────────────────────────────────────────────
+        f.write(section(f"SESSION STATE  |  session {output.get('session_idx', '?')}"))
         f.write("  Nodes:\n")
         for node, val in output.get("obs_nodes", {}).items():
             active = "✓" if val else "·"
             f.write(f"    {active} {node}\n")
         f.write("  Edges:\n")
-        for edge, val in output.get("obs_edges", {}).items():
-            active = "✓" if val else "·"
-            arrow = edge.replace("--", "→")
-            f.write(f"    {active} {arrow}\n")
+        for p, children in output.get("obs_edges", {}).items():
+            for c, val in children.items():
+                active = "✓" if val else "·"
+                f.write(f"    {active} {p} → {c}\n")
 
         # ── Validation summary ───────────────────────────────────────────────
         vs = output.get("validation_summary", {})
@@ -155,27 +141,35 @@ def write_txt(output: dict, path):
             status = "PASS" if summary.get("ultimately_passed") else "FAIL"
             f.write(f"  {part:<20} {summary['attempts']} attempt(s)  →  {status}\n")
 
-        # ── Persona validation attempts ──────────────────────────────────────
-        f.write(section("PERSONA VALIDATION"))
-        for i, attempt in enumerate(output.get("persona_attempts", []), 1):
-            status = "PASS" if attempt["passed"] else "FAIL"
+        # ── Vignette validation attempts ─────────────────────────────────────
+        f.write(section("VIGNETTE VALIDATION"))
+        for i, attempt in enumerate(output.get("vignette_attempts", []), 1):
+            status = "PASS" if attempt.get("passed") else "FAIL"
             f.write(f"\n  [{i}] {status}\n")
-            f.write(wrap(attempt["output"]) + "\n")
+            f.write(wrap(attempt.get("vignette", attempt.get("output", ""))) + "\n")
             if attempt.get("feedback"):
                 f.write(f"\n  Feedback: {wrap(attempt['feedback'])}\n")
 
-        # ── Persona (final) ───────────────────────────────────────────────────
-        f.write(section("PERSONA (final)"))
-        f.write(wrap(output.get("persona", "")) + "\n")
+        # ── Vignette (final) ─────────────────────────────────────────────────
+        f.write(section("VIGNETTE (final)"))
+        f.write(wrap(output.get("vignette", "")) + "\n")
 
         # ── Initial message validation ────────────────────────────────────────
         f.write(section("INITIAL MESSAGE VALIDATION"))
         for i, attempt in enumerate(output.get("message_attempts", []), 1):
-            status = "PASS" if attempt["passed"] else "FAIL"
+            status = "PASS" if attempt.get("passed") else "FAIL"
             f.write(f"\n  [{i}] {status}\n")
-            f.write(wrap(attempt["output"]) + "\n")
+            f.write(wrap(attempt.get("output", "")) + "\n")
             if attempt.get("feedback"):
                 f.write(f"\n  Feedback: {wrap(attempt['feedback'])}\n")
+
+        # ── Tokens ────────────────────────────────────────────────────────────
+        tokens = output.get("tokens", {})
+        if tokens:
+            f.write(section("TOKEN USAGE (session)"))
+            f.write(f"  input:  {tokens.get('input', 0)}\n")
+            f.write(f"  output: {tokens.get('output', 0)}\n")
+            f.write(f"  total:  {tokens.get('total', 0)}\n")
 
         # ── Conversation ──────────────────────────────────────────────────────
         f.write(section("CONVERSATION"))
@@ -192,6 +186,10 @@ def write_txt(output: dict, path):
 
         # ── Analysis ──────────────────────────────────────────────────────────
         analysis = output.get("analysis", {})
+        if analysis.get("summary"):
+            f.write(section("ANALYSIS — SUMMARY"))
+            f.write(wrap(analysis["summary"]) + "\n")
+
         f.write(section("ANALYSIS — NODES"))
         for node, data in analysis.get("nodes", {}).items():
             score = data.get("score", 0)
@@ -201,10 +199,11 @@ def write_txt(output: dict, path):
                 f.write(f"      \"{data['quote']}\"\n")
 
         f.write(section("ANALYSIS — EDGES"))
-        for edge, data in analysis.get("edges", {}).items():
-            score = data.get("score", 0)
-            mark  = "✓" if score else "·"
-            arrow = edge.replace("--", " → ")
-            f.write(f"  {mark} {arrow:<45} {data.get('explanation', '')}\n")
-            if data.get("quote"):
-                f.write(f"      \"{data['quote']}\"\n")
+        for p, children in analysis.get("edges", {}).items():
+            for c, data in children.items():
+                score = data.get("score", 0)
+                mark  = "✓" if score else "·"
+                arrow = f"{p} → {c}"
+                f.write(f"  {mark} {arrow:<45} {data.get('explanation', '')}\n")
+                if data.get("quote"):
+                    f.write(f"      \"{data['quote']}\"\n")

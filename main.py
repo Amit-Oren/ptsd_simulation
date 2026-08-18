@@ -16,22 +16,26 @@ def parse_args():
     parser = argparse.ArgumentParser(description="Run the PTSD simulation.")
     parser.add_argument("--config", type=str, default="config/simulation_config.yaml",
                         help="Path to simulation config YAML (default: config/simulation_config.yaml)")
-    parser.add_argument("--patients", type=int, nargs="+", default=None,
-                        help="Specific patient IDs to run (overrides num_patients)")
     parser.add_argument("--num-patients", type=int, default=None,
-                        help="Number of patients to randomly sample")
+                        help="Number of synthetic patients to generate")
+    parser.add_argument("--sessions", type=int, default=None,
+                        help="Number of sessions per patient")
     parser.add_argument("--turns", type=int, default=None,
-                        help="Number of conversation turns")
+                        help="Number of conversation turns per session")
     parser.add_argument("--seed", type=int, default=None,
                         help="Random seed")
-    parser.add_argument("--obs-index", type=int, default=None,
-                        help="Observation index to use")
     parser.add_argument("--max-retries", type=int, default=None,
                         help="Max validation retries")
     parser.add_argument("--temperature", type=float, default=None,
                         help="LLM temperature (0.0–2.0)")
     parser.add_argument("--pipeline", type=str, default=None,
-                        help="Pipeline preset: full, no_validation, no_analysis, no_validation_no_analysis")
+                        help="Pipeline preset: full, full_moderated, no_validation, vignette_only, ...")
+    parser.add_argument("--n-items", type=int, default=None,
+                        help="Number of self-report items per node")
+    parser.add_argument("--node-prob", type=float, default=None,
+                        help="Probability of activating each cognitive model node (0.0–1.0)")
+    parser.add_argument("--edge-prob", type=float, default=None,
+                        help="Probability of activating each edge between active nodes (0.0–1.0)")
     return parser.parse_args()
 
 
@@ -45,20 +49,20 @@ if __name__ == "__main__":
 
     args = parse_args()
     cfg = load_config(args.config)
-
     sim = cfg["simulation"]
 
     runner = SimulationRunner(
         num_patients  = args.num_patients  or sim["num_patients"],
+        num_sessions  = args.sessions      or sim["num_sessions"],
         num_turns     = args.turns         or sim["num_turns"],
         seed          = args.seed          or sim["seed"],
-        obs_index     = args.obs_index     if args.obs_index is not None else sim["obs_index"],
         max_retries   = args.max_retries   or sim["max_validation_retries"],
         temperature   = args.temperature   if args.temperature is not None else sim["temperature"],
-        patient_ids   = args.patients or sim.get("patient_ids"),
-        pipeline        = args.pipeline or sim.get("pipeline", "full"),
-        persona_context = sim.get("persona_context", False),
-        models          = cfg["models"],
+        pipeline      = args.pipeline or sim.get("pipeline", "full"),
+        n_items       = args.n_items       or sim.get("n_items", 3),
+        node_prob     = args.node_prob     if args.node_prob  is not None else sim.get("node_prob", 0.7),
+        edge_prob     = args.edge_prob     if args.edge_prob  is not None else sim.get("edge_prob", 0.5),
+        models        = cfg["models"],
         agent_classes = cfg["agents"],
         experiment_dir = experiment_dir,
     )

@@ -1,9 +1,0 @@
-to do :
-1. remove aggregated nodes 
-2. modulate the simulation 
-3. write comments 
-4. run 50 time without the changes
-5. add demographics to EMAs 
-6. add triggers and nimrods data to EMAs
-7. add moderator for the multi-turn conversation 
-8. add conversation memory -- RAG  

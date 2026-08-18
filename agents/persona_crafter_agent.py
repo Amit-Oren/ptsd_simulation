@@ -1,65 +1,89 @@
 import logging
+from pydantic import BaseModel
 from .base_agent import BaseAgent
+from config.prompts import PERSONA_CRAFTER_SYSTEM_PROMPT, PERSONA_CRAFTER_USER_PROMPT
+from data.input.input import _NODE_POOLS
 
 logger = logging.getLogger(__name__)
-from data.input.input import get_aggregated_context, get_demographics
-from config.prompts import (PERSONA_CRAFTER_AGENT_PROMPT,
-                            PERSONA_CRAFTER_AGENT_PROMPT_CONTEXT,
-                            PERSONA_CRAFTER_RETRY_PROMPT,
-                            PERSONA_CRAFTER_USER_PROMPT)
+
+
+class SelectionResult(BaseModel):
+    components: list[str] = []
+    items_per_component: list[str] = []
 
 
 class PersonaCrafterAgent(BaseAgent):
-    """Agent responsible for crafting a persona vignette based on patient data."""
-    def __init__(self, name: str, role: str, llm, patient_id: int,
-                 use_demographics: bool = False, use_self_report: bool = False):
-        context = get_aggregated_context(patient_id)
+    """Fixes flagged self-report items with clinically coherent replacements."""
 
-        required_edges, forbidden_edges = self._split_edges(context["edges"])
+    def __init__(self, name: str, role: str, llm, n_items: int = 3):
+        self.n_items = n_items
+        super().__init__(name, role, system_prompt="", llm=llm)
 
-        if use_demographics or use_self_report:
-            prompt = PERSONA_CRAFTER_AGENT_PROMPT_CONTEXT.format(
-                required_edges=required_edges,
-                forbidden_edges=forbidden_edges,
-                demographics=self._format_demographics(get_demographics(patient_id)) if use_demographics else "",
-                self_report=self._format_self_report(context["nodes"]) if use_self_report else "",
-            )
-        else:
-            prompt = PERSONA_CRAFTER_AGENT_PROMPT.format(
-                required_edges=required_edges,
-                forbidden_edges=forbidden_edges,
-            )
+    def setup_agent(self):
+        return None
 
-        super().__init__(name, role, prompt, llm)
-
-    def create_persona(self) -> str:
-        self.persona = self.respond(PERSONA_CRAFTER_USER_PROMPT)
-        logger.info("[%s] vignette written", self.name)
-        return self.persona
-
-    def create_persona_with_feedback(self, feedback: str) -> str:
-        retry_prompt = PERSONA_CRAFTER_RETRY_PROMPT.format(
-            feedback=feedback,
-            previous_persona=self.persona,
+    def fix_self_report(self, demographics: dict, self_report: dict,
+                        issues: list[dict], problematic_items: dict[str, list[str]],
+                        cumulative_bad_keys: dict[str, set] = None) -> dict:
+        self.system_prompt = PERSONA_CRAFTER_SYSTEM_PROMPT.format(
+            replacement_pools=self._fmt_pools(list(problematic_items.keys())),
         )
-        self.persona = self.respond(retry_prompt)
-        logger.info("[%s] vignette revised after feedback", self.name)
-        return self.persona
+        user_prompt = PERSONA_CRAFTER_USER_PROMPT.format(
+            demographics=self.fmt_demographics(demographics),
+            current_self_report=self.fmt_self_report(self_report),
+            issues=self._fmt_issues(issues),
+        )
+        result: SelectionResult = self._invoke_structured(SelectionResult, self.system_prompt, user_prompt)
+        if result is None:
+            logger.warning("[%s] fix_self_report parsing failed — keeping original items", self.name)
+            return self_report
 
-    def _split_edges(self, edges: dict) -> tuple[str, str]:
-        required = [k for k, v in edges.items() if v.get("strength", 0) > 0]
-        forbidden = [k for k, v in edges.items() if v.get("strength", 0) == 0]
-        req_str = "\n".join(f"  - {k[0]} → {k[1]}" for k in required) or "  (none)"
-        forb_str = "\n".join(f"  - {k[0]} → {k[1]}" for k in forbidden) or "  (none)"
-        return req_str, forb_str
+        selections_by_node = self._normalize_selections(result)
+        self.log_response(user_prompt, str(selections_by_node), output=selections_by_node)
+        return self._apply_selections(self_report, selections_by_node, problematic_items,
+                                      cumulative_bad_keys or {})
 
-    def _format_demographics(self, demo: dict) -> str:
-        return "\n".join(f"  {k}: {v}" for k, v in demo.items())
+    def _normalize_selections(self, result: SelectionResult) -> dict[str, list[str]]:
+        out = {}
+        for component, items_str in zip(result.components, result.items_per_component):
+            if items_str.startswith(component + ":"):
+                items_str = items_str[len(component) + 1:].strip()
+            out[component] = [k.split(":")[0].strip() for k in items_str.split(",") if k.strip()]
+        return out
 
-    def _format_self_report(self, nodes: dict) -> str:
+    def _apply_selections(self, self_report: dict, selections_by_node: dict,
+                          problematic_items: dict[str, list[str]],
+                          cumulative_bad_keys: dict[str, set]) -> dict:
+        updated = {node: list(items) for node, items in self_report.items()}
+        for node, bad_keys in problematic_items.items():
+            pool = _NODE_POOLS.get(node, {})
+            if not pool:
+                logger.warning("[%s] unknown node '%s' — skipping", self.name, node)
+                continue
+            all_bad = cumulative_bad_keys.get(node, set()) | set(bad_keys)
+            current_keys = [i["key"] if isinstance(i, dict) else i for i in updated.get(node, [])]
+            merged = self._merge_node(all_bad, pool, selections_by_node.get(node, []), current_keys)
+            updated[node] = [{"key": k, "value": pool[k]} for k in merged]
+        logger.info("[%s] fixed items for nodes: %s", self.name, list(problematic_items.keys()))
+        return updated
+
+    def _merge_node(self, bad_keys: set, pool: dict, replacements: list, current_keys: list) -> list:
+        kept = [k for k in current_keys if k not in bad_keys]
+        new_keys = [k for k in replacements if k in pool and k not in kept and k not in bad_keys]
+        merged = kept + new_keys
+        for key in pool:
+            if len(merged) == self.n_items:
+                break
+            if key not in merged and key not in bad_keys:
+                merged.append(key)
+        return merged[:self.n_items]
+
+    @staticmethod
+    def _fmt_pools(nodes: list) -> str:
         lines = []
-        for node, data in nodes.items():
-            items = data.get("items", [])
-            if items:
-                lines.append(f"  {node}: {', '.join(items)}")
+        for node in nodes:
+            pool = _NODE_POOLS.get(node, {})
+            lines.append(f"  {node}:")
+            for key, value in pool.items():
+                lines.append(f"    - {key}: {value}")
         return "\n".join(lines)

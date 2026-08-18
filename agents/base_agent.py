@@ -4,22 +4,38 @@ from abc import ABC
 from datetime import datetime
 from pathlib import Path
 from langchain.agents import create_agent
-from langchain.messages import SystemMessage, HumanMessage
+from langchain.messages import SystemMessage
 
 logger = logging.getLogger(__name__)
 
 _EXPERIMENT_DIR: Path = Path("data/output")
 _CONTEXT_SUBDIR: str = ""
 
+_run_tokens: dict = {"input": 0, "output": 0}
+
+
+def reset_run_tokens() -> None:
+    _run_tokens["input"] = 0
+    _run_tokens["output"] = 0
+
+
+def get_run_tokens() -> dict:
+    total = _run_tokens["input"] + _run_tokens["output"]
+    return {"input": _run_tokens["input"], "output": _run_tokens["output"], "total": total}
+
+
+def _count(msg) -> None:
+    usage = getattr(msg, "usage_metadata", None) or {}
+    _run_tokens["input"]  += usage.get("input_tokens",  0)
+    _run_tokens["output"] += usage.get("output_tokens", 0)
+
 
 def set_experiment_dir(path: Path) -> None:
-    """Set the experiment directory. Called once from main.py."""
     global _EXPERIMENT_DIR
     _EXPERIMENT_DIR = path
 
 
 def set_context_subdir(subdir: str) -> None:
-    """Set the context subfolder (e.g. 'session0', 'patient_1'). Called per session."""
     global _CONTEXT_SUBDIR
     _CONTEXT_SUBDIR = subdir
 
@@ -43,28 +59,25 @@ class BaseAgent(ABC):
         )
 
     def respond(self, message: str) -> str:
-        """Generate a response to a message"""
         self.messages.append({"role": "user", "content": message})
         result = self.agent.invoke({"messages": self.messages})
-        response = result["messages"][-1].content
+        last = result["messages"][-1]
+        _count(last)
+        response = last.content
         self.messages = result["messages"]
         self.log_response(message, response)
         return response
 
-    def response_format(self):
-        pass
-
     def reset_memory(self):
-        """Clear conversation history"""
         self.messages = []
 
-    def log_response(self, input_msg: str, response: str):
-        self._write_finetune(input_msg, response)
+    def log_response(self, input_msg: str, response: str, output: dict | list | str | None = None):
+        self._write_context(input_msg, response, output)
         self._call_index += 1
 
-    def _write_finetune(self, input_msg: str, response: str):
-        finetune_dir = _EXPERIMENT_DIR / "context" / _CONTEXT_SUBDIR if _CONTEXT_SUBDIR else _EXPERIMENT_DIR / "context"
-        finetune_dir.mkdir(parents=True, exist_ok=True)
+    def _write_context(self, input_msg: str, response: str, output: dict | list | str | None = None):
+        context_dir = _EXPERIMENT_DIR / "context" / _CONTEXT_SUBDIR if _CONTEXT_SUBDIR else _EXPERIMENT_DIR / "context"
+        context_dir.mkdir(parents=True, exist_ok=True)
         filename = f"{self.name}_call{self._call_index:02d}.json"
         data = {
             "meta": {
@@ -78,9 +91,51 @@ class BaseAgent(ABC):
                 {"role": "user",      "content": input_msg},
                 {"role": "assistant", "content": response},
             ],
+            "output": output if output is not None else response,
         }
-        with open(finetune_dir / filename, "w", encoding="utf-8") as f:
+        with open(context_dir / filename, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False, indent=2)
+
+    def _invoke_structured(self, schema, system_prompt: str, user_prompt: str):
+        structured_llm = self.llm.with_structured_output(schema, include_raw=True, method="function_calling")
+        raw = structured_llm.invoke([
+            {"role": "system", "content": system_prompt},
+            {"role": "user",   "content": user_prompt},
+        ])
+        parsed = None
+        raw_text = ""
+        if isinstance(raw, dict):
+            _count(raw.get("raw"))
+            parsed = raw.get("parsed")
+            raw_msg = raw.get("raw")
+            raw_text = getattr(raw_msg, "content", "") if raw_msg else ""
+        elif hasattr(raw, "model_dump"):
+            parsed = raw
+        output = parsed.model_dump() if parsed is not None else {"parse_error": True}
+        self.log_response(user_prompt, raw_text or "(no raw content)", output=output)
+        return parsed
+
+    @staticmethod
+    def fmt_demographics(demographics: dict) -> str:
+        return "\n".join(f"  {k}: {v}" for k, v in demographics.items())
+
+    @staticmethod
+    def fmt_self_report(self_report: dict) -> str:
+        lines = []
+        for node, items in self_report.items():
+            formatted = ", ".join(
+                f"{i['key']}: {i['value']}" if isinstance(i, dict) else str(i)
+                for i in items
+            )
+            lines.append(f"  {node}: {formatted}")
+        return "\n".join(lines)
+
+    @staticmethod
+    def _fmt_issues(issues: list[dict]) -> str:
+        lines = []
+        for issue in issues:
+            lines.append(f"  {issue['component']} / {issue['item']}: {issue['explanation']}")
+        return "\n".join(lines) or "  (none)"
 
     def __repr__(self):
         return f"<Agent name={self.name} role={self.role}>"

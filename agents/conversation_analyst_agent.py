@@ -2,7 +2,8 @@ import logging
 from typing import Optional, Literal
 from pydantic import BaseModel
 from .base_agent import BaseAgent
-from config.prompts import ANALYST_AGENT_PROMPT
+from config.prompts import CONVERSATION_ANALYST_PROMPT
+from config.formulation_config import EDGE_MAP_TRIPLES
 
 logger = logging.getLogger(__name__)
 
@@ -32,13 +33,26 @@ class AnalysisEdges(BaseModel):
     Negative_Appraisals__Maladaptive_Strategies: EdgeScore
     Negative_Appraisals__Threat: EdgeScore
     Negative_Appraisals__Memory: EdgeScore
+    Negative_Appraisals__Triggers: EdgeScore
     Memory__Maladaptive_Strategies: EdgeScore
     Memory__Threat: EdgeScore
+    Memory__Negative_Appraisals: EdgeScore
+    Memory__Triggers: EdgeScore
     Threat__Maladaptive_Strategies: EdgeScore
+    Threat__Memory: EdgeScore
+    Threat__Negative_Appraisals: EdgeScore
+    Threat__Triggers: EdgeScore
+    Maladaptive_Strategies__Memory: EdgeScore
+    Maladaptive_Strategies__Negative_Appraisals: EdgeScore
+    Maladaptive_Strategies__Triggers: EdgeScore
+    Maladaptive_Strategies__Threat: EdgeScore
 
 class AnalysisResult(BaseModel):
     nodes: AnalysisNodes
     edges: AnalysisEdges
+    summary: str
+
+
 
 
 def _format_result(result: AnalysisResult) -> dict:
@@ -49,26 +63,17 @@ def _format_result(result: AnalysisResult) -> dict:
         "Threat":                 result.nodes.Threat.model_dump(),
         "Maladaptive Strategies": result.nodes.Maladaptive_Strategies.model_dump(),
     }
-    edges = {
-        "Triggers--Maladaptive Strategies":            result.edges.Triggers__Maladaptive_Strategies.model_dump(),
-        "Triggers--Threat":                            result.edges.Triggers__Threat.model_dump(),
-        "Triggers--Memory":                            result.edges.Triggers__Memory.model_dump(),
-        "Triggers--Negative Appraisals":               result.edges.Triggers__Negative_Appraisals.model_dump(),
-        "Negative Appraisals--Maladaptive Strategies": result.edges.Negative_Appraisals__Maladaptive_Strategies.model_dump(),
-        "Negative Appraisals--Threat":                 result.edges.Negative_Appraisals__Threat.model_dump(),
-        "Negative Appraisals--Memory":                 result.edges.Negative_Appraisals__Memory.model_dump(),
-        "Memory--Maladaptive Strategies":              result.edges.Memory__Maladaptive_Strategies.model_dump(),
-        "Memory--Threat":                              result.edges.Memory__Threat.model_dump(),
-        "Threat--Maladaptive Strategies":              result.edges.Threat__Maladaptive_Strategies.model_dump(),
-    }
-    return {"nodes": nodes, "edges": edges}
+    edges: dict = {}
+    for p, c, field in EDGE_MAP_TRIPLES:
+        edges.setdefault(p, {})[c] = getattr(result.edges, field).model_dump()
+    return {"nodes": nodes, "edges": edges, "summary": result.summary}
 
 
-class AnalystAgent(BaseAgent):
+class ConversationAnalystAgent(BaseAgent):
     def __init__(self, name: str, role: str, llm):
-        super().__init__(name, role, ANALYST_AGENT_PROMPT, llm)
+        super().__init__(name, role, CONVERSATION_ANALYST_PROMPT, llm)
 
-    def _setup_agent(self):
+    def setup_agent(self):
         return None
 
     def respond(self, message: str) -> dict:
@@ -80,8 +85,11 @@ class AnalystAgent(BaseAgent):
         self.log_response(message, result.model_dump_json(indent=2))
         formatted = _format_result(result)
         nodes_scored = sum(v["score"] for v in formatted["nodes"].values())
-        edges_scored = sum(v["score"] for v in formatted["edges"].values())
-        logger.info("[%s] analysis complete — %d/%d nodes active, %d/%d edges active",
-                    self.name, nodes_scored, len(formatted["nodes"]),
-                    edges_scored, len(formatted["edges"]))
+        edges_scored = sum(
+            data["score"]
+            for children in formatted["edges"].values()
+            for data in children.values()
+        )
+        logger.info("[%s] analysis — %d/5 nodes, %d/20 edges active",
+                    self.name, nodes_scored, edges_scored)
         return formatted

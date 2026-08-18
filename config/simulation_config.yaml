@@ -1,34 +1,32 @@
 simulation:
   num_patients: 1
-  patient_ids: [10]   # e.g. [23] or [23, 45] — overrides num_patients if set
+  num_sessions: 3
   num_turns: 5
   seed: 60
-  obs_index: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]   # single int or list of session indices
   max_validation_retries: 2
   temperature: 0.7
-  pipeline: full_moderated
-  persona_context: true   # use demographics + self-report in persona crafter
+  pipeline: full
+  n_items: 3
+  node_prob: 0.7
+  edge_prob: 0.5
   # pipeline options:
   #   full                      - all steps
   #   no_validation             - skip both validation steps
-  #   no_analysis               - skip analysis
+  #   vignette_only             - craft_persona + vignette + validate_vignette + analyse_vignette
+  #   no_analysis               - skip analysis step
   #   no_validation_no_analysis - skip validation and analysis
-  #   vignette_validation       - persona + validate only
-  #   full_moderated             full pipeline with moderated validation (human text)
 
 models:
-  persona_crafter: gpt-5.4-mini
-  validator: gpt-5.4-mini
-  dialogue_state: gpt-5.4-mini
-  client: gpt-5.4-mini
-  bot: gpt-5.4-mini
-  moderator: gpt-5.4-mini
-  analyst: gpt-5.4-mini
-  vignette_analyst: gpt-5.4-mini
+  persona_crafter: gpt-4o-mini
+  validator: gpt-4o-mini
+  dialogue_state: gpt-4o-mini
+  client: gpt-4o-mini
+  interviewer: gpt-4o-mini
+  analyst: gpt-4o-mini
+  vignette_analyst: gpt-4o-mini
 
 agents:
-  bot: BotAgent
+  interviewer: InterviewerAgent
   client: ClientAgent
-  moderator: ModeratorAgent
-  analyst: AnalystAgent
+  analyst: ConversationAnalystAgent
   vignette_analyst: VignetteAnalystAgent

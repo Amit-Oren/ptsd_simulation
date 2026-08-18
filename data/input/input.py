@@ -1,174 +1,120 @@
-import pandas as pd
-from pathlib import Path
-from config.formulation_config import NODES, DIRECT_EDGES, NODE_MAP, EDGE_MAP
+import random
+from config.formulation_config import DIRECT_EDGES, NODES
+from simulation.graph import EdgeGraph, from_schema, set_weight
+from config.demographics import (AGE, GENDER, ETHNICITY, OCCUPATION, TRAUMA_TYPE, PCL5,
+                                  RELATIONSHIP_WEIGHTS_BY_AGE)
+from config.self_report import (TRIGGERS, NEGATIVE_APPRAISALS, MEMORY,
+                                 THREAT, MALADAPTIVE_STRATEGIES,
+                                 DISTRACTION_STRATEGIES, AVOIDANCE_STRATEGIES)
 
-DATA_DIR = Path(__file__).parent
+_STRATEGIES_POOL = {**MALADAPTIVE_STRATEGIES, **DISTRACTION_STRATEGIES, **AVOIDANCE_STRATEGIES}
 
-# Map CSV short names → config full names
-_NAME_MAP = {
-    "Appraisals": "Negative Appraisals",
-    "Strategies": "Maladaptive Strategies",
-    "Memory":     "Memory",
-    "Threat":     "Threat",
-    "Triggers":   "Triggers",
+_NODE_POOLS: dict[str, dict] = {
+    "Triggers":               TRIGGERS,
+    "Negative Appraisals":    NEGATIVE_APPRAISALS,
+    "Memory":                 MEMORY,
+    "Threat":                 THREAT,
+    "Maladaptive Strategies": _STRATEGIES_POOL,
 }
 
-_df = pd.read_csv(DATA_DIR / "aggregated_ema_data.csv")
+_ALL_NODES = list(dict.fromkeys(n for edge in DIRECT_EDGES for n in edge))
 
-_ema_df = pd.read_csv(DATA_DIR / "ema_data.csv", parse_dates=["datetime"])
 
-_demographics_df = pd.read_csv(DATA_DIR / "demographics_labeled.csv").rename(columns={"Subnum": "id"})
+def _weights_for_age(age: int, table: list[tuple]) -> dict:
+    for (lo, hi), weights in table:
+        if lo <= age <= hi:
+            return weights
+    return table[-1][1]
 
-def get_demographics(patient_id):
-    """Return demographics dict for a patient ID."""
-    row = _demographics_df[_demographics_df["id"] == patient_id]
-    if row.empty:
-        available = get_available_ids()
-        raise ValueError(f"ID {patient_id!r} not found in demographics data. Available IDs: {available}")
+
+def _sample_relationship(age: int) -> str:
+    weights = _weights_for_age(age, RELATIONSHIP_WEIGHTS_BY_AGE)
+    return random.choices(list(weights.keys()), weights=list(weights.values()))[0]
+
+
+def sample_demographics() -> dict:
+    age = random.randint(AGE["min"], AGE["max"])
     return {
-        "age": int(row["Age"].iloc[0]),
-        "gender": row["Gender"].iloc[0],
-        "nationality": row["Nationality"].iloc[0],
-        "profession": row["Profession"].iloc[0],
-        "pcl5": int(row["PCL score_highest"].iloc[0]),
-        "trauma_type": row["Trauma type"].iloc[0]
+        "age":                 age,
+        "gender":              random.choices(list(GENDER), weights=list(GENDER.values()))[0],
+        "ethnicity":           random.choice(ETHNICITY),
+        "relationship_status": _sample_relationship(age),
+        "occupation":          random.choice(OCCUPATION),
+        "trauma_type":         random.choice(TRAUMA_TYPE),
+        "pcl5":                random.randint(PCL5["min"], PCL5["max"]),
     }
 
-def get_self_report(patient_id):
-    """Return self-report dict for a patient ID."""
-    row = _demographics_df[_demographics_df["id"] == patient_id]
-    if row.empty:
-        available = get_available_ids()
-        raise ValueError(f"ID {patient_id!r} not found in demographics data. Available IDs: {available}")
-    return {
-        "trigger_items":                    row["Triggers_items"].iloc[0],
-        "trigger_category":                 row["Triggers_category"].iloc[0],
-        "trigger_subcategory":              row["Triggers_subcategory"].iloc[0],
-        "appraisals_items_label":           row["Appraisals_items_label"].iloc[0],
-        "appraisals_items_original":        row["Appraisals_items_original"].iloc[0],
-        "memory_items_label":               row["Memory_items_label"].iloc[0],
-        "memory_items_original":            row["Memory_items_original"].iloc[0],
-        "threat_items_label":               row["Threat_items_label"].iloc[0],
-        "threat_items_original":            row["Threat_items_original"].iloc[0],
-        "threat_items_original_label":      row["Threat_items_original_label"].iloc[0],
-        "threat_items_original_original":   row["Threat_items_original_original"].iloc[0],
-        "strategies_items_label":           row["Strategies_items_label"].iloc[0],
-        "strategies_items_original":        row["Strategies_items_original"].iloc[0],
-        "avoidance_items_label":            row["Avoidance_items_label"].iloc[0],
-        "avoidance_items_original":         row["Avoidance_items_original"].iloc[0],
+
+def resample_demographics_fields(demographics: dict, fields: list[str]) -> dict:
+    _samplers = {
+        "age":                 lambda: random.randint(AGE["min"], AGE["max"]),
+        "gender":              lambda: random.choices(list(GENDER), weights=list(GENDER.values()))[0],
+        "ethnicity":           lambda: random.choice(ETHNICITY),
+        "relationship_status": lambda: _sample_relationship(demographics.get("age", 40)),
+        "occupation":          lambda: random.choice(OCCUPATION),
+        "trauma_type":         lambda: random.choice(TRAUMA_TYPE),
+        "pcl5":                lambda: random.randint(PCL5["min"], PCL5["max"]),
     }
+    updated = dict(demographics)
+    for field in fields:
+        if field in _samplers:
+            updated[field] = _samplers[field]()
+    return updated
 
-def get_available_ids():
-    """Return list of all patient IDs in the CSV."""
-    return _df["id"].unique().tolist()
 
+def sample_cognitive_model(node_prob: float = 0.7, edge_prob: float = 0.5) -> dict:
+    """Sample a random Ehlers & Clark cognitive model.
 
-def extract_aggregated_edges(patient_id):
-    """Extract aggregated edges for the given patient ID.
-
-    Returns:
-        edges: DIRECT_EDGES dict populated with estimates from CSV
+    Returns {"edges": EdgeGraph, "active_nodes": [str]}.
     """
-    rows = _df[_df["id"] == patient_id]
-    if rows.empty:
-        available = get_available_ids()
-        raise ValueError(f"ID {patient_id!r} not found. Available IDs: {available}")
-
-    edges = DIRECT_EDGES.copy()
-    for _, row in rows.iterrows():
-        parent = _NAME_MAP[row["Parent"]]
-        child = _NAME_MAP[row["Child"]]
-        key = (parent, child)
-        if key in edges:
-            edges[key] = row["estimate"]
-
-    return edges
+    active_set = {n for n in _ALL_NODES if random.random() < node_prob}
+    graph: EdgeGraph = from_schema(DIRECT_EDGES)
+    for (p, c) in DIRECT_EDGES:
+        if p in active_set and c in active_set and random.random() < edge_prob:
+            set_weight(graph, p, c, round(random.uniform(0.01, 1.0), 4))
+    active_nodes = [n for n in _ALL_NODES if n in active_set]
+    return {"edges": graph, "active_nodes": active_nodes}
 
 
-def _split_items(val):
-    if not val or isinstance(val, float):
-        return []
-    return [v.strip() for v in str(val).split('|') if v.strip()]
+def sample_self_report(cognitive_model: dict, n_items: int = 3) -> dict:
+    """Sample self-report items for each active node.
 
-
-def _node_items(sr: dict) -> dict:
-    return {
-        "Triggers":               _split_items(sr["trigger_items"]),
-        "Negative Appraisals":    _split_items(sr["appraisals_items_original"]),
-        "Memory":                 _split_items(sr["memory_items_original"]),
-        "Threat":                 _split_items(sr["threat_items_original"]),
-        "Maladaptive Strategies": _split_items(sr["strategies_items_original"]) + _split_items(sr["avoidance_items_original"]),
-    }
-
-
-def get_aggregated_context(patient_id) -> dict:
-    """Aggregated context: self-report items per node + aggregated edge strengths."""
-    sr        = get_self_report(patient_id)
-    agg       = extract_aggregated_edges(patient_id)
-    ni        = _node_items(sr)
-
-    return {
-        "nodes": {node: {"items": items} for node, items in ni.items()},
-        "edges": {
-            edge: {
-                "strength":     round(weight, 4),
-                "parent_items": ni.get(edge[0], []),
-                "child_items":  ni.get(edge[1], []),
-            }
-            for edge, weight in agg.items()
-        },
-    }
-
-
-def get_session_context(patient_id, obs_index: int) -> dict:
-    """Session context: self-report items per node + session active states."""
-    sr                              = get_self_report(patient_id)
-    obs_datetime, obs_nodes, obs_edges = get_session_components(patient_id, obs_index)
-    ni                              = _node_items(sr)
-
-    return {
-        "obs_datetime": obs_datetime,
-        "nodes": {
-            node: {"items": items, "active": obs_nodes[node]}
-            for node, items in ni.items()
-        },
-        "edges": {
-            edge: {
-                "active":       obs_edges[edge],
-                "parent_items": ni.get(edge[0], []),
-                "child_items":  ni.get(edge[1], []),
-            }
-            for edge in obs_edges
-        },
-    }
-
-
-# ── EMA data (per-observation) ────────────────────────────────────────────────
-
-def get_session_components(patient_id, index: int):
-    """Extract node states and edge activations for one session by index.
-
-    Returns:
-        (datetime, nodes, edges)
+    Returns {node_name: [{"key": str, "value": str}]}.
     """
-    patient_rows = _ema_df[_ema_df["id"] == patient_id].reset_index(drop=True)
-    if patient_rows.empty:
-        raise ValueError(f"ID {patient_id!r} not found in EMA data.")
-    if index >= len(patient_rows):
-        raise IndexError(f"Index {index} out of range — patient {patient_id!r} has {len(patient_rows)} observations.")
-
-    row = patient_rows.iloc[index]
-
-    nodes = NODES.copy()
-    for col, node in NODE_MAP.items():
-        if col in row.index:
-            nodes[node] = row[col]
-
-    edges = DIRECT_EDGES.copy()
-    for col, edge in EDGE_MAP.items():
-        if col in row.index:
-            edges[edge] = row[col]
-
-    return row["datetime"], nodes, edges
+    result = {}
+    for node in cognitive_model["active_nodes"]:
+        pool = _NODE_POOLS.get(node, {})
+        sampled = random.sample(list(pool.items()), min(n_items, len(pool)))
+        result[node] = [{"key": k, "value": v} for k, v in sampled]
+    return result
 
 
+def sample_formulation(n_items: int = 3, node_prob: float = 0.7, edge_prob: float = 0.5) -> dict:
+    """Sample a full formulation dict — {"nodes": ..., "edges": ...} — for VignetteCrafterAgent."""
+    model = sample_cognitive_model(node_prob, edge_prob)
+    ni    = sample_self_report(model, n_items)
+    edges: dict = {}
+    for p, children in model["edges"].items():
+        for c, weight in children.items():
+            edges.setdefault(p, {})[c] = {
+                "strength":     weight,
+                "parent_items": ni.get(p, []),
+                "child_items":  ni.get(c, []),
+            }
+    return {"nodes": ni, "edges": edges}
+
+
+def sample_session_state(agg_edges: EdgeGraph, active_nodes: list) -> tuple[dict, EdgeGraph]:
+    """Draw a random binary session state from the patient's cognitive model.
+
+    Each active node activates independently with p=0.7.
+    Each edge activates if both endpoints active, weight > 0, and Bernoulli(weight) fires.
+    Sessions are independent samples from the true graph — strong edges appear consistently.
+    """
+    nodes = {n: bool(n in active_nodes and random.random() < 0.7) for n in NODES}
+    obs: EdgeGraph = {}
+    for p, children in agg_edges.items():
+        for c, weight in children.items():
+            active = nodes.get(p) and nodes.get(c) and weight > 0 and random.random() < weight
+            obs.setdefault(p, {})[c] = weight if active else 0.0
+    return nodes, obs

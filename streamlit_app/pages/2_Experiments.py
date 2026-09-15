@@ -13,7 +13,7 @@ if str(_STREAMLIT_APP_DIR) not in sys.path:
 import pandas as pd
 import streamlit as st
 
-from utils.loader import get_experiments, get_patients, load_patient
+from utils.loader import get_experiments, get_patients, load_patient, load_manifest
 
 # ── Page config ────────────────────────────────────────────────────────────
 
@@ -76,24 +76,18 @@ st.markdown(f"Found **{len(experiments)}** experiment(s).")
 for exp in experiments:
     with st.expander(f"{exp['name']}  —  {exp['timestamp']}", expanded=False):
 
-        # Load config from the first patient file to display a summary
-        patients_meta = get_patients(exp["path"])
+        # Load the run-level manifest (config is stored once per experiment, not per session)
+        cfg = load_manifest(exp["path"])
         config_summary = {}
-        if patients_meta:
-            try:
-                first = load_patient(patients_meta[0]["path"])
-                cfg   = first.get("config", {})
-                config_summary = {
-                    "Pipeline":    cfg.get("pipeline", ""),
-                    "Temperature": cfg.get("temperature", ""),
-                    "Turns":       cfg.get("num_turns", ""),
-                    "Seed":        cfg.get("seed", ""),
-                }
-                models = cfg.get("models", {})
-            except Exception:
-                models = {}
-        else:
-            models = {}
+        models = {}
+        if cfg:
+            config_summary = {
+                "Pipeline":    cfg.get("pipeline", ""),
+                "Temperature": cfg.get("temperature", ""),
+                "Turns":       cfg.get("num_turns", ""),
+                "Seed":        cfg.get("seed", ""),
+            }
+            models = cfg.get("models", {})
 
         # Config summary columns
         meta_cols = st.columns(len(config_summary) or 1)

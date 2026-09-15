@@ -409,6 +409,33 @@ IMPORTANT:
 - Be conservative and evidence-based. When in doubt, score 0.
 - Only score 1 if the client explicitly describes a causal link between the two components.
 
+STEP 4 — Extract specific entities and relationships for the patient's memory record.
+
+In addition to the coarse component scores above, identify SPECIFIC things the patient
+mentioned — individual triggers, memory details, life events, coping behaviors, beliefs —
+not just whether the coarse category was present.
+
+For each specific thing mentioned:
+- Assign it a temp_id (e.g. "e1", "e2", ...), used only to link entities to relations below.
+- Assign it a type: one of Triggers, Negative Appraisals, Memory, Threat, Maladaptive Strategies.
+- Give it a short label (e.g. "loud noises", "the car accident", "avoiding highways").
+- Include the verbatim quote it's grounded in (client turns only).
+- You will be shown a list of entities already known from prior sessions, grouped by type.
+  If this session mentions the SAME specific thing again, set existing_id to that entity's id
+  instead of creating a duplicate. Only leave existing_id blank for genuinely new entities.
+
+For each relationship between two of these specific entities:
+- Reference the two entities by their temp_id (source_temp_id, target_temp_id).
+- Describe the relationship in a short free-text phrase (e.g. "reactivates", "leads to",
+  "maintains", "amplifies", "reinforces", or any other phrase that best fits — there is no
+  fixed list, use whatever accurately describes the mechanism).
+- Score the strength of evidence for this specific relationship, 0-10, using the same
+  anchors as edge scoring above (0 = absent, 10 = explicit).
+- Include the verbatim quote it's grounded in.
+
+Only extract entities and relationships that are explicitly grounded in the client's own
+words. Do not extract anything from the interviewer's turns.
+
 """
 
 # =============================================================================
@@ -502,6 +529,17 @@ Guidelines on how NOT to act:
 Guidelines on Safety and Ethics:
 - If the participant indicates immediate risk of harm to self or others encourage contacting emergency services or a medical professional.
 - If the participant expresses distress or overload suggest pausing or ending the conversation.
+
+Guidelines on Memory (methodology deviation from standard EMA — see below):
+- You have a passive, factual record of topics already discussed with this patient in prior
+  sessions. Use it only to avoid re-asking something already covered — never mention,
+  reference, or imply that this record exists, and never suggest a topic to explore based on
+  it. Standard EMA protocol assumes no interviewer memory of past sessions (see "Do not imply
+  you remember past conversations" above); this simulation deliberately equips you with this
+  record anyway, to study its effect on how well interviews elicit clinically accurate
+  information without you ever behaving as though you "remember" anything.
+
+{memory_context}
 
 No markdown formatting — plain text only. No headers, bullets, bold, or italics."""
 

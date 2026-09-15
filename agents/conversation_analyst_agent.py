@@ -1,9 +1,10 @@
 import logging
 from typing import Optional, Literal
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from .base_agent import BaseAgent
 from config.prompts import CONVERSATION_ANALYST_PROMPT
 from config.formulation_config import EDGE_MAP_TRIPLES
+from simulation.memory.kg import NODE_TYPES
 
 logger = logging.getLogger(__name__)
 
@@ -16,6 +17,21 @@ class NodeScore(BaseModel):
 class EdgeScore(BaseModel):
     score: Literal[0, 1]
     explanation: Optional[str] = None
+    quote: str
+
+
+class ExtractedEntity(BaseModel):
+    temp_id: str
+    existing_id: Optional[str] = None
+    type: Literal[NODE_TYPES]  # type: ignore[valid-type]
+    label: str
+    quote: str
+
+class ExtractedRelation(BaseModel):
+    source_temp_id: str
+    target_temp_id: str
+    relation: str
+    weight: int = Field(ge=0, le=10)
     quote: str
 
 class AnalysisNodes(BaseModel):
@@ -51,6 +67,8 @@ class AnalysisResult(BaseModel):
     nodes: AnalysisNodes
     edges: AnalysisEdges
     summary: str
+    entities: list[ExtractedEntity] = Field(default_factory=list)
+    relations: list[ExtractedRelation] = Field(default_factory=list)
 
 
 
@@ -66,7 +84,13 @@ def _format_result(result: AnalysisResult) -> dict:
     edges: dict = {}
     for p, c, field in EDGE_MAP_TRIPLES:
         edges.setdefault(p, {})[c] = getattr(result.edges, field).model_dump()
-    return {"nodes": nodes, "edges": edges, "summary": result.summary}
+    return {
+        "nodes": nodes,
+        "edges": edges,
+        "summary": result.summary,
+        "entities": [e.model_dump() for e in result.entities],
+        "relations": [r.model_dump() for r in result.relations],
+    }
 
 
 class ConversationAnalystAgent(BaseAgent):

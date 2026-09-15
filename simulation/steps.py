@@ -9,13 +9,15 @@ from agents.vignette_crafter_agent import VignetteCrafterAgent
 from agents.vignette_validator_agent import VignetteValidatorAgent
 from agents.dialogue_state_agent import DialogueStateAgent
 from agents.validator_agent import ValidatorAgent
-from data.input.input import (
+from simulation.sampling import (
     sample_demographics, sample_cognitive_model, sample_self_report,
     sample_session_state, resample_demographics_fields,
 )
 from simulation.factory import load_agent_class
 from simulation.graph import count_active, count_by_strength, iter_edges
-from simulation.patient_store import format_session_history
+from simulation.patient_store import format_recent_transcripts
+from simulation.memory.kg import TypedKnowledgeGraph
+from simulation.memory.render import build_interviewer_memory_context
 
 logger = logging.getLogger(__name__)
 
@@ -129,8 +131,13 @@ def step_session_state(label: str, state: dict) -> dict:
     return {"obs_nodes": obs_nodes, "obs_edges": obs_edges}
 
 
+def step_render_memory(label: str, state: dict) -> dict:
+    memory_context = build_interviewer_memory_context(state.get("memory_graph"))
+    return {"memory_context": memory_context}
+
+
 def step_dialogue_state(label: str, state: dict, llms: dict) -> dict:
-    session_history = format_session_history(state.get("session_summaries", []))
+    session_history = format_recent_transcripts(state.get("recent_transcripts", []))
     dialogue_state = DialogueStateAgent(
         name=f"{label}_DialogueState", role="DialogueState",
         llm=llms["dialogue_state"],
@@ -160,7 +167,7 @@ def step_validate_message(label: str, state: dict, validator: ValidatorAgent, ma
 
 
 def step_conversation(label: str, state: dict, llms: dict, agent_classes: dict, num_turns: int) -> dict:
-    session_history = format_session_history(state.get("session_summaries", []))
+    session_history = format_recent_transcripts(state.get("recent_transcripts", []))
     client = load_agent_class(agent_classes["client"])(
         name=label, role="Patient", llm=llms["client"],
         vignette=state["vignette"], nodes=state["obs_nodes"], edges=state["obs_edges"],
@@ -169,6 +176,7 @@ def step_conversation(label: str, state: dict, llms: dict, agent_classes: dict, 
     )
     interviewer = load_agent_class(agent_classes["interviewer"])(
         name="Interviewer", role="Interviewer", llm=llms["interviewer"],
+        memory_context=state.get("memory_context", ""),
     )
     logger.info("[%s] conversation — starting %d turns", label, num_turns)
 
@@ -194,5 +202,29 @@ def step_analysis(label: str, state: dict, llms: dict, agent_classes: dict) -> d
         f"{t['speaker'].upper()} (turn {t['turn_index']}): {t['text']}"
         for t in state["conversation"]
     )
-    analysis = analyst.respond(conversation_text)
+    memory_graph = state.get("memory_graph")
+    existing_entities_text = (
+        memory_graph.render_for_coreference() if memory_graph is not None
+        else "(no existing entities yet — this is the first session)"
+    )
+    message = (
+        f"{conversation_text}\n\n"
+        "## Existing memory graph entities (for coreference — reuse an id below if this "
+        "session mentions the same specific thing again, otherwise leave existing_id blank)\n"
+        f"{existing_entities_text}"
+    )
+    analysis = analyst.respond(message)
     return {"analysis": analysis}
+
+
+def step_update_memory(label: str, state: dict, session_idx: int) -> dict:
+    memory_graph = state.get("memory_graph") or TypedKnowledgeGraph()
+    analysis = state.get("analysis") or {}
+    extraction = {
+        "entities": analysis.get("entities", []),
+        "relations": analysis.get("relations", []),
+    }
+    memory_graph.ingest(extraction, session_idx=session_idx)
+    logger.info("[%s] update_memory — %d entities, %d relations extracted this session",
+                label, len(extraction["entities"]), len(extraction["relations"]))
+    return {"memory_graph": memory_graph}

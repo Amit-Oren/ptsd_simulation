@@ -73,6 +73,7 @@ st.markdown(
     | **Cognitive Model** | Visualise the weighted PTSD network graph for a patient. |
     | **Conversation** | Replay the full client–bot dialogue. |
     | **Analysis** | Compare the model's detected nodes/edges against ground-truth observation labels. |
+    | **Memory** | Browse a patient's persistent cross-session memory knowledge graph. |
     """
 )
 

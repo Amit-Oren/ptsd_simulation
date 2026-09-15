@@ -8,6 +8,7 @@ from config.prompts import (
     PERSONA_VALIDATOR_SELFREPORT_SYSTEM_PROMPT,
     PERSONA_VALIDATOR_SELFREPORT_USER_PROMPT,
 )
+from config.formatting import fmt_demographics, fmt_self_report
 
 logger = logging.getLogger(__name__)
 
@@ -34,7 +35,7 @@ class PersonaValidatorAgent(BaseAgent):
 
     def validate_demographics(self, demographics: dict) -> dict:
         user_prompt = PERSONA_VALIDATOR_DEMOGRAPHICS_USER_PROMPT.format(
-            demographics=self.fmt_demographics(demographics),
+            demographics=fmt_demographics(demographics),
         )
         result: DemographicsValidationResult = self._invoke_structured(
             DemographicsValidationResult, PERSONA_VALIDATOR_DEMOGRAPHICS_SYSTEM_PROMPT, user_prompt
@@ -60,9 +61,9 @@ class PersonaValidatorAgent(BaseAgent):
             f"Inactive edges:\n{inactive or '  (none)'}"
         )
         user_prompt = PERSONA_VALIDATOR_SELFREPORT_USER_PROMPT.format(
-            demographics=self.fmt_demographics(demographics),
+            demographics=fmt_demographics(demographics),
             cognitive_model=cognitive_model_str,
-            self_report=self.fmt_self_report(self_report),
+            self_report=fmt_self_report(self_report),
         )
         result: SelfReportValidationResult = self._invoke_structured(
             SelfReportValidationResult, PERSONA_VALIDATOR_SELFREPORT_SYSTEM_PROMPT, user_prompt

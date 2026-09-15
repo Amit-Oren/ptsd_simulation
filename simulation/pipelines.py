@@ -8,4 +8,7 @@ PIPELINES: dict[str, list[str]] = {
                                   "session_state", "dialogue_state", "validate_message", "conversation"],
     "no_validation_no_analysis": ["craft_persona", "vignette",
                                   "session_state", "dialogue_state", "conversation"],
+    "full_memory":                ["craft_persona", "vignette", "validate_vignette", "analyse_vignette",
+                                  "session_state", "render_memory", "dialogue_state", "validate_message",
+                                  "conversation", "analysis", "update_memory"],
 }

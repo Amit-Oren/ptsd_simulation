@@ -45,14 +45,21 @@ def write_json(output: dict, f):
     f.write("\n}\n")
 
 
-def write_summary_json(output: dict, path):
+def write_manifest(manifest: dict, path):
+    """Write the experiment-level manifest once (pipeline, models, seed, etc.) —
+    the single source for run config, instead of duplicating it into every session file."""
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(manifest, f, indent=2, ensure_ascii=False)
+
+
+def write_summary_json(output: dict, path, manifest: dict | None = None):
     """Write a compact summary JSON: config, demographics, self_report, cognitive model."""
     analysis = output.get("analysis", {})
     summary = {
         "patient_idx":       output.get("patient_idx"),
         "session_idx":       output.get("session_idx"),
         "timestamp":         output["experiment_timestamp"],
-        "config":            output.get("config", {}),
+        "config":            manifest or output.get("config", {}),
         "demographics":      output.get("demographics", {}),
         "self_report":       output.get("self_report", {}),
         "active_nodes":      output.get("active_nodes", []),
@@ -69,7 +76,7 @@ def write_summary_json(output: dict, path):
         json.dump(summary, f, indent=2, ensure_ascii=False)
 
 
-def write_txt(output: dict, path):
+def write_txt(output: dict, path, manifest: dict | None = None):
     """Write a human-readable text report."""
     SEP  = "─" * WRAP_WIDTH
     SEP2 = "· " * (WRAP_WIDTH // 2)
@@ -84,7 +91,7 @@ def write_txt(output: dict, path):
         f.write(SEP + "\n")
 
         # ── Config ──────────────────────────────────────────────────────────
-        cfg = output.get("config", {})
+        cfg = manifest or output.get("config", {})
         f.write(section("CONFIG"))
         f.write(f"  pipeline:    {cfg.get('pipeline')}\n")
         f.write(f"  temperature: {cfg.get('temperature')}\n")

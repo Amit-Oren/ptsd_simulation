@@ -9,7 +9,7 @@ from simulation.graph import (
     EdgeGraph, from_schema, iter_edges, get_weight, set_weight,
     count_active, count_by_strength, active_edge_set,
 )
-from data.input.input import sample_cognitive_model, sample_session_state
+from simulation.sampling import sample_cognitive_model, sample_session_state
 from simulation.patient_store import format_session_history
 
 
@@ -79,7 +79,7 @@ def test_edge_map_triples_field_names():
         assert field == expected, f"Bad field for {p}→{c}: got {field!r}"
 
 
-# ── input.py ──────────────────────────────────────────────────────────────────
+# ── sampling.py ───────────────────────────────────────────────────────────────
 
 def test_sample_cognitive_model_structure():
     model = sample_cognitive_model(node_prob=1.0, edge_prob=1.0)

@@ -2,7 +2,8 @@ import logging
 from pydantic import BaseModel
 from .base_agent import BaseAgent
 from config.prompts import PERSONA_CRAFTER_SYSTEM_PROMPT, PERSONA_CRAFTER_USER_PROMPT
-from data.input.input import _NODE_POOLS
+from config.formatting import fmt_demographics, fmt_self_report, fmt_issues
+from simulation.sampling import _NODE_POOLS
 
 logger = logging.getLogger(__name__)
 
@@ -29,9 +30,9 @@ class PersonaCrafterAgent(BaseAgent):
             replacement_pools=self._fmt_pools(list(problematic_items.keys())),
         )
         user_prompt = PERSONA_CRAFTER_USER_PROMPT.format(
-            demographics=self.fmt_demographics(demographics),
-            current_self_report=self.fmt_self_report(self_report),
-            issues=self._fmt_issues(issues),
+            demographics=fmt_demographics(demographics),
+            current_self_report=fmt_self_report(self_report),
+            issues=fmt_issues(issues),
         )
         result: SelectionResult = self._invoke_structured(SelectionResult, self.system_prompt, user_prompt)
         if result is None:

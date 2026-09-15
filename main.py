@@ -3,7 +3,7 @@ import yaml
 from datetime import datetime
 from pathlib import Path
 from config.logging_config import setup_logging
-from agents.base_agent import set_experiment_dir
+from simulation.run_context import set_experiment_dir
 from simulation.runner import SimulationRunner
 
 

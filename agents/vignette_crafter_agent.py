@@ -5,6 +5,7 @@ from config.prompts import (VIGNETTE_CRAFTER_PROMPT_CONTEXT,
                              VIGNETTE_CRAFTER_RETRY_PROMPT,
                              VIGNETTE_CRAFTER_USER_PROMPT)
 from config.formulation_config import COMPONENT_SYNONYMS
+from config.formatting import fmt_demographics, fmt_self_report
 
 logger = logging.getLogger(__name__)
 
@@ -17,8 +18,8 @@ class VignetteCrafterAgent(BaseAgent):
     def __init__(self, name: str, role: str, llm,
                  demographics: dict, self_report: dict, formulation: dict):
         user_prompt = VIGNETTE_CRAFTER_USER_PROMPT.format(
-            demographics=self.fmt_demographics(demographics),
-            self_report=self.fmt_self_report(self_report),
+            demographics=fmt_demographics(demographics),
+            self_report=fmt_self_report(self_report),
             active_nodes=self._fmt_active_nodes(formulation["nodes"]),
             required_edges=self._fmt_required_edges(formulation["edges"]),
         )

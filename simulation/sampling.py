@@ -1,3 +1,17 @@
+"""
+sampling.py — synthetic persona/session generation: pure functions, no LLM
+calls, drawing from the domain pools in config/demographics.py and
+config/self_report.py.
+
+Was data/input/input.py — moved here because "data/input" is stale naming
+left over from a deleted real-data-ingestion feature (this module has never
+read a file; it's 100% synthetic sampling) and because pure, non-LLM domain
+logic supporting the simulation belongs alongside simulation/graph.py, not
+under a folder named for something this code doesn't do. The real patient
+data CSVs that used to live next to this file stay in data/input/ — kept
+there deliberately for future sim-to-real validation work, just no longer
+sharing a home with unrelated sampling code.
+"""
 import random
 from config.formulation_config import DIRECT_EDGES, NODES
 from simulation.graph import EdgeGraph, from_schema, set_weight

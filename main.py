@@ -36,6 +36,12 @@ def parse_args():
                         help="Probability of activating each cognitive model node (0.0–1.0)")
     parser.add_argument("--edge-prob", type=float, default=None,
                         help="Probability of activating each edge between active nodes (0.0–1.0)")
+    parser.add_argument("--vignette-condition", type=str, default=None,
+                        choices=["no_formulation", "full"],
+                        help="Which FORMA vignette the patient reads (default: no_formulation)")
+    parser.add_argument("--personas", type=str, default=None,
+                        help="Comma-separated FORMA persona ids, e.g. 7,42,113 "
+                             "(default: a seeded random draw)")
     return parser.parse_args()
 
 
@@ -65,5 +71,7 @@ if __name__ == "__main__":
         models        = cfg["models"],
         agent_classes = cfg["agents"],
         experiment_dir = experiment_dir,
+        vignette_condition = args.vignette_condition or sim.get("vignette_condition", "no_formulation"),
+        persona_ids   = [int(x) for x in args.personas.split(",")] if args.personas else None,
     )
     runner.run()

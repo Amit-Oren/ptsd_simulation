@@ -4,9 +4,6 @@ from datetime import datetime
 from pathlib import Path
 from typing import cast
 from simulation.run_context import set_context_subdir, reset_run_tokens, get_run_tokens
-from agents.persona_crafter_agent import PersonaCrafterAgent
-from agents.persona_validator_agent import PersonaValidatorAgent
-from agents.vignette_validator_agent import VignetteValidatorAgent
 from agents.validator_agent import ValidatorAgent
 from simulation.factory import build_llm
 from simulation.output import to_serializable, write_json, write_txt, write_summary_json, write_manifest
@@ -14,10 +11,11 @@ from simulation.patient_store import load_patient_state, update_and_save
 from simulation.memory.store import save_memory_graph, copy_memory_snapshot_to_output
 from simulation.pipelines import PIPELINES
 from simulation.steps import (
-    step_craft_persona, step_vignette, step_validate_vignette, step_analyse_vignette,
-    step_session_state, step_render_memory, step_dialogue_state, step_validate_message,
+    step_load_persona, step_session_state, step_render_memory,
+    step_dialogue_state, step_validate_message,
     step_conversation, step_analysis, step_update_memory,
 )
+from simulation.forma import available_personas
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +26,9 @@ class SimulationRunner:
                  experiment_dir: Path,
                  max_retries: int = 2, temperature: float = 0.7,
                  pipeline: str = "full",
-                 n_items: int = 3, node_prob: float = 0.7, edge_prob: float = 0.5):
+                 n_items: int = 3, node_prob: float = 0.7, edge_prob: float = 0.5,
+                 vignette_condition: str = "no_formulation",
+                 persona_ids: list[int] | None = None):
         self.num_patients   = num_patients
         self.num_sessions   = num_sessions
         self.num_turns      = num_turns
@@ -43,6 +43,8 @@ class SimulationRunner:
         self.n_items        = n_items
         self.node_prob      = node_prob
         self.edge_prob      = edge_prob
+        self.vignette_condition = vignette_condition
+        self.persona_ids    = persona_ids
         random.seed(seed)
         self._llms = {role: build_llm(model_name, temperature) for role, model_name in models.items()}
         self._manifest = {
@@ -57,9 +59,16 @@ class SimulationRunner:
             "n_items":      self.n_items,
             "node_prob":    self.node_prob,
             "edge_prob":    self.edge_prob,
+            "vignette_condition": self.vignette_condition,
         }
 
-    _PATIENT_STEPS = {"craft_persona", "vignette", "validate_vignette", "analyse_vignette"}
+    _PATIENT_STEPS = {"load_persona"}
+
+    def _pick_personas(self) -> list[int]:
+        """Which FORMA personas this run uses — explicit list, or a seeded draw."""
+        if self.persona_ids:
+            return list(self.persona_ids)
+        return sorted(random.sample(available_personas(), self.num_patients))
 
     def _patient_dir(self, patient_idx: int) -> Path:
         return self.experiment_dir / "patients" / f"patient_{patient_idx}"
@@ -70,34 +79,19 @@ class SimulationRunner:
     def run(self):
         write_manifest(self._manifest, self.experiment_dir / "manifest.json")
 
-        for patient_idx in range(self.num_patients):
-            label = f"Client_{patient_idx}"
-            logger.info("=== Patient %d starting ===", patient_idx)
+        persona_ids = self._pick_personas()
+        logger.info("personas for this run: %s", persona_ids)
 
-            patient_state:     dict = {}
-            persona_validator  = PersonaValidatorAgent(name=f"{label}_PersonaValidator",  role="PersonaValidator",  llm=self._llms["validator"])
-            persona_crafter    = PersonaCrafterAgent(  name=f"{label}_PersonaCrafter",    role="PersonaCrafter",    llm=self._llms["persona_crafter"], n_items=self.n_items)
-            vignette_validator = VignetteValidatorAgent(name=f"{label}_VignetteValidator", role="VignetteValidator", llm=self._llms["validator"])
-            validator          = ValidatorAgent(        name=f"{label}_Validator",         role="Validator",         llm=self._llms["validator"])
+        for patient_idx, persona_id in enumerate(persona_ids):
+            label = f"Client_{patient_idx}"
+            logger.info("=== Patient %d (persona %d) starting ===", patient_idx, persona_id)
+
+            validator = ValidatorAgent(name=f"{label}_Validator", role="Validator",
+                                       llm=self._llms["validator"])
 
             set_context_subdir(f"patients/patient_{patient_idx}/context/persona")
-
-            for step in self.pipeline:
-                if step not in self._PATIENT_STEPS:
-                    continue
-                logger.info("[%s] step_%s: starting", label, step)
-                if step == "craft_persona":
-                    patient_state.update(step_craft_persona(
-                        label, self._llms, persona_validator, persona_crafter, self.max_retries,
-                        self.n_items, self.node_prob, self.edge_prob,
-                    ))
-                elif step == "vignette":
-                    patient_state.update(step_vignette(label, patient_state, self._llms))
-                elif step == "validate_vignette":
-                    patient_state.update(step_validate_vignette(label, patient_state, vignette_validator, self.max_retries))
-                elif step == "analyse_vignette":
-                    patient_state.update(step_analyse_vignette(label, patient_state, self._llms, self.agent_classes))
-                logger.info("[%s] step_%s: done", label, step)
+            patient_state: dict = step_load_persona(label, persona_id,
+                                                    self.vignette_condition)
 
             patient_store_state = load_patient_state(self.experiment_dir, patient_idx, patient_state)
 
@@ -146,7 +140,6 @@ class SimulationRunner:
                 "ultimately_passed": ultimately_passed}
 
     def _save(self, patient_idx: int, session_idx: int, state: dict, tokens: dict = None):
-        vignette_attempts = state.get("vignette_attempts", [])
         message_attempts  = state.get("message_attempts", [])
 
         output = cast(dict, to_serializable({
@@ -160,12 +153,11 @@ class SimulationRunner:
             "obs_nodes":       state.get("obs_nodes", {}),
             "obs_edges":       state.get("obs_edges", {}),
             "validation_summary": {
-                "vignette": self._validation_summary(vignette_attempts),
-                "message":  self._validation_summary(message_attempts),
+                "message": self._validation_summary(message_attempts),
             },
+            "persona_id":        state.get("persona_id"),
             "vignette":          state.get("vignette", ""),
-            "vignette_attempts": vignette_attempts,
-            "vignette_analysis": state.get("vignette_analysis", {}),
+            "vignette_condition": state.get("vignette_condition", ""),
             "initial_message":   state.get("initial_message", ""),
             "message_attempts":  message_attempts,
             "conversation":      state.get("conversation", []),

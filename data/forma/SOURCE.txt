@@ -1,0 +1,3 @@
+Personas and vignettes from Amit-Oren/FORMA
+Vignette generator model: claude-sonnet-4-6
+Data licensed CC BY 4.0. Fetched by scripts/fetch_forma_data.py

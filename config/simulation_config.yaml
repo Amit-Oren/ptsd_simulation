@@ -30,4 +30,3 @@ agents:
   interviewer: InterviewerAgent
   client: ClientAgent
   analyst: ConversationAnalystAgent
-  vignette_analyst: VignetteAnalystAgent

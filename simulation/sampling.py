@@ -1,16 +1,5 @@
 """
-sampling.py — synthetic persona/session generation: pure functions, no LLM
-calls, drawing from the domain pools in config/demographics.py and
-config/self_report.py.
 
-Was data/input/input.py — moved here because "data/input" is stale naming
-left over from a deleted real-data-ingestion feature (this module has never
-read a file; it's 100% synthetic sampling) and because pure, non-LLM domain
-logic supporting the simulation belongs alongside simulation/graph.py, not
-under a folder named for something this code doesn't do. The real patient
-data CSVs that used to live next to this file stay in data/input/ — kept
-there deliberately for future sim-to-real validation work, just no longer
-sharing a home with unrelated sampling code.
 """
 import random
 from config.formulation_config import DIRECT_EDGES, NODES
@@ -35,8 +24,8 @@ _ALL_NODES = list(dict.fromkeys(n for edge in DIRECT_EDGES for n in edge))
 
 
 def _weights_for_age(age: int, table: list[tuple]) -> dict:
-    for (lo, hi), weights in table:
-        if lo <= age <= hi:
+    for (low, high), weights in table:
+        if low <= age <= high:
             return weights
     return table[-1][1]
 
@@ -83,9 +72,9 @@ def sample_cognitive_model(node_prob: float = 0.7, edge_prob: float = 0.5) -> di
     """
     active_set = {n for n in _ALL_NODES if random.random() < node_prob}
     graph: EdgeGraph = from_schema(DIRECT_EDGES)
-    for (p, c) in DIRECT_EDGES:
-        if p in active_set and c in active_set and random.random() < edge_prob:
-            set_weight(graph, p, c, round(random.uniform(0.01, 1.0), 4))
+    for (parent, child) in DIRECT_EDGES:
+        if parent in active_set and child in active_set and random.random() < edge_prob:
+            set_weight(graph, parent, child, round(random.uniform(0.01, 1.0), 4))
     active_nodes = [n for n in _ALL_NODES if n in active_set]
     return {"edges": graph, "active_nodes": active_nodes}
 
@@ -108,12 +97,12 @@ def sample_formulation(n_items: int = 3, node_prob: float = 0.7, edge_prob: floa
     model = sample_cognitive_model(node_prob, edge_prob)
     ni    = sample_self_report(model, n_items)
     edges: dict = {}
-    for p, children in model["edges"].items():
-        for c, weight in children.items():
-            edges.setdefault(p, {})[c] = {
+    for parent, children in model["edges"].items():
+        for child, weight in children.items():
+            edges.setdefault(parent, {})[child] = {
                 "strength":     weight,
-                "parent_items": ni.get(p, []),
-                "child_items":  ni.get(c, []),
+                "parent_items": ni.get(parent, []),
+                "child_items":  ni.get(child, []),
             }
     return {"nodes": ni, "edges": edges}
 
@@ -127,8 +116,8 @@ def sample_session_state(agg_edges: EdgeGraph, active_nodes: list) -> tuple[dict
     """
     nodes = {n: bool(n in active_nodes and random.random() < 0.7) for n in NODES}
     obs: EdgeGraph = {}
-    for p, children in agg_edges.items():
-        for c, weight in children.items():
-            active = nodes.get(p) and nodes.get(c) and weight > 0 and random.random() < weight
-            obs.setdefault(p, {})[c] = weight if active else 0.0
+    for parent, children in agg_edges.items():
+        for child, weight in children.items():
+            active = nodes.get(parent) and nodes.get(child) and weight > 0 and random.random() < weight
+            obs.setdefault(parent, {})[child] = weight if active else 0.0
     return nodes, obs

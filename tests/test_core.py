@@ -146,3 +146,30 @@ def test_format_session_history_multiple_sessions():
     assert "Session 0" in result
     assert "Session 1" in result
     assert "Session 2" in result
+
+
+# ── scenario continuity across sessions ───────────────────────────────────────
+
+def test_used_scenario_seeds_survive_a_session(tmp_path):
+    """Session state is rebuilt from the patient store each session, so anything
+    left only in session state is silently discarded — which is how the same
+    scenario came up three sessions running."""
+    from simulation.patient_store import load_patient_state, update_and_save
+
+    initial = {"demographics": {}, "self_report": {}, "active_nodes": [],
+               "agg_edges": {}}
+    patient_state = load_patient_state(tmp_path, 0, initial)
+
+    patient_state = update_and_save(
+        tmp_path, 0, patient_state,
+        {"conversation": [], "used_scenario_seeds": ["called_in"]}, 0)
+    assert patient_state["used_scenario_seeds"] == ["called_in"]
+
+    patient_state = update_and_save(
+        tmp_path, 0, patient_state,
+        {"conversation": [], "used_scenario_seeds": ["called_in", "detour"]}, 1)
+    assert patient_state["used_scenario_seeds"] == ["called_in", "detour"]
+
+    # and it survives a reload from disk, not just the in-memory handoff
+    reloaded = load_patient_state(tmp_path, 0, initial)
+    assert reloaded["used_scenario_seeds"] == ["called_in", "detour"]

@@ -87,7 +87,7 @@ def load_patient_state(experiment_dir: Path, patient_idx: int, initial_state: di
         with open(path, "r", encoding="utf-8") as f:
             stored = json.load(f)
         state["agg_edges"]         = stored["agg_edges"]
-        state["vignette_analysis"] = stored.get("vignette_analysis", {})
+        state["used_scenario_seeds"] = stored.get("used_scenario_seeds", [])
         state["self_report"]       = stored.get("self_report", {})
         state["inferred_graph"]    = stored["inferred_graph"]
         state["session_summaries"] = stored["session_summaries"]
@@ -167,6 +167,11 @@ def update_and_save(experiment_dir: Path, patient_idx: int,
     updated["recent_transcripts"] = recent_transcripts[-_RECENT_TRANSCRIPTS_KEPT:]
     updated["memory_graph"]       = session_state.get("memory_graph", patient_state.get("memory_graph"))
     updated["memory_id"]          = patient_state.get("memory_id")
+    # Carried forward so a patient does not report the same kind of week twice:
+    # session state is rebuilt from this dict each session, so anything left
+    # only in session state is silently discarded.
+    updated["used_scenario_seeds"] = session_state.get(
+        "used_scenario_seeds", patient_state.get("used_scenario_seeds", []))
 
     payload = {
         "patient_idx":       patient_idx,
@@ -176,8 +181,8 @@ def update_and_save(experiment_dir: Path, patient_idx: int,
         "self_report":       updated.get("self_report", {}),
         "active_nodes":      updated.get("active_nodes", []),
         "agg_edges":         updated.get("agg_edges", {}),
-        "vignette_analysis": updated.get("vignette_analysis", {}),
         "inferred_graph":    updated["inferred_graph"],
+        "used_scenario_seeds": updated["used_scenario_seeds"],
         "session_summaries": updated["session_summaries"],
         "recent_transcripts": updated["recent_transcripts"],
     }

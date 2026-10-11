@@ -6,8 +6,7 @@ patient's activation map, and obs_nodes decides which tools exist at all, so an
 inactive node cannot be expressed instead of merely being discouraged.
 
 Every tool runs the identical path - activate an item, let it cascade along the
-sampled edges. Only the wording of what comes back differs. The clinical theory
-lives in the edge weights, not in special cases here.
+sampled edges. Only the wording of what comes back differs.
 """
 import logging
 from langchain_core.tools import tool
@@ -16,14 +15,19 @@ from simulation.activation import activate, next_unused, propagate
 
 logger = logging.getLogger(__name__)
 
-# How each node announces itself back to the patient.
-_HEADERS = {
-    "Triggers":               "SOMETHING CAUGHT YOU",
-    "Memory":                 "A MEMORY SURFACED",
-    "Threat":                 "DANGER RISES IN YOU",
-    "Negative Appraisals":    "A BELIEF HARDENS",
-    "Maladaptive Strategies": "YOU PULL AWAY",
+
+_TAGS = {
+    "Triggers":               "[trigger]",
+    "Memory":                 "[memory]",
+    "Threat":                 "[threat]",
+    "Negative Appraisals":    "[belief]",
+    "Maladaptive Strategies": "[coping]",
 }
+
+
+_FOOTER = ("  Those are clinical labels, not your words. Say what actually "
+           "happened to you just now - one specific moment, the way you would "
+           "text it to someone.")
 
 
 def _item_values(self_report: dict) -> dict:
@@ -60,25 +64,38 @@ def build_toolbox(activation: dict, self_report: dict, obs_nodes: dict,
             return f"(nothing new surfaces there right now)"
 
         activate(activation, node, item, params.strength, params.max_activation)
-        # The cascade is part of the same event - a cue does not fire and then
-        # later pull the memory in, it arrives with it. Running it here means the
-        # model reads the whole chain before it speaks, rather than a turn late.
         history = propagate(activation, obs_edges, params,
                             origin_node=node, origin_item=item, hops=params.hops)
 
         level = activation[node][item]
+        cascade = [
+            {"hop": hop_i, "from_node": entry["from_node"],
+             "from_item": entry["from_item"], "to_node": to_node,
+             "to_item": to_item, "amount": entry["amount"]}
+            for hop_i, hop in enumerate(history, 1)
+            for (to_node, to_item), entry in hop.items()
+        ]
         trace.append({"node": node, "item": item, "matched": matched,
-                      "level": level, "cascade": history})
+                      "level": level, "cascade": cascade})
         logger.debug("%s -> %s (%.2f), %d hops", node, item, level, len(history))
 
-        lines = [f"{_HEADERS.get(node, node.upper())}: {values.get(node, {}).get(item, item)}",
-                 f"  It is {_word(level)} ({level:.2f})."]
+        lines = [f"{_TAGS.get(node, node.lower())}",
+                 f"  what: {values.get(node, {}).get(item, item)}",
+                 f"  how strongly: {_word(level)} ({level:.2f})"]
 
-        followed = [(n, i, e) for hop in history for (n, i), e in hop.items()]
-        if followed:
-            lines.append("  It brings with it:")
-            for n, i, entry in followed:
-                lines.append(f"    - {values.get(n, {}).get(i, i)} ({_word(entry['amount'])})")
+
+        strongest: dict[tuple[str, str], float] = {}
+        for step in cascade:
+            key = (step["to_node"], step["to_item"])
+            strongest[key] = max(strongest.get(key, 0.0), step["amount"])
+        arrived = sorted(strongest.items(), key=lambda kv: -kv[1])[:2]
+        arrived = [(k, a) for k, a in arrived if a >= params.spread_floor]
+        if arrived:
+            lines.append("  it brought with it:")
+            for (to_node, to_item), amount in arrived:
+                label = values.get(to_node, {}).get(to_item, to_item)
+                lines.append(f"    - {label} ({_word(amount)})")
+        lines.append(_FOOTER)
         return "\n".join(lines)
 
     tools = []

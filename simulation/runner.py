@@ -1,19 +1,18 @@
 import logging
 import random
+from dataclasses import asdict, is_dataclass
 from datetime import datetime
 from pathlib import Path
 from typing import cast
 from simulation.run_context import set_context_subdir, reset_run_tokens, get_run_tokens
-from agents.validator_agent import ValidatorAgent
 from simulation.factory import build_llm
 from simulation.output import to_serializable, write_json, write_txt, write_summary_json, write_manifest
 from simulation.patient_store import load_patient_state, update_and_save
 from simulation.memory.store import save_memory_graph, copy_memory_snapshot_to_output
 from simulation.pipelines import PIPELINES
 from simulation.steps import (
-    step_load_persona, step_session_state, step_render_memory,
-    step_dialogue_state, step_validate_message,
-    step_conversation, step_analysis, step_update_memory,
+    step_load_persona, step_scenario, step_session_state, step_activation,
+    step_render_memory, step_conversation, step_analysis, step_update_memory,
 )
 from simulation.forma import available_personas
 
@@ -27,7 +26,7 @@ class SimulationRunner:
                  max_retries: int = 2, temperature: float = 0.7,
                  pipeline: str = "full",
                  n_items: int = 3, node_prob: float = 0.7, edge_prob: float = 0.5,
-                 vignette_condition: str = "no_formulation",
+                 patient_context: str = "biography",
                  persona_ids: list[int] | None = None):
         self.num_patients   = num_patients
         self.num_sessions   = num_sessions
@@ -43,7 +42,7 @@ class SimulationRunner:
         self.n_items        = n_items
         self.node_prob      = node_prob
         self.edge_prob      = edge_prob
-        self.vignette_condition = vignette_condition
+        self.patient_context = patient_context
         self.persona_ids    = persona_ids
         random.seed(seed)
         self._llms = {role: build_llm(model_name, temperature) for role, model_name in models.items()}
@@ -59,7 +58,7 @@ class SimulationRunner:
             "n_items":      self.n_items,
             "node_prob":    self.node_prob,
             "edge_prob":    self.edge_prob,
-            "vignette_condition": self.vignette_condition,
+            "patient_context": self.patient_context,
         }
 
     _PATIENT_STEPS = {"load_persona"}
@@ -86,12 +85,9 @@ class SimulationRunner:
             label = f"Client_{patient_idx}"
             logger.info("=== Patient %d (persona %d) starting ===", patient_idx, persona_id)
 
-            validator = ValidatorAgent(name=f"{label}_Validator", role="Validator",
-                                       llm=self._llms["validator"])
-
             set_context_subdir(f"patients/patient_{patient_idx}/context/persona")
             patient_state: dict = step_load_persona(label, persona_id,
-                                                    self.vignette_condition)
+                                                    self.patient_context)
 
             patient_store_state = load_patient_state(self.experiment_dir, patient_idx, patient_state)
 
@@ -105,14 +101,14 @@ class SimulationRunner:
                     if step in self._PATIENT_STEPS:
                         continue
                     logger.info("[%s] step_%s (session=%d): starting", label, step, session_idx)
-                    if step == "session_state":
+                    if step == "scenario":
+                        state.update(step_scenario(label, state, session_idx))
+                    elif step == "session_state":
                         state.update(step_session_state(label, state))
+                    elif step == "activation":
+                        state.update(step_activation(label, state))
                     elif step == "render_memory":
                         state.update(step_render_memory(label, state))
-                    elif step == "dialogue_state":
-                        state.update(step_dialogue_state(label, state, self._llms))
-                    elif step == "validate_message":
-                        state.update(step_validate_message(label, state, validator, self.max_retries))
                     elif step == "conversation":
                         state.update(step_conversation(label, state, self._llms, self.agent_classes, self.num_turns))
                     elif step == "analysis":
@@ -140,8 +136,6 @@ class SimulationRunner:
                 "ultimately_passed": ultimately_passed}
 
     def _save(self, patient_idx: int, session_idx: int, state: dict, tokens: dict = None):
-        message_attempts  = state.get("message_attempts", [])
-
         output = cast(dict, to_serializable({
             "patient_idx":          patient_idx,
             "session_idx":          session_idx,
@@ -152,14 +146,14 @@ class SimulationRunner:
             "agg_edges":       state.get("agg_edges", {}),
             "obs_nodes":       state.get("obs_nodes", {}),
             "obs_edges":       state.get("obs_edges", {}),
-            "validation_summary": {
-                "message": self._validation_summary(message_attempts),
-            },
             "persona_id":        state.get("persona_id"),
-            "vignette":          state.get("vignette", ""),
-            "vignette_condition": state.get("vignette_condition", ""),
-            "initial_message":   state.get("initial_message", ""),
-            "message_attempts":  message_attempts,
+            "biography":         state.get("biography", ""),
+            "patient_context":   state.get("patient_context", ""),
+            "scenario":          state.get("scenario", {}),
+            "activation_params": (asdict(p) if is_dataclass(p := state.get("activation_params"))
+                                  else p),
+            "activation_trace":  state.get("activation_trace", []),
+            "activation_by_turn": state.get("activation_by_turn", []),
             "conversation":      state.get("conversation", []),
             "moderation_log":    state.get("moderation_log", []),
             "analysis":          state.get("analysis", ""),

@@ -3,8 +3,9 @@ Pipeline step functions. Each step receives the current state dict,
 updates it, and returns the updated dict.
 """
 import logging
-from agents.dialogue_state_agent import DialogueStateAgent
-from agents.validator_agent import ValidatorAgent
+from agents.patient_agent import PatientAgent
+from config.scenarios import sample_scenario
+from simulation.activation import ActivationParams, from_self_report, decay
 from simulation.forma import load_persona
 from simulation.sampling import sample_session_state
 from simulation.factory import load_agent_class
@@ -13,23 +14,33 @@ from simulation.patient_store import format_recent_transcripts
 from simulation.memory.kg import TypedKnowledgeGraph
 from simulation.memory.render import build_interviewer_memory_context
 
+
+def snapshot(activation: dict) -> dict:
+    """A copy of the activation map, so a turn's state survives later mutation."""
+    return {node: dict(items) for node, items in activation.items()}
+
 logger = logging.getLogger(__name__)
 
 
 def step_load_persona(label: str, persona_id: int,
-                      vignette_condition: str = "no_formulation") -> dict:
+                      patient_context: str = "biography") -> dict:
     """Load one patient from the FORMA dataset.
 
     Replaces the old sample-and-craft phase entirely: the personas are already
     generated and clinician-validated, so building a patient costs no LLM calls
-    and `persona_id` is the seed. The no_formulation vignette is used by default
-    because it was written without the cognitive graph — a vignette that narrates
-    the causal links hands the analyst the answer it is supposed to recover.
+    and `persona_id` is the seed.
+
+    `patient_context` decides what the patient reads about itself. The default,
+    a biography, gives identity and what happened and nothing else — every
+    FORMA vignette narrates the person's symptoms, and a patient handed that
+    has no reason to call a tool. The vignette conditions remain as ablation
+    arms for measuring how much of the analyst's recovery comes from the
+    mechanism rather than from the prompt.
     """
-    persona = load_persona(persona_id, vignette_condition)
-    logger.info("[%s] load_persona %d — %d active nodes, %d active edges, %s vignette",
+    persona = load_persona(persona_id, patient_context)
+    logger.info("[%s] load_persona %d — %d active nodes, %d active edges, %s context",
                 label, persona_id, len(persona["active_nodes"]),
-                count_active(persona["agg_edges"]), vignette_condition)
+                count_active(persona["agg_edges"]), patient_context)
     return persona
 
 
@@ -47,62 +58,93 @@ def step_render_memory(label: str, state: dict) -> dict:
     return {"memory_context": memory_context}
 
 
-def step_dialogue_state(label: str, state: dict, llms: dict) -> dict:
-    session_history = format_recent_transcripts(state.get("recent_transcripts", []))
-    dialogue_state = DialogueStateAgent(
-        name=f"{label}_DialogueState", role="DialogueState",
-        llm=llms["dialogue_state"],
-        vignette=state["vignette"],
-        nodes=state["obs_nodes"],
-        edges=state["obs_edges"],
-        session_history=session_history,
-    )
-    initial_message = dialogue_state.create_message()
+def step_scenario(label: str, state: dict, session_idx: int) -> dict:
+    """Draw this session's event.
+
+    The patient reports on it; the interviewer and the analyst never see it.
+    Seeds already used by this patient are excluded so they do not report the
+    same kind of week twice.
+    """
+    used = set(state.get("used_scenario_seeds", []))
+    scenario = sample_scenario(exclude_seeds=used)
+    logger.info("[%s] scenario (session=%d) \u2014 %s", label, session_idx, scenario["id"])
     return {
-        "initial_message":  initial_message,
-        "message_attempts": [{"output": initial_message, "passed": True, "feedback": None}],
-        "_dialogue_state":  dialogue_state,
+        "scenario": scenario,
+        "used_scenario_seeds": sorted(used | {scenario["seed_id"]}),
     }
 
 
-def step_validate_message(label: str, state: dict, validator: ValidatorAgent, max_retries: int) -> dict:
-    initial_message, attempts = validator.validate_with_retry(
-        initial_output=state["initial_message"],
-        output_type="dialogue",
-        context={"vignette": state["vignette"], "nodes": state["obs_nodes"], "edges": state["obs_edges"]},
-        retry_fn=state["_dialogue_state"].create_message_with_feedback,
-        max_retries=max_retries,
-        label=label,
-    )
-    return {"initial_message": initial_message, "message_attempts": attempts}
+def step_activation(label: str, state: dict) -> dict:
+    """Zero the patient's activation map and fix this session's dynamics.
+
+    One entry per self-report item, all cold. ActivationParams are the dials
+    that decide how reactive this patient is and how long anything stays with
+    them; defaults for now, sampled from severity later.
+    """
+    activation = from_self_report(state["self_report"])
+    n_items = sum(len(v) for v in activation.values())
+    logger.info("[%s] activation \u2014 %d items across %d nodes",
+                label, n_items, len(activation))
+    return {"activation": activation, "activation_params": ActivationParams(),
+            "activation_trace": []}
 
 
-def step_conversation(label: str, state: dict, llms: dict, agent_classes: dict, num_turns: int) -> dict:
+def step_conversation(label: str, state: dict, llms: dict, agent_classes: dict,
+                      num_turns: int) -> dict:
+    """Run one session.
+
+    The patient opens, reporting on the scenario \u2014 this is EMA, they are
+    checking in, not answering a probe. Decay runs at the START of each
+    subsequent turn, representing the gap since the last one: run at the end it
+    would discount a tool call before the model ever spoke from it.
+    """
     session_history = format_recent_transcripts(state.get("recent_transcripts", []))
-    client = load_agent_class(agent_classes["client"])(
-        name=label, role="Patient", llm=llms["client"],
-        vignette=state["vignette"], nodes=state["obs_nodes"], edges=state["obs_edges"],
-        initial_message=state["initial_message"], session_history=session_history,
-        self_report=state.get("self_report", {}),
+    activation = state["activation"]
+    params = state["activation_params"]
+    trace = state["activation_trace"]
+
+    patient = load_agent_class(agent_classes["patient"])(
+        name=label, role="Patient", llm=llms["patient"],
+        biography=state["biography"],
+        scenario=state["scenario"]["text"],
+        activation=activation,
+        params=params,
+        self_report=state["self_report"],
+        obs_nodes=state["obs_nodes"],
+        obs_edges=state["obs_edges"],
+        session_history=session_history,
+        trace=trace,
     )
     interviewer = load_agent_class(agent_classes["interviewer"])(
         name="Interviewer", role="Interviewer", llm=llms["interviewer"],
         memory_context=state.get("memory_context", ""),
     )
-    logger.info("[%s] conversation — starting %d turns", label, num_turns)
+    logger.info("[%s] conversation \u2014 starting %d turns", label, num_turns)
 
-    conversation = [{"speaker": "client", "turn_index": 0, "text": state["initial_message"]}]
-    interviewer_response = interviewer.respond(state["initial_message"])
-    conversation.append({"speaker": "interviewer", "turn_index": 1, "text": interviewer_response})
+    opening = patient.open_session()
+    conversation = [{"speaker": "client", "turn_index": 0, "text": opening}]
+    activation_by_turn = [snapshot(activation)]
+
+    interviewer_response = interviewer.respond(opening)
+    conversation.append({"speaker": "interviewer", "turn_index": 1,
+                         "text": interviewer_response})
 
     for i in range(num_turns - 1):
-        client_response = client.respond(interviewer_response)
-        conversation.append({"speaker": "client", "turn_index": 2 + i * 2, "text": client_response})
-        interviewer_response = interviewer.respond(client_response)
-        conversation.append({"speaker": "interviewer", "turn_index": 3 + i * 2, "text": interviewer_response})
+        decay(activation, params)          # time passed since the last turn
+        patient_response = patient.respond(interviewer_response)
+        conversation.append({"speaker": "client", "turn_index": 2 + i * 2,
+                             "text": patient_response})
+        activation_by_turn.append(snapshot(activation))
+        interviewer_response = interviewer.respond(patient_response)
+        conversation.append({"speaker": "interviewer", "turn_index": 3 + i * 2,
+                             "text": interviewer_response})
 
-    logger.info("[%s] conversation complete (%d messages)", label, len(conversation))
-    return {"conversation": conversation}
+    live = sum(1 for turn in activation_by_turn for v in turn.values() for x in v.values() if x > 0)
+    logger.info("[%s] conversation complete \u2014 %d messages, %d tool calls, "
+                "%d live item-turns", label, len(conversation), len(trace), live)
+    return {"conversation": conversation,
+            "activation_trace": trace,
+            "activation_by_turn": activation_by_turn}
 
 
 def step_analysis(label: str, state: dict, llms: dict, agent_classes: dict) -> dict:

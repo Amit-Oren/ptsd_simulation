@@ -98,48 +98,66 @@ def build_toolbox(activation: dict, self_report: dict, obs_nodes: dict,
         lines.append(_FOOTER)
         return "\n".join(lines)
 
+    # The docstrings below are the only description of a tool the model ever
+    # sees, so they are doing prompt work. Each follows the operational
+    # definition the analyst scores against - the patient firing on one
+    # definition while the analyst scores on another would measure the gap
+    # between two rubrics rather than the mechanism.
+    #
+    # Each is phrased as an event that has already happened, never as a topic.
+    # A topic ("about danger") is always arguably relevant and the model fires
+    # every tool every turn; an event either occurred or it did not.
+    #
+    # And each carries the definition without illustrating it. A longer version
+    # listed examples - "it was my fault", "drinking", "a quality of light" -
+    # and two things went wrong. The model spoke them verbatim, so the
+    # docstring was supplying symptoms the patient does not have; and a list
+    # that long reads as a menu, where almost any turn matches something, which
+    # pushed firing to six or eight times a session.
     tools = []
 
     if obs_nodes.get("Triggers"):
         @tool
         def notice_trigger(what_matched: str) -> str:
-            """Something in this conversation resembles a cue that sets you off.
-            Call this when a word, image or topic just snagged your attention the
-            way a reminder does. Pass what specifically matched, in your own words."""
+            """Something just set this off in you - something you saw, heard,
+            felt in your body, or found yourself in the middle of. It does not
+            have to resemble what happened. Call this as the cue lands, and say
+            what it was."""
             return _fire("Triggers", matched=what_matched)
         tools.append(notice_trigger)
 
     if obs_nodes.get("Memory"):
         @tool
         def recall_memory() -> str:
-            """A specific memory of what happened has surfaced. Call this when you
-            have just been pulled back to the event itself, not when you are merely
-            discussing it."""
+            """The event is back and you are inside it: fragments, mostly
+            sensory, in the present tense. Talking about what happened is not
+            this."""
             return _fire("Memory")
         tools.append(recall_memory)
 
     if obs_nodes.get("Threat"):
         @tool
         def feel_threatened() -> str:
-            """A sense of present danger has risen in you. Call this when something
-            feels unsafe right now, not when you are remembering having felt unsafe."""
+            """Danger now, not then. Your body is already responding. Not
+            caution, not unease, and not remembering having been afraid."""
             return _fire("Threat")
         tools.append(feel_threatened)
 
     if obs_nodes.get("Negative Appraisals"):
         @tool
         def express_belief() -> str:
-            """A harsh conclusion about yourself, other people or the world has just
-            become active in you, with a feeling of being simply true."""
+            """A conclusion - about what happened, about how you have been
+            since, or about what it has left you with - arriving as fact rather
+            than as something you are weighing up."""
             return _fire("Negative Appraisals")
         tools.append(express_belief)
 
     if obs_nodes.get("Maladaptive Strategies"):
         @tool
         def use_coping_strategy() -> str:
-            """You have reached for something you do to manage this - avoiding,
-            distracting, shutting down, changing the subject. Call this when you are
-            pulling away from the feeling rather than staying with it."""
+            """You reached for the thing that makes this manageable, whether
+            that is pushing it away or going over and over it. It works, for a
+            moment - which is why you do it."""
             return _fire("Maladaptive Strategies")
         tools.append(use_coping_strategy)
 

@@ -37,6 +37,8 @@ import json
 import random
 from pathlib import Path
 
+from config.scenario_seeds import SEEDS
+
 POOL_PATH = Path("data/scenarios/scenarios.json")
 _RELATIONS_PATH = Path("data/atomic/seed_relations.json")
 
@@ -51,10 +53,11 @@ _RELATIONS: dict = (
 
 
 def _annotate(record: dict) -> dict:
-    """Attach the ATOMIC baselines for this record's seed ({} for written seeds)."""
+    """Attach the seed's one-line gist and the ATOMIC baselines ({} for written seeds)."""
     relations = _RELATIONS.get(record["seed_id"], {}).get("relations", {})
     return {
         **record,
+        "gist":         SEEDS.get(record["seed_id"], {}).get("gist", ""),
         "relations":    relations,
         "other_intent": relations.get("xIntent", []),
         "norm_feel":    relations.get("oReact", []),

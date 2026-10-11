@@ -5,7 +5,7 @@ Run: python -m pytest tests/ -x -q
 """
 from simulation.memory.kg import TypedKnowledgeGraph
 from simulation.memory.render import build_interviewer_memory_context
-from simulation.patient_store import format_recent_transcripts
+from simulation.patient_store import format_session_memory
 
 
 # ── kg.py — node merging ───────────────────────────────────────────────────────
@@ -226,29 +226,40 @@ def test_build_interviewer_memory_context_groups_by_type_and_shows_edges():
     assert "consider" not in result.lower()
 
 
-# ── patient_store.py — raw-transcript memory (not analyst-derived) ─────────────
+# ── patient_store.py — the patient's cross-session memory ─────────────────────
+# Topics, not transcripts. Verbatim past conversations contain the patient's
+# symptoms in plain language, so feeding them back killed tool use outright:
+# zero calls in every session after the first.
 
-def test_format_recent_transcripts_empty():
-    assert "No prior sessions" in format_recent_transcripts([])
-
-
-def test_format_recent_transcripts_caps_to_last_n_sessions():
-    transcripts = [
-        {"session_idx": i, "conversation": [{"speaker": "client", "turn_index": 0, "text": f"turn {i}"}]}
-        for i in range(4)
-    ]
-    result = format_recent_transcripts(transcripts, max_sessions=2)
-    assert "Session 0" not in result
-    assert "Session 1" not in result
-    assert "Session 2" in result
-    assert "Session 3" in result
+def test_session_memory_empty():
+    assert "No earlier conversations" in format_session_memory([])
 
 
-def test_format_recent_transcripts_includes_speaker_and_text():
-    transcripts = [{"session_idx": 0, "conversation": [
-        {"speaker": "client", "turn_index": 0, "text": "I keep hearing that sound."},
-        {"speaker": "interviewer", "turn_index": 1, "text": "When did that happen?"},
-    ]}]
-    result = format_recent_transcripts(transcripts)
-    assert "CLIENT: I keep hearing that sound." in result
-    assert "INTERVIEWER: When did that happen?" in result
+def test_session_memory_caps_to_last_n_sessions():
+    topics = [{"session_idx": i, "seed_id": f"seed_{i}", "gist": f"thing {i}"}
+              for i in range(4)]
+    result = format_session_memory(topics, max_sessions=2)
+    assert "thing 0" not in result
+    assert "thing 1" not in result
+    assert "thing 2" in result
+    assert "thing 3" in result
+
+
+def test_session_memory_names_the_topic():
+    topics = [{"session_idx": 0, "seed_id": "called_in",
+               "gist": "someone with authority over you asked you to come and speak"}]
+    result = format_session_memory(topics)
+    assert "asked you to come and speak" in result
+
+
+def test_session_memory_carries_no_transcript():
+    """What was talked about, never what was said."""
+    topics = [{"session_idx": 0, "seed_id": "called_in", "gist": "a meeting"}]
+    result = format_session_memory(topics)
+    assert "CLIENT:" not in result
+    assert "INTERVIEWER:" not in result
+
+
+def test_session_memory_survives_a_missing_gist():
+    result = format_session_memory([{"session_idx": 0, "seed_id": "x", "gist": None}])
+    assert "something that had happened" in result

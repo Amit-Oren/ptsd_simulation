@@ -10,7 +10,7 @@ from simulation.forma import load_persona
 from simulation.sampling import sample_session_state
 from simulation.factory import load_agent_class
 from simulation.graph import count_active
-from simulation.patient_store import format_recent_transcripts
+from simulation.patient_store import format_session_memory
 from simulation.memory.kg import TypedKnowledgeGraph
 from simulation.memory.render import build_interviewer_memory_context
 
@@ -98,7 +98,7 @@ def step_conversation(label: str, state: dict, llms: dict, agent_classes: dict,
     subsequent turn, representing the gap since the last one: run at the end it
     would discount a tool call before the model ever spoke from it.
     """
-    session_history = format_recent_transcripts(state.get("recent_transcripts", []))
+    session_history = format_session_memory(state.get("session_topics", []))
     activation = state["activation"]
     params = state["activation_params"]
     trace = state["activation_trace"]
@@ -121,7 +121,16 @@ def step_conversation(label: str, state: dict, llms: dict, agent_classes: dict,
     )
     logger.info("[%s] conversation \u2014 starting %d turns", label, num_turns)
 
+    def tag_turn(turn_index: int, seen: int) -> int:
+        """Stamp the turn onto whatever fired during it, so a trace entry can be
+        lined up with the message it produced."""
+        for entry in trace[seen:]:
+            entry["turn_index"] = turn_index
+        return len(trace)
+
+    seen = 0
     opening = patient.open_session()
+    seen = tag_turn(0, seen)
     conversation = [{"speaker": "client", "turn_index": 0, "text": opening}]
     activation_by_turn = [snapshot(activation)]
 
@@ -132,6 +141,7 @@ def step_conversation(label: str, state: dict, llms: dict, agent_classes: dict,
     for i in range(num_turns - 1):
         decay(activation, params)          # time passed since the last turn
         patient_response = patient.respond(interviewer_response)
+        seen = tag_turn(2 + i * 2, seen)
         conversation.append({"speaker": "client", "turn_index": 2 + i * 2,
                              "text": patient_response})
         activation_by_turn.append(snapshot(activation))

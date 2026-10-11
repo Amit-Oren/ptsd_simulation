@@ -16,9 +16,9 @@ def format_session_history(session_summaries: list) -> str:
     """Build a readable context string from past session summaries for agent prompts.
 
     NOTE: kept for the inferred_graph/session_summaries bookkeeping this module still
-    maintains, but no longer used to build ClientAgent's/DialogueStateAgent's prompt —
-    that data is derived from the analyst's evaluation, which the patient would never
-    realistically see. Use format_recent_transcripts() for that instead.
+    maintains, but never used to build the patient's prompt — this data is derived from
+    the analyst's evaluation, which a real patient would never see. The patient's own
+    cross-session memory is format_session_memory().
     """
     if not session_summaries:
         return "(No prior sessions.)"
@@ -43,19 +43,31 @@ def format_session_history(session_summaries: list) -> str:
     return "\n".join(lines).strip()
 
 
-def format_recent_transcripts(recent_transcripts: list, max_sessions: int = _RECENT_TRANSCRIPTS_KEPT) -> str:
-    """Build ClientAgent's/DialogueStateAgent's cross-session memory purely from what was
-    actually said — never from anything the analyst produced, since a real patient would
-    never see a readout of their own clinical evaluation."""
-    if not recent_transcripts:
-        return "(No prior sessions.)"
+def format_session_memory(session_topics: list, max_sessions: int = _RECENT_TRANSCRIPTS_KEPT) -> str:
+    """What the patient remembers of earlier conversations.
+
+    What was talked about, not what was said. Verbatim transcripts were tried
+    first and killed the mechanism: a patient's own past words contain their
+    symptoms in plain language, so from the second session onward the model had
+    the whole profile back in its prompt and stopped calling tools entirely -
+    zero calls in every session after the first. The same failure as handing it
+    a clinical vignette, arriving through memory, and it compounds, since each
+    session carries all the ones before it.
+
+    Topics preserve the continuity that matters - these conversations are not
+    standalone, and the patient knows they have spoken before - without
+    re-supplying the symptom list the mechanism exists to produce.
+    """
+    if not session_topics:
+        return "(No earlier conversations.)"
     lines = []
-    for entry in recent_transcripts[-max_sessions:]:
-        lines.append(f"Session {entry['session_idx']}:")
-        for turn in entry.get("conversation", []):
-            lines.append(f"  {turn['speaker'].upper()}: {turn['text']}")
-        lines.append("")
-    return "\n".join(lines).strip()
+    for entry in session_topics[-max_sessions:]:
+        gist = entry.get("gist") or "something that had happened"
+        lines.append(f"  - {gist}")
+    # The gists are present-tense clauses, so they are listed rather than
+    # wrapped in "you talked about ...", which produces a tense mismatch.
+    header = "You have messaged this chatbot before. What you talked about:"
+    return header + "\n" + "\n".join(lines)
 
 
 def _empty_inferred_graph() -> dict:
@@ -88,11 +100,11 @@ def load_patient_state(experiment_dir: Path, patient_idx: int, initial_state: di
             stored = json.load(f)
         state["agg_edges"]         = stored["agg_edges"]
         state["used_scenario_seeds"] = stored.get("used_scenario_seeds", [])
+        state["session_topics"]      = stored.get("session_topics", [])
         state["self_report"]       = stored.get("self_report", {})
         state["inferred_graph"]    = stored["inferred_graph"]
         state["session_summaries"] = stored["session_summaries"]
         state["session_count"]     = stored["session_count"]
-        state["recent_transcripts"] = stored.get("recent_transcripts", [])
         # memory_id is stable across sessions within this experiment_dir (resumed run);
         # fall back to a fresh id only if this state predates the memory_id fix.
         state["memory_id"] = stored.get("memory_id") or uuid.uuid4().hex[:8]
@@ -173,6 +185,13 @@ def update_and_save(experiment_dir: Path, patient_idx: int,
     updated["used_scenario_seeds"] = session_state.get(
         "used_scenario_seeds", patient_state.get("used_scenario_seeds", []))
 
+    scenario = session_state.get("scenario") or {}
+    updated["session_topics"] = patient_state.get("session_topics", []) + [{
+        "session_idx": session_idx,
+        "seed_id":     scenario.get("seed_id"),
+        "gist":        scenario.get("gist"),
+    }]
+
     payload = {
         "patient_idx":       patient_idx,
         "memory_id":         updated["memory_id"],
@@ -183,6 +202,7 @@ def update_and_save(experiment_dir: Path, patient_idx: int,
         "agg_edges":         updated.get("agg_edges", {}),
         "inferred_graph":    updated["inferred_graph"],
         "used_scenario_seeds": updated["used_scenario_seeds"],
+        "session_topics":    updated["session_topics"],
         "session_summaries": updated["session_summaries"],
         "recent_transcripts": updated["recent_transcripts"],
     }

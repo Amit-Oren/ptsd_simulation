@@ -18,15 +18,11 @@ simulation:
   #   full_memory               - full + cross-session interviewer memory (knowledge graph)
 
 models:
-  persona_crafter: gpt-4o-mini
-  validator: gpt-4o-mini
-  dialogue_state: gpt-4o-mini
-  client: gpt-4o-mini
+  patient: gpt-4o-mini
   interviewer: gpt-4o-mini
   analyst: gpt-4o-mini
-  vignette_analyst: gpt-4o-mini
 
 agents:
   interviewer: InterviewerAgent
-  client: ClientAgent
+  patient: PatientAgent
   analyst: ConversationAnalystAgent

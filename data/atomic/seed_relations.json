@@ -1,0 +1,586 @@
+{
+  "called_in": {
+    "event": "PersonX calls PersonY into the office",
+    "relations": {
+      "oEffect": [
+        "have to be ready for a conversation",
+        "have to walk to the office"
+      ],
+      "oReact": [
+        "anxious",
+        "hopeful",
+        "relieved",
+        "satisfied",
+        "scared",
+        "worried"
+      ],
+      "oWant": [
+        "to find out what they want",
+        "to give them a report",
+        "to learn more from PersonX",
+        "to listen",
+        "to listen to what PersonX has to say",
+        "to see what's going on"
+      ],
+      "xAttr": [
+        "controlling",
+        "important",
+        "in charge",
+        "successful"
+      ],
+      "xIntent": [
+        "to counsel",
+        "to gain information",
+        "to praise",
+        "to review work",
+        "to talk",
+        "to tell them information."
+      ],
+      "xNeed": [
+        "a reason for the meeting",
+        "a way of getting in touch with Y",
+        "talk to PersonY",
+        "to know where PersonY is"
+      ],
+      "xReact": [
+        "hopeful",
+        "informative.",
+        "open minded",
+        "proactive",
+        "relieved",
+        "satisfied"
+      ],
+      "xWant": [
+        "ask them something",
+        "to help PersonY",
+        "to show them something",
+        "to teach PersonY something",
+        "to tell them something"
+      ],
+      "isAfter": [
+        "PersonX walks outholding a clipboard"
+      ],
+      "isBefore": [
+        "PersonX closes the door behind themselves and PersonY"
+      ],
+      "HinderedBy": [
+        "PersonX is sick today.",
+        "PersonX’s phone is broken.",
+        "PersonY has filed a restraining order.",
+        "PersonY is on the phone with a customer.",
+        "PersonY is the supervisor.",
+        "PersonY snuck out the back when PersonX wasn't looking."
+      ]
+    }
+  },
+  "forgot_name": {
+    "event": "PersonX forgets PersonY's name",
+    "relations": {
+      "oEffect": [
+        "laughs",
+        "tells person X their name"
+      ],
+      "oReact": [
+        "awkward",
+        "sad",
+        "unfriendly"
+      ],
+      "xAttr": [
+        "absentminded",
+        "careless",
+        "forgetful",
+        "sick"
+      ],
+      "xReact": [
+        "embarrased",
+        "forgetful",
+        "guilty",
+        "shy",
+        "very bad",
+        "very sad"
+      ],
+      "xWant": [
+        "to ask somebody",
+        "to write the name down"
+      ],
+      "isAfter": [
+        "PersonX examines PersonY's face",
+        "PersonX runs into PersonY at the mall"
+      ],
+      "isBefore": [
+        "PersonX admits they can't remember",
+        "PersonX apologizes for forgetting",
+        "PersonX asks PersonY's name"
+      ],
+      "HinderedBy": [
+        "It's written everywhere.",
+        "Person X has an eidetic memory.",
+        "Person X was in a relationship with Person Y.",
+        "PersonX has an eidetic memory.",
+        "PersonX is in love with PersonY.",
+        "PersonX works with PersonY.",
+        "PersonY has class with PersonX.",
+        "Their memory is too good."
+      ]
+    }
+  },
+  "offered_hand": {
+    "event": "PersonX gives PersonY a hand",
+    "relations": {
+      "oEffect": [
+        "is filled with gratitude",
+        "is tired"
+      ],
+      "oReact": [
+        "appreciative",
+        "grateful",
+        "happy to have been helped",
+        "helpful",
+        "relieved that they had help",
+        "thankful"
+      ],
+      "oWant": [
+        "eat pizza",
+        "to reward PersonX",
+        "to sit down and take a break",
+        "to thank PersonX"
+      ],
+      "xAttr": [
+        "dependable",
+        "generous",
+        "helpful",
+        "nice"
+      ],
+      "xEffect": [
+        "is pushed away",
+        "is thanked"
+      ],
+      "xIntent": [
+        "to aid others",
+        "to be a good friend",
+        "to be helpful",
+        "to be kind",
+        "to help",
+        "to help person",
+        "to help the other person"
+      ],
+      "xNeed": [
+        "to find PersonY",
+        "to see what PersonY needs"
+      ],
+      "xReact": [
+        "good",
+        "good about themselves",
+        "happy",
+        "happy.",
+        "helpful",
+        "like a great friend",
+        "proud",
+        "satisfied"
+      ],
+      "xWant": [
+        "to finish the task",
+        "to get a reward",
+        "to go buy beers and pizza",
+        "to help out again",
+        "to spend time with Y",
+        "to take a break"
+      ],
+      "isAfter": [
+        "PersonX sees PersonY struggling with something"
+      ],
+      "HinderedBy": [
+        "PersonX cannot find PersonY",
+        "PersonX is in a coma",
+        "PersonX lives in a different continent",
+        "PersonY does not accept help from others.",
+        "person x is lazy",
+        "person x is tired"
+      ]
+    }
+  },
+  "unannounced_visit": {
+    "event": "PersonX pays PersonY a visit",
+    "relations": {
+      "oEffect": [
+        "receives credit",
+        "receives money"
+      ],
+      "oReact": [
+        "broke, poor",
+        "contented",
+        "glad",
+        "glad for company",
+        "happy to have a friend",
+        "in pain",
+        "radiant"
+      ],
+      "oWant": [
+        "to give PersonX a gift",
+        "to see how PersonX has been"
+      ],
+      "xAttr": [
+        "adventurous",
+        "available",
+        "curious",
+        "excited",
+        "experimental",
+        "happy",
+        "hopeful",
+        "responsible",
+        "social",
+        "studious"
+      ],
+      "xEffect": [
+        "GREAT RELATION",
+        "RESPECT PEOPLE",
+        "gives away money",
+        "writes/signs a check"
+      ],
+      "xIntent": [
+        "show friendship",
+        "their money back",
+        "to break their legs",
+        "to catch up with person",
+        "to help out",
+        "to see person that he miss",
+        "to talk personally"
+      ],
+      "xNeed": [
+        "has to buy a bus ticket",
+        "he might has to go from one city to other",
+        "know how to get to persony's location",
+        "know where persony is"
+      ],
+      "xReact": [
+        "bad about breaking legs",
+        "caring",
+        "energized",
+        "good about helping",
+        "good about money",
+        "happy",
+        "joyful"
+      ],
+      "xWant": [
+        "to catch up with PersonY",
+        "to eat something together",
+        "to go out",
+        "to tell PersonY about their move"
+      ]
+    }
+  },
+  "texted_back": {
+    "event": "PersonX texts PersonY back",
+    "relations": {
+      "oEffect": [
+        "reads",
+        "thinks"
+      ],
+      "oReact": [
+        "affirmed",
+        "glad",
+        "happy",
+        "important",
+        "involved"
+      ],
+      "oWant": [
+        "read person x's response",
+        "text person x again",
+        "to get a text from them",
+        "to send another to them"
+      ],
+      "xAttr": [
+        "careful",
+        "curious",
+        "friendly",
+        "social"
+      ],
+      "xEffect": [
+        "PersonX responds",
+        "PersonX sends an email",
+        "gets another text back",
+        "looks around",
+        "their phone rings",
+        "waits"
+      ],
+      "xIntent": [
+        "follow-up",
+        "reply",
+        "to chat",
+        "to continue conversation",
+        "to meet",
+        "to not be rude",
+        "to respond to person",
+        "to share something"
+      ],
+      "xNeed": [
+        "check phone",
+        "read text from person y",
+        "to get their message",
+        "to write out what they want to say"
+      ],
+      "xReact": [
+        "accomplished",
+        "done",
+        "good",
+        "happy",
+        "meeting",
+        "relieved of duty",
+        "satisfied"
+      ],
+      "xWant": [
+        "await person y's reply",
+        "go on about his business",
+        "to read the text",
+        "to wait to get a text back"
+      ],
+      "isAfter": [
+        "PersonX receives a text from PersonY"
+      ],
+      "isBefore": [
+        "PersonX sends PersonY a picture"
+      ]
+    }
+  },
+  "took_hours": {
+    "event": "PersonX takes PersonY's hours",
+    "relations": {
+      "oEffect": [
+        "discusses a schedule",
+        "exchange numbers",
+        "gains free time",
+        "pay check decreases"
+      ],
+      "oReact": [
+        "bad for missing work.",
+        "thankful",
+        "upset"
+      ],
+      "oWant": [
+        "follow orders",
+        "to do their work",
+        "to get a new schedule",
+        "work hard"
+      ],
+      "xAttr": [
+        "considerate",
+        "friendly",
+        "helpful",
+        "hopeful",
+        "sorry",
+        "sympathetic"
+      ],
+      "xEffect": [
+        "Person X gets paid for those hours.",
+        "Person X works those hours",
+        "loses free time",
+        "makes a note",
+        "receives bigger pay check",
+        "thanks person y"
+      ],
+      "xIntent": [
+        "more time at work",
+        "to help out",
+        "to make money"
+      ],
+      "xNeed": [
+        "to ask personY for hours",
+        "to change the work schedule",
+        "to get a job",
+        "to look at schedule",
+        "watch PersonY",
+        "write numbers down"
+      ],
+      "xReact": [
+        "glad to have helped.",
+        "hard working",
+        "needed",
+        "proud",
+        "sad for persony being absent.",
+        "satisfied"
+      ],
+      "xWant": [
+        "pay PeronsY",
+        "to get paid",
+        "to say thank you",
+        "to work hard",
+        "to write down hours",
+        "write a report"
+      ],
+      "isAfter": [
+        "PersonX gets a job at a coffee shop"
+      ],
+      "isBefore": [
+        "PersonX gets a larger check than normal"
+      ],
+      "HinderedBy": [
+        "PersonX is not that greedy today.",
+        "PersonY's hours are inconvenient for PersonX.",
+        "Someone else has taken them already.",
+        "The hours are not suitable to take."
+      ]
+    }
+  },
+  "invited_over": {
+    "event": "PersonX invites all PersonY's friends over",
+    "relations": {
+      "oEffect": [
+        "enjoys the party",
+        "enter house",
+        "needs some rest",
+        "person y's friends see person  have fun",
+        "person y's friends see person x",
+        "socialize"
+      ],
+      "oReact": [
+        "accepted",
+        "companionship",
+        "friendly",
+        "happy"
+      ],
+      "oWant": [
+        "to come over again",
+        "to continuing partying",
+        "to get to know Person X better.",
+        "to have a fun time at Person X's house."
+      ],
+      "xAttr": [
+        "Enrolling",
+        "Enticed",
+        "friendly",
+        "gregarious",
+        "sneaky"
+      ],
+      "xEffect": [
+        "greets",
+        "has a lot of company",
+        "has fun",
+        "has lots of fun",
+        "socializes",
+        "the house gets messy",
+        "welcomes into house"
+      ],
+      "xIntent": [
+        "companionship",
+        "company",
+        "friendship",
+        "include them",
+        "to have a party"
+      ],
+      "xNeed": [
+        "to clean the house",
+        "to find out how to contact Person Y's friends.",
+        "to pick a day to invite everyone over.",
+        "to shop for food"
+      ],
+      "xReact": [
+        "content",
+        "excited",
+        "happy",
+        "honored",
+        "loved",
+        "satisfied"
+      ],
+      "xWant": [
+        "to get food for everyone to eat.",
+        "to have a good time",
+        "to have games for people to play.",
+        "to impress"
+      ],
+      "isAfter": [
+        "PersonX decides to throw a party for PersonY"
+      ],
+      "HinderedBy": [
+        "Because personX has no where to love",
+        "Because personY won't give person X their contact information",
+        "Person Y has no friends",
+        "Person Y is holding the telephone and won't give it",
+        "Person Y isn't giving Person X the friends' phone numbers",
+        "PersonX doesn't have their phone numbers.",
+        "PersonX has a messy house and is embarrassed.",
+        "he does not know who they are",
+        "they will not respond to him"
+      ]
+    }
+  },
+  "opportunity": {
+    "event": "PersonX gives PersonY opportunity",
+    "relations": {
+      "oEffect": [
+        "If accepted, they act on the opportunity",
+        "Person Y accepts or declines the opportunity",
+        "PersonY is given an opportunity",
+        "PersonY thanks PersonX",
+        "thanks person x",
+        "works at new activity"
+      ],
+      "oReact": [
+        "appreciative",
+        "grateful",
+        "happy",
+        "hopeful",
+        "lucky",
+        "optimistic"
+      ],
+      "oWant": [
+        "say thank you",
+        "take the opportunity",
+        "to accept the opportunity",
+        "to decline",
+        "to heave a sigh of relief",
+        "to thank person x"
+      ],
+      "xAttr": [
+        "commanding",
+        "generous",
+        "helpful",
+        "trusting"
+      ],
+      "xIntent": [
+        "to be generous",
+        "to be helpful to person",
+        "to be kind",
+        "to give chance to prove",
+        "to give them a chance",
+        "to promote a team memeber",
+        "to see his capabilities"
+      ],
+      "xNeed": [
+        "find the person",
+        "have an opportunity to give",
+        "to approach PersonY",
+        "to find an opportunity to give",
+        "to give advice to person y",
+        "to prepare the way for person y"
+      ],
+      "xReact": [
+        "believe",
+        "confident",
+        "good",
+        "helpful",
+        "kind",
+        "satisfied",
+        "surprised",
+        "taken advantage of",
+        "useful"
+      ],
+      "xWant": [
+        "accept the opportunity",
+        "to be thanked",
+        "to be thankful that it worked out",
+        "to encourage PersonY",
+        "to follow up with PersonY",
+        "to thank person y"
+      ],
+      "isAfter": [
+        "PersonX interviewed PersonY"
+      ],
+      "HinderedBy": [
+        "PersonX doesn't have enough money.",
+        "PersonX has no authority.",
+        "PersonY is in prison.",
+        "The position has already been filled."
+      ]
+    }
+  }
+}

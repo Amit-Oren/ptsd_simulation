@@ -1,0 +1,71 @@
+{
+  "7": {
+    "persona_id": 7,
+    "text": "Niran Somchai was a 33-year-old physical therapist of Southeast Asian background who lived with his wife in a small apartment above a clinic in Kuala Lumpur. He worked long clinic hours helping patients recover strength after injuries, then spent his evenings cooking simple meals and calling his parents abroad. In July 2023, while driving home on a rain-slick highway outside the city, his car was struck by a speeding lorry and pushed into the median barrier. He suffered a fractured pelvis, several broken ribs, and a deep cut to his left arm, and lost a large amount of blood before paramedics extricated him.",
+    "demographics": {
+      "age": 33,
+      "gender": "Male",
+      "ethnicity": "South Eastern Asian",
+      "relationship_status": "Married",
+      "occupation": "Physical Therapist",
+      "trauma_type": "Life-threatening accident",
+      "pcl5": 38
+    },
+    "verdict": {
+      "identity": true,
+      "event": true,
+      "clean": true,
+      "problems": []
+    },
+    "generator": "gpt-5.4-mini",
+    "judge": "gpt-4.1",
+    "prompt_version": "v1",
+    "generated_at": "2026-10-11"
+  },
+  "42": {
+    "persona_id": 42,
+    "text": "Malia Te Rangi was a 20-year-old interior designer from Oceania, married and living with her husband in a small apartment near the harbor. She spent her days sketching room layouts, choosing fabrics, and meeting clients, and she kept a tidy home with potted plants on the balcony and books stacked beside the sofa. In March 2025, after an argument in their apartment, her husband struck her repeatedly and shoved her against a wall, causing bruises to her face and ribs and a split lip that needed stitches. The assault also left her with a sprained wrist and soreness across her left shoulder.",
+    "demographics": {
+      "age": 20,
+      "gender": "Female",
+      "ethnicity": "Oceania",
+      "relationship_status": "Married",
+      "occupation": "Interior Designer",
+      "trauma_type": "Physical abuse by romantic partner",
+      "pcl5": 37
+    },
+    "verdict": {
+      "identity": true,
+      "event": true,
+      "clean": true,
+      "problems": []
+    },
+    "generator": "gpt-5.4-mini",
+    "judge": "gpt-4.1",
+    "prompt_version": "v1",
+    "generated_at": "2026-10-11"
+  },
+  "113": {
+    "persona_id": 113,
+    "text": "Matiu Tane was a 46-year-old auditor from Oceania who lived with his teenage son in a small rented house near the harbor. Widowed for several years, he kept careful ledgers for a shipping firm and spent his evenings cooking simple meals and fixing things around the home. In March 2024, a cyclone struck his coastal town in northern Vanuatu, driving storm surge into the streets and tearing apart buildings along the waterfront. His house lost its roof and part of one wall, and he was thrown against debris while helping his son reach higher ground, breaking two ribs and cutting his left arm deeply.",
+    "demographics": {
+      "age": 46,
+      "gender": "Male",
+      "ethnicity": "Oceania",
+      "relationship_status": "Widowed",
+      "occupation": "Auditor",
+      "trauma_type": "Natural disaster",
+      "pcl5": 41
+    },
+    "verdict": {
+      "identity": true,
+      "event": true,
+      "clean": true,
+      "problems": []
+    },
+    "generator": "gpt-5.4-mini",
+    "judge": "gpt-4.1",
+    "prompt_version": "v1",
+    "generated_at": "2026-10-11"
+  }
+}

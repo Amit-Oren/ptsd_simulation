@@ -1,0 +1,60 @@
+[
+  {
+    "id": "invited_over__000",
+    "seed_id": "invited_over",
+    "text": "It was after dark, and heavy rain was falling outside with traffic passing by. Your close friend was there with nobody else around, and they were having people round. They asked you whether you wanted to join them.",
+    "dimensions": {
+      "relationship": "a close friend",
+      "others_present": "nobody else was around",
+      "weather": "heavy rain",
+      "sound": "traffic outside",
+      "time_of_day": "the evening, after dark",
+      "expectedness": "you had known it was coming"
+    },
+    "pair_id": null,
+    "varied_dimension": null,
+    "atomic_event": "PersonX invites all PersonY's friends over",
+    "generator": "gpt-5.4-mini",
+    "judge": "gpt-4.1",
+    "prompt_version": "v1",
+    "generated_at": "2026-10-11",
+    "verdict": {
+      "coherent": false,
+      "factual": true,
+      "natural": true,
+      "problems": [
+        "'they were having people round' contradicts 'nobody else was around'."
+      ]
+    },
+    "leaked": []
+  },
+  {
+    "id": "invited_over__011",
+    "seed_id": "invited_over",
+    "text": "It was the middle of the day, and the sky was overcast. You went over to your close friend’s place, where there was a lot of noise, and nobody else was around. Your friend asked whether you wanted to join them, and you had known it was coming.",
+    "dimensions": {
+      "relationship": "a close friend",
+      "others_present": "nobody else was around",
+      "weather": "overcast",
+      "sound": "a lot of noise",
+      "time_of_day": "the middle of the day",
+      "expectedness": "you had known it was coming"
+    },
+    "pair_id": "invited_over__others_present",
+    "varied_dimension": "others_present",
+    "atomic_event": "PersonX invites all PersonY's friends over",
+    "generator": "gpt-5.4-mini",
+    "judge": "gpt-4.1",
+    "prompt_version": "v1",
+    "generated_at": "2026-10-11",
+    "verdict": {
+      "coherent": false,
+      "factual": true,
+      "natural": true,
+      "problems": [
+        "'a lot of noise, and nobody else was around' is a contradiction."
+      ]
+    },
+    "leaked": []
+  }
+]

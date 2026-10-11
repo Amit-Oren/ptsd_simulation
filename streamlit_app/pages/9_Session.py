@@ -210,10 +210,27 @@ if by_turn:
     )
     live = matrix[matrix.max(axis=1) > 0]
     if len(live):
-        st.dataframe(
-            live.style.background_gradient(cmap="Oranges", vmin=0, vmax=1)
-                      .format("{:.2f}"),
-            use_container_width=True,
+        # Rendered directly rather than with Styler.background_gradient, which
+        # pulls in matplotlib for a single colour ramp.
+        head = "".join(f"<th style='padding:4px 10px;font-weight:600;"
+                       f"text-align:right'>{c}</th>" for c in live.columns)
+        rows = []
+        for label, values in live.iterrows():
+            cells = []
+            for v in values:
+                shade = f"rgba(194,86,14,{min(v, 1.0) * 0.85:.3f})" if v > 0 else "transparent"
+                weight = "600" if v >= 0.5 else "400"
+                text = f"{v:.2f}" if v > 0 else "·"
+                cells.append(f"<td style='padding:4px 10px;text-align:right;"
+                             f"background:{shade};font-weight:{weight};"
+                             f"font-variant-numeric:tabular-nums'>{text}</td>")
+            rows.append(f"<tr><td style='padding:4px 12px 4px 0;white-space:nowrap'>"
+                        f"{label}</td>{''.join(cells)}</tr>")
+        st.markdown(
+            "<div style='overflow-x:auto'><table style='border-collapse:collapse;"
+            "font-size:0.86em'><thead><tr><th></th>" + head + "</tr></thead><tbody>"
+            + "".join(rows) + "</tbody></table></div>",
+            unsafe_allow_html=True,
         )
         cold = len(matrix) - len(live)
         if cold:

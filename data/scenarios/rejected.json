@@ -1,60 +1,287 @@
 [
   {
-    "id": "invited_over__000",
-    "seed_id": "invited_over",
-    "text": "It was after dark, and heavy rain was falling outside with traffic passing by. Your close friend was there with nobody else around, and they were having people round. They asked you whether you wanted to join them.",
-    "dimensions": {
-      "relationship": "a close friend",
-      "others_present": "nobody else was around",
-      "weather": "heavy rain",
-      "sound": "traffic outside",
-      "time_of_day": "the evening, after dark",
-      "expectedness": "you had known it was coming"
+    "id": "mistake_and_correction__001",
+    "event_key": "mistake_and_correction",
+    "place": "restaurant",
+    "text": "You checked in at the restaurant for something you had booked in advance, and the place was cold and crowded. They gave you the wrong time slot, so you showed them your confirmation. They checked the system and corrected it. After that, they assessed how it was going and let you wait for the right time.",
+    "material": {
+      "situation": "You checked in for something you had booked in advance.",
+      "event": "You were given the wrong time slot.",
+      "response": "You showed them your confirmation.",
+      "outcome": "They checked the system and corrected it.",
+      "place": "restaurant",
+      "other_action": "assessed how it was going",
+      "environment": "cold",
+      "who": "crowd"
     },
-    "pair_id": null,
-    "varied_dimension": null,
-    "atomic_event": "PersonX invites all PersonY's friends over",
-    "generator": "gpt-5.4-mini",
-    "judge": "gpt-4.1",
-    "prompt_version": "v1",
-    "generated_at": "2026-10-11",
     "verdict": {
-      "coherent": false,
-      "factual": true,
-      "natural": true,
-      "problems": [
-        "'they were having people round' contradicts 'nobody else was around'."
-      ]
+      "factual": {
+        "passed": false,
+        "quote": "so"
+      },
+      "coherent": {
+        "passed": true,
+        "quote": ""
+      },
+      "plausible": {
+        "passed": true,
+        "quote": ""
+      },
+      "specific": {
+        "passed": false,
+        "quote": "assessed how it was going"
+      },
+      "natural": {
+        "passed": true,
+        "quote": ""
+      }
     },
-    "leaked": []
+    "narrator": "gpt-5.4-mini",
+    "judge": "gpt-5.4-mini",
+    "pool_version": "v3",
+    "generated_at": "2026-10-13"
   },
   {
-    "id": "invited_over__011",
-    "seed_id": "invited_over",
-    "text": "It was the middle of the day, and the sky was overcast. You went over to your close friend’s place, where there was a lot of noise, and nobody else was around. Your friend asked whether you wanted to join them, and you had known it was coming.",
-    "dimensions": {
-      "relationship": "a close friend",
-      "others_present": "nobody else was around",
-      "weather": "overcast",
-      "sound": "a lot of noise",
-      "time_of_day": "the middle of the day",
-      "expectedness": "you had known it was coming"
+    "id": "mistake_and_correction__002",
+    "event_key": "mistake_and_correction",
+    "place": "clinic",
+    "text": "You checked in at the clinic for something you had booked in advance while you were waiting with a group of friends. They gave you the wrong time slot when you arrived. You showed them your confirmation, and they checked the system. After that, they corrected the booking.",
+    "material": {
+      "situation": "You checked in for something you had booked in advance.",
+      "event": "You were given the wrong time slot.",
+      "response": "You showed them your confirmation.",
+      "outcome": "They checked the system and corrected it.",
+      "place": "clinic",
+      "who": "group of friends",
+      "activity": "waiting"
     },
-    "pair_id": "invited_over__others_present",
-    "varied_dimension": "others_present",
-    "atomic_event": "PersonX invites all PersonY's friends over",
-    "generator": "gpt-5.4-mini",
-    "judge": "gpt-4.1",
-    "prompt_version": "v1",
-    "generated_at": "2026-10-11",
     "verdict": {
-      "coherent": false,
-      "factual": true,
-      "natural": true,
-      "problems": [
-        "'a lot of noise, and nobody else was around' is a contradiction."
-      ]
+      "factual": {
+        "passed": false,
+        "quote": "After that"
+      },
+      "coherent": {
+        "passed": true,
+        "quote": ""
+      },
+      "plausible": {
+        "passed": true,
+        "quote": ""
+      },
+      "specific": {
+        "passed": true,
+        "quote": ""
+      },
+      "natural": {
+        "passed": true,
+        "quote": ""
+      }
     },
-    "leaked": []
+    "narrator": "gpt-5.4-mini",
+    "judge": "gpt-5.4-mini",
+    "pool_version": "v3",
+    "generated_at": "2026-10-13"
+  },
+  {
+    "id": "mistake_and_correction__003",
+    "event_key": "mistake_and_correction",
+    "place": "theatre",
+    "text": "You checked in at the theatre for something you had booked in advance with your family. You were given the wrong time slot, so you showed them your confirmation. They checked the system and corrected it. After that, they moved you to the right slot.",
+    "material": {
+      "situation": "You checked in for something you had booked in advance.",
+      "event": "You were given the wrong time slot.",
+      "response": "You showed them your confirmation.",
+      "outcome": "They checked the system and corrected it.",
+      "place": "theatre",
+      "who": "family",
+      "other_action": "moved away"
+    },
+    "verdict": {
+      "factual": {
+        "passed": false,
+        "quote": "so"
+      },
+      "coherent": {
+        "passed": true,
+        "quote": ""
+      },
+      "plausible": {
+        "passed": true,
+        "quote": ""
+      },
+      "specific": {
+        "passed": true,
+        "quote": ""
+      },
+      "natural": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "narrator": "gpt-5.4-mini",
+    "judge": "gpt-5.4-mini",
+    "pool_version": "v3",
+    "generated_at": "2026-10-13"
+  },
+  {
+    "id": "being_left_out__001",
+    "event_key": "being_left_out",
+    "place": null,
+    "text": "A few people nearby were deciding where to go for lunch. They agreed on a place and started gathering their things. You stayed where you were without saying anything. They finished and walked off without saying anything to you.",
+    "material": {
+      "situation": "A few people nearby were deciding where to go for lunch.",
+      "event": "They agreed on a place and started gathering their things.",
+      "response": "You stayed where you were without saying anything.",
+      "outcome": "They finished and walked off without saying anything to you.",
+      "when": "during the day"
+    },
+    "verdict": {
+      "factual": {
+        "passed": true,
+        "quote": ""
+      },
+      "coherent": {
+        "passed": true,
+        "quote": ""
+      },
+      "plausible": {
+        "passed": true,
+        "quote": ""
+      },
+      "specific": {
+        "passed": true,
+        "quote": ""
+      },
+      "natural": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "narrator": "gpt-5.4-mini",
+    "judge": "gpt-5.4-mini",
+    "pool_version": "v3",
+    "generated_at": "2026-10-13"
+  },
+  {
+    "id": "being_left_out__002",
+    "event_key": "being_left_out",
+    "place": "car",
+    "text": "You were sitting in the car in the evening with a child while a few people nearby decided where to go for lunch. They agreed on a place and started gathering their things. You stayed where you were and did not say anything. They finished and walked off without saying anything to you.",
+    "material": {
+      "situation": "A few people nearby were deciding where to go for lunch.",
+      "event": "They agreed on a place and started gathering their things.",
+      "response": "You stayed where you were without saying anything.",
+      "outcome": "They finished and walked off without saying anything to you.",
+      "place": "car",
+      "who": "child",
+      "when": "evening",
+      "activity": "relaxing"
+    },
+    "verdict": {
+      "factual": {
+        "passed": true,
+        "quote": ""
+      },
+      "coherent": {
+        "passed": true,
+        "quote": ""
+      },
+      "plausible": {
+        "passed": true,
+        "quote": ""
+      },
+      "specific": {
+        "passed": true,
+        "quote": ""
+      },
+      "natural": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "narrator": "gpt-5.4-mini",
+    "judge": "gpt-5.4-mini",
+    "pool_version": "v3",
+    "generated_at": "2026-10-13"
+  },
+  {
+    "id": "being_left_out__003",
+    "event_key": "being_left_out",
+    "place": null,
+    "text": "A few people nearby were deciding where to go for lunch, and they finally agreed on a place. They started gathering their things and apologized as they did so. You stayed where you were without saying anything. Then they finished up and walked off without saying anything to you.",
+    "material": {
+      "situation": "A few people nearby were deciding where to go for lunch.",
+      "event": "They agreed on a place and started gathering their things.",
+      "response": "You stayed where you were without saying anything.",
+      "outcome": "They finished and walked off without saying anything to you.",
+      "other_action": "apologised"
+    },
+    "verdict": {
+      "factual": {
+        "passed": false,
+        "quote": "so"
+      },
+      "coherent": {
+        "passed": true,
+        "quote": ""
+      },
+      "plausible": {
+        "passed": true,
+        "quote": ""
+      },
+      "specific": {
+        "passed": true,
+        "quote": ""
+      },
+      "natural": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "narrator": "gpt-5.4-mini",
+    "judge": "gpt-5.4-mini",
+    "pool_version": "v3",
+    "generated_at": "2026-10-13"
+  },
+  {
+    "id": "being_left_out__004",
+    "event_key": "being_left_out",
+    "place": null,
+    "text": "A few people nearby were deciding where to go for lunch in a dim room. They agreed on a place and started gathering their things. You stayed where you were without saying anything. They finished and walked off without saying anything to you.",
+    "material": {
+      "situation": "A few people nearby were deciding where to go for lunch.",
+      "event": "They agreed on a place and started gathering their things.",
+      "response": "You stayed where you were without saying anything.",
+      "outcome": "They finished and walked off without saying anything to you.",
+      "environment": "dim",
+      "who": "group of friends",
+      "other_action": "disagreed"
+    },
+    "verdict": {
+      "factual": {
+        "passed": true,
+        "quote": ""
+      },
+      "coherent": {
+        "passed": true,
+        "quote": ""
+      },
+      "plausible": {
+        "passed": true,
+        "quote": ""
+      },
+      "specific": {
+        "passed": true,
+        "quote": ""
+      },
+      "natural": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "narrator": "gpt-5.4-mini",
+    "judge": "gpt-5.4-mini",
+    "pool_version": "v3",
+    "generated_at": "2026-10-13"
   }
 ]

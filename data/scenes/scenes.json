@@ -1,0 +1,1022 @@
+[
+  {
+    "id": "scene_89_000",
+    "ingredients": {
+      "place": "restaurant",
+      "time": "vacation",
+      "surroundings": "raining",
+      "circumstance": "is carrying a lot",
+      "tasks": [
+        [
+          "asks the main character a question",
+          "a family member"
+        ],
+        [
+          "approaches the main character",
+          "a romantic partner"
+        ]
+      ],
+      "entity_type": null
+    },
+    "setting": "restaurant, vacation. Surroundings: raining.",
+    "card": {
+      "surroundings": "raining",
+      "main": {
+        "brief": "a person on vacation",
+        "goal": "have a meal at the restaurant",
+        "circumstance": "is carrying several bags and other items"
+      },
+      "secondary": [
+        {
+          "role": "a family member calling from where they are staying",
+          "relationship": "family member",
+          "task": "asks through the main character's phone whether they can bring back something from the restaurant"
+        },
+        {
+          "role": "their romantic partner",
+          "relationship": "romantic partner",
+          "task": "walks over to the main character from another part of the restaurant while they are still holding the items"
+        }
+      ],
+      "entities": []
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character sets the bags down by the table and takes off a coat. The main character places the items within reach and sits down.",
+        "nudge": "You’ve just arrived in the rain carrying several bags and items; get situated for the meal."
+      },
+      {
+        "who": "a family member calling from where they are staying",
+        "kind": "character",
+        "text": "A family member calling from where they are staying says, \"Did you make it in okay? Can you bring back something from the restaurant for me?\"",
+        "nudge": ""
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character looks at the phone and says, \"Yes. I can bring something back.\" The main character then sets the phone down and adjusts the bags beside the chair.",
+        "nudge": "React to the call on the phone and answer while still settling in at the table."
+      },
+      {
+        "who": "their romantic partner",
+        "kind": "character",
+        "text": "Their romantic partner walks over from another part of the restaurant to the table while the main character is still managing the bags and items, and says, \"You okay?\"",
+        "nudge": "Walk over from another part of the restaurant while the main character is still managing the bags and items; react to the call having just happened."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character shifts one bag closer to the chair and sets a smaller item on the table. \"Yeah.\"",
+        "nudge": "React to the partner arriving while still juggling the bags, and keep the meal plan moving."
+      },
+      {
+        "who": "a family member calling from where they are staying",
+        "kind": "character",
+        "text": "A family member calling from where they are staying says, \"Thanks. Just get whatever looks good.\"",
+        "nudge": ""
+      }
+    ],
+    "account": "In a restaurant on vacation while it was raining, you set the bags down by the table, took off a coat, placed the items within reach, and sat down. Your family member calling from where you were staying said, \"Did you make it in okay? Can you bring back something from the restaurant for me?\" You looked at the phone and said, \"Yes. I can bring something back.\" You set the phone down and adjusted the bags beside the chair. Your romantic partner walked over from another part of the restaurant to the table and said, \"You okay?\" You shifted one bag closer to the chair, set a smaller item on the table, and said, \"Yeah.\" Your family member said, \"Thanks. Just get whatever looks good.\"",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_001",
+    "ingredients": {
+      "place": "grocery store",
+      "time": "afternoon",
+      "surroundings": "daylight",
+      "circumstance": "nothing unusual",
+      "tasks": [
+        [
+          "leaves partway through",
+          "a romantic partner"
+        ],
+        [
+          "gives information",
+          "a stranger"
+        ]
+      ],
+      "entity_type": null
+    },
+    "setting": "grocery store, afternoon. Surroundings: daylight.",
+    "card": {
+      "surroundings": "daylight",
+      "main": {
+        "brief": "a shopper",
+        "goal": "buy groceries",
+        "circumstance": "nothing unusual"
+      },
+      "secondary": [
+        {
+          "role": "their partner who came along",
+          "relationship": "a romantic partner",
+          "task": "walks away with the cart before the shopping is finished and heads to another aisle"
+        },
+        {
+          "role": "another shopper nearby",
+          "relationship": "a stranger",
+          "task": "answers a simple question by pointing out which aisle has an item the main character is looking for"
+        }
+      ],
+      "entities": []
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character picks up a basket and looks along the aisle. The main character says, \"Excuse me, do you know where the bread is?\"",
+        "nudge": "start the shopping and naturally ask the nearby stranger for help finding an item"
+      },
+      {
+        "who": "another shopper nearby",
+        "kind": "character",
+        "text": "Another shopper nearby points down the aisle. \"Bread’s in aisle 4, over there.\"",
+        "nudge": "answer the simple question by pointing out which aisle has the bread"
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character gives a small nod and walks down the aisle with the basket. The main character reaches aisle 4 and looks along the shelves.",
+        "nudge": "React to the directions and continue shopping; now is a natural moment to head toward aisle 4."
+      },
+      {
+        "who": "their partner who came along",
+        "kind": "character",
+        "text": "Their partner who came along picks the cart up and starts pushing it ahead before the shopping is finished, turning into another aisle. \"I’m just checking something over here.\"",
+        "nudge": ""
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character looks toward the cart and steps after it, holding the basket at their side. The main character says, \"That’s the cart.\"",
+        "nudge": "React to your partner taking the cart away and continue the shopping."
+      },
+      {
+        "who": "their partner who came along",
+        "kind": "character",
+        "text": "Their partner who came along keeps pushing the cart into the other aisle and glances back once. \"You can grab the bread, I’m just over here.\"",
+        "nudge": ""
+      }
+    ],
+    "account": "In a grocery store in the afternoon, you picked up a basket and looked along the aisle. You said, \"Excuse me, do you know where the bread is?\" Another shopper nearby pointed down the aisle and said, \"Bread’s in aisle 4, over there.\" You gave a small nod and walked down the aisle with the basket. You reached aisle 4 and looked along the shelves. Your partner picked the cart up and started pushing it ahead before the shopping was finished, turning into another aisle. Your partner said, \"I’m just checking something over here.\" You looked toward the cart and stepped after it, holding the basket at your side. You said, \"That’s the cart.\" Your partner kept pushing the cart into the other aisle and glanced back once. Your partner said, \"You can grab the bread, I’m just over here.\"",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_002",
+    "ingredients": {
+      "place": "restaurant",
+      "time": "late night",
+      "surroundings": "dim",
+      "circumstance": "is alone",
+      "tasks": [
+        [
+          "asks the main character a question",
+          "someone they know well"
+        ],
+        [
+          "draws attention to the main character",
+          "a romantic partner"
+        ]
+      ],
+      "entity_type": null
+    },
+    "setting": "restaurant, late night. Surroundings: dim.",
+    "card": {
+      "surroundings": "dim",
+      "main": {
+        "brief": "a diner at a late-night restaurant",
+        "goal": "eat a late-night meal",
+        "circumstance": "is at a table alone"
+      },
+      "secondary": [
+        {
+          "role": "a friend who has stopped by the table",
+          "relationship": "someone they know well",
+          "task": "asks whether they are waiting for anyone before ordering"
+        },
+        {
+          "role": "their romantic partner arriving from outside",
+          "relationship": "a romantic partner",
+          "task": "comes over to the table and greets them in a way that makes nearby diners and staff look toward the table"
+        }
+      ],
+      "entities": []
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character sits alone at the table and looks over the menu. The main character sets it down and waits.",
+        "nudge": "Start the late-night meal alone; make it feel like a quiet table before anyone interrupts."
+      },
+      {
+        "who": "a friend who has stopped by the table",
+        "kind": "character",
+        "text": "A friend who has stopped by the table leans in a little and asks, “Are you waiting for anyone before ordering?”",
+        "nudge": "Now is a good moment to ask whether they are waiting for anyone before ordering."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character looks up at the friend and says, \"No.\"",
+        "nudge": "React to the friend's question; this is a natural moment to answer or show whether you're still waiting before ordering."
+      },
+      {
+        "who": "their romantic partner arriving from outside",
+        "kind": "character",
+        "text": "Their romantic partner arriving from outside comes over to the table and says, “There you are.” Nearby diners and staff look toward the table.",
+        "nudge": "Now is a good moment to come over to the table and greet them in a way that draws nearby diners' and staff's attention."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character looks up at the partner and says, \"Hi.\" The main character reaches for the menu and opens it again.",
+        "nudge": "React to the partner’s arrival and continue the late-night meal beat."
+      },
+      {
+        "who": "a friend who has stopped by the table",
+        "kind": "character",
+        "text": "A friend who has stopped by the table gives the main character a brief look and nods toward the menu. \"So, are we ordering now?\"",
+        "nudge": ""
+      }
+    ],
+    "account": "In a dim late-night restaurant, you sat alone at the table and looked over the menu, then set it down and waited. Your friend stopped by the table, leaned in a little, and asked, “Are you waiting for anyone before ordering?” You looked up at your friend and said, “No.” Your partner came over to the table from outside and said, “There you are.” Nearby diners and staff looked toward the table. You looked up at your partner and said, “Hi.” You reached for the menu and opened it again. Your friend gave you a brief look and nodded toward the menu. “So, are we ordering now?”",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_003",
+    "ingredients": {
+      "place": "neighborhood",
+      "time": "early morning",
+      "surroundings": "machinery running",
+      "circumstance": "is alone",
+      "tasks": [
+        [
+          "draws attention to the main character",
+          "a romantic partner"
+        ],
+        [
+          "approaches the main character",
+          "someone with authority over them"
+        ]
+      ],
+      "entity_type": null
+    },
+    "setting": "neighborhood, early morning. Surroundings: machinery running.",
+    "card": {
+      "surroundings": "machinery running",
+      "main": {
+        "brief": "a resident out for a morning errand",
+        "goal": "walk to a nearby bus stop",
+        "circumstance": "is by themself on the street"
+      },
+      "secondary": [
+        {
+          "role": "their partner passing by in a car",
+          "relationship": "a romantic partner",
+          "task": "leans out the window and calls over to them from the car as it passes"
+        },
+        {
+          "role": "their building superintendent",
+          "relationship": "someone with authority over them",
+          "task": "walks toward them from the apartment entrance and stops in front of their path"
+        }
+      ],
+      "entities": []
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "their partner passing by in a car",
+        "kind": "character",
+        "text": "Their partner passing by in a car leans out the window and calls over, \"Hey—you up this early too?\"",
+        "nudge": "The car is passing by now; lean out and call over before you go by."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character keeps walking toward the bus stop and glances over at the car. \"Yeah.\"",
+        "nudge": "React to the call from the passing car while still heading toward the bus stop."
+      },
+      {
+        "who": "their building superintendent",
+        "kind": "character",
+        "text": "Their building superintendent walks toward them from the apartment entrance and stops in front of their path. \"Hold on a second—you can’t keep cutting through here with all this going on.\"",
+        "nudge": "Walk toward them from the apartment entrance and stop in front of their path; this is the moment to block their way."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character stops and faces them. \"All right.\"",
+        "nudge": "React to the superintendent stopping your path and keep the morning errand in motion."
+      },
+      {
+        "who": "their partner passing by in a car",
+        "kind": "character",
+        "text": "Their partner passing by in a car stays leaned out the window and slows beside them for a moment. \"I’ll be back this way in ten.\"",
+        "nudge": ""
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character stands still for a moment, then steps around the superintendent and keeps walking toward the bus stop. \"All right.\"",
+        "nudge": "React to the superintendent stopping their path and to the partner lingering in the car; decide what to do next."
+      }
+    ],
+    "account": "In the neighborhood early in the morning, with machinery running, your partner leaned out of a car window as they passed and called, \"Hey—you up this early too?\" You kept walking toward the bus stop, glanced over at the car, and said, \"Yeah.\" Your superintendent walked toward you from the apartment entrance, stopped in front of your path, and said, \"Hold on a second—you can’t keep cutting through here with all this going on.\" You stopped, faced them, and said, \"All right.\" Your partner stayed leaned out the window and slowed beside you for a moment. \"I’ll be back this way in ten.\" You stood still for a moment, then stepped around the superintendent and kept walking toward the bus stop. \"All right.\"",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_004",
+    "ingredients": {
+      "place": "sidewalk",
+      "time": "day off",
+      "surroundings": "bright",
+      "circumstance": "is alone",
+      "tasks": [
+        [
+          "speaks sharply",
+          "a stranger"
+        ],
+        [
+          "comments on something about the main character",
+          "a romantic partner"
+        ]
+      ],
+      "entity_type": null
+    },
+    "setting": "sidewalk, day off. Surroundings: bright.",
+    "card": {
+      "surroundings": "bright",
+      "main": {
+        "brief": "a person on a day off",
+        "goal": "walk along the sidewalk to run an errand",
+        "circumstance": "is by themself on the sidewalk"
+      },
+      "secondary": [
+        {
+          "role": "a passerby on the sidewalk",
+          "relationship": "a stranger",
+          "task": "speaks sharply to them after they ask a simple question about getting past where the stranger is standing"
+        },
+        {
+          "role": "their romantic partner calling from somewhere else",
+          "relationship": "a romantic partner",
+          "task": "comments through the phone on what they are wearing or carrying where they are standing on the sidewalk"
+        }
+      ],
+      "entities": []
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character walks along the sidewalk and slows near the spot where the stranger is standing. \"Excuse me, can I get by?\"",
+        "nudge": "Start walking toward the errand and ask the simple question about getting past the spot where the stranger is standing."
+      },
+      {
+        "who": "a passerby on the sidewalk",
+        "kind": "character",
+        "text": "A passerby on the sidewalk turns toward them and says, \"Yeah, move around.\"",
+        "nudge": "React sharply to the simple question about getting past."
+      },
+      {
+        "who": "their romantic partner calling from somewhere else",
+        "kind": "character",
+        "text": "Their romantic partner calling from somewhere else says, \"I can see you—you’ve got that light jacket on and you're carrying your phone in one hand, standing right by the curb.\"",
+        "nudge": "Comment through the phone on what they are wearing or carrying where they are standing on the sidewalk."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character shifts a step to the side and keeps walking past. \"Okay.\"",
+        "nudge": "React to the sharp answer and the phone comment; continue trying to get past on the sidewalk."
+      },
+      {
+        "who": "a passerby on the sidewalk",
+        "kind": "character",
+        "text": "A passerby on the sidewalk glances after them and keeps standing where they are.",
+        "nudge": ""
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character keeps walking along the sidewalk and adjusts their grip on the phone. \"Okay.\"",
+        "nudge": "React to the stranger’s sharp reply and keep moving toward the errand."
+      }
+    ],
+    "account": "On a bright sidewalk on your day off, you walked along and slowed near the spot where a passerby was standing. You said, \"Excuse me, can I get by?\" The passerby turned toward you and said, \"Yeah, move around.\" Your romantic partner, calling from somewhere else, said, \"I can see you—you’ve got that light jacket on and you're carrying your phone in one hand, standing right by the curb.\" You shifted a step to the side and kept walking past. You said, \"Okay.\" The passerby glanced after you and kept standing where they were. You kept walking along the sidewalk, adjusted your grip on the phone, and said, \"Okay.\"",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_005",
+    "ingredients": {
+      "place": "sidewalk",
+      "time": "during the day",
+      "surroundings": "hot",
+      "circumstance": "is carrying a lot",
+      "tasks": [
+        [
+          "gives information",
+          "an acquaintance"
+        ],
+        [
+          "speaks sharply",
+          "someone they work or study with"
+        ]
+      ],
+      "entity_type": "an elevator"
+    },
+    "setting": "sidewalk, during the day. Surroundings: hot.",
+    "card": {
+      "surroundings": "hot",
+      "main": {
+        "brief": "a person on the sidewalk outside a building",
+        "goal": "go into the building for a routine appointment",
+        "circumstance": "is carrying several bags and a box"
+      },
+      "secondary": [
+        {
+          "role": "an acquaintance coming out of the building",
+          "relationship": "an acquaintance",
+          "task": "tells them the front entrance is locked and that people are being sent to the side door"
+        },
+        {
+          "role": "a coworker on the sidewalk near the entrance",
+          "relationship": "someone they work or study with",
+          "task": "answers their greeting sharply when they ask if this is the line for the side door"
+        }
+      ],
+      "entities": [
+        {
+          "name": "an elevator in the building lobby",
+          "task": "opens and closes repeatedly with a chime"
+        }
+      ]
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character walks up to the entrance with the bags and box and looks toward the door. \"Excuse me, how do I get in?\"",
+        "nudge": "Approach the entrance carrying the bags and box; this is a natural moment to spot the situation and ask about getting in."
+      },
+      {
+        "who": "an acquaintance coming out of the building",
+        "kind": "character",
+        "text": "An acquaintance coming out of the building pauses at the doorway and says, \"The front entrance is locked; they're sending people to the side door.\"",
+        "nudge": "You’re just exiting now; mention that the front entrance is locked and people are being sent to the side door."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character adjusts the bags and box and turns toward the side door.",
+        "nudge": ""
+      },
+      {
+        "who": "a coworker on the sidewalk near the entrance",
+        "kind": "character",
+        "text": "A coworker on the sidewalk near the entrance turns toward the main character and answers sharply, \"Yeah. This is the line for the side door.\"",
+        "nudge": "now is the moment for your task"
+      },
+      {
+        "who": "an elevator in the building lobby",
+        "kind": "entity",
+        "text": "The lobby elevator keeps opening and closing with a chime.",
+        "nudge": ""
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character shifts the bags and box in their arms and takes a small step toward the side door. \"Okay.\"",
+        "nudge": "React to the side-door line and the hot sidewalk, and keep moving with the bags and box."
+      }
+    ],
+    "account": "On a hot sidewalk outside a building during the day, you walked up to the entrance with the bags and box and looked toward the door. \"Excuse me, how do I get in?\" you said. Your acquaintance came out of the building, paused at the doorway, and said, \"The front entrance is locked; they're sending people to the side door.\" You adjusted the bags and box and turned toward the side door. Your coworker near the entrance turned toward you and said, \"Yeah. This is the line for the side door.\" The elevator in the building lobby kept opening and closing with a chime. You shifted the bags and box in your arms, took a small step toward the side door, and said, \"Okay.\"",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_006",
+    "ingredients": {
+      "place": "church",
+      "time": "morning",
+      "surroundings": "open",
+      "circumstance": "is waiting for something",
+      "tasks": [
+        [
+          "apologises",
+          "someone providing them a service"
+        ],
+        [
+          "picks up something that belongs to the main character",
+          "someone they know well"
+        ]
+      ],
+      "entity_type": null
+    },
+    "setting": "church, morning. Surroundings: open.",
+    "card": {
+      "surroundings": "open",
+      "main": {
+        "brief": "a person attending the morning service",
+        "goal": "wait for the service to begin",
+        "circumstance": "is waiting for the service to start"
+      },
+      "secondary": [
+        {
+          "role": "the church usher",
+          "relationship": "someone providing them a service",
+          "task": "apologises to them while indicating that the seat they were about to take is being kept for someone else"
+        },
+        {
+          "role": "a person they came with",
+          "relationship": "someone they know well",
+          "task": "picks up the main character's folded program from the pew and carries it to another row"
+        }
+      ],
+      "entities": []
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the church usher",
+        "kind": "character",
+        "text": "The church usher steps slightly into the aisle and gestures toward the pew. \"I’m sorry, but this seat is being kept for someone else.\"",
+        "nudge": "Now is a good moment to apologize while indicating that the seat they were about to take is being kept for someone else."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character shifts over in the pew and looks down at the bulletin.",
+        "nudge": "React to being told the seat is reserved; keep waiting for the service to begin."
+      },
+      {
+        "who": "a person they came with",
+        "kind": "character",
+        "text": "A person they came with picks up the main character’s folded program from the pew and carries it to another row. \"Here you go.\"",
+        "nudge": "Now is a good moment to pick up the main character's folded program from the pew and carry it to another row."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character takes the program from the other row and sits down there, folding it in their lap. \"All right.\"",
+        "nudge": "React to the usher’s apology and the moved program; settle into the new row while waiting for the service to begin."
+      },
+      {
+        "who": "the church usher",
+        "kind": "character",
+        "text": "The church usher gives a small nod and steps back from the pew. \"Thank you.\"",
+        "nudge": "React briefly to the seating change, then let the service remain about to begin."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character smooths the folded program on their lap and sits still.",
+        "nudge": "React to the moved seating and keep waiting quietly for the service to begin."
+      }
+    ],
+    "account": "In the church that morning, the usher stepped slightly into the aisle and gestured toward the pew. The usher said, \"I’m sorry, but this seat is being kept for someone else.\" You shifted over in the pew and looked down at the bulletin. Your companion picked up your folded program from the pew and carried it to another row. Your companion said, \"Here you go.\" You took the program from the other row and sat down there, folding it in your lap. You said, \"All right.\" The usher gave a small nod and stepped back from the pew. The usher said, \"Thank you.\" You smoothed the folded program on your lap and sat still.",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_007",
+    "ingredients": {
+      "place": "subway",
+      "time": "during the day",
+      "surroundings": "traffic outside",
+      "circumstance": "has to stay until what they came for is finished",
+      "tasks": [
+        [
+          "draws attention to the main character",
+          "a family member"
+        ],
+        [
+          "leaves the main character waiting alone",
+          "an acquaintance"
+        ]
+      ],
+      "entity_type": "a door"
+    },
+    "setting": "subway, during the day.",
+    "card": {
+      "surroundings": "",
+      "main": {
+        "brief": "a passenger",
+        "goal": "ride to their stop",
+        "circumstance": "has to stay until the train reaches their stop"
+      },
+      "secondary": [
+        {
+          "role": "a family member riding with them",
+          "relationship": "a family member",
+          "task": "points them out to other passengers while talking about where they need to get off"
+        },
+        {
+          "role": "an acquaintance from the neighborhood in the same car",
+          "relationship": "an acquaintance",
+          "task": "gets off at an earlier station after standing with them, leaving them by themselves for the rest of the ride"
+        }
+      ],
+      "entities": [
+        {
+          "name": "the subway car door",
+          "task": "opens at a station and closes again"
+        }
+      ]
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the subway car door",
+        "kind": "entity",
+        "text": "The subway car door opens at the station and then closes again.",
+        "nudge": "Open at the station now, then close again once passengers have time to react."
+      },
+      {
+        "who": "a family member riding with them",
+        "kind": "character",
+        "text": "A family member riding with them leans slightly and points them out to the other passengers. \"We need to get off at the next stop.\"",
+        "nudge": "Now is a natural moment to point them out to the other passengers while talking about where they need to get off."
+      },
+      {
+        "who": "an acquaintance from the neighborhood in the same car",
+        "kind": "character",
+        "text": "An acquaintance from the neighborhood in the same car stands with them a moment longer, then steps toward the door and gets off at the earlier station, leaving the main character by themselves.",
+        "nudge": "This is a natural moment to stand with them a bit longer, then get off at the earlier station and leave them by themselves for the rest of the ride."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character stays where they are and looks ahead. \"Okay.\"",
+        "nudge": "React to being left by themselves and continue the ride until their stop."
+      },
+      {
+        "who": "a family member riding with them",
+        "kind": "character",
+        "text": "A family member riding with them shifts closer to the door and glances at the main character. \"We get off at the next stop, right here.\"",
+        "nudge": ""
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character keeps still and looks ahead. \"Okay.\"",
+        "nudge": "React to being pointed out and to the reminder about the next stop."
+      }
+    ],
+    "account": "In a subway car during the day, the car door opened at a station and then closed again. Your family member leaned slightly and pointed you out to the other passengers and said, \"We need to get off at the next stop.\" Your acquaintance stood with you a moment longer, then stepped toward the door and got off at the earlier station, leaving you by yourself. You stayed where you were and looked ahead. \"Okay.\" Your family member shifted closer to the door and glanced at you and said, \"We get off at the next stop, right here.\" You kept still and looked ahead. \"Okay.\"",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_008",
+    "ingredients": {
+      "place": "park",
+      "time": "evening",
+      "surroundings": "raining",
+      "circumstance": "arrives late",
+      "tasks": [
+        [
+          "bumps into the main character",
+          "someone they work or study with"
+        ],
+        [
+          "apologises",
+          "someone they work or study with"
+        ]
+      ],
+      "entity_type": "an animal"
+    },
+    "setting": "park, evening. Surroundings: raining.",
+    "card": {
+      "surroundings": "raining",
+      "main": {
+        "brief": "a person meeting someone from work or study in the park",
+        "goal": "meet up in the park",
+        "circumstance": "arrives after the agreed meeting time"
+      },
+      "secondary": [
+        {
+          "role": "a coworker or classmate waiting in the park",
+          "relationship": "someone they work or study with",
+          "task": "bumps into the main character while moving under the rain toward the same covered spot"
+        },
+        {
+          "role": "another coworker or classmate in the park",
+          "relationship": "someone they work or study with",
+          "task": "apologises after greeting the main character and indicating that the meetup has already started without them"
+        }
+      ],
+      "entities": [
+        {
+          "name": "a dog",
+          "task": "runs across the wet path"
+        }
+      ]
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "a dog",
+        "kind": "entity",
+        "text": "A dog runs across the wet path in the rainy park evening.",
+        "nudge": "run across the wet path now, splashing through the rain"
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character steps onto the path and pauses. The main character looks at the dog.",
+        "nudge": "arrive late into the rainy park and react to the dog just dashing across the wet path"
+      },
+      {
+        "who": "a coworker or classmate waiting in the park",
+        "kind": "character",
+        "text": "A coworker or classmate waiting in the park moves under the rain toward the same covered spot and bumps into the main character while converging. \"Sorry—didn’t see you there.\"",
+        "nudge": "move under the rain toward the same covered spot; bump into the main character naturally as you converge"
+      },
+      {
+        "who": "another coworker or classmate in the park",
+        "kind": "character",
+        "text": "Another coworker or classmate in the park steps closer under the covered spot and gives the main character a quick wave. \"Hey, you’re here—sorry, we already started.\"",
+        "nudge": "Greet the main character and indicate the meetup has already started without them; apologize right after."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character steps under the covered spot and gives a small nod. \"Okay.\"",
+        "nudge": "React to arriving late and to the others already being under the cover."
+      },
+      {
+        "who": "a coworker or classmate waiting in the park",
+        "kind": "character",
+        "text": "A coworker or classmate waiting in the park steps aside to make room and glances toward the covered spot. \"I can catch you up after this bit.\"",
+        "nudge": ""
+      }
+    ],
+    "account": "In the park in the evening rain, a dog ran across the wet path. You stepped onto the path, paused, and looked at the dog. Your coworker moved through the rain toward the same covered spot, bumped into you while converging there, and said, \"Sorry—didn’t see you there.\" Your other coworker stepped closer under the covered spot, gave you a quick wave, and said, \"Hey, you’re here—sorry, we already started.\" You stepped under the covered spot, gave a small nod, and said, \"Okay.\" Your coworker stepped aside to make room, glanced toward the covered spot, and said, \"I can catch you up after this bit.\"",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  },
+  {
+    "id": "scene_89_009",
+    "ingredients": {
+      "place": "school",
+      "time": "morning",
+      "surroundings": "quiet",
+      "circumstance": "is carrying a lot",
+      "tasks": [
+        [
+          "takes a long time to reply",
+          "an acquaintance"
+        ],
+        [
+          "makes a mistake",
+          "someone with authority over them"
+        ]
+      ],
+      "entity_type": "a machine or appliance"
+    },
+    "setting": "school, morning. Surroundings: quiet.",
+    "card": {
+      "surroundings": "quiet",
+      "main": {
+        "brief": "a student",
+        "goal": "attend morning classes",
+        "circumstance": "is carrying a stack of books, folders, and a bag"
+      },
+      "secondary": [
+        {
+          "role": "another student they know a little",
+          "relationship": "an acquaintance",
+          "task": "takes a long time to answer after the student asks whether this is the right classroom for their morning class"
+        },
+        {
+          "role": "the teacher",
+          "relationship": "someone with authority over them",
+          "task": "mistakenly tells the student they are in the wrong room and sends them to the next classroom down the hall"
+        }
+      ],
+      "entities": [
+        {
+          "name": "the hallway bell",
+          "task": "rings"
+        }
+      ]
+    },
+    "card_verdict": {
+      "fit": {
+        "passed": true,
+        "quote": ""
+      },
+      "lands": {
+        "passed": true,
+        "quote": ""
+      },
+      "neutral_main": {
+        "passed": true,
+        "quote": ""
+      }
+    },
+    "script": [
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character adjusts the stack of books and looks toward the front. \"Is this the right classroom for morning class?\"",
+        "nudge": "You’re carrying a stack of books, folders, and a bag; ask whether this is the right classroom for your morning class."
+      },
+      {
+        "who": "another student they know a little",
+        "kind": "character",
+        "text": "Another student they know a little pauses near their desk for a long moment, then glances up. \"Yeah, I think so.\"",
+        "nudge": "Take a long time to answer after being asked whether this is the right classroom for the morning class."
+      },
+      {
+        "who": "the teacher",
+        "kind": "character",
+        "text": "The teacher looks up from the front and says, \"No, you're in the wrong room. Go to the next classroom down the hall.\"",
+        "nudge": "Respond to the question just asked; mistakenly direct the student to the next classroom down the hall."
+      },
+      {
+        "who": "the hallway bell",
+        "kind": "entity",
+        "text": "The hallway bell rings in the quiet school morning.",
+        "nudge": "ring now, as the student is being sent down the hall."
+      },
+      {
+        "who": "the main character",
+        "kind": "character",
+        "text": "The main character shifts the books, folders, and bag in their arms and walks toward the door. The main character turns into the hall and heads for the next classroom down the hall.",
+        "nudge": "React to being sent to the next classroom down the hall; move with your books, folders, and bag."
+      },
+      {
+        "who": "another student they know a little",
+        "kind": "character",
+        "text": "Another student they know a little watches the main character go and then looks back down at their desk.",
+        "nudge": ""
+      }
+    ],
+    "account": "In a quiet school that morning, you adjusted the stack of books and looked toward the front. \"Is this the right classroom for morning class?\" you said. A student you knew a little paused near their desk for a long moment, then glanced up and said, \"Yeah, I think so.\" Your teacher looked up from the front and said, \"No, you're in the wrong room. Go to the next classroom down the hall.\" The hallway bell rang. You shifted the books, folders, and bag in your arms and walked toward the door. You turned into the hall and headed for the next classroom down the hall. The student watched you go and then looked back down at their desk.",
+    "models": {
+      "big": "gpt-5.4",
+      "small": "gpt-5.4-mini"
+    },
+    "generated_at": "2026-10-15"
+  }
+]

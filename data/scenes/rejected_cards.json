@@ -1,0 +1,281 @@
+[
+  {
+    "ingredients": {
+      "place": "hospital",
+      "time": "late morning",
+      "surroundings": "hot",
+      "circumstance": "has to rely on someone else to get it done",
+      "tasks": [
+        [
+          "watches the main character without saying anything",
+          "someone providing them a service"
+        ],
+        [
+          "speaks sharply",
+          "a family member"
+        ]
+      ],
+      "entity_type": "a machine or appliance"
+    },
+    "card": {
+      "surroundings": "hot",
+      "main": {
+        "brief": "an outpatient at the hospital",
+        "goal": "attend a scheduled imaging appointment",
+        "circumstance": "has to rely on a staff member to bring them into the imaging room and run the appointment"
+      },
+      "secondary": [
+        {
+          "role": "the imaging technician",
+          "relationship": "someone providing them a service",
+          "task": "watches the main character from the doorway without saying anything while holding the room open for the next patient"
+        },
+        {
+          "role": "a family member waiting with them",
+          "relationship": "a family member",
+          "task": "speaks sharply to the main character about whether they brought the appointment paperwork"
+        }
+      ],
+      "entities": [
+        {
+          "name": "the wall-mounted air conditioner",
+          "task": "clicks on and blows warm air into the waiting area"
+        }
+      ]
+    },
+    "problems": [
+      "fit: watches the main character from the doorway without saying anything while holding the room open for the next patient"
+    ],
+    "then": "resampled"
+  },
+  {
+    "ingredients": {
+      "place": "police station",
+      "time": "weekday",
+      "surroundings": "a few people about",
+      "circumstance": "nothing unusual",
+      "tasks": [
+        [
+          "judges the main character's work in front of others",
+          "someone with authority over them"
+        ],
+        [
+          "leaves partway through",
+          "someone they work or study with"
+        ]
+      ],
+      "entity_type": null
+    },
+    "card": {
+      "surroundings": "a few people about",
+      "main": {
+        "brief": "a staff member at the front desk",
+        "goal": "finish a routine shift task at the station",
+        "circumstance": "nothing unusual"
+      },
+      "secondary": [
+        {
+          "role": "the desk sergeant",
+          "relationship": "someone with authority over them",
+          "task": "looks over the paperwork they are handling at the front desk and points out mistakes in it where the nearby people can hear"
+        },
+        {
+          "role": "a coworker from the same shift",
+          "relationship": "someone they work or study with",
+          "task": "steps away from the front desk area and goes into the back offices before the shift task is finished"
+        }
+      ],
+      "entities": []
+    },
+    "problems": [
+      "neutral main: MAIN CHARACTER  a staff member at the front desk. Goal: finish a routine shift task at the station."
+    ],
+    "then": "retried with feedback"
+  },
+  {
+    "ingredients": {
+      "place": "police station",
+      "time": "weekday",
+      "surroundings": "a few people about",
+      "circumstance": "nothing unusual",
+      "tasks": [
+        [
+          "judges the main character's work in front of others",
+          "someone with authority over them"
+        ],
+        [
+          "leaves partway through",
+          "someone they work or study with"
+        ]
+      ],
+      "entity_type": null
+    },
+    "card": {
+      "surroundings": "a few people about",
+      "main": {
+        "brief": "a civilian employee at the station",
+        "goal": "drop off paperwork for their department",
+        "circumstance": "nothing unusual"
+      },
+      "secondary": [
+        {
+          "role": "their supervisor from the same department",
+          "relationship": "someone with authority over them",
+          "task": "looks over the paperwork they brought and points out problems with it where the people nearby can hear"
+        },
+        {
+          "role": "a coworker from their department",
+          "relationship": "someone they work or study with",
+          "task": "walks out of the station with a folder before the paperwork drop-off is finished"
+        }
+      ],
+      "entities": []
+    },
+    "problems": [
+      "neutral main: a civilian employee at the station"
+    ],
+    "then": "resampled"
+  },
+  {
+    "ingredients": {
+      "place": "court",
+      "time": "weekend",
+      "surroundings": "daylight",
+      "circumstance": "is waiting for help",
+      "tasks": [
+        [
+          "criticises something",
+          "someone providing them a service"
+        ],
+        [
+          "leaves the main character waiting alone",
+          "an acquaintance"
+        ]
+      ],
+      "entity_type": "a screen or display"
+    },
+    "card": {
+      "surroundings": "daylight",
+      "main": {
+        "brief": "a person at the public counter",
+        "goal": "sort out a court-related matter at the weekend desk",
+        "circumstance": "is waiting for help at the counter"
+      },
+      "secondary": [
+        {
+          "role": "the clerk at the weekend desk",
+          "relationship": "someone providing them a service",
+          "task": "criticises the form they have brought over the counter and points out parts they say are not filled in properly"
+        },
+        {
+          "role": "an acquaintance who came along",
+          "relationship": "an acquaintance",
+          "task": "walks away from the counter area to take care of something else, leaving the main character there alone"
+        }
+      ],
+      "entities": [
+        {
+          "name": "the queue display screen",
+          "task": "changes to another number"
+        }
+      ]
+    },
+    "problems": [
+      "fit: court, weekend"
+    ],
+    "then": "resampled"
+  },
+  {
+    "ingredients": {
+      "place": "sidewalk",
+      "time": "during the day",
+      "surroundings": "hot",
+      "circumstance": "is carrying a lot",
+      "tasks": [
+        [
+          "gives information",
+          "an acquaintance"
+        ],
+        [
+          "speaks sharply",
+          "someone they work or study with"
+        ]
+      ],
+      "entity_type": "an elevator"
+    },
+    "card": {
+      "surroundings": "hot",
+      "main": {
+        "brief": "a person on the sidewalk",
+        "goal": "walk to a nearby building entrance",
+        "circumstance": "is carrying several full bags and a bulky item"
+      },
+      "secondary": [
+        {
+          "role": "an acquaintance passing on the sidewalk",
+          "relationship": "an acquaintance",
+          "task": "stops and tells them that the entrance ahead is closed and people are using the side entrance"
+        },
+        {
+          "role": "a coworker from the same workplace",
+          "relationship": "someone they work or study with",
+          "task": "calls over to them sharply about holding up the group as they approach the building"
+        }
+      ],
+      "entities": [
+        {
+          "name": "a building elevator",
+          "task": "opens on an upper floor and closes again"
+        }
+      ]
+    },
+    "problems": [
+      "lands: a coworker from the same workplace (someone they work or study with). Task: calls over to them sharply about holding up the group as they approach the building"
+    ],
+    "then": "retried with feedback"
+  },
+  {
+    "ingredients": {
+      "place": "clinic",
+      "time": "holiday",
+      "surroundings": "somewhere you had never been",
+      "circumstance": "arrives late",
+      "tasks": [
+        [
+          "asks the main character a question",
+          "someone with authority over them"
+        ],
+        [
+          "criticises something",
+          "a stranger"
+        ]
+      ],
+      "entity_type": null
+    },
+    "card": {
+      "surroundings": "somewhere you had never been",
+      "main": {
+        "brief": "a patient",
+        "goal": "attend a clinic appointment",
+        "circumstance": "arrives after the appointment time"
+      },
+      "secondary": [
+        {
+          "role": "the receptionist at the front desk",
+          "relationship": "someone with authority over them",
+          "task": "asks whether they are checking in for an appointment"
+        },
+        {
+          "role": "another patient in the waiting area",
+          "relationship": "a stranger",
+          "task": "criticises them for coming in after the scheduled time on a holiday"
+        }
+      ],
+      "entities": []
+    },
+    "problems": [
+      "fit: the receptionist at the front desk (someone with authority over them)"
+    ],
+    "then": "resampled"
+  }
+]

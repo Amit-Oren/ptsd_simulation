@@ -62,15 +62,15 @@ def step_scenario(label: str, state: dict, session_idx: int) -> dict:
     """Draw this session's event.
 
     The patient reports on it; the interviewer and the analyst never see it.
-    Seeds already used by this patient are excluded so they do not report the
-    same kind of week twice.
+    Event kinds already used by this patient are excluded so they do not
+    report the same kind of week twice.
     """
-    used = set(state.get("used_scenario_seeds", []))
-    scenario = sample_scenario(exclude_seeds=used)
+    used = set(state.get("used_scenario_events", []))
+    scenario = sample_scenario(exclude_events=used)
     logger.info("[%s] scenario (session=%d) \u2014 %s", label, session_idx, scenario["id"])
     return {
         "scenario": scenario,
-        "used_scenario_seeds": sorted(used | {scenario["seed_id"]}),
+        "used_scenario_events": sorted(used | {scenario["event_key"]}),
     }
 
 

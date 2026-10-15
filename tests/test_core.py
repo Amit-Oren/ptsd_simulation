@@ -150,7 +150,7 @@ def test_format_session_history_multiple_sessions():
 
 # ── scenario continuity across sessions ───────────────────────────────────────
 
-def test_used_scenario_seeds_survive_a_session(tmp_path):
+def test_used_scenario_events_survive_a_session(tmp_path):
     """Session state is rebuilt from the patient store each session, so anything
     left only in session state is silently discarded — which is how the same
     scenario came up three sessions running."""
@@ -162,14 +162,15 @@ def test_used_scenario_seeds_survive_a_session(tmp_path):
 
     patient_state = update_and_save(
         tmp_path, 0, patient_state,
-        {"conversation": [], "used_scenario_seeds": ["called_in"]}, 0)
-    assert patient_state["used_scenario_seeds"] == ["called_in"]
+        {"conversation": [], "used_scenario_events": ["unexpected_delay"]}, 0)
+    assert patient_state["used_scenario_events"] == ["unexpected_delay"]
 
     patient_state = update_and_save(
         tmp_path, 0, patient_state,
-        {"conversation": [], "used_scenario_seeds": ["called_in", "detour"]}, 1)
-    assert patient_state["used_scenario_seeds"] == ["called_in", "detour"]
+        {"conversation": [],
+         "used_scenario_events": ["unexpected_delay", "interruption"]}, 1)
+    assert patient_state["used_scenario_events"] == ["unexpected_delay", "interruption"]
 
     # and it survives a reload from disk, not just the in-memory handoff
     reloaded = load_patient_state(tmp_path, 0, initial)
-    assert reloaded["used_scenario_seeds"] == ["called_in", "detour"]
+    assert reloaded["used_scenario_events"] == ["unexpected_delay", "interruption"]

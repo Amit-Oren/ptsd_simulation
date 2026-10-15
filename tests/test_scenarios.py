@@ -8,22 +8,23 @@ has already done the cognitive graph's work, and there is nothing left to
 measure.
 
 Skipped unless the pool has been generated:
-    python scripts/generate_scenarios.py
+    python -m scenarios.generate
 """
 import random
 
 import pytest
 
-from config.scenario_seeds import SEEDS, DIMENSIONS, dimensions_for
 from config.scenarios import (
-    POOL_PATH, all_scenarios, get_scenario, sample_scenario,
-    minimal_pairs, pair_groups, format_for_prompt,
+    POOL_PATH, all_scenarios, get_scenario, sample_scenario, format_for_prompt,
 )
+from scenarios.pools import POOLS, EVENT_TEMPLATES
 
 pytestmark = pytest.mark.skipif(
     not POOL_PATH.exists(),
-    reason="scenario pool not generated — run scripts/generate_scenarios.py",
+    reason="scenario pool not generated — run python -m scenarios.generate",
 )
+
+_TEMPLATE_FIELDS = ("situation", "event", "response", "outcome")
 
 
 # ── the pool ──────────────────────────────────────────────────────────────────
@@ -34,9 +35,8 @@ def test_pool_is_not_empty():
 
 def test_every_scenario_has_the_expected_fields():
     for s in all_scenarios():
-        for field in ("id", "seed_id", "text", "dimensions", "pair_id",
-                      "varied_dimension", "atomic_event", "generator",
-                      "prompt_version", "generated_at"):
+        for field in ("id", "event_key", "place", "text", "material", "verdict",
+                      "narrator", "judge", "pool_version", "generated_at"):
             assert field in s, f"{s.get('id')} missing {field}"
 
 
@@ -45,8 +45,18 @@ def test_ids_are_unique():
     assert len(ids) == len(set(ids))
 
 
-def test_every_seed_is_represented():
-    assert {s["seed_id"] for s in all_scenarios()} == set(SEEDS)
+def test_every_event_is_represented():
+    assert {s["event_key"] for s in all_scenarios()} == set(EVENT_TEMPLATES)
+
+
+def test_every_scenario_carries_its_whole_event_template():
+    """event/situation/detail/outcome must match the template named by
+    event_key exactly - not a mix-and-match of different templates' fields."""
+    for s in all_scenarios():
+        template = EVENT_TEMPLATES[s["event_key"]]
+        for field in _TEMPLATE_FIELDS:
+            assert s["material"].get(field) == template[field], \
+                f"{s['id']}: material.{field} does not match its event template"
 
 
 def test_text_is_substantial_but_short():
@@ -55,23 +65,36 @@ def test_text_is_substantial_but_short():
         assert 15 <= words <= 120, f"{s['id']}: {words} words"
 
 
-def test_dimensions_come_from_the_declared_pools():
+def test_material_fields_come_from_the_declared_pools():
     for s in all_scenarios():
-        pools = dimensions_for(s["seed_id"])
-        for name, value in s["dimensions"].items():
-            assert name in pools, f"{s['id']}: undeclared dimension {name!r}"
-            assert value in pools[name], f"{s['id']}: {name}={value!r} not in pool"
+        for name, value in s["material"].items():
+            if name in _TEMPLATE_FIELDS:
+                continue  # part of the event template, not an independent pool
+            assert name in POOLS, f"{s['id']}: undeclared field {name!r}"
+            assert value in POOLS[name], f"{s['id']}: {name}={value!r} not in pool"
+
+
+def test_every_kept_scenario_passed_every_check():
+    for s in all_scenarios():
+        v = s["verdict"]
+        for check in ("factual", "coherent", "plausible", "specific", "natural"):
+            assert v[check]["passed"], f"{s['id']} kept despite failing {check}"
 
 
 # ── the camera-facts rule ─────────────────────────────────────────────────────
 
 FEELING_WORDS = [
-    "felt", "feeling", "feels", "panic", "anxious", "anxiety", "afraid",
+    "panic", "anxious", "anxiety", "afraid",
     "scared", "frightened", "upset", "angry", "ashamed", "guilty", "distress",
     "overwhelm", "triggered", "reminded you", "flashback", "intrusive",
     "uneasy", "uncomfortable", "nervous", "worried", "dread", "tense",
     "struggled", "unsettl",
 ]
+
+# "felt"/"feeling"/"feels" alone is too broad - "the room felt cold" is a
+# camera-observable fact about the room, not a reaction. Only the person
+# feeling something is the violation.
+YOU_FEEL = ["you felt", "you feel", "you are feeling", "you were feeling"]
 
 
 def test_no_scenario_states_a_reaction():
@@ -79,61 +102,8 @@ def test_no_scenario_states_a_reaction():
         low = s["text"].lower()
         for word in FEELING_WORDS:
             assert word not in low, f"{s['id']} leaks a reaction: {word!r}"
-
-
-def test_no_scenario_states_the_other_persons_intent():
-    """The real reason behind an ambiguous act must stay inferable."""
-    for s in all_scenarios():
-        low = s["text"].lower()
-        for intent in s["other_intent"]:
-            phrase = intent.lower().strip(" .").removeprefix("to ")
-            if len(phrase) < 8:        # too short to match meaningfully
-                continue
-            assert phrase not in low, f"{s['id']} states the intent: {intent!r}"
-
-
-# ── ATOMIC annotations ────────────────────────────────────────────────────────
-
-def test_atomic_seeds_carry_their_baselines():
-    for s in all_scenarios():
-        if s["atomic_event"] is None:
-            continue
-        assert s["relations"], f"{s['id']} has an ATOMIC event but no relations"
-        assert s["norm_feel"], f"{s['id']} has no oReact baseline"
-
-
-def test_written_seeds_declare_no_atomic_source():
-    written = [s for s in all_scenarios() if s["atomic_event"] is None]
-    assert written, "expected some seeds without an ATOMIC equivalent"
-    for s in written:
-        assert s["relations"] == {}
-        assert s["other_intent"] == []
-
-
-# ── minimal pairs ─────────────────────────────────────────────────────────────
-
-def test_pair_groups_exist():
-    assert pair_groups()
-
-
-def test_pair_members_differ_only_in_the_varied_dimension():
-    for pid in pair_groups():
-        members = minimal_pairs(pid)
-        assert len(members) >= 2
-        varied = {m["varied_dimension"] for m in members}
-        assert len(varied) == 1, f"{pid}: inconsistent varied_dimension"
-        dim = varied.pop()
-        others = [{k: v for k, v in m["dimensions"].items() if k != dim}
-                  for m in members]
-        assert all(o == others[0] for o in others), f"{pid}: other dimensions drifted"
-
-
-def test_pair_members_take_different_values():
-    for pid in pair_groups():
-        members = minimal_pairs(pid)
-        dim = members[0]["varied_dimension"]
-        values = [m["dimensions"][dim] for m in members]
-        assert len(values) == len(set(values)), f"{pid}: repeated value"
+        for phrase in YOU_FEEL:
+            assert phrase not in low, f"{s['id']} leaks a reaction: {phrase!r}"
 
 
 # ── lookup and sampling ───────────────────────────────────────────────────────
@@ -152,32 +122,20 @@ def test_sample_is_reproducible():
     assert sample_scenario(random.Random(4))["id"] == sample_scenario(random.Random(4))["id"]
 
 
-def test_sample_respects_seed_exclusions():
-    keep = "detour"
-    s = sample_scenario(random.Random(0), exclude_seeds=set(SEEDS) - {keep})
-    assert s["seed_id"] == keep
+def test_sample_respects_event_exclusions():
+    events = {s["event_key"] for s in all_scenarios()}
+    if len(events) < 2:
+        pytest.skip("need at least two events in the pool to test exclusion")
+    keep = sorted(events)[0]
+    s = sample_scenario(random.Random(0), exclude_events=events - {keep})
+    assert s["event_key"] == keep
 
 
-def test_sample_falls_back_when_every_seed_is_excluded():
-    assert sample_scenario(random.Random(0), exclude_seeds=set(SEEDS))["seed_id"] in SEEDS
+def test_sample_falls_back_when_every_event_is_excluded():
+    events = {s["event_key"] for s in all_scenarios()}
+    assert sample_scenario(random.Random(0), exclude_events=events)["event_key"] in events
 
 
 def test_format_for_prompt_returns_the_text():
     s = sample_scenario(random.Random(0))
     assert format_for_prompt(s) == s["text"]
-
-
-# ── seed configuration ────────────────────────────────────────────────────────
-
-def test_every_seed_declares_known_dimensions():
-    for seed_id, seed in SEEDS.items():
-        for name in seed["uses"]:
-            assert name in DIMENSIONS, f"{seed_id}: unknown dimension {name!r}"
-
-
-def test_restrictions_only_narrow_declared_dimensions():
-    for seed_id, seed in SEEDS.items():
-        for name, values in seed.get("restrict", {}).items():
-            assert name in seed["uses"], f"{seed_id}: restricts unused {name!r}"
-            assert set(values) <= set(DIMENSIONS[name]), \
-                f"{seed_id}.{name}: restriction is not a subset of the pool"

@@ -99,7 +99,7 @@ def load_patient_state(experiment_dir: Path, patient_idx: int, initial_state: di
         with open(path, "r", encoding="utf-8") as f:
             stored = json.load(f)
         state["agg_edges"]         = stored["agg_edges"]
-        state["used_scenario_seeds"] = stored.get("used_scenario_seeds", [])
+        state["used_scenario_events"] = stored.get("used_scenario_events", [])
         state["session_topics"]      = stored.get("session_topics", [])
         state["self_report"]       = stored.get("self_report", {})
         state["inferred_graph"]    = stored["inferred_graph"]
@@ -182,14 +182,20 @@ def update_and_save(experiment_dir: Path, patient_idx: int,
     # Carried forward so a patient does not report the same kind of week twice:
     # session state is rebuilt from this dict each session, so anything left
     # only in session state is silently discarded.
-    updated["used_scenario_seeds"] = session_state.get(
-        "used_scenario_seeds", patient_state.get("used_scenario_seeds", []))
+    updated["used_scenario_events"] = session_state.get(
+        "used_scenario_events", patient_state.get("used_scenario_events", []))
 
     scenario = session_state.get("scenario") or {}
+    material = scenario.get("material") or {}
+    # A short, still camera-only line - not the full account - so memory
+    # carries continuity without re-supplying everything the scenario said.
+    # event is always present in material; place is optional context.
+    gist = (f"{material['event']} at {material['place']}"
+            if material.get("place") else material.get("event"))
     updated["session_topics"] = patient_state.get("session_topics", []) + [{
         "session_idx": session_idx,
-        "seed_id":     scenario.get("seed_id"),
-        "gist":        scenario.get("gist"),
+        "event_key":   scenario.get("event_key"),
+        "gist":        gist,
     }]
 
     payload = {
@@ -201,7 +207,7 @@ def update_and_save(experiment_dir: Path, patient_idx: int,
         "active_nodes":      updated.get("active_nodes", []),
         "agg_edges":         updated.get("agg_edges", {}),
         "inferred_graph":    updated["inferred_graph"],
-        "used_scenario_seeds": updated["used_scenario_seeds"],
+        "used_scenario_events": updated["used_scenario_events"],
         "session_topics":    updated["session_topics"],
         "session_summaries": updated["session_summaries"],
         "recent_transcripts": updated["recent_transcripts"],

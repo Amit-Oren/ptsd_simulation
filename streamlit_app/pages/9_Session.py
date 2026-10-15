@@ -114,32 +114,26 @@ with right:
 
 st.divider()
 st.subheader("This week")
-st.caption(f"`{scenario.get('seed_id', '?')}` · the interviewer and the analyst "
+st.caption(f"`{scenario.get('event_key', '?')}` · the interviewer and the analyst "
            "never see this")
 st.info(scenario.get("text", "(no scenario)"))
 
 d1, d2 = st.columns([1, 1])
 with d1:
-    dims = scenario.get("dimensions", {})
-    if dims:
-        st.markdown("**Dimensions varied**")
-        st.dataframe(pd.DataFrame([{"dimension": k, "value": v} for k, v in dims.items()]),
+    material = scenario.get("material", {})
+    if material:
+        st.markdown("**Material it was built from**")
+        st.dataframe(pd.DataFrame([{"field": k, "value": v} for k, v in material.items()]),
                      hide_index=True, use_container_width=True)
 with d2:
-    if scenario.get("atomic_event"):
-        st.markdown("**Human baselines** · ATOMIC-2020")
-        st.caption(f"`{scenario['atomic_event']}`")
-        st.markdown(
-            f"- **why they actually did it** — {', '.join(scenario.get('other_intent', [])) or '—'}\n"
-            f"- **how a typical person feels** — {', '.join(scenario.get('norm_feel', [])) or '—'}\n"
-            f"- **what they typically do next** — {', '.join(scenario.get('norm_want', [])) or '—'}"
+    verdict = scenario.get("verdict", {})
+    if verdict:
+        st.markdown("**Judge's checks**")
+        st.dataframe(
+            pd.DataFrame([{"check": k, "passed": v.get("passed"), "quote": v.get("quote", "")}
+                         for k, v in verdict.items() if isinstance(v, dict)]),
+            hide_index=True, use_container_width=True,
         )
-        st.caption("Nobody in the simulation sees the first line. The patient has "
-                   "to infer it from behaviour alone.")
-    else:
-        st.markdown("**Human baselines**")
-        st.caption("This seed was written rather than drawn from ATOMIC, so it "
-                   "carries no crowd annotations.")
 
 
 # ── the conversation, with what fired beside it ───────────────────────────────
